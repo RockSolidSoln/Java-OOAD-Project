@@ -14,6 +14,7 @@ public class Person {
     //setters
     public void setName(String name){
         this.name = name;
+        System.out.println("The name have been updated to " + name);
     }
 
     //getters

@@ -15,6 +15,7 @@ public class Student extends Person {
     //setters
     public void modifyCgpa(double cgpa){
         this.cgpa = cgpa;
+        System.out.println("The cgpa have been updated to- "+ cgpa + "for the student named " + this.getName());
     }
 
     //getters
