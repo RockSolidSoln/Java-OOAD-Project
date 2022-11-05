@@ -1,4 +1,4 @@
-package Exercise1;
+// package Exercise1and2;
 
 public class Student extends Person {
     private double cgpa;
