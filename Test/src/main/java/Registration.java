@@ -1,14 +1,19 @@
 import javax.swing.*;  
 import java.awt.*;  
 import java.awt.event.*;  
-import java.sql.*;  
+
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseAuthException;
+import com.google.firebase.auth.UserRecord;
+import com.google.firebase.auth.UserRecord.CreateRequest;
 
 public class Registration extends JFrame implements ActionListener   
 {  
+
     JLabel l1, l2, l3, l4, l5, l6, l7, l8;  
-    JTextField tf1, tf2, tf5, tf6, tf7;  
+    JTextField name, email, country, role, phone;  
     JButton btn1, btn2;  
-    JPasswordField p1, p2;  
+    JPasswordField password, password2;  
     Registration()  
     {  
         setVisible(true);  
@@ -24,15 +29,15 @@ public class Registration extends JFrame implements ActionListener
         l4 = new JLabel("Create Passowrd:");  
         l5 = new JLabel("Confirm Password:");  
         l6 = new JLabel("Country:");  
-        l7 = new JLabel("State:");  
+        l7 = new JLabel("Role:");  
         l8 = new JLabel("Phone No:");   
-        tf1 = new JTextField();  
-        tf2 = new JTextField();  
-        p1 = new JPasswordField();  
-        p2 = new JPasswordField();  
-        tf5 = new JTextField();  
-        tf6 = new JTextField();  
-        tf7 = new JTextField();  
+        name = new JTextField();  
+        email = new JTextField();  
+        password = new JPasswordField();  
+        password2 = new JPasswordField();  
+        country = new JTextField();  
+        role = new JTextField();  
+        phone = new JTextField();  
         btn1 = new JButton("Submit");  
         btn2 = new JButton("Clear");  
         btn1.addActionListener(this);  
@@ -45,68 +50,65 @@ public class Registration extends JFrame implements ActionListener
         l6.setBounds(80, 230, 200, 30);  
         l7.setBounds(80, 270, 200, 30);  
         l8.setBounds(80, 310, 200, 30);  
-        tf1.setBounds(300, 70, 200, 30);  
-        tf2.setBounds(300, 110, 200, 30);  
-        p1.setBounds(300, 150, 200, 30);  
-        p2.setBounds(300, 190, 200, 30);  
-        tf5.setBounds(300, 230, 200, 30);  
-        tf6.setBounds(300, 270, 200, 30);  
-        tf7.setBounds(300, 310, 200, 30);  
+        name.setBounds(300, 70, 200, 30);  
+        email.setBounds(300, 110, 200, 30);  
+        password.setBounds(300, 150, 200, 30);  
+        password2.setBounds(300, 190, 200, 30);  
+        country.setBounds(300, 230, 200, 30);  
+        role.setBounds(300, 270, 200, 30);  
+        phone.setBounds(300, 310, 200, 30);  
         btn1.setBounds(50, 350, 100, 30);  
         btn2.setBounds(170, 350, 100, 30);  
         add(l1);  
         add(l2);  
-        add(tf1);  
+        add(name);  
         add(l3);  
-        add(tf2);  
+        add(email);  
         add(l4);  
-        add(p1);  
+        add(password);  
         add(l5);  
-        add(p2);  
+        add(password2);  
         add(l6);  
-        add(tf5);  
+        add(country);  
         add(l7);  
-        add(tf6);  
+        add(role);  
         add(l8);  
-        add(tf7);  
+        add(phone);  
         add(btn1);  
         add(btn2);  
     }  
     public void actionPerformed(ActionEvent e)   
     {  
         if (e.getSource() == btn1)  
-         {  
-            int x = 0;  
-            String s1 = tf1.getText();  
-            String s2 = tf2.getText();  
-            char[] s3 = p1.getPassword();  
-            char[] s4 = p2.getPassword();   
-            String s8 = new String(s3);  
-            String s9 = new String(s4);  
-            String s5 = tf5.getText();  
-            String s6 = tf6.getText();  
-            String s7 = tf7.getText();  
-            if (s8.equals(s9))  
+         {   
+            String nameField = name.getText();  
+            String emailField = email.getText();  
+            char[] temp = password.getPassword();  
+            char[] temp1 = password2.getPassword();   
+            String passwordField = new String(temp);  
+            String confirmPasswordField = new String(temp1);  
+            String countryField = country.getText();  
+            String roleField = role.getText();  
+            String phoneField = phone.getText();  
+            if (passwordField.equals(confirmPasswordField))  
             {  
                 try  
                 {  
-                    Class.forName("oracle.jdbc.driver.OracleDriver");  
-                    Connection con = DriverManager.getConnection("jdbc:oracle:thin:@mcndesktop07:1521:xe", "sandeep", "welcome");  
-                    PreparedStatement ps = con.prepareStatement("insert into reg values(?,?,?,?,?,?)");  
-                    ps.setString(1, s1);  
-                    ps.setString(2, s2);  
-                    ps.setString(3, s8);  
-                    ps.setString(4, s5);  
-                    ps.setString(5, s6);  
-                    ps.setString(6, s7);  
-                    ResultSet rs = ps.executeQuery();  
-                    x++;  
-                    if (x > 0)   
-                    {  
-                        JOptionPane.showMessageDialog(btn1, "Data Saved Successfully");  
-                    }  
+
+                CreateRequest request = new CreateRequest()
+                    .setEmail(emailField)
+                    .setEmailVerified(false)
+                    .setPassword(passwordField)
+                    .setPhoneNumber(phoneField)
+                    .setDisplayName(nameField)
+                    .setPhotoUrl("http://www.example.com/12345678/photo.png")
+                    .setDisabled(false);
+
+                UserRecord userRecord = FirebaseAuth.getInstance().createUser(request);
+                System.out.println("Successfully created new user: " + userRecord.getUid());
+
                 }  
-                catch (Exception ex)   
+                catch (FirebaseAuthException ex)   
                 {  
                     System.out.println(ex);  
                 }  
@@ -118,13 +120,13 @@ public class Registration extends JFrame implements ActionListener
           }   
           else  
           {  
-            tf1.setText("");  
-            tf2.setText("");  
-            p1.setText("");  
-            p2.setText("");  
-            tf5.setText("");  
-            tf6.setText("");  
-            tf7.setText("");  
+            name.setText("");  
+            email.setText("");  
+            password.setText("");  
+            password2.setText("");  
+            country.setText("");  
+            role.setText("");  
+            phone.setText("");  
           }  
     }   
     public static void main(String args[])  
