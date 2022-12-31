@@ -8,7 +8,7 @@ import com.google.firebase.FirebaseOptions;
 public class Main {
   public static void main(String[] args) {
 
-    // // Initialize the Firebase Admin SDK
+    // Initialize the Firebase Admin SDK
     initializeFirebaseAdminSDK();
 
   // Create and show the main window
