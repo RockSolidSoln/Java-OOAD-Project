@@ -1,4 +1,6 @@
 
+import java.io.FileWriter;
+import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
@@ -51,5 +53,44 @@ public class Credentials {
             }
         }
     }
+    //------------------------------------------------------------------------------------
+
+    /**This method Saves the info of new user*/
+    public static void saveCredsToFile(String name, String email, String password, String role, String phone) throws IOException { 
+        
+        String userId = role+"002";
+        ArrayList<String> credentials = readCredsFromFile(); /*read credentials from file accordingly*/
+        int innerFlag=0;                        // flag to check is username already exists in credentials
+
+        for (String credential : credentials) {
+            String[] items = credential.split(",");     //split the comma
+            /*split the spaces*/
+            String[] temp = items[0].split("\\s");
+            username = temp[0];                  // stores username
+            // if (username.equals(name)) {
+            //     innerFlag = 1;                    //to mark name already in the user
+            // }
+        }
+            try{
+                String basePath = System.getProperty("user.dir");
+                String filename= basePath + "\\Test\\src\\main\\assets\\credentials.csv";    //stores the path of the file
+                FileWriter fw = new FileWriter(filename,true);          //the true will append the new data
+                fw.write("\n"+userId+","+password);              //appends the string to the file
+                fw.close();
+
+                String filenameUser = basePath + "\\Test\\src\\main\\assets\\userdata.csv";  
+                FileWriter fw1 = new FileWriter(filenameUser,true);          //the true will append the new data
+                fw1.write("\n"+userId+","+name+","+email+","+role+","+phone);              //appends the string to the file
+                fw1.close();
+
+                System.out.println("""
+
+                        Entry successful!, Your info has been saved in our system
+                        ------------------------------------------------------------------------------
+                        """);
+            }catch(IOException ioe){
+                    System.err.println("IOException: " + ioe.getMessage()); /*if failed to write to file*/
+            }
+        }    
     //------------------------------------------------------------------------------------
 }
