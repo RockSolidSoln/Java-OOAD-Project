@@ -19,7 +19,6 @@ public class RegistrationForm extends JFrame {
 
     public <UserCredential> RegistrationForm() {
 
-        Main.initializeFirebaseAdminSDK();
 
         // Initialize the UI components
         emailField = new JTextField();
