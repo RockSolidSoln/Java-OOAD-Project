@@ -1,3 +1,4 @@
+
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
@@ -16,8 +17,9 @@ public class Credentials {
         ArrayList<String> credentials = new ArrayList<>();      /*to store credentials data*/
         List<String> lines = new ArrayList<>();                 /*to read already stored credentials data*/
         try{
-            lines = Files.readAllLines(Paths.get("../assets/credentials.csv")); //read from credentials file
-
+            String basePath = System.getProperty("user.dir");
+            lines = Files.readAllLines(Paths.get(basePath + "\\Test\\src\\main\\assets\\credentials.csv")); //read from credentials file
+            
             for (String line : lines) {
                 String[] items = line.split(","); //split the comma, store every word in an array
                 username = items[0];    //stores username
@@ -35,10 +37,11 @@ public class Credentials {
     public static void authenticateUser(String name, String password) throws Exception {// flag is to check if user is Donor or Ngo
         ArrayList<String> credentials = Credentials.readCredsFromFile();
         boolean check=false;
-
+        
         for (int i = 0; i<credentials.size();i++){
             check = credentials.get(i).equals(name+" "+password); //check if name and password matches in the Credentials files
-
+            
+            System.out.println(credentials.get(i));
             if(check) {             //if name and password match
                 System.out.println("---------------------------------------------\n"+
                                    "   Login was Successful\n"+
