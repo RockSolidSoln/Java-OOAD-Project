@@ -6,8 +6,8 @@ public class Main {
   // Create and show the main window
   SwingUtilities.invokeLater(new Runnable() {
     public void run() {
-      Registration Login =  new Registration();
-      // LoginMenu Login = new LoginMenu();
+      // Registration Login =  new Registration();
+      LoginMenu Login = new LoginMenu();
       Login.setVisible(true);
     }
   });
