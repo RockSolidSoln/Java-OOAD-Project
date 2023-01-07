@@ -8,6 +8,9 @@ public class LoginModel {
     private char[] password;
     private ActionListener actionListener;
 
+    public LoginModel() {
+    }
+
     public void setUsername(String username) {
         this.username = username;
     }
@@ -26,6 +29,6 @@ public class LoginModel {
 
     public void checkLogin() {
         // check username and password against database or other authentication method
-        actionListener.actionPerformed(new ActionEvent(this, ActionEvent.ACTION_PERFORMED, "login"));
+//        actionListener.actionPerformed(new ActionEvent(this, ActionEvent.ACTION_PERFORMED, "login"));
     }
 }

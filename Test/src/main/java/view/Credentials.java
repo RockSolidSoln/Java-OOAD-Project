@@ -18,7 +18,7 @@ public class Credentials {
     /**This method Read Credentials from the file and return the credentials in another Array List*/
     public static ArrayList<String> readCredsFromFile(){
         ArrayList<String> credentials = new ArrayList<>();      /*to store credentials data*/
-        List<String> lines = new ArrayList<>();                 /*to read already stored credentials data*/
+        List<String> lines;                 /*to read already stored credentials data*/
         try{
             String basePath = System.getProperty("user.dir");
             lines = Files.readAllLines(Paths.get(basePath + "\\Test\\src\\assets\\credentials.csv")); //read from credentials file
@@ -37,18 +37,20 @@ public class Credentials {
         return credentials;
     }
     //------------------------------------------------------------------------------------
-    public static void authenticateUser(String name, String password) throws Exception {// flag is to check if user is Donor or Ngo
+    public static void authenticateUser(String name, String password) {// flag is to check if user is Donor or Ngo
         ArrayList<String> credentials = Credentials.readCredsFromFile();
-        boolean check=false;
-        
-        for (int i = 0; i<credentials.size();i++){
-            check = credentials.get(i).equals(name+" "+password); //check if name and password matches in the Credentials files
-            
-            System.out.println(credentials.get(i));
-            if(check) {             //if name and password match
-                System.out.println("---------------------------------------------\n"+
-                                   "   Login was Successful\n"+
-                                   "---------------------------------------------\n");
+        boolean check;
+
+        for (String credential : credentials) {
+            check = credential.equals(name + " " + password); //check if name and password matches in the Credentials files
+
+            System.out.println(credential);
+            if (check) {             //if name and password match
+                System.out.println("""
+                        ---------------------------------------------
+                           Login was Successful
+                        ---------------------------------------------
+                        """);
                 // String[] temp = credentials.get(i).split("\\s"); //split at the spaces    //stores username
                 break;
             }
@@ -57,20 +59,17 @@ public class Credentials {
     //------------------------------------------------------------------------------------
 
     /**This method Saves the info of new user*/
-    public static void saveCredsToFile(String name, String email, String password, String role, String phone) throws IOException { 
+    public static void saveCredsToFile(String name, String email, String password, String role, String phone) {
         
         String userId = role+"002";
         ArrayList<String> credentials = readCredsFromFile(); /*read credentials from file accordingly*/
-        int innerFlag=0;                        // flag to check is username already exists in credentials
+        // flag to check is username already exists in credentials
 
         for (String credential : credentials) {
             String[] items = credential.split(",");     //split the comma
             /*split the spaces*/
             String[] temp = items[0].split("\\s");
             username = temp[0];                  // stores username
-            // if (username.equals(name)) {
-            //     innerFlag = 1;                    //to mark name already in the user
-            // }
         }
             try{
                 String basePath = System.getProperty("user.dir");

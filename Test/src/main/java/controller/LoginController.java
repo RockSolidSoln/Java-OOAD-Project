@@ -6,6 +6,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import model.LoginModel;
+import view.Credentials;
 import view.LoginView;
 
 public class LoginController {
@@ -28,13 +29,16 @@ public class LoginController {
             model.setUsername(username);
             model.setPassword(password);
 
+            String passwords = new String(password);
+
+            Credentials.authenticateUser(username ,passwords);
             // Perform login action here (e.g. check against database)
             // For now, just display the entered username and password
-            JOptionPane.showMessageDialog(null, "Username: " + model.getUsername() + "\nPassword: " + String.valueOf(model.getPassword()));
+//            JOptionPane.showMessageDialog(null, "Username: " + model.getUsername() + "\nPassword: " + String.valueOf(model.getPassword()));
         }
     }
 
-    class ExitListener implements ActionListener {
+    static class ExitListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
             System.exit(0);
         }
