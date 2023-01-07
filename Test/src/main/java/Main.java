@@ -8,12 +8,12 @@ import view.AdminDashboardView;
 
 public class Main {
     public static void main(String[] args) {
-//        LoginModel model = new LoginModel();
-//        LoginView view = new LoginView();
-//        LoginController controller = new LoginController(view, model);
+       LoginModel model = new LoginModel();
+       LoginView view = new LoginView();
+       LoginController controller = new LoginController(view, model);
 
-        AdminDashboardView view = new AdminDashboardView();
-        AdminDashboardController controller = new AdminDashboardController(view);
+        // AdminDashboardView view = new AdminDashboardView();
+        // AdminDashboardController controller = new AdminDashboardController(view);
 
         view.setVisible(true);
     }

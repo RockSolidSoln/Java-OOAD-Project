@@ -7,6 +7,7 @@ import java.awt.event.ActionListener;
 
 import model.Credentials;
 import model.LoginModel;
+import view.AdminDashboardView;
 import view.LoginView;
 
 public class LoginController {
@@ -30,10 +31,15 @@ public class LoginController {
             Boolean loginSuccess;
             loginSuccess = model.loginAuthenticate(username, passwords);
             if (loginSuccess) {
-                // view.displayLoginSuccessMessage();
+                view.displayLoginSuccessMessage();
                 System.out.println("Succeful login Habibi");
+                if(username.charAt(0) == 'A'){
+                    AdminDashboardView adminDashboardview = AdminDashboardView.getInstance();
+                    AdminDashboardController adminDashboardcontroller = AdminDashboardController.getInstance(adminDashboardview);
+                    adminDashboardview.setVisible(true);
+                }
             } else {
-                // view.displayLoginFailureMessage();
+                view.displayLoginFailureMessage();
             }
             // Perform login action here (e.g. check against database)
             // For now, just display the entered username and password

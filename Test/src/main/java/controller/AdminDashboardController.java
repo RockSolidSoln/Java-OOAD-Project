@@ -7,6 +7,7 @@ import view.AdminDashboardView;
 
 public class AdminDashboardController {
 
+    private static AdminDashboardController singletonInstance; 
     private static AdminDashboardView view;
 
     public AdminDashboardController(AdminDashboardView view) {
@@ -16,6 +17,13 @@ public class AdminDashboardController {
         view.getButton2().addActionListener(new NavigatorsListener());
         view.getButton3().addActionListener(new NavigatorsListener());
         view.getButton4().addActionListener(new NavigatorsListener());
+    }
+
+    public static AdminDashboardController getInstance(AdminDashboardView view) {
+        if (singletonInstance == null) {
+                singletonInstance = new AdminDashboardController(view);
+        }
+        return singletonInstance;
     }
 
 

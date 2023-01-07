@@ -8,9 +8,17 @@ import java.awt.event.ActionListener;
 public class AdminDashboardView extends JFrame {
 
     private JButton jButton1, jButton2, jButton3, jButton4;
+    private static AdminDashboardView singletonInstance;
 
     public AdminDashboardView() {
         initComponents();
+    }
+
+    public static AdminDashboardView getInstance() {
+        if (singletonInstance == null) {
+                singletonInstance = new AdminDashboardView();
+        }
+        return singletonInstance;
     }
 
     private void initComponents() {

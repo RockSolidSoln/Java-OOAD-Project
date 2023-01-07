@@ -154,8 +154,14 @@ public class LoginView extends JFrame {
         return jPasswordField1.getPassword();
     }
 
-    public void displaySuccessMessage() {
-        //JOptionPane.showMessageDialog("Login successful!", "Success", JOptionPane.INFORMATION_MESSAGE);
+    public void displayLoginSuccessMessage() {
+        JOptionPane.showMessageDialog(null, "Login successful!", "Login Success", JOptionPane.INFORMATION_MESSAGE);
+        
+    }
+
+    public void displayLoginFailureMessage() {
+        JOptionPane.showMessageDialog(null, "Try again!", "Login Failure", JOptionPane.INFORMATION_MESSAGE);
+        
     }
 
 }
