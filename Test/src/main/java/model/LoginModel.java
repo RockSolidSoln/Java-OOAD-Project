@@ -2,33 +2,27 @@ package model;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.*;
 
 public class LoginModel {
-    private String username;
-    private char[] password;
-    private ActionListener actionListener;
-
-    public LoginModel() {
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public void setPassword(char[] password) {
-        this.password = password;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public char[] getPassword() {
-        return password;
-    }
-
-    public void checkLogin() {
-        // check username and password against database or other authentication method
-//        actionListener.actionPerformed(new ActionEvent(this, ActionEvent.ACTION_PERFORMED, "login"));
+    public boolean loginAuthenticate(String userid, String password) {
+        String basePath = System.getProperty("user.dir");
+        try (BufferedReader reader = new BufferedReader(new FileReader(basePath + "\\Test\\src\\assets\\credentials.csv"))) { 
+            String line;
+            String dbUserId, dbPassWord;
+            while ((line = reader.readLine()) != null) {
+                
+                String[] fields = line.split(",");
+                dbUserId = fields[0];
+                dbPassWord = fields[1];
+                
+                if (dbUserId.equals(userid) && dbPassWord.equals(password)) {
+                    return true;
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return false;
     }
 }

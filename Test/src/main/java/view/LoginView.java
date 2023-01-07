@@ -154,5 +154,8 @@ public class LoginView extends JFrame {
         return jPasswordField1.getPassword();
     }
 
+    public void displaySuccessMessage() {
+        //JOptionPane.showMessageDialog("Login successful!", "Success", JOptionPane.INFORMATION_MESSAGE);
+    }
 
 }

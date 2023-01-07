@@ -5,8 +5,8 @@ import javax.swing.JOptionPane;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import model.Credentials;
 import model.LoginModel;
-import view.Credentials;
 import view.LoginView;
 
 public class LoginController {
@@ -26,15 +26,19 @@ public class LoginController {
             String username = view.getUsername();
             char[] password = view.getPassword();
 
-            model.setUsername(username);
-            model.setPassword(password);
-
             String passwords = new String(password);
-
-            Credentials.authenticateUser(username ,passwords);
+            Boolean loginSuccess;
+            loginSuccess = model.loginAuthenticate(username, passwords);
+            if (loginSuccess) {
+                // view.displayLoginSuccessMessage();
+                System.out.println("Succeful login Habibi");
+            } else {
+                // view.displayLoginFailureMessage();
+            }
             // Perform login action here (e.g. check against database)
             // For now, just display the entered username and password
-            JOptionPane.showMessageDialog(null, "Username: " + model.getUsername() + "\nPassword: " + String.valueOf(model.getPassword()));
+            // JOptionPane.showMessageDialog(null, "Username: " + model.getUsername() +
+            // "\nPassword: " + String.valueOf(model.getPassword()));
         }
     }
 
