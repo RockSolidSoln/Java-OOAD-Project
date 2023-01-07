@@ -34,7 +34,7 @@ public class LoginController {
             Credentials.authenticateUser(username ,passwords);
             // Perform login action here (e.g. check against database)
             // For now, just display the entered username and password
-//            JOptionPane.showMessageDialog(null, "Username: " + model.getUsername() + "\nPassword: " + String.valueOf(model.getPassword()));
+            JOptionPane.showMessageDialog(null, "Username: " + model.getUsername() + "\nPassword: " + String.valueOf(model.getPassword()));
         }
     }
 

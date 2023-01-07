@@ -27,6 +27,7 @@ public class LoginView extends JFrame {
         // Variables declaration - do not modify
         loginButton = new JButton();
         exitButton = new JButton();
+        JLabel imageLabel = new JLabel();
 
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -45,6 +46,9 @@ public class LoginView extends JFrame {
         usernameLabel.setFont(new Font("Segue UI", Font.PLAIN, 20)); // NOI18N
         JLabel headingLabel = new JLabel("MMUProject");
         headingLabel.setFont(new Font("Segue UI", Font.PLAIN, 20)); // NOI18N
+
+        String basePath = System.getProperty("user.dir");
+        imageLabel.setIcon(new ImageIcon(basePath + "\\Test\\src\\assets\\Man.png"));
 
         exitButton.setBackground(new Color(92, 122, 234));
         exitButton.setForeground(new Color(255, 255, 255));
@@ -98,6 +102,7 @@ public class LoginView extends JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(26, 26, 26)
                 .addComponent(headingLabel, GroupLayout.PREFERRED_SIZE, 266, GroupLayout.PREFERRED_SIZE)
+                .addComponent(imageLabel, GroupLayout.PREFERRED_SIZE, 220, GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 103, Short.MAX_VALUE)
                 .addComponent(jPanel2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
         );
@@ -107,8 +112,9 @@ public class LoginView extends JFrame {
                 .addComponent(jPanel2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(17, 17, 17)
+                .addGap(0, 0, 0)
                 .addComponent(headingLabel, GroupLayout.PREFERRED_SIZE, 149, GroupLayout.PREFERRED_SIZE)
+                .addComponent(imageLabel, GroupLayout.PREFERRED_SIZE, 400, GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 

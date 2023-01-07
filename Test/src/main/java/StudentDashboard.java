@@ -122,7 +122,7 @@ public class StudentDashboard extends javax.swing.JFrame {
         jLabel5.setText("NAme");
 
         String basePath = System.getProperty("user.dir");
-        jLabel6.setIcon(new javax.swing.ImageIcon(basePath + "\\Test\\src\\main\\assets\\Man.png"));
+        jLabel6.setIcon(new javax.swing.ImageIcon(basePath + "\\Test\\src\\assets\\Man.png"));
 
         jLabel7.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
         jLabel7.setText("Name:");
