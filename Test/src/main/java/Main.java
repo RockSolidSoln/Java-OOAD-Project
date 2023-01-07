@@ -1,16 +1,13 @@
-import javax.swing.SwingUtilities;
+import model.LoginModel;
+import view.LoginView;
+import controller.LoginController;
 
 public class Main {
-  public static void main(String[] args) {
+    public static void main(String[] args) {
+        LoginModel model = new LoginModel();
+        LoginView view = new LoginView();
+        LoginController controller = new LoginController(view, model);
 
-  // Create and show the main window
-  SwingUtilities.invokeLater(new Runnable() {
-    public void run() {
-      // Registration Login =  new Registration();
-      LoginMenu Login = new LoginMenu();
-      Login.setVisible(true);
+        view.setVisible(true);
     }
-  });
-    
-  }
 }

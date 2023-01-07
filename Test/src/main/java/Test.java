@@ -5,7 +5,7 @@ import java.nio.file.Paths;
 public class Test {
     public static void main(String[] args){
         String basePath = System.getProperty("user.dir");
-        Path file = Paths.get(basePath + "\\Test\\src\\main\\assets\\Man.png");
+        Path file = Paths.get(basePath + "\\Test\\src\\assets\\Man.png");
         if (Files.isReadable(file)) {
             System.out.println("The file is readable.");
         } else {

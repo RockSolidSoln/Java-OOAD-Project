@@ -1,3 +1,4 @@
+package view;
 
 import java.io.FileWriter;
 import java.io.IOException;
@@ -20,7 +21,7 @@ public class Credentials {
         List<String> lines = new ArrayList<>();                 /*to read already stored credentials data*/
         try{
             String basePath = System.getProperty("user.dir");
-            lines = Files.readAllLines(Paths.get(basePath + "\\Test\\src\\main\\assets\\credentials.csv")); //read from credentials file
+            lines = Files.readAllLines(Paths.get(basePath + "\\Test\\src\\assets\\credentials.csv")); //read from credentials file
             
             for (String line : lines) {
                 String[] items = line.split(","); //split the comma, store every word in an array
@@ -73,7 +74,7 @@ public class Credentials {
         }
             try{
                 String basePath = System.getProperty("user.dir");
-                String filename= basePath + "\\Test\\src\\main\\assets\\credentials.csv";    //stores the path of the file
+                String filename= basePath + "\\Test\\src\\assets\\credentials.csv";    //stores the path of the file
                 FileWriter fw = new FileWriter(filename,true);          //the true will append the new data
                 fw.write("\n"+userId+","+password);              //appends the string to the file
                 fw.close();
