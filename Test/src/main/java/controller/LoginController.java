@@ -5,7 +5,6 @@ import javax.swing.JOptionPane;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import model.Credentials;
 import model.LoginModel;
 import view.AdminDashboardView;
 import view.LoginView;
@@ -34,6 +33,7 @@ public class LoginController {
                 view.displayLoginSuccessMessage();
                 System.out.println("Succeful login Habibi");
                 if(username.charAt(0) == 'A'){
+                    view.dispose();
                     AdminDashboardView adminDashboardview = AdminDashboardView.getInstance();
                     AdminDashboardController adminDashboardcontroller = AdminDashboardController.getInstance(adminDashboardview);
                     adminDashboardview.setVisible(true);
