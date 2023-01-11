@@ -6,7 +6,9 @@ import java.awt.event.ActionListener;
 
 import model.LoginModel;
 import view.AdminDashboardView;
+import view.LecturerDashboardView;
 import view.LoginView;
+import view.StudentDashboardView;
 
 public class LoginController {
     private final LoginView view;
@@ -39,6 +41,16 @@ public class LoginController {
                     AdminDashboardView adminDashboardview = AdminDashboardView.getInstance();
                     AdminDashboardController adminDashboardcontroller = AdminDashboardController.getInstance(adminDashboardview);
                     adminDashboardview.setVisible(true);
+                } else if(userId.charAt(0) == 'L'){
+                    view.dispose();
+                    LecturerDashboardView lecturerDashboardView = LecturerDashboardView.getInstance();
+                    LecturerDashboardController lecturerDashboardController = LecturerDashboardController.getInstance(lecturerDashboardView);
+                    lecturerDashboardView.setVisible(true);
+                } else{
+                    view.dispose();
+                    StudentDashboardView studentDashboardView = StudentDashboardView.getInstance();
+                    StudentDashboardController studentDashboardController = StudentDashboardController.getInstance(studentDashboardView);
+                    studentDashboardView.setVisible(true);
                 }
             } else {
                 view.displayLoginFailureMessage();

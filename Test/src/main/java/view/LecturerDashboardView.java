@@ -8,8 +8,16 @@ public class LecturerDashboardView extends JFrame {
     /**
      * Creates new form LecturerDashboard
      */
+    private static LecturerDashboardView singletonInstance;
     public LecturerDashboardView() {
         initComponents();
+    }
+    
+    public static LecturerDashboardView getInstance() {
+        if (singletonInstance == null) {
+                singletonInstance = new LecturerDashboardView();
+        }
+        return singletonInstance;
     }
 
     /**
