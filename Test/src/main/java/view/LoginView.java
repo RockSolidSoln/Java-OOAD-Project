@@ -42,8 +42,8 @@ public class LoginView extends JFrame {
 
         JLabel passwordLabel = new JLabel("Password");
         passwordLabel.setFont(new Font("Segue UI", Font.PLAIN, 20)); // NOI18N
-        JLabel usernameLabel = new JLabel("Username");
-        usernameLabel.setFont(new Font("Segue UI", Font.PLAIN, 20)); // NOI18N
+        JLabel userIdLabel = new JLabel("userId");
+        userIdLabel.setFont(new Font("Segue UI", Font.PLAIN, 20)); // NOI18N
         JLabel headingLabel = new JLabel("MMUProject");
         headingLabel.setFont(new Font("Segue UI", Font.PLAIN, 20)); // NOI18N
 
@@ -66,7 +66,7 @@ public class LoginView extends JFrame {
                         .addGap(284, 284, 284)
                         .addComponent(loginButton, GroupLayout.PREFERRED_SIZE, 107, GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createParallelGroup(GroupLayout.Alignment.LEADING, false)
-                        .addComponent(usernameLabel, GroupLayout.PREFERRED_SIZE, 198, GroupLayout.PREFERRED_SIZE)
+                        .addComponent(userIdLabel, GroupLayout.PREFERRED_SIZE, 198, GroupLayout.PREFERRED_SIZE)
                         .addComponent(passwordLabel, GroupLayout.PREFERRED_SIZE, 198, GroupLayout.PREFERRED_SIZE)
                         .addComponent(jTextField1)
                         .addComponent(jPasswordField1, GroupLayout.DEFAULT_SIZE, 498, Short.MAX_VALUE)))
@@ -76,7 +76,7 @@ public class LoginView extends JFrame {
             jPanel2Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
             .addGroup(GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addGap(150, 150, 150)
-                .addComponent(usernameLabel, GroupLayout.PREFERRED_SIZE, 71, GroupLayout.PREFERRED_SIZE)
+                .addComponent(userIdLabel, GroupLayout.PREFERRED_SIZE, 71, GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
                 .addComponent(jTextField1, GroupLayout.PREFERRED_SIZE, 38, GroupLayout.PREFERRED_SIZE)
                 .addGap(65, 65, 65)
@@ -146,7 +146,7 @@ public class LoginView extends JFrame {
         return exitButton;
     }
 
-    public String getUsername() {
+    public String getUserId() {
         return jTextField1.getText();
     }
 

@@ -22,16 +22,19 @@ public class LoginController {
 
     class LoginListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
-            String username = view.getUsername();
-            char[] password = view.getPassword();
 
-            String passwords = new String(password);
+            String userId = view.getUserId();
+            String password = new String(view.getPassword()); 
+            model.setUserId(userId);
+            model.setPassword(password); 
+            
             Boolean loginSuccess;
-            loginSuccess = model.loginAuthenticate(username, passwords);
+            loginSuccess = model.loginAuthenticate();
+
+            
             if (loginSuccess) {
                 view.displayLoginSuccessMessage();
-                System.out.println("Succeful login Habibi");
-                if(username.charAt(0) == 'A'){
+                if(userId.charAt(0) == 'A'){
                     view.dispose();
                     AdminDashboardView adminDashboardview = AdminDashboardView.getInstance();
                     AdminDashboardController adminDashboardcontroller = AdminDashboardController.getInstance(adminDashboardview);
