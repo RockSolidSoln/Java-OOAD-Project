@@ -3,7 +3,9 @@ package controller;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import model.LoginModel;
 import view.AdminDashboardView;
+import view.LoginView;
 
 public class AdminDashboardController {
 
@@ -38,7 +40,12 @@ public class AdminDashboardController {
         }
 
         private void jButton3ActionPerformed(ActionEvent e) {
-            // TODO add your handling code here:
+            view.dispose();
+            LoginModel model = LoginModel.getInstance(null, null);
+            LoginView view = new LoginView();
+            LoginController controller = new LoginController(view, model);
+
+            view.setVisible(true);
         }
 
         private void jButton4ActionPerformed(ActionEvent e) {
@@ -53,6 +60,7 @@ public class AdminDashboardController {
                 System.out.println("Button 2 says hello");
             } else if (e.getSource() == view.getButton3()) {
                 System.out.println("Button 3 says hello");
+                jButton3ActionPerformed(e);
             } else if (e.getSource() == view.getButton4()) {
                 System.out.println("Button 4 says hello");
             }
