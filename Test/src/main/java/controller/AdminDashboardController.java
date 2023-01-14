@@ -3,8 +3,10 @@ package controller;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import model.CreateProjectModel;
 import model.LoginModel;
 import view.AdminDashboardView;
+import view.CreateProjectView;
 import view.LoginView;
 
 public class AdminDashboardController {
@@ -50,6 +52,13 @@ public class AdminDashboardController {
 
         private void jButton4ActionPerformed(ActionEvent e) {
             // TODO add your handling code here:
+            view.dispose();
+            CreateProjectModel model = CreateProjectModel.getInstance();
+            CreateProjectView view = new CreateProjectView();
+            CreateProjectController controller = new CreateProjectController(view, model);
+
+            view.setVisible(true);
+
         }
 
         @Override
@@ -63,6 +72,7 @@ public class AdminDashboardController {
                 jButton3ActionPerformed(e);
             } else if (e.getSource() == view.getButton4()) {
                 System.out.println("Button 4 says hello");
+                jButton4ActionPerformed(e);
             }
 
         }
