@@ -227,7 +227,6 @@ public class AdminDashboardView extends JFrame {
         pack();
     }
 
-
     public void addButton1Listener(ActionListener listener) {
         jButton1.addActionListener(listener);
     }

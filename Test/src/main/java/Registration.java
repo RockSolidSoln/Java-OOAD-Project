@@ -1,7 +1,5 @@
 import javax.swing.*;
 
-import view.Credentials;
-
 import java.awt.*;
 import java.awt.event.*;
 

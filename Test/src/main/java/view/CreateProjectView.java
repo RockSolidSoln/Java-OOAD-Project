@@ -11,6 +11,7 @@ import java.awt.event.*;
 public class CreateProjectView extends JFrame {
 
     private static CreateProjectView singletonInstance;
+    private JButton jButton1, jButton2, jButton3, jButton4, jButton5, jButton6;
   public CreateProjectView() {
     initComponents();
   }
@@ -30,16 +31,14 @@ public class CreateProjectView extends JFrame {
       JLabel jLabel2 = new JLabel();
       JLabel jLabel3 = new JLabel();
       JLabel jLabel4 = new JLabel();
-      // Variables declaration - do not modify
-      JButton jButton1 = new JButton();
-      JButton jButton2 = new JButton();
+      jButton1 = new JButton();
+      jButton2 = new JButton();
       JTextField jTextField1 = new JTextField();
       JPanel jPanel2 = new JPanel();
-      JButton jButton5 = new JButton();
-      JButton jButton6 = new JButton();
+      jButton5 = new JButton();
+      jButton3 = new JButton();
       JLabel jLabel5 = new JLabel();
-      JButton jButton7 = new JButton();
-      JButton jButton8 = new JButton();
+      jButton6 = new JButton();
       JTextField jTextField2 = new JTextField();
 
     jMenuItem1.setText("jMenuItem1");
@@ -61,7 +60,6 @@ public class CreateProjectView extends JFrame {
     jLabel4.setText("Details");
 
     jButton1.setText("Create Project");
-    jButton1.addActionListener(this::jButton1ActionPerformed);
 
     jButton2.setText("Exit");
 
@@ -73,25 +71,23 @@ public class CreateProjectView extends JFrame {
     jButton5.setFont(new Font("SansSerif", Font.PLAIN, 12)); // NOI18N
     jButton5.setText("Create Account");
 
-    jButton6.setBackground(new Color(230, 230, 230));
-    jButton6.setFont(new Font("SansSerif", Font.PLAIN, 12)); // NOI18N
-    jButton6.setText("View Reports");
-    jButton6.setOpaque(true);
-    jButton6.addActionListener(this::jButton6ActionPerformed);
+    jButton3.setBackground(new Color(230, 230, 230));
+    jButton3.setFont(new Font("SansSerif", Font.PLAIN, 12)); // NOI18N
+    jButton3.setText("View Reports");
+    jButton3.setOpaque(true);
 
     jLabel5.setFont(new Font("Segoe UI", Font.PLAIN, 18)); // NOI18N
     jLabel5.setText("Salah AlHaismawi");
 
-    jButton7.setBackground(new Color(230, 230, 230));
-    jButton7.setFont(new Font("SansSerif", Font.PLAIN, 14)); // NOI18N
-    jButton7.setForeground(new Color(255, 51, 102));
-    jButton7.setText("Logout");
+    jButton6.setBackground(new Color(230, 230, 230));
+    jButton6.setFont(new Font("SansSerif", Font.PLAIN, 14)); // NOI18N
+    jButton6.setForeground(new Color(255, 51, 102));
+    jButton6.setText("Logout");
 
-    jButton8.setBackground(new Color(230, 230, 230));
-    jButton8.setFont(new Font("SansSerif", Font.PLAIN, 12)); // NOI18N
-    jButton8.setText("View Project");
-    jButton8.setOpaque(true);
-    jButton8.addActionListener(this::jButton8ActionPerformed);
+    jButton2.setBackground(new Color(230, 230, 230));
+    jButton2.setFont(new Font("SansSerif", Font.PLAIN, 12)); // NOI18N
+    jButton2.setText("View Project");
+    jButton2.setOpaque(true);
 
     GroupLayout jPanel2Layout = new GroupLayout(jPanel2);
     jPanel2.setLayout(jPanel2Layout);
@@ -101,13 +97,13 @@ public class CreateProjectView extends JFrame {
             .addContainerGap()
             .addGroup(jPanel2Layout.createParallelGroup(  GroupLayout.Alignment.LEADING)
               .addComponent(jLabel5, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-              .addComponent(jButton8, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+              .addComponent(jButton2, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
               .addComponent(jButton5, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-              .addComponent(jButton6, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+              .addComponent(jButton3, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addContainerGap())
         .addGroup(  GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
             .addContainerGap(  GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jButton7, GroupLayout.PREFERRED_SIZE, 113, GroupLayout.PREFERRED_SIZE)
+            .addComponent(jButton6, GroupLayout.PREFERRED_SIZE, 113, GroupLayout.PREFERRED_SIZE)
             .addGap(17, 17, 17))
     );
     jPanel2Layout.setVerticalGroup(
@@ -116,18 +112,17 @@ public class CreateProjectView extends JFrame {
             .addGap(25, 25, 25)
             .addComponent(jLabel5, GroupLayout.PREFERRED_SIZE, 25, GroupLayout.PREFERRED_SIZE)
             .addGap(87, 87, 87)
-            .addComponent(jButton8)
+            .addComponent(jButton2)
             .addGap(12, 12, 12)
             .addComponent(jButton5)
             .addPreferredGap(  LayoutStyle.ComponentPlacement.UNRELATED)
-            .addComponent(jButton6)
+            .addComponent(jButton3)
             .addPreferredGap(  LayoutStyle.ComponentPlacement.RELATED, 256, Short.MAX_VALUE)
-            .addComponent(jButton7)
+            .addComponent(jButton6)
             .addContainerGap())
     );
 
     jTextField2.setText("jTextField2");
-    jTextField2.addActionListener(this::jTextField2ActionPerformed);
 
     GroupLayout jPanel1Layout = new GroupLayout(jPanel1);
     jPanel1.setLayout(jPanel1Layout);
@@ -210,22 +205,53 @@ public class CreateProjectView extends JFrame {
     );
 
     pack();
-  }// </editor-fold>
-
-  private void jButton6ActionPerformed(ActionEvent evt) {
-    // TODO add your handling code here:
   }
 
-  private void jButton8ActionPerformed(ActionEvent evt) {
-    // TODO add your handling code here:
+  public void addButton1Listener(ActionListener listener) {
+    jButton1.addActionListener(listener);
   }
 
-  private void jButton1ActionPerformed(ActionEvent evt) {
-    // TODO add your handling code here:
+  public void addButton2Listener(ActionListener listener) {
+    jButton2.addActionListener(listener);
   }
 
-  private void jTextField2ActionPerformed(ActionEvent evt) {
-    // TODO add your handling code here:
+  public void addButton3Listener(ActionListener listener) {
+    jButton3.addActionListener(listener);
   }
 
+  public void addButton4Listener(ActionListener listener) {
+    jButton4.addActionListener(listener);
+  }
+
+  public void addButton5Listener(ActionListener listener) {
+    jButton5.addActionListener(listener);
+  }
+
+  public void addButton6Listener(ActionListener listener) {
+    jButton6.addActionListener(listener);
+  }
+
+  public JButton getButton1() {
+    return jButton1;
+  }
+
+  public JButton getButton2() {
+    return jButton2;
+  }
+
+  public JButton getButton3() {
+    return jButton3;
+  }
+
+  public JButton getButton4() {
+    return jButton4;
+  }
+
+  public JButton getButton5() {
+    return jButton5;
+  }
+
+  public JButton getButton6() {
+    return jButton6;
+  }
 }
