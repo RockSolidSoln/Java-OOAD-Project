@@ -37,19 +37,19 @@ public class LoginController {
             if (loginSuccess) {
                 view.displayLoginSuccessMessage();
                 if(userId.charAt(0) == 'A'){
-                    view.dispose();
-                    AdminDashboardView adminDashboardview = AdminDashboardView.getInstance();
-                    AdminDashboardController adminDashboardcontroller = AdminDashboardController.getInstance(adminDashboardview);
+                    view.dispose(); 
+                    var adminDashboardview = AdminDashboardView.getInstance();
+                    var adminDashboardcontroller = AdminDashboardController.getInstance(adminDashboardview);
                     adminDashboardview.setVisible(true);
                 } else if(userId.charAt(0) == 'L'){
                     view.dispose();
-                    LecturerDashboardView lecturerDashboardView = LecturerDashboardView.getInstance();
-                    LecturerDashboardController lecturerDashboardController = LecturerDashboardController.getInstance(lecturerDashboardView);
+                    var lecturerDashboardView = LecturerDashboardView.getInstance();
+                    var lecturerDashboardController = LecturerDashboardController.getInstance(lecturerDashboardView);
                     lecturerDashboardView.setVisible(true);
                 } else{
                     view.dispose();
-                    StudentDashboardView studentDashboardView = StudentDashboardView.getInstance();
-                    StudentDashboardController studentDashboardController = StudentDashboardController.getInstance(studentDashboardView);
+                    var studentDashboardView = StudentDashboardView.getInstance();
+                    var studentDashboardController = StudentDashboardController.getInstance(studentDashboardView);
                     studentDashboardView.setVisible(true);
                 }
             } else {
@@ -58,7 +58,7 @@ public class LoginController {
         }
     }
 
-    static class ExitListener implements ActionListener {
+    class ExitListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
             System.exit(0);
         }

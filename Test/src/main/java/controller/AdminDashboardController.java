@@ -7,6 +7,7 @@ import model.CreateProjectModel;
 import model.LoginModel;
 import view.AdminDashboardView;
 import view.CreateProjectView;
+import view.CreateAccountView;
 import view.LoginView;
 
 public class AdminDashboardController {
@@ -53,9 +54,9 @@ public class AdminDashboardController {
         private void jButton4ActionPerformed(ActionEvent e) {
             // TODO add your handling code here:
             view.dispose();
-            CreateProjectModel model = CreateProjectModel.getInstance();
-            CreateProjectView view = new CreateProjectView();
-            CreateProjectController controller = new CreateProjectController(view, model);
+         //   CreateProjectModel model = CreateProjectModel.getInstance();
+         //   CreateProjectView view = new CreateProjectView();
+          //  CreateProjectController controller = new CreateProjectController(view, model);
 
             view.setVisible(true);
 
@@ -63,8 +64,11 @@ public class AdminDashboardController {
 
         @Override
         public void actionPerformed(ActionEvent e) {
-            if (e.getSource() == view.getButton1()) {
-                System.out.println("Button 1 says hello");
+            if (e.getSource() == view.getButton1()) { // Create Account Button
+                view.dispose(); // Admin Dashboard View closed
+                var createAccountView = CreateAccountView.getInstance(); 
+                createAccountView.setVisible(true);
+                
             } else if (e.getSource() == view.getButton2()) {
                 System.out.println("Button 2 says hello");
             } else if (e.getSource() == view.getButton3()) {

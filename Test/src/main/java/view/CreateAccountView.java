@@ -34,15 +34,15 @@ public class CreateAccountView extends JFrame {
         JLabel jLabel5 = new JLabel();
         JLabel jLabel6 = new JLabel();
         JLabel jLabel7 = new JLabel();
-        JComboBox<String> jComboBox1 = new JComboBox<>();
+        jComboBox1 = new JComboBox<>();
         jTextField1 = new JTextField();
-        JTextField jTextField2 = new JTextField();
-        JTextField jTextField3 = new JTextField();
-        JTextField jTextField4 = new JTextField();
-        JTextField jTextField5 = new JTextField();
+        jTextField2 = new JTextField();
+        jTextField3 = new JTextField();
+        jTextField4 = new JTextField();
+        jTextField5 = new JTextField();
         // Variables declaration - do not modify
-        JButton jButton1 = new JButton();
-        JButton jButton2 = new JButton();
+        jButton1 = new JButton();
+        jButton2 = new JButton();
         jLabel9 = new JLabel();
         JPanel jPanel2 = new JPanel();
         JButton jButton5 = new JButton();
@@ -50,10 +50,10 @@ public class CreateAccountView extends JFrame {
         JLabel jLabel8 = new JLabel();
         JButton jButton7 = new JButton();
         JButton jButton8 = new JButton();
-        JLabel jLabel10 = new JLabel();
+        jLabel10 = new JLabel();
         JLabel jLabel11 = new JLabel();
-        JPasswordField jPasswordField1 = new JPasswordField();
-        JPasswordField jPasswordField2 = new JPasswordField();
+        jPasswordField1 = new JPasswordField();
+        jPasswordField2 = new JPasswordField();
 
         jLabel3.setBackground(new   Color(230, 230, 230));
         jLabel3.setFont(new   Font("SansSerif", Font.PLAIN, 12)); // NOI18N
@@ -100,7 +100,7 @@ public class CreateAccountView extends JFrame {
         jLabel7.setBackground(new   Color(230, 230, 230));
         jLabel7.setFont(new   Font("SansSerif", Font.PLAIN, 24)); // NOI18N
         jLabel7.setForeground(new   Color(230, 230, 230));
-        jLabel7.setText("ID");
+        jLabel7.setText("UserId");
 
         jComboBox1.setModel(new DefaultComboBoxModel<>(new String[] { "ADMIN", "LECTURER", "STUDENT", " " }));
         jComboBox1.setCursor(new   Cursor(  Cursor.DEFAULT_CURSOR));
@@ -186,6 +186,8 @@ public class CreateAccountView extends JFrame {
         jLabel10.setFont(new   Font("SansSerif", Font.PLAIN, 24)); // NOI18N
         jLabel10.setForeground(new   Color(230, 230, 230));
         jLabel10.setText("Specialization");
+
+        jLabel10.setVisible(false);
 
         jLabel11.setBackground(new   Color(230, 230, 230));
         jLabel11.setFont(new   Font("SansSerif", Font.PLAIN, 24)); // NOI18N
@@ -292,9 +294,9 @@ public class CreateAccountView extends JFrame {
         );
 
         jTextField1.getAccessibleContext().setAccessibleName("");
-        jLabel9.setVisible(false);
-        jLabel9.setVisible(false);
-        jLabel9.setVisible(false);
+        // jLabel9.setVisible(false);
+        // jLabel9.setVisible(false);
+        // jLabel9.setVisible(false);
 
         GroupLayout layout = new GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -322,35 +324,84 @@ public class CreateAccountView extends JFrame {
             if  (selectedItem.equals("STUDENT")){
                 jTextField1.setVisible(true);
                 jLabel9.setVisible(true);
+                jLabel10.setVisible(true);
                 revalidate();
                 repaint();
             } else {
                 jTextField1.setVisible(false);
-                jLabel9.setVisible(false);
+                // jLabel9.setVisible(false);
+                jLabel10.setVisible(false);
             }
-        }
+
         revalidate();
         repaint();
+        }
     }
 
     private void jTextField2ActionPerformed(  ActionEvent evt) {
         // TODO add your handling code here:
+        System.out.println("2222");
     }
 
     private void jTextField5ActionPerformed(  ActionEvent evt) {
         // TODO add your handling code here:
+        System.out.println("5555");
     }
 
     private void jButton6ActionPerformed(  ActionEvent evt) {
         // TODO add your handling code here:
+        System.out.println("6666");
     }
 
     private void jButton8ActionPerformed(  ActionEvent evt) {
         // TODO add your handling code here:
+        System.out.println("8888");
     }
 
-
+    private JButton jButton1;
+    private JButton jButton2;
     private JLabel jLabel9;
+    private JLabel jLabel10;
     private JTextField jTextField1;
+    private JTextField jTextField2;
+    private JTextField jTextField5;
+    private JTextField jTextField3;
+    private JTextField jTextField4;
+    private JPasswordField jPasswordField1;
+    private JPasswordField jPasswordField2;
+    private JComboBox<String> jComboBox1;
+
+
+    public JButton getCreateAccountButton(){
+        return jButton1; 
+    }
+
+    public JButton getExitButton() {
+        return jButton2;
+    }
+
+    // Logout Button: Jbutton7
     // End of variables declaration
+
+    //Getters for the text fields
+    public String getUserId(){
+        return jTextField2.getText();
+    }
+    public String getName(){
+        return jTextField3.getText();
+    }
+    public String getPhone(){
+        return jTextField4.getText();
+    }
+    public String getSpecialization(){
+        return jTextField1.getText();
+    }
+
+    public char[] getPassword(){
+        return jPasswordField2.getPassword();
+    }
+
+    public String getUsertype(){
+        return (String) jComboBox1.getSelectedItem(); 
+    }
 }

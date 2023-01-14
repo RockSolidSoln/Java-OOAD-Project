@@ -8,9 +8,14 @@ import java.awt.event.ActionListener;
 public class CreateAccountController {
     private static CreateAccountController singletonInstance;
     private static CreateAccountView view;
+    private static Admin adminModel;
+    p
 
     public CreateAccountController(CreateAccountView view){
+        this.view = view;
 
+        this.view.getCreateAccountButton().addActionListener(new CreateAccountListener());
+        this.view.getExitButton().addActionListener(new ExitListener());
     }
 
     public static CreateAccountController getInstance(CreateAccountView view) {
@@ -20,7 +25,41 @@ public class CreateAccountController {
         return singletonInstance;
     }
 
-    static abstract class NavigatorsListener implements ActionListener{
+    class CreateAccountListener implements ActionListener{
 
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            // TODO Auto-generated method stub
+            String userId = view.getUserId();
+            String password = new String(view.getPassword());
+
+            String phoneNo = view.getPhone();
+            String name = view.getName();
+            String specialization = view.getSpecialization();
+
+            String userType = view.getUsertype();
+
+            if(userType.equals("Admin")){
+
+            } else if(userType.equals("Lecturer")){
+
+            }
+            else{
+                
+            }
+
+
+        }
+        
+    }
+
+    class ExitListener implements ActionListener{
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            // TODO Auto-generated method stub
+            
+        }
+        
     }
 }
