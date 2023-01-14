@@ -215,18 +215,6 @@ public class LecturerDashboardView extends JFrame {
         pack();
     }// </editor-fold>
 
-    public void addButton1Listener(ActionListener listener) {
-        jButton2.addActionListener(listener);
-    }
-
-    public void addButton2Listener(ActionListener listener) {
-        jButton1.addActionListener(listener);
-    }
-
-    public void addButton3Listener(ActionListener listener) {
-        jButton3.addActionListener(listener);
-    }
-
     public JButton getButton1() {
         return jButton2;
     }
