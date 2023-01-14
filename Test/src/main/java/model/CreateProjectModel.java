@@ -54,9 +54,19 @@ public class CreateProjectModel {
         String basePath = System.getProperty("user.dir");
 
         try{
+            int counter = 0;
+            try (BufferedReader br = new BufferedReader(new FileReader(basePath + "\\Test\\src\\assets\\projects.csv"))) {
+                String line;
+                while ((line = br.readLine()) != null) {
+                    counter++;
+                }
+            }catch (IOException e) {
+                    e.printStackTrace();
+                }
+            counter++;
             String filename= (basePath + "\\Test\\src\\assets\\projects.csv");    //stores the path of the file
             FileWriter fw = new FileWriter(filename,true);          //the true will append the new data
-            fw.write("\n"+project_name+","+lecturer+","+specialization+","+description);              //appends the string to the file
+            fw.write("\n"+"PR"+counter+","+project_name+","+lecturer+","+specialization+","+description);              //appends the string to the file
             fw.close();
 
             System.out.println("""
