@@ -10,14 +10,18 @@ import java.awt.event.*;
 
 public class CreateProjectView extends JFrame {
 
-  /**
-   * Creates new form CreateProject
-   */
+    private static CreateProjectView singletonInstance;
   public CreateProjectView() {
     initComponents();
   }
+    public static CreateProjectView getInstance() {
+        if (singletonInstance == null) {
+            singletonInstance = new CreateProjectView();
+        }
+        return singletonInstance;
+    }
 
-  private void initComponents() {
+    private void initComponents() {
 
       JMenuItem jMenuItem1 = new JMenuItem();
       JPanel jPanel1 = new JPanel();
