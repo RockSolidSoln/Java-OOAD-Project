@@ -65,7 +65,7 @@ public class CreateProjectModel {
         String filename= ("\\Test\\src\\assets\\projects.csv");    //stores the path of the file
         ArrayList<String> line = new ArrayList<>();
 
-        line.add("\n"+"PR"+counter+","+project_name+","+lecturer+","+specialization+","+description+","+"active");
+        line.add("PR"+counter+","+project_name+","+lecturer+","+specialization+","+description+","+"active"+"\n");
         Database.FilewriteBack(filename, line);
     }
 }
