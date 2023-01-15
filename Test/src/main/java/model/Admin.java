@@ -15,12 +15,12 @@ public class Admin extends User{
         return singletonInstance;
     }
 
+
     public void StoreCredentials(){
         
         String line = "\n"+ super.getUsername() +"," + super.getPassword();
         ArrayList <String> lines = new ArrayList<String>();
         lines.add(line);
-        String basePath = System.getProperty("user.dir");
         String filename= ("\\Test\\src\\assets\\credentials.csv");
         
 
