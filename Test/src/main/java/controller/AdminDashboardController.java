@@ -92,9 +92,9 @@ public class AdminDashboardController {
         public void actionPerformed(ActionEvent e) {
             if (e.getSource() == view.getButton1()) { // Create Account Button
                 jButton1ActionPerformed(e);
-//            } else if (e.getSource() == view.getButton2()) {
-////                jButton2ActionPerformed(e);
-//                System.out.println("Button 2 says hello");
+            } else if (e.getSource() == view.getButton2()) {
+//                jButton2ActionPerformed(e);
+                System.out.println("Button 2 says hello");
             } else if (e.getSource() == view.getButton3()) {
                 System.out.println("Button 3 says hello");
                 jButton3ActionPerformed(e);

@@ -1,32 +1,28 @@
 package view;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.awt.event.*;
 import java.awt.*;
 import javax.swing.*;
+
 /**
  *
  * @author salah
  */
-public class AdminViewRemark extends JFrame {
-
-    public AdminViewRemark() {
+public class AdminRemarkView extends JFrame {
+    private static String projectID;
+    public static AdminRemarkView singletonInstance;
+    public AdminRemarkView(String projectID) {
+        AdminRemarkView.projectID = projectID;
         initComponents();
     }
-    public AdminViewRemark(String projectID) {
-        this.projectID = projectID;
-        initComponents();
+    public static AdminRemarkView getInstance() {
+        if (singletonInstance == null) {
+            singletonInstance = new AdminRemarkView(projectID);
+        }
+        return singletonInstance;
     }
-
-    private String projectID;
-
 
 
     private void initComponents() {
-
         jPanel1 = new JPanel();
         jPanel2 = new JPanel();
         jButton5 = new JButton();
@@ -43,8 +39,8 @@ public class AdminViewRemark extends JFrame {
         backButton = new JButton();
 
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        setResizable(false)
-        ;
+        setResizable(false);
+
         jPanel1.setBackground(new Color(92, 122, 234));
 
         jPanel2.setBackground(new Color(230, 230, 230));
@@ -173,8 +169,6 @@ public class AdminViewRemark extends JFrame {
                                 .addContainerGap(18, Short.MAX_VALUE))
         );
 
-        String comment = commentTextField.getText();
-
         GroupLayout layout = new GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -188,72 +182,6 @@ public class AdminViewRemark extends JFrame {
 
         pack();
     }// </editor-fold>                        
-
-
-
-    public void readFile() {
-        String basePath = System.getProperty("user.dir");
-
-        String csvFile = basePath + "//Test//src//assets//remarks.csv";
-        BufferedReader br = null;
-        String line = "";
-        StringBuilder sb = new StringBuilder();
-
-        try {
-            br = new BufferedReader(new FileReader(csvFile));
-            while ((line = br.readLine()) != null) {
-                String[] row = line.split(",");
-                if (row[0].equals(this.projectID)) {
-                    String item2 = row[1];
-                    String item3 = row[2];
-                    sb.append(item2 + " " + item3 + "\n");
-                }
-            }
-            commentTextArea.setText(sb.toString());
-        } catch (IOException e) {
-            e.printStackTrace();
-        } finally {
-            if (br != null) {
-                try {
-                    br.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-        }
-    }
-
-    private void publishCommentButtonActionPerformed(ActionEvent evt) {
-
-
-        // TODO add your handling code here:
-        String text = commentTextField.getText();
-        String basePath = System.getProperty("user.dir");
-
-        String csvFile = basePath + "//Test//src//assets//remarks.csv";
-        FileWriter fw = null;
-        try {
-            fw = new FileWriter(csvFile, true);
-            fw.append(this.projectID + "," +"L001,"+ text);
-            fw.append(System.lineSeparator());
-            fw.flush();
-        } catch (IOException e) {
-            e.printStackTrace();
-        } finally {
-            try {
-
-                if (fw != null) {
-                    fw.close();
-                }
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
-        // read the file and update the text area
-        readFile();
-    }
-
-    // Variables declaration - do not modify                     
     private JButton backButton;
     private JTextArea commentTextArea;
     private JTextField commentTextField;
@@ -269,10 +197,24 @@ public class AdminViewRemark extends JFrame {
     private JLabel projectNameLabel;
     private JButton publishCommentButton;
     // End of variables declaration
+
     public String getProjectId() {
         return projectID;
     }
+
     public JTextArea getComment() {
         return commentTextArea;
+    }
+
+    public JButton getPublishCommentButton(){
+        return publishCommentButton;
+    }
+
+    public JButton getBackButton(){
+        return backButton;
+    }
+
+    public JTextField getCommentField(){
+        return commentTextField;
     }
 }

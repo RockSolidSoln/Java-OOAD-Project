@@ -4,7 +4,7 @@ package controller;
 import model.LoginModel;
 import model.Project;
 import view.AdminProjectsView;
-import view.AdminViewRemark;
+import view.AdminRemarkView;
 import view.CreateProjectView;
 import view.LoginView;
 
@@ -23,14 +23,14 @@ public class AdminProjectsController {
     public AdminProjectsController(AdminProjectsView view) {
         this.view = view;
 
-        view.getButton1().addActionListener(new AdminDashboardController.NavigatorsListener());
-        view.getButton2().addActionListener(new AdminDashboardController.NavigatorsListener());
-        view.getButton3().addActionListener(new AdminDashboardController.NavigatorsListener());
-        view.getButton4().addActionListener(new AdminDashboardController.NavigatorsListener());
-        view.getButton5().addActionListener(new AdminDashboardController.NavigatorsListener());
-        view.getProjectDetailsButton().addActionListener(new AdminDashboardController.NavigatorsListener());
-        view.getViewRemarkButton().addActionListener(new AdminDashboardController.NavigatorsListener());
-        view.getAddProjectButton().addActionListener(new AdminDashboardController.NavigatorsListener());
+        view.getButton1().addActionListener(new AdminProjectsController.ProjectListener());
+        view.getButton2().addActionListener(new AdminProjectsController.ProjectListener());
+        view.getButton3().addActionListener(new AdminProjectsController.ProjectListener());
+        view.getButton4().addActionListener(new AdminProjectsController.ProjectListener());
+        view.getButton5().addActionListener(new AdminProjectsController.ProjectListener());
+        view.getProjectDetailsButton().addActionListener(new AdminProjectsController.ProjectListener());
+        view.getViewRemarkButton().addActionListener(new AdminProjectsController.ProjectListener());
+        view.getAddProjectButton().addActionListener(new AdminProjectsController.ProjectListener());
 
 
         String basePath = System.getProperty("user.dir");
@@ -83,9 +83,6 @@ public class AdminProjectsController {
         }
 
         private void jButton4ActionPerformed(ActionEvent e) {
-            //Create Account
-            view.dispose();
-
         }
 
         private void jButton5ActionPerformed(ActionEvent e){
@@ -97,9 +94,10 @@ public class AdminProjectsController {
             if (selectedRow != -1) {
                 // get the value of the project ID column
                 String projectID = (String) view.getTable().getValueAt(selectedRow, 0);
-                // redirect to ProjectDetails JFrame here
-                    AdminViewRemark remarkSection = new AdminViewRemark(projectID);
-                    remarkSection.setVisible(true);
+                view.dispose();
+                AdminRemarkView remarkSection = new AdminRemarkView(projectID);
+                AdminRemarkController controllerRemark = new AdminRemarkController(remarkSection);
+                remarkSection.setVisible(true);
             } else {
                 JOptionPane.showMessageDialog(null, "Please select a row from the table.");
             }
@@ -121,7 +119,7 @@ public class AdminProjectsController {
 
         @Override
         public void actionPerformed(ActionEvent e) {
-            if (e.getSource() == view.getButton1()) { // Create Account Button
+            if (e.getSource() == view.getButton1()) {
                 System.out.println("Button 1 says hello");
             } else if (e.getSource() == view.getButton2()) {
                 System.out.println("Button 2 says hello");
@@ -134,7 +132,7 @@ public class AdminProjectsController {
             } else if (e.getSource() == view.getButton5()) {
                 jButton5ActionPerformed(e);
             } else if (e.getSource() == view.getViewRemarkButton()) {
-                System.out.println("Remark button clicked")
+                System.out.println("Remark button clicked");
                 viewRemark(e);
             } else if (e.getSource() == view.getAddProjectButton()) {
                 addProject(e);
