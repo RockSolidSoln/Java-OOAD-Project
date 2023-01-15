@@ -7,13 +7,8 @@ import java.awt.*;
 public class CreateProjectView extends JFrame {
 
   private static CreateProjectView singletonInstance;
-  private JButton jButton4;
   private JButton jButton1;
-  private JButton jButton6;
-  private JButton jButton7;
   private JButton jButton2;
-  private JButton jButton5;
-  private JButton jButton3;
   private JComboBox<String> jComboBox1;
   private JLabel jLabel5;
   JTextField jTextField1, jTextField2, jTextField3;
@@ -40,12 +35,7 @@ public class CreateProjectView extends JFrame {
     jButton2 = new JButton();
     jTextField1 = new JTextField();
     JPanel jPanel2 = new JPanel();
-    jButton5 = new JButton();
-    jButton6 = new JButton();
-    jButton7 = new JButton();
     jLabel5 = new JLabel();
-    jButton4 = new JButton();
-    jButton3 = new JButton();
     jTextField2 = new JTextField();
     JLabel jLabel6 = new JLabel();
     jTextField3 = new JTextField();
@@ -53,9 +43,9 @@ public class CreateProjectView extends JFrame {
     jMenuItem1.setText("jMenuItem1");
 
     setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-    setResizable(false)
-    ;
-    jPanel1.setBackground(new Color(92, 122, 234));
+    setResizable(false);
+
+    jPanel1.setBackground(new Color(154, 216, 211));
 
     jLabel1.setFont(new Font("SansSerif", Font.PLAIN, 18)); // NOI18N
     jLabel1.setText("Lecturer ID");
@@ -72,72 +62,6 @@ public class CreateProjectView extends JFrame {
     jButton1.setText("Create Project");
     jButton2.setText("Exit");
 
-    jPanel2.setBackground(new Color(230, 230, 230));
-
-    jButton5.setBackground(new Color(230, 230, 230));
-    jButton5.setFont(new Font("SansSerif", Font.PLAIN, 12)); // NOI18N
-    jButton5.setText("Create Account");
-
-    jButton7.setBackground(new Color(230, 230, 230));
-    jButton7.setFont(new Font("SansSerif", Font.PLAIN, 12)); // NOI18N
-    jButton7.setText("Dashboard");
-
-    jButton6.setBackground(new Color(230, 230, 230));
-    jButton6.setFont(new Font("SansSerif", Font.PLAIN, 12)); // NOI18N
-    jButton6.setText("View Reports");
-    jButton6.setOpaque(true);
-
-    jLabel5.setFont(new Font("Segoe UI", Font.PLAIN, 18)); // NOI18N
-    jLabel5.setText("Null");
-
-    jButton4.setBackground(new Color(230, 230, 230));
-    jButton4.setFont(new Font("SansSerif", Font.PLAIN, 14)); // NOI18N
-    jButton4.setForeground(new Color(255, 51, 102));
-    jButton4.setText("Logout");
-
-    jButton3.setBackground(new Color(230, 230, 230));
-    jButton3.setFont(new Font("SansSerif", Font.PLAIN, 12)); // NOI18N
-    jButton3.setText("View Project");
-    jButton3.setOpaque(true);
-
-
-    GroupLayout jPanel2Layout = new GroupLayout(jPanel2);
-    jPanel2.setLayout(jPanel2Layout);
-    jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                            .addContainerGap()
-                            .addGroup(jPanel2Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel5, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jButton7, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jButton3, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jButton5, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jButton6, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addContainerGap())
-                    .addGroup(GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                            .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton4, GroupLayout.PREFERRED_SIZE, 113, GroupLayout.PREFERRED_SIZE)
-                            .addGap(17, 17, 17))
-    );
-    jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
-                    .addGroup(GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                            .addGap(25, 25, 25)
-                            .addComponent(jLabel5, GroupLayout.PREFERRED_SIZE, 25, GroupLayout.PREFERRED_SIZE)
-                            .addGap(87, 87, 87)
-                            .addComponent(jButton7)
-                            .addGap(12, 12, 12)
-                            .addComponent(jButton3)
-                            .addGap(12, 12, 12)
-                            .addComponent(jButton5)
-                            .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(jButton6)
-                            .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 256, Short.MAX_VALUE)
-                            .addComponent(jButton4)
-                            .addContainerGap())
-    );
-
-
     jLabel6.setFont(new Font("SansSerif", Font.PLAIN, 18)); // NOI18N
     jLabel6.setText("Specialization");
 
@@ -147,7 +71,7 @@ public class CreateProjectView extends JFrame {
     jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addComponent(jPanel2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+//                            .addComponent(jPanel2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel1Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
                                     .addGroup(GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                             .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -204,7 +128,7 @@ public class CreateProjectView extends JFrame {
                                     .addComponent(jButton1, GroupLayout.PREFERRED_SIZE, 36, GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jButton2, GroupLayout.PREFERRED_SIZE, 36, GroupLayout.PREFERRED_SIZE))
                             .addContainerGap())
-                    .addComponent(jPanel2, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+//                    .addComponent(jPanel2, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
     );
 
     GroupLayout layout = new GroupLayout(getContentPane());
@@ -229,25 +153,6 @@ public class CreateProjectView extends JFrame {
     return jButton2;
   }
 
-  public JButton getButton3() {
-    return jButton3;
-  }
-
-  public JButton getButton4() {
-    return jButton4;
-  }
-
-  public JButton getButton5() {
-    return jButton5;
-  }
-
-  public JButton getButton6() {
-    return jButton6;
-  }
-
-  public JButton getButton7() {
-    return jButton7;
-  }
 
   public JLabel getOuterName() {
     return jLabel5;

@@ -46,36 +46,38 @@ public class AdminDashboardView extends JFrame {
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
 
-        jPanel1.setBackground(new Color(92, 122, 234));
+        jPanel1.setBackground(new Color(0, 168, 209));
+        jPanel5.setBackground(new Color(235, 252, 255));
 
         label1.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
         label1.setFont(new Font("SansSerif", Font.PLAIN, 36)); // NOI18N
         label1.setForeground(new Color(230, 230, 230));
-        label1.setText("Admin Dashboard");
+        label1.setText("Dashboard");
 
-        jPanel2.setBackground(new Color(230, 230, 230));
+        jPanel2.setBackground(new java.awt.Color(235, 252, 255));
 
-        jButton1.setBackground(new Color(230, 230, 230));
+        jButton1.setBackground(new Color(154, 216, 211));
         jButton1.setFont(new Font("SansSerif", Font.PLAIN, 12)); // NOI18N
         jButton1.setText("Create Account");
 
         jButton5.setBackground(new Color(96, 132, 223));
+        jButton5.setForeground(new Color(235, 252, 255));
         jButton5.setFont(new Font("SansSerif", Font.PLAIN, 12)); // NOI18N
         jButton5.setText("Dashboard");
 
-        jButton2.setBackground(new Color(230, 230, 230));
+        jButton2.setBackground(new Color(154, 216, 211));
         jButton2.setFont(new Font("SansSerif", Font.PLAIN, 12)); // NOI18N
         jButton2.setText("View Reports");
 
         jLabel4.setFont(new Font("Segoe UI", Font.PLAIN, 18)); // NOI18N
         jLabel4.setText("Salah AlHaismawi");
 
-        jButton3.setBackground(new Color(230, 230, 230));
+        jButton3.setBackground(new Color(154, 216, 211));
         jButton3.setFont(new Font("SansSerif", Font.PLAIN, 14)); // NOI18N
         jButton3.setForeground(new Color(255, 51, 102));
         jButton3.setText("Logout");
 
-        jButton4.setBackground(new Color(230, 230, 230));
+        jButton4.setBackground(new Color(154, 216, 211));
         jButton4.setFont(new Font("SansSerif", Font.PLAIN, 12)); // NOI18N
         jButton4.setText("View Project");
         jButton4.setOpaque(true);
@@ -97,7 +99,7 @@ public class AdminDashboardView extends JFrame {
                         .addGroup(GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                                 .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jButton3, GroupLayout.PREFERRED_SIZE, 113, GroupLayout.PREFERRED_SIZE)
-                                .addGap(17, 17, 17))
+                                .addGap(35, 35, 35))
         );
         jPanel2Layout.setVerticalGroup(
                 jPanel2Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
@@ -122,22 +124,21 @@ public class AdminDashboardView extends JFrame {
         jPanel5.setBorder(BorderFactory.createEtchedBorder());
 
         jLabel5.setFont(new Font("SansSerif", Font.PLAIN, 18)); // NOI18N
-        jLabel5.setText("NAme");
 
         String basePath = System.getProperty("user.dir");
         jLabel6.setIcon(new ImageIcon(basePath + "\\Test\\src\\assets\\Man.png"));
 
         jLabel7.setFont(new Font("SansSerif", Font.PLAIN, 18)); // NOI18N
-        jLabel7.setText("Name:");
+        jLabel7.setText("Name");
 
         jLabel8.setFont(new Font("SansSerif", Font.PLAIN, 18)); // NOI18N
-        jLabel8.setText("ID:");
+        jLabel8.setText("User Id:");
 
         jLabel9.setFont(new Font("SansSerif", Font.PLAIN, 18)); // NOI18N
-        jLabel9.setText("E-MAIL:");
+        jLabel9.setText("E-Mail");
 
         jLabel10.setFont(new Font("SansSerif", Font.PLAIN, 18)); // NOI18N
-        jLabel10.setText("PHONE-NUMBER");
+        jLabel10.setText("Phone-Number");
 
         jLabel11.setFont(new Font("SansSerif", Font.PLAIN, 18)); // NOI18N
         jLabel11.setText("ID");

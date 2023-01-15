@@ -21,7 +21,6 @@ public class LecturerDashboardView extends JFrame {
     }
 
     private void initComponents() {
-
         JPanel jPanel1 = new JPanel();
         JLabel jLabel1 = new JLabel();
         JPanel jPanel3 = new JPanel();
@@ -44,33 +43,34 @@ public class LecturerDashboardView extends JFrame {
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
 
-        jPanel1.setBackground(new java.awt.Color(92, 122, 234));
+        jPanel1.setBackground(new Color(0, 168, 209));
+        jPanel5.setBackground(new Color(235, 252, 255));
 
         jLabel1.setFont(new java.awt.Font("SansSerif", Font.PLAIN, 36)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(230, 230, 230));
-        jLabel1.setText("Lecturer Dashboard");
+        jLabel1.setForeground(new Color(230, 230, 230));
+        jLabel1.setText("Dashboard");
 
-        jPanel3.setBackground(new java.awt.Color(230, 230, 230));
+        jPanel3.setBackground(new java.awt.Color(235, 252, 255));
 
-        jButton2.setBackground(new java.awt.Color(230, 230, 230));
+        jButton2.setBackground(new java.awt.Color(154, 216, 211));
         jButton2.setFont(new java.awt.Font("SansSerif", Font.PLAIN, 12)); // NOI18N
         jButton2.setText("Create New Project");
 
-        jButton1.setBackground(new java.awt.Color(230, 230, 230));
+        jButton1.setBackground(new java.awt.Color(154, 216, 211));
         jButton1.setFont(new java.awt.Font("SansSerif", Font.PLAIN, 12)); // NOI18N
         jButton1.setText("View Project");
         jButton1.setOpaque(true);
 
         jButton4.setBackground(new java.awt.Color(96, 132, 223));
+        jButton4.setForeground(new Color(235, 252, 255));
         jButton4.setFont(new java.awt.Font("SansSerif", Font.PLAIN, 12)); // NOI18N
         jButton4.setText("Dashboard");
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", Font.PLAIN, 18)); // NOI18N
-        jLabel4.setText("Salah AlHaismawi");
 
-        jButton3.setBackground(new java.awt.Color(230, 230, 230));
-        jButton3.setFont(new java.awt.Font("SansSerif", Font.PLAIN, 14)); // NOI18N
-        jButton3.setForeground(new java.awt.Color(255, 51, 102));
+        jButton3.setBackground(new Color(154, 216, 211));
+        jButton3.setFont(new Font("SansSerif", Font.PLAIN, 14)); // NOI18N
+        jButton3.setForeground(new Color(255, 51, 102));
         jButton3.setText("Logout");
 
         GroupLayout jPanel3Layout = new GroupLayout(jPanel3);
@@ -109,7 +109,6 @@ public class LecturerDashboardView extends JFrame {
         jPanel5.setBorder(BorderFactory.createEtchedBorder());
 
         jLabel5.setFont(new java.awt.Font("SansSerif", Font.PLAIN, 18)); // NOI18N
-        jLabel5.setText("NAme");
 
         String basePath = System.getProperty("user.dir");
         jLabel6.setIcon(new ImageIcon(basePath + "\\Test\\src\\assets\\Woman.png"));
@@ -118,22 +117,19 @@ public class LecturerDashboardView extends JFrame {
         jLabel7.setText("Name:");
 
         jLabel8.setFont(new java.awt.Font("SansSerif", Font.PLAIN, 18)); // NOI18N
-        jLabel8.setText("ID:");
+        jLabel8.setText("User Id:");
 
         jLabel9.setFont(new java.awt.Font("SansSerif", Font.PLAIN, 18)); // NOI18N
-        jLabel9.setText("E-MAIL:");
+        jLabel9.setText("E-Mail:");
 
         jLabel10.setFont(new java.awt.Font("SansSerif", Font.PLAIN, 18)); // NOI18N
-        jLabel10.setText("PHONE-NUMBER");
+        jLabel10.setText("Phone-Number:");
 
         jLabel11.setFont(new java.awt.Font("SansSerif", Font.PLAIN, 18)); // NOI18N
-        jLabel11.setText("ID");
 
         jLabel12.setFont(new java.awt.Font("SansSerif", Font.PLAIN, 18)); // NOI18N
-        jLabel12.setText("ID");
 
         jLabel3.setFont(new java.awt.Font("SansSerif", Font.PLAIN, 18)); // NOI18N
-        jLabel3.setText("E-MAIL");
 
         GroupLayout jPanel5Layout = new GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
