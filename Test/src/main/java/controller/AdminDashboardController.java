@@ -51,58 +51,28 @@ public class AdminDashboardController {
 
 
     static class NavigatorsListener implements ActionListener{
-        private void jButton1ActionPerformed(ActionEvent e) {
-            // Create Account
-            var createAccountView = CreateAccountView.getInstance();
-            createAccountView.setVisible(true);
-            var createAccountController = CreateAccountController.getInstance(createAccountView);
-
-
-        }
-
-        private void jButton2ActionPerformed(ActionEvent e) {
-            //View Report
-        }
-
-        private void jButton3ActionPerformed(ActionEvent e) {
-            //Logout
-            view.dispose();
-            LoginModel model = LoginModel.getInstance(null, null);
-            LoginView view = new LoginView();
-            LoginController controller = new LoginController(view, model);
-
-            view.setVisible(true);
-        }
-
-        private void jButton4ActionPerformed(ActionEvent e) {
-            //view Project
-            view.dispose();
-//            LoginModel model = LoginModel.getInstance(null, null);
-            AdminProjectsView view = new AdminProjectsView();
-            AdminProjectsController controller = new AdminProjectsController(view);
-
-            view.setVisible(true);
-        }
-
-        private void jButton5ActionPerformed(ActionEvent e){
-            //Dashboard
-        }
-
+        
         @Override
         public void actionPerformed(ActionEvent e) {
-            if (e.getSource() == view.getButton1()) { // Create Account Button
-                jButton1ActionPerformed(e);
-//            } else if (e.getSource() == view.getButton2()) {
-////                jButton2ActionPerformed(e);
-//                System.out.println("Button 2 says hello");
-            } else if (e.getSource() == view.getButton3()) {
+            if (e.getSource() == view.getButton1()) { // Create Account Button Pressed
+                view.dispose();
+                NavBarController.AdminCreateAccountActionPerformed(e); 
+           } else if (e.getSource() == view.getButton2()) { // View Report Button Pressed
+                view.dispose();   
+                NavBarController.AdminViewReportActionPerformed(e);
+                System.out.println("Button 2 says hello");
+            } else if (e.getSource() == view.getButton3()) { // Logout Button Pressed
+                view.dispose();
+                NavBarController.AdminLogoutActionPerformed(e);
                 System.out.println("Button 3 says hello");
-                jButton3ActionPerformed(e);
-            } else if (e.getSource() == view.getButton4()) {
+                
+            } else if (e.getSource() == view.getButton4()) { // View Project Button Pressed
                 System.out.println("Button 4 says hello");
-                jButton4ActionPerformed(e);
-            } else if (e.getSource() == view.getButton5()) {
-                jButton5ActionPerformed(e);
+                view.dispose();
+                NavBarController.AdminViewProjectActionPerformed(e);
+            } else if (e.getSource() == view.getButton5()) { // Dashboard Button Pressed
+                view.dispose();
+                NavBarController.AdminDashboardActionPerformed(e);
             }
 
         }

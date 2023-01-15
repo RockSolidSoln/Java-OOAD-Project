@@ -134,7 +134,7 @@ public class AdminProjectsController {
             } else if (e.getSource() == view.getButton5()) {
                 jButton5ActionPerformed(e);
             } else if (e.getSource() == view.getViewRemarkButton()) {
-                System.out.println("Remark button clicked")
+                System.out.println("Remark button clicked");
                 viewRemark(e);
             } else if (e.getSource() == view.getAddProjectButton()) {
                 addProject(e);

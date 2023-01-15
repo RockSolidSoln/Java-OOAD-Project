@@ -10,7 +10,14 @@ public class LoginView extends JFrame {
     private JButton loginButton, exitButton;
     private JTextField jTextField1;
     private JPasswordField jPasswordField1;
+    private static LoginView singletonInstance;
 
+    public static LoginView getInstance() {
+        if (singletonInstance == null) {
+                singletonInstance = new LoginView();
+        }
+        return singletonInstance;
+    }
     /**
      * Creates new form NewJFrame
      */

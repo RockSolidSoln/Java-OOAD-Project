@@ -13,6 +13,15 @@ import view.StudentDashboardView;
 public class LoginController {
     private final LoginView view;
     private final LoginModel model;
+    private static LoginController singletonInstance;
+
+    public static LoginController getInstance(LoginView view, LoginModel model){
+        if(singletonInstance == null){
+            singletonInstance = new LoginController(view, model);
+        }
+        
+        return singletonInstance;
+    }
 
     public LoginController(LoginView view2, LoginModel model) {
         this.view = view2;

@@ -237,22 +237,26 @@ public class AdminDashboardView extends JFrame {
         pack();
     }
 
+    //Create Account
     public JButton getButton1() {
         return jButton1;
     }
-
+    //View Report
     public JButton getButton2() {
         return jButton2;
     }
 
+    //Logout
     public JButton getButton3() {
         return jButton3;
     }
 
+    //View Project
     public JButton getButton4() {
         return jButton4;
     }
 
+    //Dashboard
     public JButton getButton5() {
         return jButton5;
     }
