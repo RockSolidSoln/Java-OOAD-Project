@@ -4,7 +4,7 @@ package controller;
 import model.LoginModel;
 import model.Project;
 import view.AdminProjectsView;
-import view.CreateAccountView;
+import view.AdminViewRemark;
 import view.CreateProjectView;
 import view.LoginView;
 
@@ -18,7 +18,6 @@ import java.io.IOException;
 
 public class AdminProjectsController {
     private final AdminProjectsView view;
-
     private static AdminProjectsController singletonInstance;
 
     public AdminProjectsController(AdminProjectsView view) {
@@ -99,8 +98,8 @@ public class AdminProjectsController {
                 // get the value of the project ID column
                 String projectID = (String) view.getTable().getValueAt(selectedRow, 0);
                 // redirect to ProjectDetails JFrame here
-                //                    RemarkSection remarkSection = new RemarkSection(projectID);
-                //                    remarkSection.setVisible(true);
+                    AdminViewRemark remarkSection = new AdminViewRemark(projectID);
+                    remarkSection.setVisible(true);
             } else {
                 JOptionPane.showMessageDialog(null, "Please select a row from the table.");
             }
@@ -135,11 +134,12 @@ public class AdminProjectsController {
             } else if (e.getSource() == view.getButton5()) {
                 jButton5ActionPerformed(e);
             } else if (e.getSource() == view.getViewRemarkButton()) {
-                jButton5ActionPerformed(e);
+                System.out.println("Remark button clicked")
+                viewRemark(e);
             } else if (e.getSource() == view.getAddProjectButton()) {
-                jButton5ActionPerformed(e);
+                addProject(e);
             } else if (e.getSource() == view.getProjectDetailsButton()) {
-                jButton5ActionPerformed(e);
+                viewProject(e);
             }
 
         }

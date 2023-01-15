@@ -20,6 +20,7 @@ public class AdminProjectsView extends JFrame {
     private JButton addProjectButton;
     private JButton jButton3, jButton4, jButton5, jButton1, jButton2;
     private JTable jTable1;
+    private JLabel jLabel6;
     private JButton projectDetailsButton;
     private JButton viewRemarkButton;
     // End of variables declaration
@@ -32,7 +33,7 @@ public class AdminProjectsView extends JFrame {
         jButton3 = new JButton();
         jButton4 = new JButton();
         jButton2 = new JButton();
-        JLabel jLabel6 = new JLabel();
+        jLabel6 = new JLabel();
         jButton5 = new JButton();
         jButton1 = new JButton();
         JLabel jLabel1 = new JLabel();

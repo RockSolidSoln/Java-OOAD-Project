@@ -13,13 +13,18 @@ import javax.swing.*;
  */
 public class AdminViewRemark extends JFrame {
 
-    /**
-     * Creates new form AdminViewRemark
-     */
     public AdminViewRemark() {
         initComponents();
     }
-     
+    public AdminViewRemark(String projectID) {
+        this.projectID = projectID;
+        initComponents();
+    }
+
+    private String projectID;
+
+
+
     private void initComponents() {
 
         jPanel1 = new JPanel();
@@ -38,7 +43,8 @@ public class AdminViewRemark extends JFrame {
         backButton = new JButton();
 
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-
+        setResizable(false)
+        ;
         jPanel1.setBackground(new Color(92, 122, 234));
 
         jPanel2.setBackground(new Color(230, 230, 230));
@@ -113,32 +119,6 @@ public class AdminViewRemark extends JFrame {
         commentTextArea.setRows(20);
         jScrollPane1.setViewportView(commentTextArea);
         commentTextArea.setEditable(false);
-        String csvFile = "C:\\Users\\salah\\Documents\\NetBeansProjects\\mavenproject1\\src\\main\\java\\com\\mycompany\\mavenproject1\\newpackage\\comment.csv";
-        BufferedReader br = null;
-        String line = "";
-        String csvSplitBy = ",";
-
-        try {
-            br = new BufferedReader(new FileReader(csvFile));
-            while ((line = br.readLine()) != null) {
-                String[] row = line.split(",");
-                if(row[0].equals(this.projectID)) {
-                    String item2 = row[1];
-                    String item3 = row[2];
-                    commentTextArea.append(item2 + ": " + item3 + "\n");
-                }
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        } finally {
-            if (br != null) {
-                try {
-                    br.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-        }
 
         commentTextField.setBackground(new Color(230, 230, 230));
 
@@ -212,7 +192,9 @@ public class AdminViewRemark extends JFrame {
 
 
     public void readFile() {
-        String csvFile = "C:\\Users\\salah\\Documents\\NetBeansProjects\\mavenproject1\\src\\main\\java\\com\\mycompany\\mavenproject1\\newpackage\\comment.csv";
+        String basePath = System.getProperty("user.dir");
+
+        String csvFile = basePath + "//Test//src//assets//remarks.csv";
         BufferedReader br = null;
         String line = "";
         StringBuilder sb = new StringBuilder();
@@ -246,7 +228,9 @@ public class AdminViewRemark extends JFrame {
 
         // TODO add your handling code here:
         String text = commentTextField.getText();
-        String csvFile = "C:\\Users\\salah\\Documents\\NetBeansProjects\\mavenproject1\\src\\main\\java\\com\\mycompany\\mavenproject1\\newpackage\\comment.csv";
+        String basePath = System.getProperty("user.dir");
+
+        String csvFile = basePath + "//Test//src//assets//remarks.csv";
         FileWriter fw = null;
         try {
             fw = new FileWriter(csvFile, true);
@@ -267,53 +251,6 @@ public class AdminViewRemark extends JFrame {
         }
         // read the file and update the text area
         readFile();
-
-
-
-
-
-
-
-    }
-    private String projectID;
-
-    public AdminViewRemark(String projectID) {
-        this.projectID = projectID;
-        initComponents();
-    }
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
-         */
-        try {
-            for (UIManager.LookAndFeelInfo info : UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(AdminViewRemark.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(AdminViewRemark.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(AdminViewRemark.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(AdminViewRemark.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new AdminViewRemark().setVisible(true);
-            }
-        });
     }
 
     // Variables declaration - do not modify                     
@@ -331,5 +268,11 @@ public class AdminViewRemark extends JFrame {
     private JLabel projectIdLabel;
     private JLabel projectNameLabel;
     private JButton publishCommentButton;
-    // End of variables declaration                   
+    // End of variables declaration
+    public String getProjectId() {
+        return projectID;
+    }
+    public JTextArea getComment() {
+        return commentTextArea;
+    }
 }
