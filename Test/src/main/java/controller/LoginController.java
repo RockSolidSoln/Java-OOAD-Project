@@ -35,7 +35,6 @@ public class LoginController {
 
             
             if (loginSuccess) {
-                view.displayLoginSuccessMessage();
                 if(userId.charAt(0) == 'A'){
                     view.dispose(); 
                     var adminDashboardview = AdminDashboardView.getInstance();

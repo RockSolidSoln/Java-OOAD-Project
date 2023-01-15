@@ -42,7 +42,7 @@ public class LoginView extends JFrame {
 
         JLabel passwordLabel = new JLabel("Password");
         passwordLabel.setFont(new Font("Segue UI", Font.PLAIN, 20)); // NOI18N
-        JLabel userIdLabel = new JLabel("userId");
+        JLabel userIdLabel = new JLabel("User Id");
         userIdLabel.setFont(new Font("Segue UI", Font.PLAIN, 20)); // NOI18N
         JLabel headingLabel = new JLabel("MMUProject");
         headingLabel.setFont(new Font("Segue UI", Font.PLAIN, 20)); // NOI18N
@@ -100,9 +100,9 @@ public class LoginView extends JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(26, 26, 26)
+                .addGap(20, 20, 20)
                 .addComponent(headingLabel, GroupLayout.PREFERRED_SIZE, 266, GroupLayout.PREFERRED_SIZE)
-                .addComponent(imageLabel, GroupLayout.PREFERRED_SIZE, 220, GroupLayout.PREFERRED_SIZE)
+//                .addComponent(imageLabel, GroupLayout.PREFERRED_SIZE, 100, GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 103, Short.MAX_VALUE)
                 .addComponent(jPanel2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
         );
@@ -114,7 +114,7 @@ public class LoginView extends JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(0, 0, 0)
                 .addComponent(headingLabel, GroupLayout.PREFERRED_SIZE, 149, GroupLayout.PREFERRED_SIZE)
-                .addComponent(imageLabel, GroupLayout.PREFERRED_SIZE, 400, GroupLayout.PREFERRED_SIZE)
+//                .addComponent(imageLabel, GroupLayout.PREFERRED_SIZE, 400, GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -152,11 +152,6 @@ public class LoginView extends JFrame {
 
     public char[] getPassword() {
         return jPasswordField1.getPassword();
-    }
-
-    public void displayLoginSuccessMessage() {
-        JOptionPane.showMessageDialog(null, "Login successful!", "Login Success", JOptionPane.INFORMATION_MESSAGE);
-        
     }
 
     public void displayLoginFailureMessage() {

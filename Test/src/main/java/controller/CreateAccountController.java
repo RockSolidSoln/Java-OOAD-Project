@@ -8,8 +8,8 @@ import java.awt.event.ActionListener;
 public class CreateAccountController {
     private static CreateAccountController singletonInstance;
     private static CreateAccountView view;
-    private static Admin adminModel;
-    p
+//    private static Admin adminModel;
+
 
     public CreateAccountController(CreateAccountView view){
         this.view = view;

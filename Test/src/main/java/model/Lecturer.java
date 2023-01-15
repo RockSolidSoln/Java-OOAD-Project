@@ -1,5 +1,5 @@
 package model;
 
-public class Lecturer extends User{
-    
-}
+//public class Lecturer extends User{
+//
+//}

@@ -7,9 +7,9 @@ import java.awt.event.*;
 
 public class AdminDashboardView extends JFrame {
 
-    private JButton jButton1, jButton2, jButton3, jButton4;
+    private JButton jButton1, jButton2, jButton3, jButton4, jButton5;
     private static AdminDashboardView singletonInstance;
-
+    private JLabel jLabel5, jLabel4, jLabel11, jLabel12, jLabel3;
     public AdminDashboardView() {
         initComponents();
     }
@@ -28,19 +28,20 @@ public class AdminDashboardView extends JFrame {
         JPanel jPanel2 = new JPanel();
         jButton1 = new JButton();
         jButton2 = new JButton();
-        JLabel jLabel4 = new JLabel();
+        jButton5 = new JButton();
+        jLabel4 = new JLabel();
         jButton3 = new JButton();
         jButton4 = new JButton();
         JPanel jPanel5 = new JPanel();
-        JLabel jLabel5 = new JLabel();
+        jLabel5 = new JLabel();
         JLabel jLabel6 = new JLabel();
         JLabel jLabel7 = new JLabel();
         JLabel jLabel8 = new JLabel();
         JLabel jLabel9 = new JLabel();
         JLabel jLabel10 = new JLabel();
-        JLabel jLabel11 = new JLabel();
-        JLabel jLabel12 = new JLabel();
-        JLabel jLabel3 = new JLabel();
+        jLabel11 = new JLabel();
+        jLabel12 = new JLabel();
+        jLabel3 = new JLabel();
         
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -58,10 +59,13 @@ public class AdminDashboardView extends JFrame {
         jButton1.setFont(new Font("SansSerif", Font.PLAIN, 12)); // NOI18N
         jButton1.setText("Create Account");
 
+        jButton5.setBackground(new Color(230, 230, 230));
+        jButton5.setFont(new Font("SansSerif", Font.PLAIN, 12)); // NOI18N
+        jButton5.setText("Dashboard");
+
         jButton2.setBackground(new Color(230, 230, 230));
         jButton2.setFont(new Font("SansSerif", Font.PLAIN, 12)); // NOI18N
         jButton2.setText("View Reports");
-//        jButton2.setOpaque(true);
 
         jLabel4.setFont(new Font("Segoe UI", Font.PLAIN, 18)); // NOI18N
         jLabel4.setText("Salah AlHaismawi");
@@ -85,6 +89,7 @@ public class AdminDashboardView extends JFrame {
                                 .addContainerGap()
                                 .addGroup(jPanel2Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
                                         .addComponent(jLabel4, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(jButton5, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addComponent(jButton4, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addComponent(jButton1, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addComponent(jButton2, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -100,6 +105,9 @@ public class AdminDashboardView extends JFrame {
                                 .addGap(25, 25, 25)
                                 .addComponent(jLabel4, GroupLayout.PREFERRED_SIZE, 25, GroupLayout.PREFERRED_SIZE)
                                 .addGap(87, 87, 87)
+
+                                .addComponent(jButton5)
+                                .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(jButton4)
                                 .addGap(12, 12, 12)
                                 .addComponent(jButton1)
@@ -107,6 +115,7 @@ public class AdminDashboardView extends JFrame {
                                 .addComponent(jButton2)
                                 .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jButton3)
+
                                 .addContainerGap())
         );
 
@@ -242,4 +251,19 @@ public class AdminDashboardView extends JFrame {
     public JButton getButton4() {
         return jButton4;
     }
+
+    public JButton getButton5() {
+        return jButton5;
+    }
+
+    public JLabel getNameField(){ return jLabel5; }
+
+    public JLabel getIDField(){ return jLabel11; }
+
+    public JLabel getNavNameField(){ return jLabel4; }
+
+    public JLabel getPhoneField(){ return jLabel12; }
+
+    public JLabel getEmailField(){ return jLabel3; }
+
 }
