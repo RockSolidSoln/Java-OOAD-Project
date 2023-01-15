@@ -59,32 +59,33 @@ public class StudentDashboardView extends JFrame {
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
 
-        jPanel1.setBackground(new Color(92, 122, 234));
+        jPanel1.setBackground(new Color(0, 168, 209));
+        jPanel5.setBackground(new Color(235, 252, 255));
 
-        jLabel1.setBackground(new Color(230, 230, 230));
         jLabel1.setFont(new Font("SansSerif", Font.PLAIN, 36)); // NOI18N
         jLabel1.setForeground(new Color(230, 230, 230));
-        jLabel1.setText("Student Dashboard");
+        jLabel1.setText("Dashboard");
 
-        jPanel2.setBackground(new Color(230, 230, 230));
+        jPanel2.setBackground(new java.awt.Color(235, 252, 255));
 
-        jButton3.setBackground(new Color(230, 230, 230));
+        jButton3.setBackground(new Color(154, 216, 211));
         jButton3.setFont(new Font("SansSerif", Font.PLAIN, 12)); // NOI18N
         jButton3.setText("View Available Projects");
 
-        jButton1.setBackground(new Color(230, 230, 230));
+        jButton1.setBackground(new Color(154, 216, 211));
         jButton1.setFont(new Font("SansSerif", Font.PLAIN, 12)); // NOI18N
         jButton1.setText("View My Project");
         jButton1.setOpaque(true);
 
         jButton4.setBackground(new Color(96, 132, 223));
+        jButton4.setForeground(new Color(235, 252, 255));
         jButton4.setFont(new Font("SansSerif", Font.PLAIN, 12)); // NOI18N
         jButton4.setText("Dashboard");
 
         jLabel4.setFont(new Font("Segoe UI", Font.PLAIN, 18)); // NOI18N
         jLabel4.setText("Salah AlHaismawi");
 
-        jButton2.setBackground(new Color(230, 230, 230));
+        jButton2.setBackground(new Color(154, 216, 211));
         jButton2.setFont(new Font("SansSerif", Font.PLAIN, 14)); // NOI18N
         jButton2.setForeground(new Color(255, 51, 102));
         jButton2.setText("Logout");
@@ -127,7 +128,7 @@ public class StudentDashboardView extends JFrame {
         jPanel5.setBorder(BorderFactory.createEtchedBorder());
 
         jLabel5.setFont(new Font("SansSerif", Font.PLAIN, 18)); // NOI18N
-        jLabel5.setText("NAme");
+        jLabel5.setText("NaA001me");
 
         String basePath = System.getProperty("user.dir");
         jLabel6.setIcon(new ImageIcon(basePath + "\\Test\\src\\assets\\Student.png"));

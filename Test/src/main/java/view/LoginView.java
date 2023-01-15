@@ -32,11 +32,11 @@ public class LoginView extends JFrame {
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
 
-        jPanel1.setBackground(new Color(92, 122, 234));
+        jPanel1.setBackground(new Color(0, 168, 209));
 
-        jPanel2.setBackground(new Color(230, 230, 230));
+        jPanel2.setBackground(new Color(235, 252, 255));
 
-        loginButton.setBackground(new Color(92, 122, 234));
+        loginButton.setBackground(new Color(0, 168, 209));
         loginButton.setForeground(new Color(255, 255, 255));
         loginButton.setText("Login");
 
@@ -50,7 +50,7 @@ public class LoginView extends JFrame {
         String basePath = System.getProperty("user.dir");
         imageLabel.setIcon(new ImageIcon(basePath + "\\Test\\src\\assets\\Man.png"));
 
-        exitButton.setBackground(new Color(92, 122, 234));
+        exitButton.setBackground(new Color(0, 168, 209));
         exitButton.setForeground(new Color(255, 255, 255));
         exitButton.setText("Exit");
 
@@ -63,7 +63,7 @@ public class LoginView extends JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(exitButton, GroupLayout.PREFERRED_SIZE, 107, GroupLayout.PREFERRED_SIZE)
-                        .addGap(284, 284, 284)
+                        .addGap(184, 184, 184)
                         .addComponent(loginButton, GroupLayout.PREFERRED_SIZE, 107, GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createParallelGroup(GroupLayout.Alignment.LEADING, false)
                         .addComponent(userIdLabel, GroupLayout.PREFERRED_SIZE, 198, GroupLayout.PREFERRED_SIZE)
@@ -100,7 +100,7 @@ public class LoginView extends JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(20, 20, 20)
+                .addGap(0, 0, 0)
                 .addComponent(headingLabel, GroupLayout.PREFERRED_SIZE, 266, GroupLayout.PREFERRED_SIZE)
 //                .addComponent(imageLabel, GroupLayout.PREFERRED_SIZE, 100, GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 103, Short.MAX_VALUE)

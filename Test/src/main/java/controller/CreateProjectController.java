@@ -21,10 +21,7 @@ public class CreateProjectController {
 
         view.getButton1().addActionListener(new CreateProjectController.NavigatorsListener());
         view.getButton2().addActionListener(new CreateProjectController.NavigatorsListener());
-        view.getButton3().addActionListener(new CreateProjectController.NavigatorsListener());
-        view.getButton4().addActionListener(new CreateProjectController.NavigatorsListener());
-        view.getButton5().addActionListener(new CreateProjectController.NavigatorsListener());
-        view.getButton6().addActionListener(new CreateProjectController.NavigatorsListener());
+
 
         List<String> lecturers = CreateProjectModel.getlecturer();
         for (String lecturer : lecturers) {
@@ -66,32 +63,6 @@ public class CreateProjectController {
             // TODO add your handling code here:
         }
 
-        private void jButton3ActionPerformed(ActionEvent e) {
-
-        }
-
-        private void jButton4ActionPerformed(ActionEvent e) {
-            //Logout
-            view.dispose();
-            LoginModel model = LoginModel.getInstance(null, null);
-            LoginView view = new LoginView();
-            LoginController controller = new LoginController(view, model);
-
-            view.setVisible(true);
-        }
-
-        private void jButton5ActionPerformed(ActionEvent e) {
-            // TODO add your handling code here:
-        }
-
-        private void jButton6ActionPerformed(ActionEvent e) {
-            // TODO add your handling code here:
-        }
-
-        private void jButton7ActionPerformed(ActionEvent e) {
-            // Dashboard
-        }
-
         @Override
         public void actionPerformed(ActionEvent e) {
             if (e.getSource() == view.getButton1()) {
@@ -100,21 +71,6 @@ public class CreateProjectController {
             } else if (e.getSource() == view.getButton2()) {
                 System.out.println("Button 2 says hello");
                 jButton2ActionPerformed(e);
-            } else if (e.getSource() == view.getButton3()) {
-                System.out.println("Button 3 says hello");
-                jButton3ActionPerformed(e);
-            } else if (e.getSource() == view.getButton4()) {
-                System.out.println("Button 4 says hello");
-                jButton4ActionPerformed(e);
-            } else if (e.getSource() == view.getButton5()) {
-                System.out.println("Button 5 says hello");
-                jButton5ActionPerformed(e);
-            } else if (e.getSource() == view.getButton6()) {
-                System.out.println("Button 6 says hello");
-                jButton6ActionPerformed(e);
-            } else if (e.getSource() == view.getButton7()) {
-                System.out.println("Button 7 says hello");
-                jButton7ActionPerformed(e);
             }
 
         }

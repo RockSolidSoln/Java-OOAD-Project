@@ -7,6 +7,7 @@ import java.util.Objects;
 
 import model.Database;
 import model.LoginModel;
+import view.LoginView;
 import view.StudentDashboardView;
 
 public class StudentDashboardController {
@@ -59,7 +60,13 @@ public class StudentDashboardController {
         }
 
         private void jButton3ActionPerformed(ActionEvent e) {
-            // TODO add your handling code here:
+            //Logout
+            view.dispose();
+            LoginModel model = LoginModel.getInstance(null, null);
+            LoginView view = new LoginView();
+            LoginController controller = new LoginController(view, model);
+
+            view.setVisible(true);
         }
 
 
@@ -70,7 +77,7 @@ public class StudentDashboardController {
             } else if (e.getSource() == view.getButton2()) {
                 System.out.println("Button 2 says hello");
             } else if (e.getSource() == view.getButton3()) {
-                System.out.println("Button 3 says hello");
+                jButton3ActionPerformed(e);
             }
         }
     }
