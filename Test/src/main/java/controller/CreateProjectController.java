@@ -42,13 +42,24 @@ public class CreateProjectController {
     static class NavigatorsListener implements ActionListener {
         private void jButton1ActionPerformed(ActionEvent e) {
             // After clicking the save button
-            System.out.println(view.getLecturerId());
-            model.setLecturer(view.getLecturerId());
-            model.setProjectName(view.getProject());
-            model.setSpecialization(view.getSpecialization());
-            model.setDescription(view.getDescription());
+            String lecturer = view.getLecturerId();
+            String project = view.getProject();
+            String specialization = view.getSpecialization();
+            String setDescription = view.getDescription();
+            if(lecturer.isEmpty() || project.isEmpty() || specialization.isEmpty() || setDescription.isEmpty()) {
+                // Display an error message
+                JOptionPane.showMessageDialog(null, "Please fill out all fields.", "Error", JOptionPane.ERROR_MESSAGE);
+            }
+            else{
+                model.setLecturer(lecturer);
+                model.setProjectName(project);
+                model.setSpecialization(specialization);
+                model.setDescription(setDescription);
 
-            model.saveProject();
+                model.saveProject();
+                JOptionPane.showMessageDialog(null, "The Project was successfully saved.", "Success", JOptionPane.INFORMATION_MESSAGE);
+            }
+
         }
 
         private void jButton2ActionPerformed(ActionEvent e) {
@@ -77,6 +88,10 @@ public class CreateProjectController {
             // TODO add your handling code here:
         }
 
+        private void jButton7ActionPerformed(ActionEvent e) {
+            // Dashboard
+        }
+
         @Override
         public void actionPerformed(ActionEvent e) {
             if (e.getSource() == view.getButton1()) {
@@ -84,6 +99,7 @@ public class CreateProjectController {
                 jButton1ActionPerformed(e);
             } else if (e.getSource() == view.getButton2()) {
                 System.out.println("Button 2 says hello");
+                jButton2ActionPerformed(e);
             } else if (e.getSource() == view.getButton3()) {
                 System.out.println("Button 3 says hello");
                 jButton3ActionPerformed(e);
@@ -92,8 +108,13 @@ public class CreateProjectController {
                 jButton4ActionPerformed(e);
             } else if (e.getSource() == view.getButton5()) {
                 System.out.println("Button 5 says hello");
+                jButton5ActionPerformed(e);
             } else if (e.getSource() == view.getButton6()) {
                 System.out.println("Button 6 says hello");
+                jButton6ActionPerformed(e);
+            } else if (e.getSource() == view.getButton7()) {
+                System.out.println("Button 7 says hello");
+                jButton7ActionPerformed(e);
             }
 
         }

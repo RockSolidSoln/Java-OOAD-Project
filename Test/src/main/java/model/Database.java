@@ -4,7 +4,10 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.List;
 
 public class Database {
     public static void FilewriteBack(String path, ArrayList<String> lines){
@@ -27,4 +30,26 @@ public class Database {
             System.err.println("IOException: " + ioe.getMessage()); /*if failed to write to file*/
         }
     }
+
+    /**This method Read Credentials from the file and return the credentials in another Array List*/
+    public static List<String> readFile(String path){
+        List<String> lines = null;                 /*to read already stored credentials data*/
+        try{
+            String basePath = System.getProperty("user.dir");
+            lines = Files.readAllLines(Paths.get(basePath + path)); //read from credentials file
+
+//            for (String line : lines) {
+//                String[] items = line.split(","); //split the comma, store every word in an array
+//                username = items[0];    //stores username
+//                String password = items[1];    // stores password
+//                credentials.add(username + " " + password); //add it in the credentials array with a space
+//            }
+        }catch(Exception e){
+            /*If unable to read credentials from the files*/
+            System.out.println("Unable to read Credentials from file");
+        }
+        /*return credentials to check*/
+        return lines;
+    }
+    //------------------------------------------------------------------------------------
 }

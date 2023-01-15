@@ -7,7 +7,8 @@ import java.awt.event.*;
 
 public class StudentDashboardView extends JFrame {
 
-    private JButton jButton2, jButton3, jButton1;
+    private JButton jButton2, jButton3, jButton1, jButton4;
+    private JLabel jLabel5, jLabel4, jLabel11, jLabel12, jLabel3;
     private static StudentDashboardView singletonInstance;
 
     /**
@@ -33,19 +34,20 @@ public class StudentDashboardView extends JFrame {
         JPanel jPanel2 = new JPanel();
         jButton3 = new JButton();
         jButton1 = new JButton();
-        JLabel jLabel4 = new JLabel();
+        jLabel4 = new JLabel();
         jButton2 = new JButton();
+        jButton4 = new JButton();
         JPanel jPanel4 = new JPanel();
         JPanel jPanel5 = new JPanel();
-        JLabel jLabel5 = new JLabel();
+        jLabel5 = new JLabel();
         JLabel jLabel6 = new JLabel();
         JLabel jLabel7 = new JLabel();
         JLabel jLabel8 = new JLabel();
         JLabel jLabel9 = new JLabel();
         JLabel jLabel10 = new JLabel();
-        JLabel jLabel11 = new JLabel();
-        JLabel jLabel12 = new JLabel();
-        JLabel jLabel3 = new JLabel();
+        jLabel11 = new JLabel();
+        jLabel12 = new JLabel();
+        jLabel3 = new JLabel();
         JPanel jPanel3 = new JPanel();
 
         list1.setName(""); // NOI18N
@@ -75,6 +77,10 @@ public class StudentDashboardView extends JFrame {
         jButton1.setText("View My Project");
         jButton1.setOpaque(true);
 
+        jButton4.setBackground(new Color(96, 132, 223));
+        jButton4.setFont(new Font("SansSerif", Font.PLAIN, 12)); // NOI18N
+        jButton4.setText("Dashboard");
+
         jLabel4.setFont(new Font("Segoe UI", Font.PLAIN, 18)); // NOI18N
         jLabel4.setText("Salah AlHaismawi");
 
@@ -94,6 +100,7 @@ public class StudentDashboardView extends JFrame {
                                         .addGroup(jPanel2Layout.createSequentialGroup()
                                                 .addGroup(jPanel2Layout.createParallelGroup(GroupLayout.Alignment.LEADING, false)
                                                         .addComponent(jButton1, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                        .addComponent(jButton4, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                                         .addComponent(jButton3, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                                         .addComponent(jButton2, GroupLayout.Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                                 .addGap(0, 0, Short.MAX_VALUE)))
@@ -105,6 +112,8 @@ public class StudentDashboardView extends JFrame {
                                 .addGap(25, 25, 25)
                                 .addComponent(jLabel4, GroupLayout.PREFERRED_SIZE, 25, GroupLayout.PREFERRED_SIZE)
                                 .addGap(87, 87, 87)
+                                .addComponent(jButton4)
+                                .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(jButton1)
                                 .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jButton3)
@@ -121,7 +130,7 @@ public class StudentDashboardView extends JFrame {
         jLabel5.setText("NAme");
 
         String basePath = System.getProperty("user.dir");
-        jLabel6.setIcon(new ImageIcon(basePath + "\\Test\\src\\assets\\Man.png"));
+        jLabel6.setIcon(new ImageIcon(basePath + "\\Test\\src\\assets\\Student.png"));
 
         jLabel7.setFont(new Font("SansSerif", Font.PLAIN, 18)); // NOI18N
         jLabel7.setText("Name:");
@@ -283,5 +292,18 @@ public class StudentDashboardView extends JFrame {
     public JButton getButton3() {
         return jButton3;
     }
-     
+
+    public JButton getButton4() {
+        return jButton4;
+    }
+
+    public JLabel getNameField(){ return jLabel5; }
+
+    public JLabel getIDField(){ return jLabel11; }
+
+    public JLabel getNavNameField(){ return jLabel4; }
+
+    public JLabel getPhoneField(){ return jLabel12; }
+
+    public JLabel getEmailField(){ return jLabel3; }
 }

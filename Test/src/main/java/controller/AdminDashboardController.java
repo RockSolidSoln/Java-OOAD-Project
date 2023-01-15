@@ -2,8 +2,11 @@ package controller;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.List;
+import java.util.Objects;
 
 import model.CreateProjectModel;
+import model.Database;
 import model.LoginModel;
 import view.AdminDashboardView;
 import view.CreateProjectView;
@@ -22,6 +25,24 @@ public class AdminDashboardController {
         view.getButton2().addActionListener(new NavigatorsListener());
         view.getButton3().addActionListener(new NavigatorsListener());
         view.getButton4().addActionListener(new NavigatorsListener());
+
+        List<String> informations = Database.readFile("\\Test\\src\\assets\\admin.csv");
+        for (String line : informations) {
+            String[] items = line.split(","); //split the comma, store every word in an array
+            if(Objects.equals(LoginModel.getUserId(), items[0])) {
+                String Id = items[0];
+                String username = items[1];    //stores username
+                String email = items[2];    // stores password
+                String phone = items[4]; // stores
+
+                view.getNameField().setText(username);
+                view.getEmailField().setText(email);
+                view.getPhoneField().setText(phone);
+                view.getIDField().setText(Id);
+                view.getNavNameField().setText(username);
+            }
+
+        }
     }
 
     public static AdminDashboardController getInstance(AdminDashboardView view) {
@@ -34,15 +55,16 @@ public class AdminDashboardController {
 
     static class NavigatorsListener implements ActionListener{
         private void jButton1ActionPerformed(ActionEvent e) {
-            // TODO add your handling code here:
+            // View Project
 
         }
 
         private void jButton2ActionPerformed(ActionEvent e) {
-            // TODO add your handling code here:
+            //View Report
         }
 
         private void jButton3ActionPerformed(ActionEvent e) {
+            //Logout
             view.dispose();
             LoginModel model = LoginModel.getInstance(null, null);
             LoginView view = new LoginView();
@@ -52,14 +74,18 @@ public class AdminDashboardController {
         }
 
         private void jButton4ActionPerformed(ActionEvent e) {
-            // TODO add your handling code here:
+            //Create Account
             view.dispose();
-         //   CreateProjectModel model = CreateProjectModel.getInstance();
-         //   CreateProjectView view = new CreateProjectView();
-          //  CreateProjectController controller = new CreateProjectController(view, model);
+            CreateProjectModel model = CreateProjectModel.getInstance();
+            CreateProjectView view = new CreateProjectView();
+            CreateProjectController controller = new CreateProjectController(view, model);
 
             view.setVisible(true);
 
+        }
+
+        private void jButton5ActionPerformed(ActionEvent e){
+            //Dashboard
         }
 
         @Override
@@ -79,6 +105,8 @@ public class AdminDashboardController {
             } else if (e.getSource() == view.getButton4()) {
                 System.out.println("Button 4 says hello");
                 jButton4ActionPerformed(e);
+            } else if (e.getSource() == view.getButton5()) {
+                jButton5ActionPerformed(e);
             }
 
         }
