@@ -5,6 +5,7 @@ import model.LoginModel;
 import model.Project;
 import view.AdminProjectsView;
 import view.CreateAccountView;
+import view.CreateProjectView;
 import view.LoginView;
 
 import javax.swing.*;
@@ -89,16 +90,33 @@ public class AdminProjectsController {
         }
 
         private void jButton5ActionPerformed(ActionEvent e){
+
+        }
+
+        private void viewRemark(ActionEvent e) {
             int selectedRow = view.getTable().getSelectedRow();
             if (selectedRow != -1) {
                 // get the value of the project ID column
                 String projectID = (String) view.getTable().getValueAt(selectedRow, 0);
                 // redirect to ProjectDetails JFrame here
-    //                    RemarkSection remarkSection = new RemarkSection(projectID);
-    //                    remarkSection.setVisible(true);
+                //                    RemarkSection remarkSection = new RemarkSection(projectID);
+                //                    remarkSection.setVisible(true);
             } else {
                 JOptionPane.showMessageDialog(null, "Please select a row from the table.");
             }
+
+        }
+
+        private void addProject(ActionEvent e) {
+            //Adding project in the database
+            CreateProjectView new_view = new CreateProjectView();
+            Project model = Project.getInstance();
+            CreateProjectController controller = new CreateProjectController(new_view, model);
+
+            new_view.setVisible(true);
+        }
+
+        private void viewProject(ActionEvent e) {
 
         }
 
@@ -115,6 +133,12 @@ public class AdminProjectsController {
                 System.out.println("Button 4 says hello");
                 jButton4ActionPerformed(e);
             } else if (e.getSource() == view.getButton5()) {
+                jButton5ActionPerformed(e);
+            } else if (e.getSource() == view.getViewRemarkButton()) {
+                jButton5ActionPerformed(e);
+            } else if (e.getSource() == view.getAddProjectButton()) {
+                jButton5ActionPerformed(e);
+            } else if (e.getSource() == view.getProjectDetailsButton()) {
                 jButton5ActionPerformed(e);
             }
 

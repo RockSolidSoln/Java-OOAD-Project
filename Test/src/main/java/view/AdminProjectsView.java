@@ -53,7 +53,7 @@ public class AdminProjectsView extends JFrame {
                         {null, null, null, null, null}
                 },
                 new String [] {
-                        "Project ID", "Project Name", "Project Specialization", "Lecturer ID", "Status"
+                        "Project ID", "Project Name", "Lecturer Id", "Project Specialization", "Details"
                 }
         ) {
             final Class[] types = new Class [] {
@@ -72,8 +72,6 @@ public class AdminProjectsView extends JFrame {
             }
         });
         jScrollPane1.setViewportView(jTable1);
-
-
 
         jPanel4.setBackground(new Color(235, 252, 255));
 
@@ -190,23 +188,6 @@ public class AdminProjectsView extends JFrame {
                                                 .addComponent(addProjectButton)))
                                 .addContainerGap())
         );
-
-        viewRemarkButton.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent evt) {
-                int selectedRow = jTable1.getSelectedRow();
-                if (selectedRow != -1) {
-                    // get the value of the project ID column
-                    String projectID = (String) jTable1.getValueAt(selectedRow, 0);
-                    // redirect to ProjectDetails JFrame here
-//                    RemarkSection remarkSection = new RemarkSection(projectID);
-//                    remarkSection.setVisible(true);
-                } else {
-                    // show a pop-up message
-                    JOptionPane.showMessageDialog(null, "Please select a row from the table.");
-                }
-            }
-        });
-
 
         GroupLayout layout = new GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
