@@ -59,7 +59,7 @@ public class AdminDashboardView extends JFrame {
         jButton1.setFont(new Font("SansSerif", Font.PLAIN, 12)); // NOI18N
         jButton1.setText("Create Account");
 
-        jButton5.setBackground(new Color(230, 230, 230));
+        jButton5.setBackground(new Color(96, 132, 223));
         jButton5.setFont(new Font("SansSerif", Font.PLAIN, 12)); // NOI18N
         jButton5.setText("Dashboard");
 

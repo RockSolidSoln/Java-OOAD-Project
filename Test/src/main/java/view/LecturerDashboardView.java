@@ -61,6 +61,10 @@ public class LecturerDashboardView extends JFrame {
         jButton1.setText("View Project");
         jButton1.setOpaque(true);
 
+        jButton4.setBackground(new java.awt.Color(96, 132, 223));
+        jButton4.setFont(new java.awt.Font("SansSerif", Font.PLAIN, 12)); // NOI18N
+        jButton4.setText("Dashboard");
+
         jLabel4.setFont(new java.awt.Font("Segoe UI", Font.PLAIN, 18)); // NOI18N
         jLabel4.setText("Salah AlHaismawi");
 
@@ -79,6 +83,7 @@ public class LecturerDashboardView extends JFrame {
                                         .addComponent(jLabel4, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addGroup(jPanel3Layout.createSequentialGroup()
                                                 .addGroup(jPanel3Layout.createParallelGroup(GroupLayout.Alignment.LEADING, false)
+                                                        .addComponent(jButton4, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                                         .addComponent(jButton1, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                                         .addComponent(jButton2, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                                         .addComponent(jButton3, GroupLayout.Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -91,6 +96,8 @@ public class LecturerDashboardView extends JFrame {
                                 .addGap(25, 25, 25)
                                 .addComponent(jLabel4, GroupLayout.PREFERRED_SIZE, 25, GroupLayout.PREFERRED_SIZE)
                                 .addGap(87, 87, 87)
+                                .addComponent(jButton4)
+                                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jButton1)
                                 .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jButton2)
@@ -105,7 +112,7 @@ public class LecturerDashboardView extends JFrame {
         jLabel5.setText("NAme");
 
         String basePath = System.getProperty("user.dir");
-        jLabel6.setIcon(new ImageIcon(basePath + "\\Test\\src\\assets\\Man.png"));
+        jLabel6.setIcon(new ImageIcon(basePath + "\\Test\\src\\assets\\Woman.png"));
 
         jLabel7.setFont(new java.awt.Font("SansSerif", Font.PLAIN, 18)); // NOI18N
         jLabel7.setText("Name:");

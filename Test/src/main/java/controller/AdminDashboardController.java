@@ -3,6 +3,7 @@ package controller;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.List;
+import java.util.Objects;
 
 import model.CreateProjectModel;
 import model.Database;
@@ -28,16 +29,19 @@ public class AdminDashboardController {
         List<String> informations = Database.readFile("\\Test\\src\\assets\\admin.csv");
         for (String line : informations) {
             String[] items = line.split(","); //split the comma, store every word in an array
-            String Id = items[0];
-            String username = items[1];    //stores username
-            String email = items[2];    // stores password
-            String phone = items[4]; // stores
+            if(Objects.equals(LoginModel.getUserId(), items[0])) {
+                String Id = items[0];
+                String username = items[1];    //stores username
+                String email = items[2];    // stores password
+                String phone = items[4]; // stores
 
-            view.getNameField().setText(username);
-            view.getEmailField().setText(email);
-            view.getPhoneField().setText(phone);
-            view.getIDField().setText(Id);
-            view.getNavNameField().setText(username);
+                view.getNameField().setText(username);
+                view.getEmailField().setText(email);
+                view.getPhoneField().setText(phone);
+                view.getIDField().setText(Id);
+                view.getNavNameField().setText(username);
+            }
+
         }
     }
 
@@ -72,9 +76,9 @@ public class AdminDashboardController {
         private void jButton4ActionPerformed(ActionEvent e) {
             //Create Account
             view.dispose();
-         //   CreateProjectModel model = CreateProjectModel.getInstance();
-         //   CreateProjectView view = new CreateProjectView();
-          //  CreateProjectController controller = new CreateProjectController(view, model);
+            CreateProjectModel model = CreateProjectModel.getInstance();
+            CreateProjectView view = new CreateProjectView();
+            CreateProjectController controller = new CreateProjectController(view, model);
 
             view.setVisible(true);
 

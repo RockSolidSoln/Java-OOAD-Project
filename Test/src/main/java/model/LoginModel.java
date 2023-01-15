@@ -5,7 +5,7 @@ import java.awt.event.ActionListener;
 import java.io.*;
 
 public class LoginModel {
-    public String userId;
+    public static String userId;
     public String password;
     private static LoginModel singletonInstance;
     LoginModel(String userId, String password){
@@ -22,6 +22,10 @@ public class LoginModel {
 
     public void setUserId(String userId) {
         this.userId = userId;
+    }
+
+    public static String getUserId() {
+        return userId;
     }
 
     public void setPassword(String password) {

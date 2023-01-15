@@ -77,7 +77,7 @@ public class StudentDashboardView extends JFrame {
         jButton1.setText("View My Project");
         jButton1.setOpaque(true);
 
-        jButton4.setBackground(new Color(230, 230, 230));
+        jButton4.setBackground(new Color(96, 132, 223));
         jButton4.setFont(new Font("SansSerif", Font.PLAIN, 12)); // NOI18N
         jButton4.setText("Dashboard");
 
@@ -130,7 +130,7 @@ public class StudentDashboardView extends JFrame {
         jLabel5.setText("NAme");
 
         String basePath = System.getProperty("user.dir");
-        jLabel6.setIcon(new ImageIcon(basePath + "\\Test\\src\\assets\\Man.png"));
+        jLabel6.setIcon(new ImageIcon(basePath + "\\Test\\src\\assets\\Student.png"));
 
         jLabel7.setFont(new Font("SansSerif", Font.PLAIN, 18)); // NOI18N
         jLabel7.setText("Name:");
@@ -292,6 +292,7 @@ public class StudentDashboardView extends JFrame {
     public JButton getButton3() {
         return jButton3;
     }
+
     public JButton getButton4() {
         return jButton4;
     }

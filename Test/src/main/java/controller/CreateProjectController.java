@@ -42,13 +42,24 @@ public class CreateProjectController {
     static class NavigatorsListener implements ActionListener {
         private void jButton1ActionPerformed(ActionEvent e) {
             // After clicking the save button
-            System.out.println(view.getLecturerId());
-            model.setLecturer(view.getLecturerId());
-            model.setProjectName(view.getProject());
-            model.setSpecialization(view.getSpecialization());
-            model.setDescription(view.getDescription());
+            String lecturer = view.getLecturerId();
+            String project = view.getProject();
+            String specialization = view.getSpecialization();
+            String setDescription = view.getDescription();
+            if(lecturer.isEmpty() || project.isEmpty() || specialization.isEmpty() || setDescription.isEmpty()) {
+                // Display an error message
+                JOptionPane.showMessageDialog(null, "Please fill out all fields.", "Error", JOptionPane.ERROR_MESSAGE);
+            }
+            else{
+                model.setLecturer(lecturer);
+                model.setProjectName(project);
+                model.setSpecialization(specialization);
+                model.setDescription(setDescription);
 
-            model.saveProject();
+                model.saveProject();
+                JOptionPane.showMessageDialog(null, "The Project was successfully saved.", "Success", JOptionPane.INFORMATION_MESSAGE);
+            }
+
         }
 
         private void jButton2ActionPerformed(ActionEvent e) {
