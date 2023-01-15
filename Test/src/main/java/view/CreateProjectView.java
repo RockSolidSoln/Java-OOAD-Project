@@ -10,10 +10,12 @@ public class CreateProjectView extends JFrame {
   private JButton jButton4;
   private JButton jButton1;
   private JButton jButton6;
+  private JButton jButton7;
   private JButton jButton2;
   private JButton jButton5;
   private JButton jButton3;
   private JComboBox<String> jComboBox1;
+  private JLabel jLabel5;
   JTextField jTextField1, jTextField2, jTextField3;
   public CreateProjectView() {
     initComponents();
@@ -40,7 +42,8 @@ public class CreateProjectView extends JFrame {
     JPanel jPanel2 = new JPanel();
     jButton5 = new JButton();
     jButton6 = new JButton();
-    JLabel jLabel5 = new JLabel();
+    jButton7 = new JButton();
+    jLabel5 = new JLabel();
     jButton4 = new JButton();
     jButton3 = new JButton();
     jTextField2 = new JTextField();
@@ -75,13 +78,17 @@ public class CreateProjectView extends JFrame {
     jButton5.setFont(new Font("SansSerif", Font.PLAIN, 12)); // NOI18N
     jButton5.setText("Create Account");
 
+    jButton7.setBackground(new Color(230, 230, 230));
+    jButton7.setFont(new Font("SansSerif", Font.PLAIN, 12)); // NOI18N
+    jButton7.setText("Dashboard");
+
     jButton6.setBackground(new Color(230, 230, 230));
     jButton6.setFont(new Font("SansSerif", Font.PLAIN, 12)); // NOI18N
     jButton6.setText("View Reports");
     jButton6.setOpaque(true);
 
     jLabel5.setFont(new Font("Segoe UI", Font.PLAIN, 18)); // NOI18N
-    jLabel5.setText("Salah AlHaismawi");
+    jLabel5.setText("Null");
 
     jButton4.setBackground(new Color(230, 230, 230));
     jButton4.setFont(new Font("SansSerif", Font.PLAIN, 14)); // NOI18N
@@ -102,6 +109,7 @@ public class CreateProjectView extends JFrame {
                             .addContainerGap()
                             .addGroup(jPanel2Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel5, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jButton7, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(jButton3, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(jButton5, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(jButton6, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -117,6 +125,8 @@ public class CreateProjectView extends JFrame {
                             .addGap(25, 25, 25)
                             .addComponent(jLabel5, GroupLayout.PREFERRED_SIZE, 25, GroupLayout.PREFERRED_SIZE)
                             .addGap(87, 87, 87)
+                            .addComponent(jButton7)
+                            .addGap(12, 12, 12)
                             .addComponent(jButton3)
                             .addGap(12, 12, 12)
                             .addComponent(jButton5)
@@ -233,6 +243,14 @@ public class CreateProjectView extends JFrame {
 
   public JButton getButton6() {
     return jButton6;
+  }
+
+  public JButton getButton7() {
+    return jButton7;
+  }
+
+  public JLabel getOuterName() {
+    return jLabel5;
   }
 
   public JComboBox<String> getJComboBox() {

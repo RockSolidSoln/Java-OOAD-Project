@@ -88,6 +88,10 @@ public class CreateProjectController {
             // TODO add your handling code here:
         }
 
+        private void jButton7ActionPerformed(ActionEvent e) {
+            // Dashboard
+        }
+
         @Override
         public void actionPerformed(ActionEvent e) {
             if (e.getSource() == view.getButton1()) {
@@ -95,6 +99,7 @@ public class CreateProjectController {
                 jButton1ActionPerformed(e);
             } else if (e.getSource() == view.getButton2()) {
                 System.out.println("Button 2 says hello");
+                jButton2ActionPerformed(e);
             } else if (e.getSource() == view.getButton3()) {
                 System.out.println("Button 3 says hello");
                 jButton3ActionPerformed(e);
@@ -103,8 +108,13 @@ public class CreateProjectController {
                 jButton4ActionPerformed(e);
             } else if (e.getSource() == view.getButton5()) {
                 System.out.println("Button 5 says hello");
+                jButton5ActionPerformed(e);
             } else if (e.getSource() == view.getButton6()) {
                 System.out.println("Button 6 says hello");
+                jButton6ActionPerformed(e);
+            } else if (e.getSource() == view.getButton7()) {
+                System.out.println("Button 7 says hello");
+                jButton7ActionPerformed(e);
             }
 
         }

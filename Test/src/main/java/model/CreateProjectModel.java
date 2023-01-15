@@ -52,30 +52,20 @@ public class CreateProjectModel {
 
     public void saveProject(){
         String basePath = System.getProperty("user.dir");
+        int counter = 0;
+        try (BufferedReader br = new BufferedReader(new FileReader(basePath + "\\Test\\src\\assets\\projects.csv"))) {
+            String line;
+            while ((line = br.readLine()) != null) {
+                counter++;
+            }
+        }catch (IOException e) {
+                e.printStackTrace();
+            }
+        counter++;
+        String filename= ("\\Test\\src\\assets\\projects.csv");    //stores the path of the file
+        ArrayList<String> line = new ArrayList<>();
 
-        try{
-            int counter = 0;
-            try (BufferedReader br = new BufferedReader(new FileReader(basePath + "\\Test\\src\\assets\\projects.csv"))) {
-                String line;
-                while ((line = br.readLine()) != null) {
-                    counter++;
-                }
-            }catch (IOException e) {
-                    e.printStackTrace();
-                }
-            counter++;
-            String filename= (basePath + "\\Test\\src\\assets\\projects.csv");    //stores the path of the file
-            FileWriter fw = new FileWriter(filename,true);          //the true will append the new data
-            fw.write("\n"+"PR"+counter+","+project_name+","+lecturer+","+specialization+","+description);              //appends the string to the file
-            fw.close();
-
-            System.out.println("""
-
-                        Entry successful!, Your info has been saved in our system
-                        ------------------------------------------------------------------------------
-                        """);
-        }catch(IOException ioe){
-            System.err.println("IOException: " + ioe.getMessage()); /*if failed to write to file*/
-        }
+        line.add("\n"+"PR"+counter+","+project_name+","+lecturer+","+specialization+","+description+","+"active");
+        Database.FilewriteBack(filename, line);
     }
 }
