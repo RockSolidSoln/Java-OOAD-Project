@@ -38,26 +38,28 @@ public class CreateAccountController {
             String password = new String(view.getPassword());
             String email = view.getEmail();
             String phone = view.getPhone();
-            String phoneNo = view.getPhone();
             String name = view.getName();
             String specialization = view.getSpecialization();
 
             String userType = view.getUsertype();
 
-            User user = new User(userId, password, name, email, phone);
-            user.StoreCredentials();
 
+            // Storing Credentials for the user (admin/lecturer/ student). 
+            User user = User.getInstance(userId, password, name, email, phone);
+            user.StoreCredentials(); 
+
+            //Storing details for the user.
             if(userType.equals("ADMIN")){
                 Admin admin = Admin.getInstance(userId, password, name, email, phone);
-                admin.StoreCredentials();
+                admin.StoreDetails();
                 
             } else if(userType.equals("LECTURER")){
                 Lecturer lecturer = Lecturer.getInstance(userId, password, name, email, phone); 
-                lecturer.StoreCredentials();
+                lecturer.StoreDetails();
             }
             else{
-                Student student = Student.getInstance(userId, password, name, email, phoneNo, specialization);
-                student.StoreCredentials();   
+                Student student = Student.getInstance(userId, password, name, email, phone, specialization);
+                student.StoreDetails();   
             }
 
 
