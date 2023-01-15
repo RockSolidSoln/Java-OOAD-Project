@@ -106,13 +106,9 @@ public class CreateAccountView extends JFrame {
         jComboBox1.setCursor(new   Cursor(  Cursor.DEFAULT_CURSOR));
         jComboBox1.setNextFocusableComponent(jTextField2);
         jComboBox1.addItemListener(this::jComboBox1ItemStateChanged);
-        jComboBox1.addActionListener(this::jComboBox1ActionPerformed);
 
         jTextField1.setVisible(false);
 
-        jTextField2.addActionListener(this::jTextField2ActionPerformed);
-
-        jTextField5.addActionListener(this::jTextField5ActionPerformed);
 
         jButton1.setText("Create Account");
 
@@ -133,7 +129,6 @@ public class CreateAccountView extends JFrame {
         jButton6.setFont(new   Font("SansSerif", Font.PLAIN, 12)); // NOI18N
         jButton6.setText("View Reports");
         jButton6.setOpaque(true);
-        jButton6.addActionListener(this::jButton6ActionPerformed);
 
         jLabel8.setFont(new   Font("Segoe UI", Font.PLAIN, 18)); // NOI18N
         jLabel8.setText("Salah AlHaismawi");
@@ -147,7 +142,6 @@ public class CreateAccountView extends JFrame {
         jButton8.setFont(new   Font("SansSerif", Font.PLAIN, 12)); // NOI18N
         jButton8.setText("View Project");
         jButton8.setOpaque(true);
-        jButton8.addActionListener(this::jButton8ActionPerformed);
 
         GroupLayout jPanel2Layout = new GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -295,8 +289,7 @@ public class CreateAccountView extends JFrame {
 
         jTextField1.getAccessibleContext().setAccessibleName("");
         // jLabel9.setVisible(false);
-        // jLabel9.setVisible(false);
-        // jLabel9.setVisible(false);
+
 
         GroupLayout layout = new GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -311,10 +304,6 @@ public class CreateAccountView extends JFrame {
 
         pack();
     }// </editor-fold>
-
-    private void jComboBox1ActionPerformed(  ActionEvent evt) {
-        // TODO add your handling code here:
-    }
 
     private void jComboBox1ItemStateChanged(  ItemEvent evt) {
         // TODO add your handli
@@ -336,27 +325,6 @@ public class CreateAccountView extends JFrame {
         revalidate();
         repaint();
         }
-    }
-
-    private void jTextField2ActionPerformed(  ActionEvent evt) {
-        // TODO add your handling code here:
-        System.out.println("2222");
-    }
-
-    private void jTextField5ActionPerformed(  ActionEvent evt) {
-        // TODO add your handling code here:
-        System.out.println("5555");
-    }
-
-   
-    private void jButton6ActionPerformed(  ActionEvent evt) {
-        // TODO add your handling code here:
-        System.out.println("6666");
-    }
-
-    private void jButton8ActionPerformed(  ActionEvent evt) {
-        // TODO add your handling code here:
-        System.out.println("8888");
     }
 
     private JButton jButton1;
@@ -382,9 +350,7 @@ public class CreateAccountView extends JFrame {
         return jButton2;
     }
 
-    
-    // Logout Button: Jbutton7
-    // End of variables declaration
+
 
     //Getters for the text fields
     public String getUserId(){

@@ -15,8 +15,8 @@ public class CreateAccountController {
 
     public CreateAccountController(CreateAccountView view){
         this.view = view;
+
         view.getCreateAccountButton().addActionListener(new CreateAccountListener());
-        this.view.getCreateAccountButton().addActionListener(new CreateAccountListener());
         view.getExitButton().addActionListener(new ExitListener());
     }
 
