@@ -1,5 +1,6 @@
 package controller;
 
+import view.AdminDashboardView;
 import view.CreateAccountView;
 
 import java.awt.event.ActionEvent;
@@ -51,15 +52,15 @@ public class CreateAccountController {
             //Storing details for the user.
             if(userType.equals("ADMIN")){
                 Admin admin = Admin.getInstance(userId, password, name, email, phone);
-                admin.StoreDetails();
+                admin.StoreDetails(); // storing admin details in the DB
                 
             } else if(userType.equals("LECTURER")){
                 Lecturer lecturer = Lecturer.getInstance(userId, password, name, email, phone); 
-                lecturer.StoreDetails();
+                lecturer.StoreDetails(); // storing lecturer details in the DB
             }
             else{
                 Student student = Student.getInstance(userId, password, name, email, phone, specialization);
-                student.StoreDetails();   
+                student.StoreDetails();   // storing student details in the DB
             }
 
 
@@ -71,7 +72,10 @@ public class CreateAccountController {
 
         @Override
         public void actionPerformed(ActionEvent e) {
-            System.exit(0);
+            view.dispose(); 
+            var adminDashboardview = AdminDashboardView.getInstance();
+            var adminDashboardcontroller = AdminDashboardController.getInstance(adminDashboardview);
+            adminDashboardview.setVisible(true);
         }
         
     }
