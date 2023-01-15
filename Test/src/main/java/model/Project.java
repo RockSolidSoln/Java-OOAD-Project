@@ -2,21 +2,20 @@ package model;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CreateProjectModel {
+public class Project {
     public String project_name;
     public String specialization;
     public String description;
     public String lecturer;
 
-    private static CreateProjectModel singletonInstance;
-    public static CreateProjectModel getInstance() {
+    private static Project singletonInstance;
+    public static Project getInstance() {
         if (singletonInstance == null) {
-            singletonInstance = new CreateProjectModel();
+            singletonInstance = new Project();
         }
         return singletonInstance;
     }

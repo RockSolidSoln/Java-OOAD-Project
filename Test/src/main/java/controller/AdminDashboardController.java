@@ -5,13 +5,10 @@ import java.awt.event.ActionListener;
 import java.util.List;
 import java.util.Objects;
 
-import model.CreateProjectModel;
+import model.Project;
 import model.Database;
 import model.LoginModel;
-import view.AdminDashboardView;
-import view.CreateProjectView;
-import view.CreateAccountView;
-import view.LoginView;
+import view.*;
 
 public class AdminDashboardController {
 
@@ -55,7 +52,11 @@ public class AdminDashboardController {
 
     static class NavigatorsListener implements ActionListener{
         private void jButton1ActionPerformed(ActionEvent e) {
-            // View Project
+            // Create Account
+            var createAccountView = CreateAccountView.getInstance();
+            createAccountView.setVisible(true);
+            var createAccountController = CreateAccountController.getInstance(createAccountView);
+
 
         }
 
@@ -74,14 +75,13 @@ public class AdminDashboardController {
         }
 
         private void jButton4ActionPerformed(ActionEvent e) {
-            //Create Account
+            //view Project
             view.dispose();
-            CreateProjectModel model = CreateProjectModel.getInstance();
-            CreateProjectView view = new CreateProjectView();
-            CreateProjectController controller = new CreateProjectController(view, model);
+//            LoginModel model = LoginModel.getInstance(null, null);
+            AdminProjectsView view = new AdminProjectsView();
+            AdminProjectsController controller = new AdminProjectsController(view);
 
             view.setVisible(true);
-
         }
 
         private void jButton5ActionPerformed(ActionEvent e){
@@ -91,14 +91,10 @@ public class AdminDashboardController {
         @Override
         public void actionPerformed(ActionEvent e) {
             if (e.getSource() == view.getButton1()) { // Create Account Button
-                view.dispose(); // Admin Dashboard View closed
-                var createAccountView = CreateAccountView.getInstance(); 
-                createAccountView.setVisible(true);
-                var createAccountController = CreateAccountController.getInstance(createAccountView);
-
-                
-            } else if (e.getSource() == view.getButton2()) {
-                System.out.println("Button 2 says hello");
+                jButton1ActionPerformed(e);
+//            } else if (e.getSource() == view.getButton2()) {
+////                jButton2ActionPerformed(e);
+//                System.out.println("Button 2 says hello");
             } else if (e.getSource() == view.getButton3()) {
                 System.out.println("Button 3 says hello");
                 jButton3ActionPerformed(e);

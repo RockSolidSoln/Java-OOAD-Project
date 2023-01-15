@@ -1,9 +1,7 @@
 package controller;
 
-import model.CreateProjectModel;
-import model.LoginModel;
+import model.Project;
 import view.CreateProjectView;
-import view.LoginView;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -13,9 +11,9 @@ import java.util.List;
 public class CreateProjectController {
     private static CreateProjectController singletonInstance;
     private static CreateProjectView view;
-    private static CreateProjectModel model;
+    private static Project model;
 
-    public CreateProjectController(CreateProjectView view, CreateProjectModel model){
+    public CreateProjectController(CreateProjectView view, Project model){
         CreateProjectController.model = model;
         CreateProjectController.view = view;
 
@@ -23,7 +21,7 @@ public class CreateProjectController {
         view.getButton2().addActionListener(new CreateProjectController.NavigatorsListener());
 
 
-        List<String> lecturers = CreateProjectModel.getlecturer();
+        List<String> lecturers = Project.getlecturer();
         for (String lecturer : lecturers) {
             view.getJComboBox().addItem(lecturer);
         }
