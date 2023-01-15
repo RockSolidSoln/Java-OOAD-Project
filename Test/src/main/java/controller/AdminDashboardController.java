@@ -68,6 +68,8 @@ public class AdminDashboardController {
                 view.dispose(); // Admin Dashboard View closed
                 var createAccountView = CreateAccountView.getInstance(); 
                 createAccountView.setVisible(true);
+                var createAccountController = CreateAccountController.getInstance(createAccountView);
+
                 
             } else if (e.getSource() == view.getButton2()) {
                 System.out.println("Button 2 says hello");

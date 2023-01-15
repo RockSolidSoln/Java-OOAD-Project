@@ -15,5 +15,24 @@ public class User {
         this.phone = phone;
     }
 
+    public String getUsername(){
+        return username;
+    }
+
+    public String getPassword(){
+        return password;
+    }
+
+    public String getName(){
+        return name;
+    }
+
+    public String getEmail(){
+        return email;
+    }
+
+    public String getPhone(){
+        return phone;
+    }
 
 }

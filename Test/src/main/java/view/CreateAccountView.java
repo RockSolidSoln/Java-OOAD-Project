@@ -45,7 +45,7 @@ public class CreateAccountView extends JFrame {
         jButton2 = new JButton();
         jLabel9 = new JLabel();
         JPanel jPanel2 = new JPanel();
-        JButton jButton5 = new JButton();
+        jButton5 = new JButton();
         JButton jButton6 = new JButton();
         JLabel jLabel8 = new JLabel();
         JButton jButton7 = new JButton();
@@ -348,6 +348,7 @@ public class CreateAccountView extends JFrame {
         System.out.println("5555");
     }
 
+   
     private void jButton6ActionPerformed(  ActionEvent evt) {
         // TODO add your handling code here:
         System.out.println("6666");
@@ -359,6 +360,7 @@ public class CreateAccountView extends JFrame {
     }
 
     private JButton jButton1;
+    private JButton jButton5;
     private JButton jButton2;
     private JLabel jLabel9;
     private JLabel jLabel10;
@@ -380,11 +382,13 @@ public class CreateAccountView extends JFrame {
         return jButton2;
     }
 
+    
     // Logout Button: Jbutton7
     // End of variables declaration
 
     //Getters for the text fields
     public String getUserId(){
+        System.out.println(jTextField2.getText());
         return jTextField2.getText();
     }
     public String getName(){
@@ -403,5 +407,9 @@ public class CreateAccountView extends JFrame {
 
     public String getUsertype(){
         return (String) jComboBox1.getSelectedItem(); 
+    }
+
+    public String getEmail(){
+        return jTextField5.getText();
     }
 }

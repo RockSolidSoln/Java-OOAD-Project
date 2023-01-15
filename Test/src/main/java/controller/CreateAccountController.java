@@ -5,17 +5,19 @@ import view.CreateAccountView;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import model.Admin;
+
 public class CreateAccountController {
     private static CreateAccountController singletonInstance;
-    private static CreateAccountView view;
-    private static Admin adminModel;
-    p
+    private final CreateAccountView view;
+    //private final Admin adminModel;
+    
 
     public CreateAccountController(CreateAccountView view){
         this.view = view;
-
+        view.getCreateAccountButton().addActionListener(new CreateAccountListener());
         this.view.getCreateAccountButton().addActionListener(new CreateAccountListener());
-        this.view.getExitButton().addActionListener(new ExitListener());
+        view.getExitButton().addActionListener(new ExitListener());
     }
 
     public static CreateAccountController getInstance(CreateAccountView view) {
@@ -29,19 +31,23 @@ public class CreateAccountController {
 
         @Override
         public void actionPerformed(ActionEvent e) {
+            System.out.println("--Hello DEBUG--");
             // TODO Auto-generated method stub
             String userId = view.getUserId();
             String password = new String(view.getPassword());
-
+            String email = view.getEmail();
+            String phone = view.getPhone();
             String phoneNo = view.getPhone();
             String name = view.getName();
             String specialization = view.getSpecialization();
 
             String userType = view.getUsertype();
 
-            if(userType.equals("Admin")){
-
-            } else if(userType.equals("Lecturer")){
+            if(userType.equals("ADMIN")){
+                Admin admin = Admin.getInstance(userId, password, name, email, phone);
+                admin.StoreCredentials();
+                
+            } else if(userType.equals("LECTURER")){
 
             }
             else{
@@ -57,7 +63,7 @@ public class CreateAccountController {
 
         @Override
         public void actionPerformed(ActionEvent e) {
-            // TODO Auto-generated method stub
+            System.exit(0);
             
         }
         

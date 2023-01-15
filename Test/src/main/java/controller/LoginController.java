@@ -24,7 +24,6 @@ public class LoginController {
 
     class LoginListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
-
             String userId = view.getUserId();
             String password = new String(view.getPassword()); 
             model.setUserId(userId);
