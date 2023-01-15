@@ -1,5 +1,7 @@
 package model;
 
+import java.util.ArrayList;
+
 public class Student extends User{
     private String specialization;
     private static Student singletonInstance;
@@ -15,6 +17,7 @@ public class Student extends User{
         }
         return singletonInstance;
     }
+
 
 
 }

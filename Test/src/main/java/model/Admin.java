@@ -15,16 +15,5 @@ public class Admin extends User{
         return singletonInstance;
     }
 
-
-    public void StoreCredentials(){
-        
-        String line = "\n"+ super.getUsername() +"," + super.getPassword();
-        ArrayList <String> lines = new ArrayList<String>();
-        lines.add(line);
-        String filename= ("\\Test\\src\\assets\\credentials.csv");
-        
-
-        Database.FilewriteBack(filename, lines); 
-    }
     
 }

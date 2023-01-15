@@ -7,6 +7,8 @@ import java.awt.event.ActionListener;
 
 import model.Admin;
 import model.Lecturer;
+import model.Student;
+import model.User;
 
 public class CreateAccountController {
     private static CreateAccountController singletonInstance;
@@ -16,7 +18,6 @@ public class CreateAccountController {
 
     public CreateAccountController(CreateAccountView view){
         this.view = view;
-        view.getCreateAccountButton().addActionListener(new CreateAccountListener());
         view.getCreateAccountButton().addActionListener(new CreateAccountListener());
         view.getExitButton().addActionListener(new ExitListener());
     }
@@ -32,7 +33,6 @@ public class CreateAccountController {
 
         @Override
         public void actionPerformed(ActionEvent e) {
-            System.out.println("--Hello DEBUG--");
             // TODO Auto-generated method stub
             String userId = view.getUserId();
             String password = new String(view.getPassword());
@@ -44,16 +44,20 @@ public class CreateAccountController {
 
             String userType = view.getUsertype();
 
+            User user = new User(userId, password, name, email, phone);
+            user.StoreCredentials();
+
             if(userType.equals("ADMIN")){
                 Admin admin = Admin.getInstance(userId, password, name, email, phone);
                 admin.StoreCredentials();
                 
             } else if(userType.equals("LECTURER")){
                 Lecturer lecturer = Lecturer.getInstance(userId, password, name, email, phone); 
-                
+                lecturer.StoreCredentials();
             }
             else{
-                
+                Student student = Student.getInstance(userId, password, name, email, phoneNo, specialization);
+                student.StoreCredentials();   
             }
 
 
