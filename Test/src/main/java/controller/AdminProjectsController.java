@@ -21,7 +21,7 @@ public class AdminProjectsController {
     public AdminProjectsController(AdminProjectsView view) {
         this.view = view;
 
-        view.getButton1().addActionListener(new AdminProjectsController.ProjectListener());//view projects, active screen
+        view.getButton1().addActionListener(new AdminProjectsController.ProjectListener());//skipped: view projects (current screen)
         view.getButton2().addActionListener(new AdminProjectsController.ProjectListener());//dashboard
         view.getButton3().addActionListener(new AdminProjectsController.ProjectListener());//create account
         view.getButton4().addActionListener(new AdminProjectsController.ProjectListener());//view reports
@@ -107,17 +107,21 @@ public class AdminProjectsController {
         public void actionPerformed(ActionEvent e) {
             if (e.getSource() == view.getButton1()) {
                 System.out.println("Button 1 says hello");
-            } else if (e.getSource() == view.getButton2()) { // Admin Dashboard Pressed
-                System.out.println("Button 2 says hello");
+            } else if (e.getSource() == view.getButton2()) { // Admin - Dashboard Pressed
                 view.dispose();
                 NavBarController.AdminDashboardActionPerformed(e);
-            } else if (e.getSource() == view.getButton3()) {
-
-            } else if (e.getSource() == view.getButton4()) {
-                System.out.println("Button 4 says hello");
-            } else if (e.getSource() == view.getButton5()) {
+            } else if (e.getSource() == view.getButton3()) { // Admin - Create Account Pressed
+                view.dispose();
+                NavBarController.AdminCreateAccountActionPerformed(e);
+            } else if (e.getSource() == view.getButton4()) { // Admin - View Reports Pressed
+                view.dispose();
+                NavBarController.AdminViewReportActionPerformed(e);
+            } else if (e.getSource() == view.getButton5()) { // Admin - logout Pressed
                 NavBarController.LogoutActionPerformed(e);
-            } else if (e.getSource() == view.getViewRemarkButton()) {
+            }
+            
+            
+            else if (e.getSource() == view.getViewRemarkButton()) {
                 viewRemark(e);
             } else if (e.getSource() == view.getAddProjectButton()) {
                 addProject(e);
