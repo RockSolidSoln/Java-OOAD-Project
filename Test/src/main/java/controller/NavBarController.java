@@ -6,6 +6,7 @@ import view.CreateAccountView;
 import view.LoginView;
 
 import java.awt.event.ActionEvent;
+import java.io.IOException;
 
 import model.LoginModel;
 

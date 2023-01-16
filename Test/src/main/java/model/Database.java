@@ -80,28 +80,5 @@ public class Database {
 
         return items;
     }
-
-    // To get the List of the Projects from the Database.
-    public static ArrayList<Project> getProjectList(String path) throws IOException {
-        ArrayList<Project> projectList = new ArrayList<Project>();
-        String basePath = System.getProperty("user.dir");
-        String filePath = basePath + path;
-        List<String> lines = Files.readAllLines(Paths.get(filePath));
-
-        for (String line : lines) {
-            String[] items = line.split(",");
-            Project projectModel = Project.getInstance();
-            //setting attribute values in the instance.
-            projectModel.setProjectId(items[0]);
-            projectModel.setProjectName(items[1]);
-            projectModel.setLecturer(items[2]);
-            projectModel.setSpecialization(items[3]);
-            projectModel.setDescription(items[4]);
-            projectModel.setProjectStatus(items[5]);
-
-            projectList.add(projectModel);
-        }
-
-        return projectList;
-    }
+    
 }

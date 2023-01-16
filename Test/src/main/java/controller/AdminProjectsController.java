@@ -12,6 +12,7 @@ import java.awt.event.ActionListener;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class AdminProjectsController {
     private final AdminProjectsView view;
@@ -29,26 +30,27 @@ public class AdminProjectsController {
         view.getViewRemarkButton().addActionListener(new AdminProjectsController.ProjectListener());
         view.getAddProjectButton().addActionListener(new AdminProjectsController.ProjectListener());
 
-        //An ArrayList < Project > will be returned.
+        
+        Project projectModel = Project.getInstance();
+        ArrayList<Project> allProjects = projectModel.getProjectList();
+        
+        ((DefaultTableModel) view.getTable().getModel()).setRowCount(0);
 
-        //Create line[] from each element of the Arraylist.
-        // add in the table. 
+        for(int i = 0; i < allProjects.size(); i++){
+            String[] values = new String[6];
+            values[0] = allProjects.get(i).getProjectId(); 
+            values[1] = allProjects.get(i).getProjectName(); 
+            values[2] = allProjects.get(i).getLecturer();
+            values[3] = allProjects.get(i).getSpecialization();
+            values[4] = allProjects.get(i).getDescription();
+            values[5] = allProjects.get(i).getProjectStatus();
 
-        String basePath = System.getProperty("user.dir");
-
-        try(BufferedReader br2 = new BufferedReader(new FileReader(basePath+"\\Test\\src\\assets\\projects.csv"))){
-            String line;
-            ((DefaultTableModel) view.getTable().getModel()).setRowCount(0);
-            while ((line = br2.readLine()) != null) {
-                String[] values = line.split(",");
-                ((DefaultTableModel)view.getTable().getModel()).insertRow(0, values);
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
+            ((DefaultTableModel)view.getTable().getModel()).insertRow(0, values);
         }
+    
     }
 
-    public static AdminProjectsController getInstance(AdminProjectsView view) {
+    public static AdminProjectsController getInstance(AdminProjectsView view){
         if (singletonInstance == null) {
             singletonInstance = new AdminProjectsController(view);
         }

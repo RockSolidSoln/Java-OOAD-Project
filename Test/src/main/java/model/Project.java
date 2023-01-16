@@ -3,6 +3,8 @@ package model;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -65,7 +67,7 @@ public class Project {
     }
     //-------------------------------------------------
     
-    public static List<String> getlecturer() {
+        public static List<String> getlecturer() {
         String line = "";
         List<String> lecturers = new ArrayList<>();
         String csvSplitBy = ",";
@@ -99,5 +101,36 @@ public class Project {
 
         line.add("PR"+counter+","+projectName+","+lecturer+","+specialization+","+description+","+"active"+"\n");
         Database.FilewriteBack(filename, line);
+    }
+
+    // To get the List of the Projects from the Database.
+    public ArrayList<Project> getProjectList() {
+        ArrayList<Project> projectList = new ArrayList<Project>();
+        String path = "\\Test\\src\\assets\\projects.csv";
+        String basePath = System.getProperty("user.dir");
+        String filePath = basePath + path;
+        List<String> lines;
+        try {
+            lines = Files.readAllLines(Paths.get(filePath));
+            for (String line : lines) {
+                String[] items = line.split(",");
+                Project projectModel = Project.getInstance();
+                //setting attribute values in the instance.
+                projectModel.setProjectId(items[0]);
+                projectModel.setProjectName(items[1]);
+                projectModel.setLecturer(items[2]);
+                projectModel.setSpecialization(items[3]);
+                projectModel.setDescription(items[4]);
+                projectModel.setProjectStatus(items[5]);
+    
+                projectList.add(projectModel);
+            }
+    
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+
+        return projectList;
     }
 }
