@@ -3,10 +3,7 @@ package controller;
 
 import model.LoginModel;
 import model.Project;
-import view.AdminProjectsView;
-import view.AdminRemarkView;
-import view.CreateProjectView;
-import view.LoginView;
+import view.*;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
@@ -102,11 +99,27 @@ public class AdminProjectsController {
             CreateProjectView new_view = new CreateProjectView();
             Project model = Project.getInstance();
             CreateProjectController controller = new CreateProjectController(new_view, model);
-
             new_view.setVisible(true);
         }
 
         private void viewProject(ActionEvent e) {
+            //View specific project
+            int selectedRow = view.getTable().getSelectedRow();
+            if (selectedRow != -1) {
+                // get the value of the project ID column
+                String projectID = (String) view.getTable().getValueAt(selectedRow, 0);
+                String projectName = (String) view.getTable().getValueAt(selectedRow, 1);
+                String lecturerID = (String) view.getTable().getValueAt(selectedRow, 2);
+                String specialization = (String) view.getTable().getValueAt(selectedRow, 3);
+                String details = (String) view.getTable().getValueAt(selectedRow, 4);
+
+                view.dispose();
+                ProjectDetailsView new_view = new ProjectDetailsView(projectID, projectName, lecturerID, specialization, details);
+//                AdminRemarkController controllerRemark = new AdminRemarkController(new_view);
+                new_view.setVisible(true);
+            } else {
+                JOptionPane.showMessageDialog(null, "Please select a row from the table.");
+            }
 
         }
 

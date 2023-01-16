@@ -1,5 +1,7 @@
 package view;
 
+import model.LoginModel;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
@@ -100,6 +102,7 @@ public class AdminProjectsView extends JFrame {
                 jButton2.setOpaque(true);
 
                 jLabel6.setFont(new Font("Segoe UI", Font.PLAIN, 18)); // NOI18N
+                jLabel6.setText(LoginModel.getUserId());
 
                 jButton5.setBackground(new Color(154, 216, 211));
                 jButton5.setFont(new Font("SansSerif", Font.PLAIN, 14)); // NOI18N
@@ -175,7 +178,7 @@ public class AdminProjectsView extends JFrame {
                 viewRemarkButton.setText("View Remarks");
 
                 projectDetailsButton.setBackground(new Color(154, 216, 211));
-                projectDetailsButton.setText("ProjectDetails");
+                projectDetailsButton.setText("Project Details");
 
                 addProjectButton.setBackground(new Color(154, 216, 211));
                 addProjectButton.setText("Add Project");

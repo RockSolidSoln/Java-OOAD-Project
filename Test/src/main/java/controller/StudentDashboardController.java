@@ -35,7 +35,7 @@ public class StudentDashboardController {
                 view.getEmailField().setText(email);
                 view.getPhoneField().setText(phone);
                 view.getIDField().setText(Id);
-                view.getNavNameField().setText(username);
+                view.getNavNameField().setText(Id);
             }
 
         }

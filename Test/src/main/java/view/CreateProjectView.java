@@ -1,5 +1,7 @@
 package view;
 
+import model.LoginModel;
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -10,7 +12,6 @@ public class CreateProjectView extends JFrame {
   private JButton jButton1;
   private JButton jButton2;
   private JComboBox<String> jComboBox1;
-  private JLabel jLabel5;
   JTextField jTextField1, jTextField2, jTextField3;
   public CreateProjectView() {
     initComponents();
@@ -35,11 +36,9 @@ public class CreateProjectView extends JFrame {
     jButton2 = new JButton();
     jTextField1 = new JTextField();
     JPanel jPanel2 = new JPanel();
-    jLabel5 = new JLabel();
     jTextField2 = new JTextField();
     JLabel jLabel6 = new JLabel();
     jTextField3 = new JTextField();
-
     jMenuItem1.setText("jMenuItem1");
 
     setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
@@ -151,11 +150,6 @@ public class CreateProjectView extends JFrame {
 
   public JButton getButton2() {
     return jButton2;
-  }
-
-
-  public JLabel getOuterName() {
-    return jLabel5;
   }
 
   public JComboBox<String> getJComboBox() {

@@ -1,5 +1,7 @@
 package view;
 
+import model.LoginModel;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
@@ -19,7 +21,24 @@ public class CreateAccountView extends JFrame {
         }
         return singletonInstance;
     }
-    
+
+    private JButton jButton1;
+    private JButton jButton5;
+    private JButton jButton2;
+    private JButton jButton6;
+    private JButton jButton3, jButton7, jButton8;
+    private JLabel jLabel9;
+    private JLabel jLabel10;
+    private JTextField jTextField1;
+    private JTextField jTextField2;
+    private JTextField jTextField5;
+    private JTextField jTextField3;
+    private JTextField jTextField4;
+    private JPasswordField jPasswordField1;
+    private JPasswordField jPasswordField2;
+    private JComboBox<String> jComboBox1;
+
+
     private void initComponents() {
 
         JLabel jLabel3 = new JLabel();
@@ -46,10 +65,11 @@ public class CreateAccountView extends JFrame {
         jLabel9 = new JLabel();
         JPanel jPanel2 = new JPanel();
         jButton5 = new JButton();
-        JButton jButton6 = new JButton();
+        jButton6 = new JButton();
+        jButton3 = new JButton();
         JLabel jLabel8 = new JLabel();
-        JButton jButton7 = new JButton();
-        JButton jButton8 = new JButton();
+        jButton7 = new JButton();
+        jButton8 = new JButton();
         jLabel10 = new JLabel();
         JLabel jLabel11 = new JLabel();
         jPasswordField1 = new JPasswordField();
@@ -69,8 +89,8 @@ public class CreateAccountView extends JFrame {
         menuBar1.add(menu2);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        jPanel1.setBackground(new   Color(92, 122, 234));
+        setResizable(false);
+        jPanel1.setBackground(new   Color(0, 168, 209));
 
         jLabel1.setBackground(new   Color(230, 230, 230));
         jLabel1.setFont(new   Font("SansSerif", Font.PLAIN, 36)); // NOI18N
@@ -119,26 +139,30 @@ public class CreateAccountView extends JFrame {
         jLabel9.setForeground(new   Color(230, 230, 230));
         jLabel9.setText("Confirm password");
 
-        jPanel2.setBackground(new   Color(230, 230, 230));
+        jPanel2.setBackground(new   Color(235, 252, 255));
+        jButton3.setBackground(new   Color(154, 216, 211));
+        jButton3.setFont(new   Font("SansSerif", Font.PLAIN, 12)); // NOI18N
+        jButton3.setText("Dashboard");
+        jButton3.setOpaque(true);
 
-        jButton5.setBackground(new   Color(230, 230, 230));
+        jButton5.setBackground(new Color(96, 132, 223));
         jButton5.setFont(new   Font("SansSerif", Font.PLAIN, 12)); // NOI18N
         jButton5.setText("Create Account");
 
-        jButton6.setBackground(new   Color(230, 230, 230));
+        jButton6.setBackground(new   Color(154, 216, 211));
         jButton6.setFont(new   Font("SansSerif", Font.PLAIN, 12)); // NOI18N
         jButton6.setText("View Reports");
         jButton6.setOpaque(true);
 
         jLabel8.setFont(new   Font("Segoe UI", Font.PLAIN, 18)); // NOI18N
-        jLabel8.setText("Salah AlHaismawi");
+        jLabel8.setText(LoginModel.getUserId());
 
-        jButton7.setBackground(new   Color(230, 230, 230));
+        jButton7.setBackground(new   Color(154, 216, 211));
         jButton7.setFont(new   Font("SansSerif", Font.PLAIN, 14)); // NOI18N
         jButton7.setForeground(new   Color(255, 51, 102));
         jButton7.setText("Logout");
 
-        jButton8.setBackground(new   Color(230, 230, 230));
+        jButton8.setBackground(new   Color(154, 216, 211));
         jButton8.setFont(new   Font("SansSerif", Font.PLAIN, 12)); // NOI18N
         jButton8.setText("View Project");
         jButton8.setOpaque(true);
@@ -151,6 +175,7 @@ public class CreateAccountView extends JFrame {
                                 .addContainerGap()
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addComponent(jLabel8, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(jButton3, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addComponent(jButton8, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addComponent(jButton5, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addComponent(jButton6, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -166,6 +191,8 @@ public class CreateAccountView extends JFrame {
                                 .addGap(25, 25, 25)
                                 .addComponent(jLabel8, GroupLayout.PREFERRED_SIZE, 25, GroupLayout.PREFERRED_SIZE)
                                 .addGap(87, 87, 87)
+                                .addComponent(jButton3)
+                                .addGap(12, 12, 12)
                                 .addComponent(jButton8)
                                 .addGap(12, 12, 12)
                                 .addComponent(jButton5)
@@ -187,10 +214,6 @@ public class CreateAccountView extends JFrame {
         jLabel11.setFont(new   Font("SansSerif", Font.PLAIN, 24)); // NOI18N
         jLabel11.setForeground(new   Color(230, 230, 230));
         jLabel11.setText("Password");
-
-        jPasswordField1.setText("jPasswordField1");
-
-        jPasswordField2.setText("jPasswordField2");
 
         GroupLayout jPanel1Layout = new GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -250,9 +273,9 @@ public class CreateAccountView extends JFrame {
                                         .addComponent(jLabel5))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(jTextField4, GroupLayout.PREFERRED_SIZE, 36, GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jTextField4, GroupLayout.PREFERRED_SIZE, 37, GroupLayout.PREFERRED_SIZE)
                                         .addGroup(jPanel1Layout.createSequentialGroup()
-                                                .addComponent(jTextField2)
+                                                .addComponent(jTextField2, GroupLayout.PREFERRED_SIZE, 37, GroupLayout.PREFERRED_SIZE)
                                                 .addGap(7, 7, 7)))
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addGroup(jPanel1Layout.createSequentialGroup()
@@ -261,7 +284,7 @@ public class CreateAccountView extends JFrame {
                                         .addComponent(jLabel6, GroupLayout.Alignment.TRAILING))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jTextField3, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jTextField3, GroupLayout.PREFERRED_SIZE, 37, GroupLayout.PREFERRED_SIZE)
                                         .addComponent(jTextField5, GroupLayout.PREFERRED_SIZE, 37, GroupLayout.PREFERRED_SIZE))
                                 .addGap(40, 40, 40)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -327,19 +350,29 @@ public class CreateAccountView extends JFrame {
         }
     }
 
-    private JButton jButton1;
-    private JButton jButton5;
-    private JButton jButton2;
-    private JLabel jLabel9;
-    private JLabel jLabel10;
-    private JTextField jTextField1;
-    private JTextField jTextField2;
-    private JTextField jTextField5;
-    private JTextField jTextField3;
-    private JTextField jTextField4;
-    private JPasswordField jPasswordField1;
-    private JPasswordField jPasswordField2;
-    private JComboBox<String> jComboBox1;
+    //Dashboard
+    public JButton getButton3() {
+        return jButton3;
+    }
+    //Create account
+    public JButton getButton5() {
+        return jButton5;
+    }
+
+    //View report
+    public JButton getButton6() {
+        return jButton6;
+    }
+
+    //Logout
+    public JButton getButton7() {
+        return jButton7;
+    }
+    //View Project
+    public JButton getButton8() {
+        return jButton8;
+    }
+
 
 
     public JButton getCreateAccountButton(){
@@ -349,8 +382,6 @@ public class CreateAccountView extends JFrame {
     public JButton getExitButton() {
         return jButton2;
     }
-
-
 
     //Getters for the text fields
     public String getUserId(){
@@ -378,4 +409,6 @@ public class CreateAccountView extends JFrame {
     public String getEmail(){
         return jTextField5.getText();
     }
+
+
 }

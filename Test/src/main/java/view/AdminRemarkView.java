@@ -1,5 +1,7 @@
 package view;
 
+import model.LoginModel;
+
 import java.awt.*;
 import javax.swing.*;
 
@@ -23,16 +25,17 @@ public class AdminRemarkView extends JFrame {
 
 
     private void initComponents() {
-        jPanel1 = new JPanel();
-        jPanel2 = new JPanel();
+        JPanel jPanel1 = new JPanel();
+        JPanel jPanel2 = new JPanel();
         jButton5 = new JButton();
         jButton6 = new JButton();
-        jLabel4 = new JLabel();
+        jButton3 = new JButton();
+        JLabel jLabel4 = new JLabel();
         jButton7 = new JButton();
         jButton8 = new JButton();
-        projectIdLabel = new JLabel();
-        projectNameLabel = new JLabel();
-        jScrollPane1 = new JScrollPane();
+        JLabel projectIdLabel = new JLabel();
+        JLabel projectNameLabel = new JLabel();
+        JScrollPane jScrollPane1 = new JScrollPane();
         commentTextArea = new JTextArea();
         commentTextField = new JTextField();
         publishCommentButton = new JButton();
@@ -41,29 +44,33 @@ public class AdminRemarkView extends JFrame {
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
 
-        jPanel1.setBackground(new Color(92, 122, 234));
+        jPanel1.setBackground(new Color(154, 216, 211));
 
-        jPanel2.setBackground(new Color(230, 230, 230));
+        jPanel2.setBackground(new   Color(235, 252, 255));
 
-        jButton5.setBackground(new Color(230, 230, 230));
+        jButton3.setBackground(new   Color(154, 216, 211));
+        jButton3.setFont(new   Font("SansSerif", Font.PLAIN, 12)); // NOI18N
+        jButton3.setText("Dashboard");
+        jButton3.setOpaque(true);
+        jButton5.setBackground(new Color(154, 216, 211));
         jButton5.setFont(new Font("SansSerif", Font.PLAIN, 12)); // NOI18N
         jButton5.setText("Create Account");
 
-        jButton6.setBackground(new Color(230, 230, 230));
+        jButton6.setBackground(new Color(154, 216, 211));
         jButton6.setFont(new Font("SansSerif", Font.PLAIN, 12)); // NOI18N
         jButton6.setText("View Reports");
         jButton6.setOpaque(true);
 
 
         jLabel4.setFont(new Font("Segoe UI", Font.PLAIN, 18)); // NOI18N
-        jLabel4.setText("Salah AlHaismawi");
+        jLabel4.setText(LoginModel.getUserId());
 
-        jButton7.setBackground(new Color(230, 230, 230));
+        jButton7.setBackground(new Color(154, 216, 211));
         jButton7.setFont(new Font("SansSerif", Font.PLAIN, 14)); // NOI18N
         jButton7.setForeground(new Color(255, 51, 102));
         jButton7.setText("Logout");
 
-        jButton8.setBackground(new Color(230, 230, 230));
+        jButton8.setBackground(new Color(96, 132, 223));
         jButton8.setFont(new Font("SansSerif", Font.PLAIN, 12)); // NOI18N
         jButton8.setText("View Project");
         jButton8.setOpaque(true);
@@ -102,12 +109,10 @@ public class AdminRemarkView extends JFrame {
                                 .addContainerGap())
         );
 
-        projectIdLabel.setFont(new Font("Segoe UI", Font.PLAIN, 14)); // NOI18N
-        projectIdLabel.setForeground(new Color(230, 230, 230));
+        projectIdLabel.setFont(new Font("Segoe UI", Font.PLAIN, 20)); // NOI18N
         projectIdLabel.setText(projectID);
 
         projectNameLabel.setFont(new Font("SansSerif", Font.PLAIN, 36)); // NOI18N
-        projectNameLabel.setForeground(new Color(230, 230, 230));
         projectNameLabel.setText("Project Name");
 
         commentTextArea.setBackground(new Color(230, 230, 230));
@@ -189,14 +194,35 @@ public class AdminRemarkView extends JFrame {
     private JButton jButton6;
     private JButton jButton7;
     private JButton jButton8;
-    private JLabel jLabel4;
-    private JPanel jPanel1;
-    private JPanel jPanel2;
-    private JScrollPane jScrollPane1;
-    private JLabel projectIdLabel;
-    private JLabel projectNameLabel;
+    private JButton jButton3;
     private JButton publishCommentButton;
     // End of variables declaration
+
+    //Dashboard
+    public JButton getButton3() {
+        return jButton3;
+    }
+
+    //Create account
+    public JButton getButton5() {
+        return jButton5;
+    }
+
+    //View report
+    public JButton getButton6() {
+        return jButton6;
+    }
+
+    //Logout
+    public JButton getButton7() {
+        return jButton7;
+    }
+    //View Project
+    public JButton getButton8() {
+        return jButton8;
+    }
+
+
 
     public String getProjectId() {
         return projectID;
