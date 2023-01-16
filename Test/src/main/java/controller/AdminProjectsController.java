@@ -21,11 +21,11 @@ public class AdminProjectsController {
     public AdminProjectsController(AdminProjectsView view) {
         this.view = view;
 
-        view.getButton1().addActionListener(new AdminProjectsController.ProjectListener());
-        view.getButton2().addActionListener(new AdminProjectsController.ProjectListener());
-        view.getButton3().addActionListener(new AdminProjectsController.ProjectListener());
-        view.getButton4().addActionListener(new AdminProjectsController.ProjectListener());
-        view.getButton5().addActionListener(new AdminProjectsController.ProjectListener());
+        view.getButton1().addActionListener(new AdminProjectsController.ProjectListener());//view projects, active screen
+        view.getButton2().addActionListener(new AdminProjectsController.ProjectListener());//dashboard
+        view.getButton3().addActionListener(new AdminProjectsController.ProjectListener());//create account
+        view.getButton4().addActionListener(new AdminProjectsController.ProjectListener());//view reports
+        view.getButton5().addActionListener(new AdminProjectsController.ProjectListener());//logout
         view.getProjectDetailsButton().addActionListener(new AdminProjectsController.ProjectListener());
         view.getViewRemarkButton().addActionListener(new AdminProjectsController.ProjectListener());
         view.getAddProjectButton().addActionListener(new AdminProjectsController.ProjectListener());
@@ -110,11 +110,11 @@ public class AdminProjectsController {
             } else if (e.getSource() == view.getButton2()) {
                 System.out.println("Button 2 says hello");
             } else if (e.getSource() == view.getButton3()) {
-                NavBarController.LogoutActionPerformed(e);
+
             } else if (e.getSource() == view.getButton4()) {
                 System.out.println("Button 4 says hello");
             } else if (e.getSource() == view.getButton5()) {
-                //
+                NavBarController.LogoutActionPerformed(e);
             } else if (e.getSource() == view.getViewRemarkButton()) {
                 viewRemark(e);
             } else if (e.getSource() == view.getAddProjectButton()) {

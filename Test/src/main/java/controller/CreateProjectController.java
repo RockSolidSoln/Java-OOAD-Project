@@ -18,7 +18,7 @@ public class CreateProjectController {
         CreateProjectController.view = view;
 
         view.getButton1().addActionListener(new CreateProjectController.NavigatorsListener());
-        view.getButton2().addActionListener(new CreateProjectController.NavigatorsListener());
+        view.getButton2().addActionListener(new CreateProjectController.NavigatorsListener()); //go back to view projects but keep in mind admin and lec is using same
 
         List<String> lecturers = Project.getlecturer();
         for (String lecturer : lecturers) {

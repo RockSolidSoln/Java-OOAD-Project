@@ -26,7 +26,7 @@ public class CreateAccountView extends JFrame {
     private JButton jButton5;
     private JButton jButton2;
     private JButton jButton6;
-    private JButton jButton3, jButton7, jButton8;
+    private JButton jButton3, jButton7, jButton4;
     private JLabel jLabel9;
     private JLabel jLabel10;
     private JTextField jTextField1;
@@ -69,7 +69,7 @@ public class CreateAccountView extends JFrame {
         jButton3 = new JButton();
         JLabel jLabel8 = new JLabel();
         jButton7 = new JButton();
-        jButton8 = new JButton();
+        jButton4 = new JButton();
         jLabel10 = new JLabel();
         JLabel jLabel11 = new JLabel();
         jPasswordField1 = new JPasswordField();
@@ -162,10 +162,10 @@ public class CreateAccountView extends JFrame {
         jButton7.setForeground(new   Color(255, 51, 102));
         jButton7.setText("Logout");
 
-        jButton8.setBackground(new   Color(154, 216, 211));
-        jButton8.setFont(new   Font("SansSerif", Font.PLAIN, 12)); // NOI18N
-        jButton8.setText("View Project");
-        jButton8.setOpaque(true);
+        jButton4.setBackground(new   Color(154, 216, 211));
+        jButton4.setFont(new   Font("SansSerif", Font.PLAIN, 12)); // NOI18N
+        jButton4.setText("View Project");
+        jButton4.setOpaque(true);
 
         GroupLayout jPanel2Layout = new GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -176,7 +176,7 @@ public class CreateAccountView extends JFrame {
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addComponent(jLabel8, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addComponent(jButton3, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(jButton8, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(jButton4, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addComponent(jButton5, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addComponent(jButton6, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addContainerGap())
@@ -193,7 +193,7 @@ public class CreateAccountView extends JFrame {
                                 .addGap(87, 87, 87)
                                 .addComponent(jButton3)
                                 .addGap(12, 12, 12)
-                                .addComponent(jButton8)
+                                .addComponent(jButton4)
                                 .addGap(12, 12, 12)
                                 .addComponent(jButton5)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -328,8 +328,7 @@ public class CreateAccountView extends JFrame {
         pack();
     }// </editor-fold>
 
-    private void jComboBox1ItemStateChanged(  ItemEvent evt) {
-        // TODO add your handli
+    private void jComboBox1ItemStateChanged(ItemEvent evt) {
 
         if(evt.getStateChange() == ItemEvent.SELECTED){
             String selectedItem = (String)evt.getItem();
@@ -341,7 +340,6 @@ public class CreateAccountView extends JFrame {
                 repaint();
             } else {
                 jTextField1.setVisible(false);
-                // jLabel9.setVisible(false);
                 jLabel10.setVisible(false);
             }
 
@@ -353,6 +351,10 @@ public class CreateAccountView extends JFrame {
     //Dashboard
     public JButton getButton3() {
         return jButton3;
+    }
+    //Dashboard
+    public JButton getButton4() {
+        return jButton4;
     }
     //Create account
     public JButton getButton5() {
@@ -368,13 +370,6 @@ public class CreateAccountView extends JFrame {
     public JButton getButton7() {
         return jButton7;
     }
-    //View Project
-    public JButton getButton8() {
-        return jButton8;
-    }
-
-
-
     public JButton getCreateAccountButton(){
         return jButton1; 
     }

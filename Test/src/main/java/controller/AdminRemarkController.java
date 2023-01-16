@@ -19,7 +19,7 @@ public class AdminRemarkController {
         this.view = view;
 
         view.getCommentField().addActionListener(new AdminRemarkController.RemarkListener());
-        view.getBackButton().addActionListener(new AdminRemarkController.RemarkListener());
+        view.getBackButton().addActionListener(new AdminRemarkController.RemarkListener()); //go back to view projects
         view.getPublishCommentButton().addActionListener(new AdminRemarkController.RemarkListener());
 
         String basePath = System.getProperty("user.dir");

@@ -52,9 +52,6 @@ public class AdminDashboardController {
                 } else if (e.getSource() == view.getButton4()) { // View Project Button Pressed
                 view.dispose();
                 NavBarController.AdminViewProjectActionPerformed(e);
-            } else if (e.getSource() == view.getButton5()) { // Dashboard Button Pressed
-//                view.dispose();
-//                NavBarController.AdminDashboardActionPerformed(e);
             }
 
         }

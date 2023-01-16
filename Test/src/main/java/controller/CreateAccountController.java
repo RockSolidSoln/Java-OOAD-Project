@@ -21,6 +21,11 @@ public class CreateAccountController {
         this.view = view;
         view.getCreateAccountButton().addActionListener(new CreateAccountListener());
         view.getExitButton().addActionListener(new ExitListener());
+        view.getButton3().addActionListener(new CreateAccountController.NavigatorsListener());//dashboard
+        view.getButton4().addActionListener(new CreateAccountController.NavigatorsListener());//view project
+        view.getButton5().addActionListener(new CreateAccountController.NavigatorsListener());//create account, active screen
+        view.getButton6().addActionListener(new CreateAccountController.NavigatorsListener());//view report
+        view.getButton7().addActionListener(new CreateAccountController.NavigatorsListener());//logout
     }
 
     public static CreateAccountController getInstance(CreateAccountView view) {
@@ -30,8 +35,24 @@ public class CreateAccountController {
         return singletonInstance;
     }
 
-    class CreateAccountListener implements ActionListener{
+    class NavigatorsListener implements ActionListener{
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            if (e.getSource() == view.getButton3()) {
+                view.dispose();
+            } else if (e.getSource() == view.getButton4()) {
+                view.dispose();
+            } else if (e.getSource() == view.getButton5()) {
+                view.dispose();
+            } else if (e.getSource() == view.getButton6()) {
+                view.dispose();
+            } else if (e.getSource() == view.getButton7()) {
+                view.dispose();
+            }
 
+        }
+    }
+    class CreateAccountListener implements ActionListener{
         @Override
         public void actionPerformed(ActionEvent e) {
             // TODO Auto-generated method stub
@@ -44,17 +65,17 @@ public class CreateAccountController {
 
             String userType = view.getUsertype();
 
-            // Storing Credentials for the user (admin/lecturer/ student). 
+            // Storing Credentials for the user (admin/lecturer/ student).
             User user = User.getInstance(userId, password, name, email, phone);
-            user.StoreCredentials(); 
+            user.StoreCredentials();
 
             //Storing details for the user.
             if(userType.equals("ADMIN")){
                 Admin admin = Admin.getInstance(userId, password, name, email, phone);
                 admin.StoreDetails(); // storing admin details in the DB
-                
+
             } else if(userType.equals("LECTURER")){
-                Lecturer lecturer = Lecturer.getInstance(userId, password, name, email, phone); 
+                Lecturer lecturer = Lecturer.getInstance(userId, password, name, email, phone);
                 lecturer.StoreDetails(); // storing lecturer details in the DB
             }
             else{
@@ -64,11 +85,9 @@ public class CreateAccountController {
 
 
         }
-        
+
     }
-
     class ExitListener implements ActionListener{
-
         @Override
         public void actionPerformed(ActionEvent e) {
             view.dispose();
