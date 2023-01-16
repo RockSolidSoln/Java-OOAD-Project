@@ -29,6 +29,10 @@ public class AdminProjectsController {
         view.getViewRemarkButton().addActionListener(new AdminProjectsController.ProjectListener());
         view.getAddProjectButton().addActionListener(new AdminProjectsController.ProjectListener());
 
+        //An ArrayList < Project > will be returned.
+
+        //Create line[] from each element of the Arraylist.
+        // add in the table. 
 
         String basePath = System.getProperty("user.dir");
 

@@ -7,10 +7,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Project {
-    public String project_name;
-    public String specialization;
-    public String description;
-    public String lecturer;
+    private String projectId;
+    private String projectName;
+    private String specialization;
+    private String description;
+    private String lecturer;
+    private String projectStatus;
+   // private String studentAssigned;
+
 
     private static Project singletonInstance;
     public static Project getInstance() {
@@ -20,8 +24,12 @@ public class Project {
         return singletonInstance;
     }
 
-    public void setProjectName(String project_name) {
-        this.project_name = project_name;
+    //Setters:
+    public void setProjectId(String projectId) {
+        this.projectId = projectId;
+    }
+    public void setProjectName(String projectName) {
+        this.projectName = projectName;
     }
     public void setSpecialization(String specialization) {
         this.specialization = specialization;
@@ -32,7 +40,31 @@ public class Project {
     public void setLecturer(String lecturer) {
         this.lecturer = lecturer;
     }
-
+    public void setProjectStatus(String projectStatus) {
+        this.projectStatus = projectStatus;
+    }
+    //-----------------------------------------------
+    //Getters: 
+    public String getProjectId() {
+        return projectId;
+    }
+    public String getProjectName() {
+        return projectName;
+    }
+    public String getSpecialization(){
+        return specialization;
+    }
+    public String getDescription(){
+        return description;
+    }
+    public String getLecturer(){
+        return lecturer;
+    }
+    public String getProjectStatus(){
+        return projectStatus;
+    }
+    //-------------------------------------------------
+    
     public static List<String> getlecturer() {
         String line = "";
         List<String> lecturers = new ArrayList<>();
@@ -61,10 +93,11 @@ public class Project {
                 e.printStackTrace();
             }
         counter++;
+        projectId = "PR" + String.valueOf(counter);
         String filename= ("\\Test\\src\\assets\\projects.csv");    //stores the path of the file
         ArrayList<String> line = new ArrayList<>();
 
-        line.add("PR"+counter+","+project_name+","+lecturer+","+specialization+","+description+","+"active"+"\n");
+        line.add("PR"+counter+","+projectName+","+lecturer+","+specialization+","+description+","+"active"+"\n");
         Database.FilewriteBack(filename, line);
     }
 }
