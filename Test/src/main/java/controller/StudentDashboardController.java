@@ -14,6 +14,12 @@ public class StudentDashboardController {
 
     private static StudentDashboardController singletonInstance;
     private static StudentDashboardView view;
+    public static StudentDashboardController getInstance(StudentDashboardView view) {
+        if (singletonInstance == null) {
+            singletonInstance = new StudentDashboardController(view);
+        }
+        return singletonInstance;
+    }
 
     public StudentDashboardController(StudentDashboardView view) {
         StudentDashboardController.view = view;
@@ -41,35 +47,7 @@ public class StudentDashboardController {
         }
     }
 
-    public static StudentDashboardController getInstance(StudentDashboardView view) {
-        if (singletonInstance == null) {
-            singletonInstance = new StudentDashboardController(view);
-        }
-        return singletonInstance;
-    }
-
-
     static class NavigatorsListener implements ActionListener{
-        private void jButton1ActionPerformed(ActionEvent e) {
-            // TODO add your handling code here:
-
-        }
-
-        private void jButton2ActionPerformed(ActionEvent e) {
-            // TODO add your handling code here:
-        }
-
-        private void jButton3ActionPerformed(ActionEvent e) {
-            //Logout
-            view.dispose();
-            LoginModel model = LoginModel.getInstance(null, null);
-            LoginView view = new LoginView();
-            LoginController controller = new LoginController(view, model);
-
-            view.setVisible(true);
-        }
-
-
         @Override
         public void actionPerformed(ActionEvent e) {
             if (e.getSource() == view.getButton1()) {
@@ -77,7 +55,7 @@ public class StudentDashboardController {
             } else if (e.getSource() == view.getButton2()) {
                 System.out.println("Button 2 says hello");
             } else if (e.getSource() == view.getButton3()) {
-                jButton3ActionPerformed(e);
+                NavBarController.LogoutActionPerformed(e);
             }
         }
     }

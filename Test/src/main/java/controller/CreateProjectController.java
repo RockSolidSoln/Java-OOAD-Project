@@ -20,7 +20,6 @@ public class CreateProjectController {
         view.getButton1().addActionListener(new CreateProjectController.NavigatorsListener());
         view.getButton2().addActionListener(new CreateProjectController.NavigatorsListener());
 
-
         List<String> lecturers = Project.getlecturer();
         for (String lecturer : lecturers) {
             view.getJComboBox().addItem(lecturer);
@@ -58,16 +57,14 @@ public class CreateProjectController {
         }
 
         private void jButton2ActionPerformed(ActionEvent e) {
-            // TODO add your handling code here:
+            // Go Back
         }
 
         @Override
         public void actionPerformed(ActionEvent e) {
             if (e.getSource() == view.getButton1()) {
-                System.out.println("Button 1 says hello");
                 jButton1ActionPerformed(e);
             } else if (e.getSource() == view.getButton2()) {
-                System.out.println("Button 2 says hello");
                 jButton2ActionPerformed(e);
             }
 

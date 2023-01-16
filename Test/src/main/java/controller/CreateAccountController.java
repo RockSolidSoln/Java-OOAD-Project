@@ -44,7 +44,6 @@ public class CreateAccountController {
 
             String userType = view.getUsertype();
 
-
             // Storing Credentials for the user (admin/lecturer/ student). 
             User user = User.getInstance(userId, password, name, email, phone);
             user.StoreCredentials(); 
@@ -72,11 +71,11 @@ public class CreateAccountController {
 
         @Override
         public void actionPerformed(ActionEvent e) {
-            view.dispose(); 
+            view.dispose();
             var adminDashboardview = AdminDashboardView.getInstance();
             var adminDashboardcontroller = AdminDashboardController.getInstance(adminDashboardview);
             adminDashboardview.setVisible(true);
         }
-        
+
     }
 }

@@ -58,32 +58,6 @@ public class AdminProjectsController {
     }
 
     class ProjectListener implements ActionListener{
-        private void jButton1ActionPerformed(ActionEvent e) {
-            // View Project
-
-        }
-
-        private void jButton2ActionPerformed(ActionEvent e) {
-            //View Report
-        }
-
-        private void jButton3ActionPerformed(ActionEvent e) {
-            //Logout
-            view.dispose();
-            LoginModel model = LoginModel.getInstance(null, null);
-            LoginView view = new LoginView();
-            LoginController controller = new LoginController(view, model);
-
-            view.setVisible(true);
-        }
-
-        private void jButton4ActionPerformed(ActionEvent e) {
-        }
-
-        private void jButton5ActionPerformed(ActionEvent e){
-
-        }
-
         private void viewRemark(ActionEvent e) {
             int selectedRow = view.getTable().getSelectedRow();
             if (selectedRow != -1) {
@@ -136,15 +110,12 @@ public class AdminProjectsController {
             } else if (e.getSource() == view.getButton2()) {
                 System.out.println("Button 2 says hello");
             } else if (e.getSource() == view.getButton3()) {
-                System.out.println("Button 3 says hello");
-                jButton3ActionPerformed(e);
+                NavBarController.LogoutActionPerformed(e);
             } else if (e.getSource() == view.getButton4()) {
                 System.out.println("Button 4 says hello");
-                jButton4ActionPerformed(e);
             } else if (e.getSource() == view.getButton5()) {
-                jButton5ActionPerformed(e);
+                //
             } else if (e.getSource() == view.getViewRemarkButton()) {
-                System.out.println("Remark button clicked");
                 viewRemark(e);
             } else if (e.getSource() == view.getAddProjectButton()) {
                 addProject(e);
