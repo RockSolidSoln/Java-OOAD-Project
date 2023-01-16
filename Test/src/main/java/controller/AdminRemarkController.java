@@ -22,7 +22,6 @@ public class AdminRemarkController {
         view.getBackButton().addActionListener(new AdminRemarkController.RemarkListener());
         view.getPublishCommentButton().addActionListener(new AdminRemarkController.RemarkListener());
 
-
         String basePath = System.getProperty("user.dir");
         String csvFile = basePath + "//Test//src//assets//remarks.csv";
         BufferedReader br = null;
@@ -93,9 +92,8 @@ public class AdminRemarkController {
         public void actionPerformed(ActionEvent e) {
             if (e.getSource() == view.getPublishCommentButton()) {
                 publishCommentButtonActionPerformed(e);
-                System.out.println("Button 1 says hello");
             } else if (e.getSource() == view.getBackButton()) {
-                System.out.println("Button 2 says hello");
+
             }
 
         }

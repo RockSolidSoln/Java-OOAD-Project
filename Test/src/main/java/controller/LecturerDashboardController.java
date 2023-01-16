@@ -5,6 +5,7 @@ import model.Database;
 import model.LoginModel;
 import view.CreateProjectView;
 import view.LecturerDashboardView;
+import view.LecturerProjectsView;
 import view.LoginView;
 
 import java.awt.event.ActionEvent;
@@ -63,30 +64,22 @@ public class LecturerDashboardController {
         }
 
         private void jButton2ActionPerformed(ActionEvent e) {
-            // TODO add your handling code here:
-        }
-
-        private void jButton3ActionPerformed(ActionEvent e) {
-            // Logout
             view.dispose();
-            LoginModel model = LoginModel.getInstance(null, null);
-            LoginView view = new LoginView();
-            LoginController controller = new LoginController(view, model);
+            LecturerProjectsView new_view = new LecturerProjectsView();
+            LecturerProjectsController controller = new LecturerProjectsController(new_view);
 
-            view.setVisible(true);
+            new_view.setVisible(true);
         }
-
 
         @Override
         public void actionPerformed(ActionEvent e) {
             if (e.getSource() == view.getButton1()) {
-                System.out.println("Button 1 says hello");
                 jButton1ActionPerformed(e);
             } else if (e.getSource() == view.getButton2()) {
-                System.out.println("Button 2 says hello");
+                jButton2ActionPerformed(e);
             } else if (e.getSource() == view.getButton3()) {
-                jButton3ActionPerformed(e);
-                System.out.println("Button 3 says hello");
+                view.dispose();
+                NavBarController.LogoutActionPerformed(e);
             }
         }
     }

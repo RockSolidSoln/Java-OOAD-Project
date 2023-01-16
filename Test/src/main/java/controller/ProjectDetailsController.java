@@ -12,7 +12,6 @@ public class ProjectDetailsController {
 
     public ProjectDetailsController(ProjectDetailsView view) {
         ProjectDetailsController.view = view;
-
         view.getBackButton().addActionListener(new AdminDashboardController.NavigatorsListener());
     }
 
@@ -24,19 +23,13 @@ public class ProjectDetailsController {
     }
 
     static class NavigationListener implements ActionListener{
-        private void jButton1ActionPerformed(ActionEvent e) {
-            // After clicking the back button go back
-        }
-
-        private void jButton2ActionPerformed(ActionEvent e) {
-            // TODO add your handling code here:
-        }
 
         @Override
         public void actionPerformed(ActionEvent e) {
             if (e.getSource() == view.getBackButton()) {
                 System.out.println("Button 1 says hello");
-                jButton1ActionPerformed(e);
+                //go back button
+
 //        } else if (e.getSource() == view.getButton2()) {
 //            System.out.println("Button 2 says hello");
 //            jButton2ActionPerformed(e);

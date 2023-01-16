@@ -16,6 +16,7 @@ public class CreateProjectView extends JFrame {
   public CreateProjectView() {
     initComponents();
   }
+
   public static CreateProjectView getInstance() {
     if (singletonInstance == null) {
       singletonInstance = new CreateProjectView();
@@ -59,7 +60,7 @@ public class CreateProjectView extends JFrame {
     jLabel4.setText("Details");
 
     jButton1.setText("Create Project");
-    jButton2.setText("Exit");
+    jButton2.setText("Go Back");
 
     jLabel6.setFont(new Font("SansSerif", Font.PLAIN, 18)); // NOI18N
     jLabel6.setText("Specialization");

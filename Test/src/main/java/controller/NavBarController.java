@@ -10,6 +10,14 @@ import java.awt.event.ActionEvent;
 import model.LoginModel;
 
 public class NavBarController {
+    //Users Navigation Bar: Logout
+    public static void LogoutActionPerformed(ActionEvent e) {
+        LoginModel model = LoginModel.getInstance(null, null);
+        LoginView view = LoginView.getInstance();
+        LoginController controller = LoginController.getInstance(view, model);
+
+        view.setVisible(true);
+    }
 
     //Admin Navigation Bar: View Project
     public static void AdminViewProjectActionPerformed(ActionEvent e) {
@@ -24,14 +32,7 @@ public class NavBarController {
 
     }
 
-    //Admin Navigation Bar: Logout
-    public static void AdminLogoutActionPerformed(ActionEvent e) {
-        LoginModel model = LoginModel.getInstance(null, null);
-        LoginView view = LoginView.getInstance(); 
-        LoginController controller = LoginController.getInstance(view, model);
 
-        view.setVisible(true);
-    }
 
     //Admin Navigation Bar: Create Account
     public static void AdminCreateAccountActionPerformed(ActionEvent e) {
@@ -40,7 +41,7 @@ public class NavBarController {
         createAccountView.setVisible(true);
     }
 
-    ////Admin Navigation Bar: DashBoard
+    //Admin Navigation Bar: DashBoard
     public static void AdminDashboardActionPerformed(ActionEvent e) {
 
     }
