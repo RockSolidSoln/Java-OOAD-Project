@@ -34,18 +34,10 @@ public class AdminProjectsController {
 
 
         String basePath = System.getProperty("user.dir");
-        try (BufferedReader br = new BufferedReader(new FileReader(basePath +"\\Test\\src\\assets\\projects.csv"))) {
-            int rowCount = 0;
-            while (br.readLine() != null) {
-                rowCount++;
-            }
-            ((DefaultTableModel) view.getTable().getModel()).setRowCount(0);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
 
         try(BufferedReader br2 = new BufferedReader(new FileReader(basePath+"\\Test\\src\\assets\\projects.csv"))){
             String line;
+            ((DefaultTableModel) view.getTable().getModel()).setRowCount(0);
             while ((line = br2.readLine()) != null) {
                 String[] values = line.split(",");
                 ((DefaultTableModel)view.getTable().getModel()).insertRow(0, values);
@@ -102,6 +94,7 @@ public class AdminProjectsController {
                 JOptionPane.showMessageDialog(null, "Please select a row from the table.");
             }
 
+            
         }
 
         private void addProject(ActionEvent e) {

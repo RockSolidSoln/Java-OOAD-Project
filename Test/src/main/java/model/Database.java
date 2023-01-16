@@ -51,5 +51,24 @@ public class Database {
         /*return credentials to check*/
         return lines;
     }
-    //------------------------------------------------------------------------------------
+    
+    public static ArrayList<String> FindDataFromDB(String path, String matchId){
+        ArrayList <String> items = new ArrayList<String>();
+        try{
+            String basePath = System.getProperty("user.dir");
+            List <String> lines = Files.readAllLines(Paths.get(basePath + path)); //read from credentials file
+            for(String line: lines){
+                items = line.split(",");
+                if(items[0].equals(matchId)){
+                    return items;
+                }
+            }
+        } catch(Exception e){
+            System.out.println("File Opening Error");
+        }
+        return items;
+
+    }
+
+
 }
