@@ -11,7 +11,7 @@ import java.io.IOException;
 import model.LoginModel;
 
 public class NavBarController {
-    //Users Navigation Bar: Logout
+    // Users Navigation Bar: Logout
     public static void LogoutActionPerformed(ActionEvent e) {
         LoginModel model = LoginModel.getInstance(null, null);
         LoginView view = LoginView.getInstance();
@@ -20,7 +20,7 @@ public class NavBarController {
         view.setVisible(true);
     }
 
-    //Admin Navigation Bar: View Project
+    // Admin Navigation Bar: View Project
     public static void AdminViewProjectActionPerformed(ActionEvent e) {
         AdminProjectsView view = AdminProjectsView.getInstance();
         AdminProjectsController controller = AdminProjectsController.getInstance(view);
@@ -28,23 +28,23 @@ public class NavBarController {
         view.setVisible(true);
     }
 
-    //Admin Navigation Bar: View Report
+    // Admin Navigation Bar: View Report
     public static void AdminViewReportActionPerformed(ActionEvent e) {
 
     }
 
-
-
-    //Admin Navigation Bar: Create Account
+    // Admin Navigation Bar: Create Account
     public static void AdminCreateAccountActionPerformed(ActionEvent e) {
         var createAccountView = CreateAccountView.getInstance();
         var createAccountController = CreateAccountController.getInstance(createAccountView);
         createAccountView.setVisible(true);
     }
 
-    //Admin Navigation Bar: DashBoard
+    // Admin Navigation Bar: AdminDashBoard
     public static void AdminDashboardActionPerformed(ActionEvent e) {
-
+        var adminDashboardview = AdminDashboardView.getInstance();
+        var adminDashboardcontroller = AdminDashboardController.getInstance(adminDashboardview);
+        adminDashboardview.setVisible(true);
     }
 
 }

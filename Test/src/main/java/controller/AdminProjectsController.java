@@ -107,8 +107,10 @@ public class AdminProjectsController {
         public void actionPerformed(ActionEvent e) {
             if (e.getSource() == view.getButton1()) {
                 System.out.println("Button 1 says hello");
-            } else if (e.getSource() == view.getButton2()) {
+            } else if (e.getSource() == view.getButton2()) { // Admin Dashboard Pressed
                 System.out.println("Button 2 says hello");
+                view.dispose();
+                NavBarController.AdminDashboardActionPerformed(e);
             } else if (e.getSource() == view.getButton3()) {
 
             } else if (e.getSource() == view.getButton4()) {

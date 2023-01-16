@@ -23,7 +23,7 @@ public class CreateAccountController {
         view.getExitButton().addActionListener(new ExitListener());
         view.getButton3().addActionListener(new CreateAccountController.NavigatorsListener());//dashboard
         view.getButton4().addActionListener(new CreateAccountController.NavigatorsListener());//view project
-        view.getButton5().addActionListener(new CreateAccountController.NavigatorsListener());//create account, active screen
+        view.getButton5().addActionListener(new CreateAccountController.NavigatorsListener());//Skipped: active screen (current screen)
         view.getButton6().addActionListener(new CreateAccountController.NavigatorsListener());//view report
         view.getButton7().addActionListener(new CreateAccountController.NavigatorsListener());//logout
     }
@@ -38,16 +38,18 @@ public class CreateAccountController {
     class NavigatorsListener implements ActionListener{
         @Override
         public void actionPerformed(ActionEvent e) {
-            if (e.getSource() == view.getButton3()) {
+            if (e.getSource() == view.getButton3()) { //Admin - dashboard pressed
                 view.dispose();
-            } else if (e.getSource() == view.getButton4()) {
+                NavBarController.AdminDashboardActionPerformed(e);
+            } else if (e.getSource() == view.getButton4()) { // Admin - View Project pressed
                 view.dispose();
-            } else if (e.getSource() == view.getButton5()) {
+                NavBarController.AdminViewProjectActionPerformed(e);
+            } else if (e.getSource() == view.getButton6()) { // Admin - View Report Pressed
                 view.dispose();
-            } else if (e.getSource() == view.getButton6()) {
+                NavBarController.AdminViewReportActionPerformed(e);
+            } else if (e.getSource() == view.getButton7()) { // Admin - Logout Pressed
                 view.dispose();
-            } else if (e.getSource() == view.getButton7()) {
-                view.dispose();
+                NavBarController.LogoutActionPerformed(e);
             }
 
         }
