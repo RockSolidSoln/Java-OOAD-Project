@@ -63,14 +63,16 @@ public class Database {
         String[] items = temp.split(",");
         try {
             String basePath = System.getProperty("user.dir");
-            List<String> lines = Database.readFile(basePath + path);
-
+            String filePath = basePath + path;
+            List<String> lines = Files.readAllLines(Paths.get(filePath));
+            
             for (String line : lines) {
                 items = line.split(",");
                 if (items[0].equals(matchId)) {
                     return items;
                 }
             }
+            System.out.println("From Database-FindDataFromDB: The userId not matched with any in the Database");
         } catch (Exception e) {
             System.out.println("File Opening Error");
         }

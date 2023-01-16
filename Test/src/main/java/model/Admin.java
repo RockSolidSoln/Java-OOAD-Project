@@ -27,9 +27,18 @@ public class Admin extends User{
         String line = super.getUsername() +"," + super.getName() + "," + super.getEmail() + "," + super.getPhone() + "\n";
         ArrayList <String> lines = new ArrayList<String>();
         lines.add(line);
-        String filename= ("\\Test\\src\\assets\\admin.csv");
+        String fileName= ("\\Test\\src\\assets\\admin.csv");
 
-        Database.FilewriteBack(filename, lines); 
+        Database.FilewriteBack(fileName, lines); 
     }
     
+    public static Admin getDetailsInstance(String id){
+        String fileName = ("\\Test\\src\\assets\\admin.csv");
+        String userId = id;
+        String[] details = Database.FindDataFromDB(fileName, userId);
+        System.out.println(details[0] + " " + details[1] + " " + details[2] + " " + details[3]);
+        Admin adminInstance = Admin.getInstance(details[0],null, details[1], details[2], details[3]); 
+
+        return adminInstance;
+    }
 }
