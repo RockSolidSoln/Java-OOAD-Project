@@ -14,8 +14,11 @@ import java.awt.*;
  * @author salah
  */
 public class LecturerProjectsView extends JFrame {
+
+    
     public static LecturerProjectsView singletonInstance;
     public LecturerProjectsView() {
+        
         initComponents();
     }
 
@@ -25,6 +28,7 @@ public class LecturerProjectsView extends JFrame {
     private JButton jButton4;
     private JButton jButton1;
     private JButton viewProjectButton;
+    private JTable jTable1 ;
     // End of variables declaration  
     public static LecturerProjectsView getInstance() {
         if (singletonInstance == null) {
@@ -36,7 +40,7 @@ public class LecturerProjectsView extends JFrame {
 
         JPanel jPanel1 = new JPanel();
         JScrollPane jScrollPane1 = new JScrollPane();
-        JTable jTable1 = new JTable();
+        jTable1 = new JTable();
         JPanel jPanel4 = new JPanel();
         jButton2 = new JButton();
         jButton1 = new JButton();
@@ -78,41 +82,32 @@ public class LecturerProjectsView extends JFrame {
             }
         });
         jScrollPane1.setViewportView(jTable1);
-        String basePath = System.getProperty("user.dir");
-        try(BufferedReader br2 = new BufferedReader(new FileReader(basePath + "\\Test\\src\\assets\\projects.csv"))){
-            String line;
-            ((DefaultTableModel) jTable1.getModel()).setRowCount(0);
-            while ((line = br2.readLine()) != null) {
-                String[] values = line.split(",");
-                ((DefaultTableModel) jTable1.getModel()).insertRow(0, values);
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+
+
 
         jPanel4.setBackground(new Color(235, 252, 255));
 
-        jButton1.setBackground(new Color(235, 252, 255));
+        jButton1.setBackground(new Color(154, 216, 211));
         jButton1.setFont(new Font("SansSerif", Font.PLAIN, 12)); // NOI18N
         jButton1.setText("Dashboard");
 
-
-        jButton2.setBackground(new Color(235, 252, 255));
+        jButton2.setBackground(new Color(96, 132, 223));
         jButton2.setFont(new Font("SansSerif", Font.PLAIN, 12)); // NOI18N
-        jButton2.setText("View Reports");
+        jButton2.setText("View Project");
+        jButton2.setForeground(new Color(255, 255,255));
         jButton2.setOpaque(true);
 
         jLabel6.setFont(new Font("Segoe UI", Font.PLAIN, 18)); // NOI18N
         jLabel6.setText(LoginModel.getUserId());
 
-        jButton3.setBackground(new Color(230, 230, 230));
+        jButton3.setBackground(new Color(154, 216, 211));
         jButton3.setFont(new Font("SansSerif", Font.PLAIN, 14)); // NOI18N
         jButton3.setForeground(new Color(255, 51, 102));
         jButton3.setText("Logout");
 
-        jButton4.setBackground(new Color(235, 252, 255));
+        jButton4.setBackground(new Color(154, 216, 211));
         jButton4.setFont(new Font("SansSerif", Font.PLAIN, 12)); // NOI18N
-        jButton4.setText("View Project");
+        jButton4.setText("Create Account");
         jButton4.setOpaque(true);
 
         GroupLayout jPanel4Layout = new GroupLayout(jPanel4);
@@ -224,5 +219,7 @@ public class LecturerProjectsView extends JFrame {
     }
 
     public JButton getViewButton(){ return viewProjectButton;}
+
+    public JTable getTable(){ return jTable1;}
 
 }

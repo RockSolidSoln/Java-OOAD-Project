@@ -5,10 +5,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import model.LoginModel;
-import view.AdminDashboardView;
-import view.LecturerDashboardView;
-import view.LoginView;
-import view.StudentDashboardView;
+import view.*;
 
 public class LoginController {
     private final LoginView view;

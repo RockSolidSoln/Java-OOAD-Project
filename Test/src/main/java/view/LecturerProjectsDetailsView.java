@@ -4,10 +4,12 @@ import java.awt.*;
 
 public class LecturerProjectsDetailsView extends JFrame {
 
-    /**
-     * Creates new form LecturerProjectsDetailsView
-     */
-    public LecturerProjectsDetailsView() {
+    private static String projectId;
+    private static String projectName;
+    private static String specialization;
+    private static String details;
+
+    public LecturerProjectsDetailsView(String projectID, String projectName, String specialization, String details) {
         initComponents();
     }
 
@@ -18,7 +20,7 @@ public class LecturerProjectsDetailsView extends JFrame {
     }
     public static LecturerProjectsDetailsView getInstance() {
         if (singletonInstance == null) {
-            singletonInstance = new LecturerProjectsDetailsView();
+            singletonInstance = new LecturerProjectsDetailsView(projectId, projectName, specialization, details);
         }
         return singletonInstance;
     }
@@ -67,11 +69,11 @@ public class LecturerProjectsDetailsView extends JFrame {
 
         projectNameLabel2.setFont(new Font("SansSerif", Font.PLAIN, 18)); // NOI18N
         projectNameLabel2.setForeground(new Color(230, 230, 230));
-        projectNameLabel2.setText("jLabel6");
+        projectNameLabel2.setText(projectName);
 
         specializationLabel2.setFont(new Font("SansSerif", Font.PLAIN, 18)); // NOI18N
         specializationLabel2.setForeground(new Color(230, 230, 230));
-        specializationLabel2.setText("jLabel7");
+        specializationLabel2.setText(specialization);
 
         detailsTextField.setBackground(new Color(230, 230, 230));
 
@@ -105,7 +107,7 @@ public class LecturerProjectsDetailsView extends JFrame {
 
         studentLabel2.setFont(new Font("SansSerif", Font.PLAIN, 18)); // NOI18N
         studentLabel2.setForeground(new Color(230, 230, 230));
-        studentLabel2.setText("jLabel6");
+        studentLabel2.setText("Student Name");
 
         GroupLayout jPanel2Layout = new GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);

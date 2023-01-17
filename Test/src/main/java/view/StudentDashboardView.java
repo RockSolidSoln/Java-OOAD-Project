@@ -128,7 +128,7 @@ public class StudentDashboardView extends JFrame {
         jPanel5.setBorder(BorderFactory.createEtchedBorder());
 
         jLabel5.setFont(new Font("SansSerif", Font.PLAIN, 18)); // NOI18N
-        jLabel5.setText("NaA001me");
+        jLabel5.setText("--");
 
         String basePath = System.getProperty("user.dir");
         jLabel6.setIcon(new ImageIcon(basePath + "\\Test\\src\\assets\\Student.png"));
@@ -146,7 +146,7 @@ public class StudentDashboardView extends JFrame {
         jLabel10.setText("Phone-Number");
 
         jLabel11.setFont(new Font("SansSerif", Font.PLAIN, 18)); // NOI18N
-        jLabel11.setText("ID");
+        jLabel11.setText("--");
 
         jLabel12.setFont(new Font("SansSerif", Font.PLAIN, 18)); // NOI18N
         jLabel12.setText("ID");

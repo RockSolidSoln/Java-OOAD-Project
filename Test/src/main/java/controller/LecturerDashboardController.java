@@ -20,9 +20,10 @@ public class LecturerDashboardController {
     public LecturerDashboardController(LecturerDashboardView view){
         LecturerDashboardController.view = view;
 
-        view.getButton1().addActionListener(new NavigatorsListener());
-        view.getButton2().addActionListener(new NavigatorsListener());
-        view.getButton3().addActionListener(new NavigatorsListener());
+        view.getButton1().addActionListener(new NavigatorsListener());//view projects
+        view.getButton2().addActionListener(new NavigatorsListener());//create new project
+        view.getButton3().addActionListener(new NavigatorsListener());//Logout
+        view.getButton4().addActionListener(new NavigatorsListener());//dashboard, active
 
         List<String> informations = Database.readFile("\\Test\\src\\assets\\lecturer.csv");
         for (String line : informations) {

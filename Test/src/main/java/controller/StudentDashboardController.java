@@ -24,9 +24,10 @@ public class StudentDashboardController {
     public StudentDashboardController(StudentDashboardView view) {
         StudentDashboardController.view = view;
 
-        view.getButton1().addActionListener(new NavigatorsListener());
-        view.getButton2().addActionListener(new NavigatorsListener());
-        view.getButton3().addActionListener(new NavigatorsListener());
+        view.getButton1().addActionListener(new NavigatorsListener());//view my project
+        view.getButton2().addActionListener(new NavigatorsListener());//logout
+        view.getButton3().addActionListener(new NavigatorsListener());//view active and sp projects
+        view.getButton4().addActionListener(new NavigatorsListener());//dashboard, active
 
         List<String> informations = Database.readFile("\\Test\\src\\assets\\student.csv");
         for (String line : informations) {

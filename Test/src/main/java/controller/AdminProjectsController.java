@@ -95,7 +95,7 @@ public class AdminProjectsController {
 
                 view.dispose();
                 ProjectDetailsView new_view = new ProjectDetailsView(projectID, projectName, lecturerID, specialization, details);
-//                AdminRemarkController controllerRemark = new AdminRemarkController(new_view);
+                ProjectDetailsController controller = new ProjectDetailsController(new_view);
                 new_view.setVisible(true);
             } else {
                 JOptionPane.showMessageDialog(null, "Please select a row from the table.");
