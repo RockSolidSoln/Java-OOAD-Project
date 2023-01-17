@@ -105,9 +105,8 @@ public class AdminProjectsController {
 
         @Override
         public void actionPerformed(ActionEvent e) {
-            if (e.getSource() == view.getButton1()) {
-                System.out.println("Button 1 says hello");
-            } else if (e.getSource() == view.getButton2()) { // Admin - Dashboard Pressed
+                
+            if (e.getSource() == view.getButton2()) { // Admin - Dashboard Pressed
                 view.dispose();
                 NavBarController.AdminDashboardActionPerformed(e);
             } else if (e.getSource() == view.getButton3()) { // Admin - Create Account Pressed

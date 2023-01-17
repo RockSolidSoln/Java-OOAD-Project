@@ -23,7 +23,7 @@ public class LecturerDashboardController {
         view.getButton1().addActionListener(new NavigatorsListener());//view projects
         view.getButton2().addActionListener(new NavigatorsListener());//create new project
         view.getButton3().addActionListener(new NavigatorsListener());//Logout
-        view.getButton4().addActionListener(new NavigatorsListener());//dashboard, active
+        view.getButton4().addActionListener(new NavigatorsListener());//Skipped : Lecturer dashboard (current view)
 
         List<String> informations = Database.readFile("\\Test\\src\\assets\\lecturer.csv");
         for (String line : informations) {
@@ -64,21 +64,16 @@ public class LecturerDashboardController {
 
         }
 
-        private void jButton2ActionPerformed(ActionEvent e) {
-            view.dispose();
-            LecturerProjectsView new_view = new LecturerProjectsView();
-            LecturerProjectsController controller = new LecturerProjectsController(new_view);
-
-            new_view.setVisible(true);
-        }
 
         @Override
         public void actionPerformed(ActionEvent e) {
-            if (e.getSource() == view.getButton1()) {
-                jButton1ActionPerformed(e);
-            } else if (e.getSource() == view.getButton2()) {
-                jButton2ActionPerformed(e);
-            } else if (e.getSource() == view.getButton3()) {
+            if (e.getSource() == view.getButton1()) { // Lecturer - View Projects Button Pressed
+                view.dispose();
+                NavBarController.LecturerProjectsViewActionPerformed(e);
+            } else if (e.getSource() == view.getButton2()) { // Lecturer - Create Project Button Pressed
+                view.dispose();
+                NavBarController.LecturerCreateProjectActionPerformed(e);
+            } else if (e.getSource() == view.getButton3()) { // Logout Button Pressed
                 view.dispose();
                 NavBarController.LogoutActionPerformed(e);
             }

@@ -61,16 +61,16 @@ public class LecturerProjectsController {
             if (e.getSource() == view.getButton1()) { // Create Account Button Pressed
                 view.dispose();
 //                NavBarController.AdminCreateAccountActionPerformed(e);
-            } else if (e.getSource() == view.getButton2()) { // View Report Button Pressed
+            } else if (e.getSource() == view.getButton2()) { // Lecturer - View Report Button Pressed
                 view.dispose();
 //                NavBarController.AdminViewReportActionPerformed(e);
-            } else if (e.getSource() == view.getButton3()) { // Logout Button Pressed
+            } else if (e.getSource() == view.getButton3()) { // Lecturer - Logout Button Pressed
                 view.dispose();
                 NavBarController.LogoutActionPerformed(e);
-            } else if (e.getSource() == view.getButton4()) { // View Project Button Pressed
+            } else if (e.getSource() == view.getButton4()) { // Lecturer - Dashboard Button Pressed
                 view.dispose();
 //                NavBarController.AdminViewProjectActionPerformed(e);
-            } else if (e.getSource() == view.getViewButton()) { // Dashboard Button Pressed
+            } else if (e.getSource() == view.getViewButton()) { // Project-Details Button Pressed
                 int selectedRow = view.getTable().getSelectedRow();
                 if (selectedRow != -1) {
                     // get the value of the project ID column

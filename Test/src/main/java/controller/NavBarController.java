@@ -3,6 +3,7 @@ package controller;
 import view.AdminDashboardView;
 import view.AdminProjectsView;
 import view.CreateAccountView;
+import view.LecturerProjectsView;
 import view.LoginView;
 
 import java.awt.event.ActionEvent;
@@ -46,5 +47,21 @@ public class NavBarController {
         var adminDashboardcontroller = AdminDashboardController.getInstance(adminDashboardview);
         adminDashboardview.setVisible(true);
     }
+
+    // Lecturer Navigation Bar: LecturerProjectsView
+    public static void LecturerProjectsViewActionPerformed(ActionEvent e) {
+        var lecturerProjectsView = new LecturerProjectsView();
+        var lecturerProjectsController = new LecturerProjectsController(lecturerProjectsView);
+        lecturerProjectsView.setVisible(true);
+    }
+
+    // Lecturer Navigation Bar: LecturerCreateProject
+    public static void LecturerCreateProjectActionPerformed(ActionEvent e) {
+        var lectureProjectsView = new LecturerProjectsView();
+        var lectureProjectsController = new LecturerProjectsController(lectureProjectsView);
+        lectureProjectsView.setVisible(true);
+    }
+
+    
 
 }
