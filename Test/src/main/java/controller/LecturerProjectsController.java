@@ -31,7 +31,16 @@ public class LecturerProjectsController {
             ((DefaultTableModel) view.getTable().getModel()).setRowCount(0);
             while ((line = br2.readLine()) != null) {
                 String[] values = line.split(",");
-                ((DefaultTableModel) view.getTable().getModel()).insertRow(0, values);
+
+                Object[] rowData = new Object[values.length-1];
+                int j=0;
+                for (int i = 0; i < values.length; i++) {
+                    if (i != 2 && i!=4) {
+                        rowData[j]=values[i];
+                        j++;
+                    }
+                }
+                ((DefaultTableModel) view.getTable().getModel()).insertRow(0, rowData);
             }
         } catch (IOException e) {
             e.printStackTrace();

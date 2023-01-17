@@ -8,8 +8,8 @@ import java.awt.event.*;
 public class LoginView extends JFrame {
 
     private JButton loginButton, exitButton;
-    private JTextField jTextField1;
-    private JPasswordField jPasswordField1;
+    private JTextField userIdField;
+    private JPasswordField passwordField;
     private static LoginView singletonInstance;
 
     public static LoginView getInstance() {
@@ -29,8 +29,8 @@ public class LoginView extends JFrame {
 
         JPanel jPanel1 = new JPanel();
         JPanel jPanel2 = new JPanel();
-        jTextField1 = new JTextField();
-        jPasswordField1 = new JPasswordField();
+        userIdField = new JTextField();
+        passwordField = new JPasswordField();
         // Variables declaration - do not modify
         loginButton = new JButton();
         exitButton = new JButton();
@@ -75,8 +75,8 @@ public class LoginView extends JFrame {
                     .addGroup(jPanel2Layout.createParallelGroup(GroupLayout.Alignment.LEADING, false)
                         .addComponent(userIdLabel, GroupLayout.PREFERRED_SIZE, 198, GroupLayout.PREFERRED_SIZE)
                         .addComponent(passwordLabel, GroupLayout.PREFERRED_SIZE, 198, GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jTextField1)
-                        .addComponent(jPasswordField1, GroupLayout.DEFAULT_SIZE, 498, Short.MAX_VALUE)))
+                        .addComponent(userIdField)
+                        .addComponent(passwordField, GroupLayout.DEFAULT_SIZE, 498, Short.MAX_VALUE)))
                 .addGap(0, 22, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -85,11 +85,11 @@ public class LoginView extends JFrame {
                 .addGap(150, 150, 150)
                 .addComponent(userIdLabel, GroupLayout.PREFERRED_SIZE, 71, GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
-                .addComponent(jTextField1, GroupLayout.PREFERRED_SIZE, 38, GroupLayout.PREFERRED_SIZE)
+                .addComponent(userIdField, GroupLayout.PREFERRED_SIZE, 38, GroupLayout.PREFERRED_SIZE)
                 .addGap(65, 65, 65)
                 .addComponent(passwordLabel, GroupLayout.PREFERRED_SIZE, 71, GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
-                .addComponent(jPasswordField1, GroupLayout.PREFERRED_SIZE, 34, GroupLayout.PREFERRED_SIZE)
+                .addComponent(passwordField, GroupLayout.PREFERRED_SIZE, 34, GroupLayout.PREFERRED_SIZE)
                 .addGap(55, 55, 55)
                 .addGroup(jPanel2Layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
                     .addComponent(exitButton, GroupLayout.PREFERRED_SIZE, 36, GroupLayout.PREFERRED_SIZE)
@@ -154,11 +154,19 @@ public class LoginView extends JFrame {
     }
 
     public String getUserId() {
-        return jTextField1.getText();
+        return userIdField.getText();
+    }
+
+    public JTextField getUserIdField() {
+        return userIdField;
+    }
+
+    public JPasswordField getPasswordField(){
+        return passwordField;
     }
 
     public char[] getPassword() {
-        return jPasswordField1.getPassword();
+        return passwordField.getPassword();
     }
 
     public void displayLoginFailureMessage() {
