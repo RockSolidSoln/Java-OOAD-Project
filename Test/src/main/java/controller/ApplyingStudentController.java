@@ -60,7 +60,7 @@ public class ApplyingStudentController {
         public void actionPerformed(ActionEvent e) {
             if (e.getSource() == view.getBackButton()) {
                 view.dispose();
-                NavBarController.LecturerDashboardActionPerformed(e);
+                NavBarController.LecturerDashboardActionPerformed();
             } else if (e.getSource() == view.getAssignButton()) {
                 //assign to perform
                 view.dispose();
