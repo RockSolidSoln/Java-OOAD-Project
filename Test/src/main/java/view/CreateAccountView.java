@@ -394,6 +394,10 @@ public class CreateAccountView extends JFrame {
     }
 
     public char[] getPassword(){
+        return jPasswordField1.getPassword();
+    }
+
+    public char[] getPassword2(){
         return jPasswordField2.getPassword();
     }
 
@@ -405,5 +409,7 @@ public class CreateAccountView extends JFrame {
         return jTextField5.getText();
     }
 
-
+    public void displayFailureMessage() {
+        JOptionPane.showMessageDialog(null, "There was something wrong with the input, Check the fields and try again!", "Error", JOptionPane.INFORMATION_MESSAGE);
+    }
 }

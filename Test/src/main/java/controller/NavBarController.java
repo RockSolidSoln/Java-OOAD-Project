@@ -90,6 +90,34 @@ public class NavBarController {
     }
 
     //Student: View dashboard
-    
+    public static void StudentDashboardView(){
+        var studentDashboardView = StudentDashboardView.getInstance();
+        var studentDashboardController = StudentDashboardController.getInstance(studentDashboardView);
+        studentDashboardView.setVisible(true);
+    }
+
+    //Student: View his project details
+    public static void StudentProjectDetailsView(){
+        var studentProjectDetailsView = StudentProjectDetailsView.getInstance();
+        var studentProjectDetailsController = StudentProjectDetailsController.getInstance(studentProjectDetailsView);
+        studentProjectDetailsView.setVisible(true);
+    }
+
+    //Student: View Available Projects
+    public static void StudentAvailableProjectsView(){
+        var studentAvailableProjectsView = StudentAvailableProjectsView.getInstance();
+        var studentAvailableProjectsController = StudentAvailableProjectsController.getInstance(studentAvailableProjectsView);
+        studentAvailableProjectsView.setVisible(true);
+    }
+
+    //Student: Apply for a project
+    public static void StudentApplyProjectsView(String projectId, String projectName, String lecturerId){
+        var studentApplyProjectsView = StudentApplyProjectView.getInstance(projectId, projectName, lecturerId);
+        var studentApplyProjectsController = StudentApplyProjectController.getInstance(studentApplyProjectsView);
+        studentApplyProjectsView.setVisible(true);
+    }
+
+
+
 
 }

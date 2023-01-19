@@ -5,6 +5,7 @@ import view.CreateAccountView;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Objects;
 
 import model.Admin;
 import model.Lecturer;
@@ -63,26 +64,32 @@ public class CreateAccountController {
             String email = view.getEmail();
             String phone = view.getPhone();
             String name = view.getName();
+            String confirmPassword = new String(view.getPassword2());
             String specialization = view.getSpecialization();
 
             String userType = view.getUsertype();
 
-            // Storing Credentials for the user (admin/lecturer/ student).
-            User user = User.getInstance(userId, password, name, email, phone);
-            user.StoreCredentials();
+            if(Objects.equals(password, confirmPassword)){
+                // Storing Credentials for the user (admin/lecturer/ student).
+                User user = User.getInstance(userId, password, name, email, phone);
+                user.StoreCredentials();
 
-            //Storing details for the user.
-            if(userType.equals("ADMIN")){
-                Admin admin = Admin.getInstance(userId, password, name, email, phone);
-                admin.StoreDetails(); // storing admin details in the DB
+                //Storing details for the user.
+                if(userType.equals("ADMIN")){
+                    Admin admin = Admin.getInstance(userId, password, name, email, phone);
+                    admin.StoreDetails(); // storing admin details in the DB
 
-            } else if(userType.equals("LECTURER")){
-                Lecturer lecturer = Lecturer.getInstance(userId, password, name, email, phone);
-                lecturer.StoreDetails(); // storing lecturer details in the DB
-            }
-            else{
-                Student student = Student.getInstance(userId, password, name, email, phone, specialization);
-                student.StoreDetails();   // storing student details in the DB
+                } else if(userType.equals("LECTURER")){
+                    Lecturer lecturer = Lecturer.getInstance(userId, password, name, email, phone);
+                    lecturer.StoreDetails(); // storing lecturer details in the DB
+                }
+                else{
+                    Student student = Student.getInstance(userId, password, name, email, phone, specialization);
+                    student.StoreDetails();   // storing student details in the DB
+                }
+
+            } else{
+                view.displayFailureMessage();
             }
 
 

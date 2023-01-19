@@ -52,12 +52,13 @@ public class StudentDashboardController {
         @Override
         public void actionPerformed(ActionEvent e) {
             if (e.getSource() == view.getButton1()) {
-                System.out.println("Button 1 says hello");
+                NavBarController.StudentProjectDetailsView();
             } else if (e.getSource() == view.getButton2()) {
                 view.dispose();
                 NavBarController.LogoutActionPerformed();
             } else if (e.getSource() == view.getButton3()) {
-
+                view.dispose();
+                NavBarController.StudentAvailableProjectsView();
             }
         }
     }
