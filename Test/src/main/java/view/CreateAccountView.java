@@ -410,6 +410,6 @@ public class CreateAccountView extends JFrame {
     }
 
     public void displayFailureMessage() {
-        JOptionPane.showMessageDialog(null, "There was something wrong with the input, Check the fields and try again!", "Error", JOptionPane.INFORMATION_MESSAGE);
+        JOptionPane.showMessageDialog(null, "There was something wrong with the input, Check the fields and try again!", "Error", JOptionPane.ERROR_MESSAGE);
     }
 }

@@ -36,6 +36,7 @@ public class LecturerProjectsDetailsController {
             if (e.getSource() == view.getActivateDeactivateButton()) {
                 Project projectModel = Project.getInstance(null, null, null, null, null, null);
                 projectModel.ChangeActiveStatus(view.getProjectId());
+                view.displaySuccessMessage();
                 view.dispose();
                 NavBarController.LecturerProjectsViewActionPerformed();
             } else if (e.getSource() == view.getBackButton()) {

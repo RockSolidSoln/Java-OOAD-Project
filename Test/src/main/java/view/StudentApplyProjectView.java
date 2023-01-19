@@ -17,16 +17,15 @@ public class StudentApplyProjectView extends JFrame {
     private static String projectName;
     private static String lecturerId;
     
-    public StudentApplyProjectView(String projectID, String projectName, String lecturerId) {
-        StudentApplyProjectView.projectId = projectID;
-        StudentApplyProjectView.projectName = projectName;
-        StudentApplyProjectView.lecturerId = lecturerId;
-        
+    public StudentApplyProjectView(String projectId, String projectName, String lecturerId) {
         initComponents();
     }
     private static StudentApplyProjectView singletonInstance;
 
-    public static StudentApplyProjectView getInstance(){
+    public static StudentApplyProjectView getInstance(String projectID, String projectName, String lecturerId){
+        StudentApplyProjectView.projectId = projectID;
+        StudentApplyProjectView.projectName = projectName;
+        StudentApplyProjectView.lecturerId = lecturerId;
         if (singletonInstance == null) {
             singletonInstance = new StudentApplyProjectView(projectId, projectName, lecturerId);
         }
@@ -48,7 +47,7 @@ public class StudentApplyProjectView extends JFrame {
     private JLabel projectNameLabel2;
     private JLabel projectSpecialization1;
     private JLabel projectSpecializationLabel2;
-    
+
     private void initComponents() {
 
         jPanel1 = new JPanel();
