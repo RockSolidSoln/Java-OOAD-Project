@@ -45,6 +45,7 @@ public class LecturerProjectsDetailsController {
             } else if (e.getSource() == view.getUnassignButton()) {
                 view.dispose();
             } else if (e.getSource() == view.getModifyButton()) {
+                
                 view.dispose();
 //
             } else if (e.getSource() == view.getApplyingListButton()) {

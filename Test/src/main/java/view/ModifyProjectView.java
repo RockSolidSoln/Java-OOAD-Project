@@ -1,5 +1,7 @@
 package view;
 
+import model.LoginModel;
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -69,6 +71,7 @@ public class ModifyProjectView extends JFrame {
         jLabel6.setText("Specialization");
 
         jComboBox1.setEditable(false);
+        jComboBox1.addItem(LoginModel.getUserId());
 
         GroupLayout jPanel1Layout = new GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);

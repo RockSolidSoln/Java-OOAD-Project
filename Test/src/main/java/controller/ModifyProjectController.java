@@ -21,11 +21,6 @@ public class ModifyProjectController {
         view.getButton1().addActionListener(new ModifyProjectController.NavigatorsListener());
         view.getButton2().addActionListener(new ModifyProjectController.NavigatorsListener()); //go back to view projects but keep in mind admin and lec is using same
 
-        List<String> lecturers = Project.getlecturer();
-        for (String lecturer : lecturers) {
-            view.getJComboBox().addItem(lecturer);
-        }
-
         List<String> specialization = new ArrayList<String>();
         specialization.add("Software Engineering");
         specialization.add("Data Scientist");
