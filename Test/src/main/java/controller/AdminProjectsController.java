@@ -116,6 +116,7 @@ public class AdminProjectsController {
                 view.dispose();
                 NavBarController.AdminViewReportActionPerformed(e);
             } else if (e.getSource() == view.getButton5()) { // Admin - logout Pressed
+                view.dispose();
                 NavBarController.LogoutActionPerformed(e);
             }
             
