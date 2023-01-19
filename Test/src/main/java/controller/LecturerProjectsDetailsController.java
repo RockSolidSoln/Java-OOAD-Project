@@ -1,7 +1,7 @@
 package controller;
 
+import view.ApplyingStudentView;
 import view.LecturerProjectsDetailsView;
-import view.LecturerProjectsView;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -31,20 +31,22 @@ public class LecturerProjectsDetailsController {
 
         @Override
         public void actionPerformed(ActionEvent e) {
-            if (e.getSource() == view.getActivateDeactivateButton()) { // Create Account Button Pressed
+            if (e.getSource() == view.getActivateDeactivateButton()) {
                 view.dispose();
 //                NavBarController.AdminCreateAccountActionPerformed(e);
-            } else if (e.getSource() == view.getBackButton()) { // View Report Button Pressed
+            } else if (e.getSource() == view.getBackButton()) {
                 view.dispose();
-//                NavBarController.AdminViewReportActionPerformed(e);
-            } else if (e.getSource() == view.getUnassignButton()) { // Logout Button Pressed
+                NavBarController.LecturerDashboardActionPerformed(e);
+            } else if (e.getSource() == view.getUnassignButton()) {
                 view.dispose();
-            } else if (e.getSource() == view.getModifyButton()) { // View Project Button Pressed
+            } else if (e.getSource() == view.getModifyButton()) {
                 view.dispose();
 //                NavBarController.AdminViewProjectActionPerformed(e);
-            } else if (e.getSource() == view.getApplyingListButton()) { // Dashboard Button Pressed
-//                view.dispose();
-//                NavBarController.AdminDashboardActionPerformed(e);
+            } else if (e.getSource() == view.getApplyingListButton()) {
+                view.dispose();
+                ApplyingStudentView new_view = ApplyingStudentView.getInstance();
+                ApplyingStudentController controller  = ApplyingStudentController.getInstance(new_view);
+                new_view.setVisible(true);
             }
 
         }

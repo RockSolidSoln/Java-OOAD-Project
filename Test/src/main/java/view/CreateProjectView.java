@@ -42,8 +42,9 @@ public class CreateProjectView extends JFrame {
     specializationComboBox = new JComboBox<>();
     jMenuItem1.setText("jMenuItem1");
 
-    setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
     setResizable(false);
+    setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
+
 
     jPanel1.setBackground(new Color(154, 216, 211));
 
@@ -60,7 +61,11 @@ public class CreateProjectView extends JFrame {
     jLabel4.setText("Details");
 
     jButton1.setText("Create Project");
+    jButton1.setForeground(new Color(255, 255, 255));
+    jButton1.setBackground(new Color(0, 168, 209));
     jButton2.setText("Go Back");
+    jButton2.setForeground(new Color(255, 255, 255));
+    jButton2.setBackground(new Color(0, 168, 209));
 
     jLabel6.setFont(new Font("SansSerif", Font.PLAIN, 18)); // NOI18N
     jLabel6.setText("Specialization");

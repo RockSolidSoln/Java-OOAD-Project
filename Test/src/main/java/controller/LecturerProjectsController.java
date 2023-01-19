@@ -74,10 +74,10 @@ public class LecturerProjectsController {
                     String projectID = (String) view.getTable().getValueAt(selectedRow, 0);
                     String projectName = (String) view.getTable().getValueAt(selectedRow, 1);
                     String specialization = (String) view.getTable().getValueAt(selectedRow, 2);
-                    String details = (String) view.getTable().getValueAt(selectedRow, 3);
-
+                    String status = (String) view.getTable().getValueAt(selectedRow, 3);
+                    
                     view.dispose();
-                    LecturerProjectsDetailsView new_view = new LecturerProjectsDetailsView(projectID, projectName, specialization, details);
+                    LecturerProjectsDetailsView new_view = new LecturerProjectsDetailsView(projectID, projectName, specialization, status);
                     LecturerProjectsDetailsController controller = new LecturerProjectsDetailsController(new_view);
 
                     new_view.setVisible(true);
