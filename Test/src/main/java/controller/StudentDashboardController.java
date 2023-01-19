@@ -54,6 +54,7 @@ public class StudentDashboardController {
             if (e.getSource() == view.getButton1()) {
                 System.out.println("Button 1 says hello");
             } else if (e.getSource() == view.getButton2()) {
+                view.dispose();
                 NavBarController.LogoutActionPerformed(e);
             } else if (e.getSource() == view.getButton3()) {
 
