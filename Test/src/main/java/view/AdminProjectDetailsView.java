@@ -9,52 +9,40 @@ import java.awt.*;
  *
  * @author salah
  */
-public class ProjectDetailsView extends JFrame {
+public class AdminProjectDetailsView extends JFrame {
     private static String projectId;
     private static String projectName;
     private static String lecturerId;    
     private static String specialization;    
     private static String details;
 
-    // Variables declaration - do not modify
-    private JButton backButton;
-    private JButton jButton1;
-    private JButton jButton2;
-    private JButton jButton3;
-    private JButton jButton4;
-    private JButton jButton5;
-    // End of variables declaration
 
-    public ProjectDetailsView(String projectId,String projectName, String lecturerId, String specialization, String details) {
-        ProjectDetailsView.projectId = projectId;
-        ProjectDetailsView.projectName = projectName;
-        ProjectDetailsView.lecturerId = lecturerId;
-        ProjectDetailsView.specialization = specialization;
-        ProjectDetailsView.details = details;
+    public AdminProjectDetailsView(String projectId, String projectName, String lecturerId, String specialization, String details) {
+        AdminProjectDetailsView.projectId = projectId;
+        AdminProjectDetailsView.projectName = projectName;
+        AdminProjectDetailsView.lecturerId = lecturerId;
+        AdminProjectDetailsView.specialization = specialization;
+        AdminProjectDetailsView.details = details;
         
         initComponents();
     }
 
-    public static ProjectDetailsView singletonInstance;
+    public static AdminProjectDetailsView singletonInstance;
 
-    public static ProjectDetailsView getInstance(){
+    public static AdminProjectDetailsView getInstance(){
         if(singletonInstance == null){
-            singletonInstance = new ProjectDetailsView(projectId, projectName,lecturerId, specialization, details);
+            singletonInstance = new AdminProjectDetailsView(projectId, projectName,lecturerId, specialization, details);
         }
         return singletonInstance;
     }
+    JButton backButton;
 
     private void initComponents() {
 
         JPanel jPanel1 = new JPanel();
         JPanel jPanel2 = new JPanel();
         JPanel jPanel3 = new JPanel();
-        jButton1 = new JButton();
-        jButton2 = new JButton();
         JLabel jLabel4 = new JLabel();
-        jButton3 = new JButton();
-        jButton4 = new JButton();
-        jButton5 = new JButton();
         JLabel projectNameLabel = new JLabel();
         JLabel specializationLabel = new JLabel();
         JLabel lecturerIdlabel = new JLabel();
@@ -71,70 +59,10 @@ public class ProjectDetailsView extends JFrame {
         jLabel4.setText(LoginModel.getUserId());
 
         jPanel2.setBackground(new Color(0, 168, 209));
-
         jPanel3.setBackground(new Color(235, 252, 255));
-
-        jButton1.setBackground(new Color(235, 252, 255));
-        jButton1.setFont(new Font("SansSerif", Font.PLAIN, 12)); // NOI18N
-        jButton1.setText("Create Account");
-
-        jButton2.setBackground(new Color(235, 252, 255));
-        jButton2.setFont(new Font("SansSerif", Font.PLAIN, 12)); // NOI18N
-        jButton2.setText("View Reports");
-        jButton2.setOpaque(true);
 
         jLabel4.setFont(new Font("Segoe UI", Font.PLAIN, 18)); // NOI18N
         jLabel4.setText(LoginModel.getUserId());
-
-        jButton3.setBackground(new Color(235, 252, 255));
-        jButton3.setFont(new Font("SansSerif", Font.PLAIN, 14)); // NOI18N
-        jButton3.setForeground(new Color(255, 51, 102));
-        jButton3.setText("Logout");
-
-        jButton4.setBackground(new Color(92, 122, 234));
-        jButton4.setFont(new Font("SansSerif", Font.PLAIN, 12)); // NOI18N
-        jButton4.setText("View Project");
-        jButton4.setOpaque(true);
-
-        jButton5.setBackground(new Color(235, 252, 255));
-        jButton5.setFont(new Font("SansSerif", Font.PLAIN, 12)); // NOI18N
-        jButton5.setText("Dashboard");
-
-        GroupLayout jPanel3Layout = new GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-                jPanel3Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
-                        .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addGroup(jPanel3Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
-                                        .addComponent(jLabel4, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(jButton5, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(jButton4, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(jButton1, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(jButton2, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addContainerGap())
-                        .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addGap(17, 17, 17)
-                                .addComponent(jButton3, GroupLayout.PREFERRED_SIZE, 113, GroupLayout.PREFERRED_SIZE)
-                                .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jPanel3Layout.setVerticalGroup(
-                jPanel3Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
-                        .addGroup(GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                                .addGap(25, 25, 25)
-                                .addComponent(jLabel4, GroupLayout.PREFERRED_SIZE, 25, GroupLayout.PREFERRED_SIZE)
-                                .addGap(87, 87, 87)
-                                .addComponent(jButton5)
-                                .addGap(12, 12, 12)
-                                .addComponent(jButton4)
-                                .addGap(12, 12, 12)
-                                .addComponent(jButton1)
-                                .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jButton2)
-                                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 246, Short.MAX_VALUE)
-                                .addComponent(jButton3)
-                                .addContainerGap())
-        );
 
         projectNameLabel.setBackground(new Color(230, 230, 230));
         projectNameLabel.setFont(new Font("SansSerif", Font.PLAIN, 18)); // NOI18N
@@ -259,27 +187,4 @@ public class ProjectDetailsView extends JFrame {
 
     public JButton getBackButton(){ return backButton; }
 
-    //Create Account
-    public JButton getButton1() {
-        return jButton1;
-    }
-    //View Report
-    public JButton getButton2() {
-        return jButton2;
-    }
-
-    //Logout
-    public JButton getButton3() {
-        return jButton3;
-    }
-
-    //View Project
-    public JButton getButton4() {
-        return jButton4;
-    }
-
-    //Dashboard
-    public JButton getButton5() {
-        return jButton5;
-    }
 }

@@ -64,8 +64,9 @@ public class AdminProjectsController {
             if (selectedRow != -1) {
                 // get the value of the project ID column
                 String projectID = (String) view.getTable().getValueAt(selectedRow, 0);
+                String projectName = (String) view.getTable().getValueAt(selectedRow, 1);
                 view.dispose();
-                AdminRemarkView remarkSection = new AdminRemarkView(projectID);
+                AdminRemarkView remarkSection = new AdminRemarkView(projectID, projectName);
                 AdminRemarkController controllerRemark = new AdminRemarkController(remarkSection);
                 remarkSection.setVisible(true);
             } else {
@@ -95,9 +96,7 @@ public class AdminProjectsController {
                 String details = (String) view.getTable().getValueAt(selectedRow, 4);
 
                 view.dispose();
-                ProjectDetailsView new_view = new ProjectDetailsView(projectID, projectName, lecturerID, specialization, details);
-                ProjectDetailsController controller = new ProjectDetailsController(new_view);
-                new_view.setVisible(true);
+                NavBarController.AdminViewProject(projectID, projectName, lecturerID, specialization, details);
             } else {
                 JOptionPane.showMessageDialog(null, "Please select a row from the table.");
             }
@@ -109,16 +108,16 @@ public class AdminProjectsController {
                 
             if (e.getSource() == view.getButton2()) { // Admin - Dashboard Pressed
                 view.dispose();
-                NavBarController.AdminDashboardActionPerformed(e);
+                NavBarController.AdminDashboardActionPerformed();
             } else if (e.getSource() == view.getButton3()) { // Admin - Create Account Pressed
                 view.dispose();
-                NavBarController.AdminCreateAccountActionPerformed(e);
+                NavBarController.AdminCreateAccountActionPerformed();
             } else if (e.getSource() == view.getButton4()) { // Admin - View Reports Pressed
                 view.dispose();
-                NavBarController.AdminViewReportActionPerformed(e);
+                NavBarController.AdminViewReportActionPerformed();
             } else if (e.getSource() == view.getButton5()) { // Admin - logout Pressed
                 view.dispose();
-                NavBarController.LogoutActionPerformed(e);
+                NavBarController.LogoutActionPerformed();
             }
             
             

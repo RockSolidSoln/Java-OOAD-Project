@@ -33,15 +33,15 @@ public class LecturerProjectsDetailsController {
         public void actionPerformed(ActionEvent e) {
             if (e.getSource() == view.getActivateDeactivateButton()) {
                 view.dispose();
-//                NavBarController.AdminCreateAccountActionPerformed(e);
+
             } else if (e.getSource() == view.getBackButton()) {
                 view.dispose();
-                NavBarController.LecturerProjectsViewActionPerformed(e);
+                NavBarController.LecturerProjectsViewActionPerformed();
             } else if (e.getSource() == view.getUnassignButton()) {
                 view.dispose();
             } else if (e.getSource() == view.getModifyButton()) {
                 view.dispose();
-//                NavBarController.AdminViewProjectActionPerformed(e);
+//
             } else if (e.getSource() == view.getApplyingListButton()) {
                 NavBarController.ViewApplyingStudentListPerformed(view.getProjectId().getText());
                 view.dispose();

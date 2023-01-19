@@ -57,13 +57,13 @@ public class LecturerProjectsController {
         public void actionPerformed(ActionEvent e) {
             if (e.getSource() == view.getButton1()) { // Lecturer - Dashboard
                 view.dispose();
-                NavBarController.LecturerDashboardActionPerformed(e);
+                NavBarController.LecturerDashboardActionPerformed();
             } else if (e.getSource() == view.getButton3()) { // Lecturer - Logout Button Pressed
                 view.dispose();
-                NavBarController.LogoutActionPerformed(e);
+                NavBarController.LogoutActionPerformed();
             } else if (e.getSource() == view.getButton4()) { // Lecturer - Create New Project Pressed
                 view.dispose();
-                NavBarController.CreateProjectActionPerformed(e);
+                NavBarController.CreateProjectActionPerformed();
             } else if (e.getSource() == view.getViewButton()) { // Project-Details Button Pressed
                 int selectedRow = view.getTable().getSelectedRow();
                 if (selectedRow != -1) {

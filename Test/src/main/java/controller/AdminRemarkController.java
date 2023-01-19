@@ -93,11 +93,11 @@ public class AdminRemarkController {
             if (e.getSource() == view.getPublishCommentButton()) {
                 publishCommentButtonActionPerformed(e);
             } else if (e.getSource() == view.getBackButton()) {
-
+                NavBarController.AdminViewProjectActionPerformed();
             }
 
         }
-        
+
         public void readFile() {
             String basePath = System.getProperty("user.dir");
 

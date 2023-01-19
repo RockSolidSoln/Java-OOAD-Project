@@ -68,13 +68,13 @@ public class LecturerDashboardController {
         @Override
         public void actionPerformed(ActionEvent e) {
             if (e.getSource() == view.getButton1()) { // Lecturer - Create Project Button Pressed
-                NavBarController.CreateProjectActionPerformed(e);
+                NavBarController.CreateProjectActionPerformed();
             } else if (e.getSource() == view.getButton2()) { // Lecturer - View Projects Button Pressed
                 view.dispose();
-                NavBarController.LecturerProjectsViewActionPerformed(e);
+                NavBarController.LecturerProjectsViewActionPerformed();
             } else if (e.getSource() == view.getButton3()) { // Logout Button Pressed
                 view.dispose();
-                NavBarController.LogoutActionPerformed(e);
+                NavBarController.LogoutActionPerformed();
             }
         }
     }

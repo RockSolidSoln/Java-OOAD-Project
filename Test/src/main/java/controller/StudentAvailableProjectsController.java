@@ -29,7 +29,7 @@ public class StudentAvailableProjectsController {
             if (e.getSource() == view.getButton1()) {
                 System.out.println("Button 1 says hello");
             } else if (e.getSource() == view.getButton2()) {
-                NavBarController.LogoutActionPerformed(e);
+                NavBarController.LogoutActionPerformed();
             } else if (e.getSource() == view.getButton3()) {
 
             }
