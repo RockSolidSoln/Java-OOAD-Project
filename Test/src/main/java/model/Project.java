@@ -121,5 +121,14 @@ public class Project {
         return filteredProjectsByLecturer; 
     }
 
+    //For filtering the data from Active student list according Project.
+    public ArrayList<ArrayList<String>> FilterByProjectId(String projectId){
+        String path = "\\Test\\src\\assets\\application.csv";
 
+        //Calling the dataFiltration method to filter the Applications according to the projectId (saved in 1st column in the DB).
+        ArrayList<ArrayList<String>> filteredProjectsByProjectId = Database.dataFiltration(path, projectId, 1);
+        return filteredProjectsByProjectId;
+    }
+
+    
 }
