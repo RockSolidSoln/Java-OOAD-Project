@@ -171,7 +171,6 @@ public class LoginView extends JFrame {
 
     public void displayLoginFailureMessage() {
         JOptionPane.showMessageDialog(null, "Try again!", "Login Failure", JOptionPane.INFORMATION_MESSAGE);
-        
     }
 
 }

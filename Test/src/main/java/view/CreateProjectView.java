@@ -11,8 +11,8 @@ public class CreateProjectView extends JFrame {
   private static CreateProjectView singletonInstance;
   private JButton jButton1;
   private JButton jButton2;
-  private JComboBox<String> jComboBox1;
-  JTextField jTextField1, jTextField2, jTextField3;
+  private JComboBox<String> jComboBox1, specializationComboBox;
+  JTextField jTextField1, jTextField2;
   public CreateProjectView() {
     initComponents();
   }
@@ -39,7 +39,7 @@ public class CreateProjectView extends JFrame {
     JPanel jPanel2 = new JPanel();
     jTextField2 = new JTextField();
     JLabel jLabel6 = new JLabel();
-    jTextField3 = new JTextField();
+    specializationComboBox = new JComboBox<>();
     jMenuItem1.setText("jMenuItem1");
 
     setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
@@ -88,7 +88,7 @@ public class CreateProjectView extends JFrame {
                                                                     .addComponent(jLabel6))
                                                             .addGap(50, 50, 50)
                                                             .addGroup(jPanel1Layout.createParallelGroup(GroupLayout.Alignment.TRAILING, false)
-                                                                    .addComponent(jTextField3, GroupLayout.Alignment.LEADING)
+                                                                    .addComponent(specializationComboBox, GroupLayout.Alignment.LEADING)
                                                                     .addComponent(jTextField1, GroupLayout.Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 217, Short.MAX_VALUE))
                                                             .addGap(135, 135, 135)
                                                             .addGroup(jPanel1Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
@@ -120,7 +120,7 @@ public class CreateProjectView extends JFrame {
                             .addGap(80, 80, 80)
                             .addGroup(jPanel1Layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
                                     .addComponent(jLabel6)
-                                    .addComponent(jTextField3, GroupLayout.PREFERRED_SIZE, 38, GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(specializationComboBox, GroupLayout.PREFERRED_SIZE, 38, GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel4)
                                     .addComponent(jTextField2, GroupLayout.PREFERRED_SIZE, 114, GroupLayout.PREFERRED_SIZE))
                             .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -161,8 +161,12 @@ public class CreateProjectView extends JFrame {
     return (String) jComboBox1.getSelectedItem();
   }
 
+  public JComboBox<String> getSpecializationBox(){
+    return specializationComboBox;
+  }
+
   public String getSpecialization(){
-    return jTextField3.getText();
+    return (String) specializationComboBox.getSelectedItem();
   }
 
   public String getProject(){
