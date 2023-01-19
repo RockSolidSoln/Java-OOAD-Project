@@ -50,7 +50,7 @@ public class ModifyProjectView extends JFrame {
         jLabel1.setText("Lecturer ID");
 
         jLabel2.setFont(new Font("SansSerif", Font.PLAIN, 36)); // NOI18N
-        jLabel2.setText("Add Project");
+        jLabel2.setText("Modify Project");
 
         jLabel3.setFont(new Font("SansSerif", Font.PLAIN, 18)); // NOI18N
         jLabel3.setText("Project Name");

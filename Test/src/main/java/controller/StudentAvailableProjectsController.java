@@ -14,6 +14,7 @@ public class StudentAvailableProjectsController {
         view.getButton1().addActionListener(new StudentAvailableProjectsController.NavigatorsListener());//view my project
         view.getButton2().addActionListener(new StudentAvailableProjectsController.NavigatorsListener());//logout
         view.getButton3().addActionListener(new StudentAvailableProjectsController.NavigatorsListener());//dashboard
+        view.getViewButton().addActionListener(new StudentAvailableProjectsController.NavigatorsListener());//dashboard
     }
 
     public static StudentAvailableProjectsController getInstance(StudentAvailableProjectsView view) {
@@ -35,7 +36,19 @@ public class StudentAvailableProjectsController {
             } else if (e.getSource() == view.getButton3()) {
                 view.dispose();
                 NavBarController.StudentDashboardView();
+            } else if (e.getSource() == view.getViewButton()) {
+                int selectedRow = view.getTable().getSelectedRow();
+                if (selectedRow != -1) {
+                    // get the value of the project ID column
+                    String projectID = (String) view.getTable().getValueAt(selectedRow, 0);
+                    String projectName = (String) view.getTable().getValueAt(selectedRow, 1);
+                    String lecturerID = (String) view.getTable().getValueAt(selectedRow, 2);
+
+                    view.dispose();
+                    NavBarController.StudentApplyProjectsView(projectID, projectName, lecturerID);
+                }
             }
+
         }
     }
 }
