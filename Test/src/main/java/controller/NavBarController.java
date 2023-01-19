@@ -3,6 +3,8 @@ package controller;
 import view.AdminDashboardView;
 import view.AdminProjectsView;
 import view.CreateAccountView;
+import view.CreateProjectView;
+import view.LecturerDashboardView;
 import view.LecturerProjectsView;
 import view.LoginView;
 
@@ -10,6 +12,7 @@ import java.awt.event.ActionEvent;
 import java.io.IOException;
 
 import model.LoginModel;
+import model.Project;
 
 public class NavBarController {
     // Users Navigation Bar: Logout
@@ -48,18 +51,25 @@ public class NavBarController {
         adminDashboardview.setVisible(true);
     }
 
+    public static void LecturerDashboardActionPerformed(ActionEvent e) {
+        var lecturerDashboardView = LecturerDashboardView.getInstance();
+        var lecturerDashboardController = LecturerDashboardController.getInstance(lecturerDashboardView);
+        lecturerDashboardView.setVisible(true);
+    }
+
     // Lecturer Navigation Bar: LecturerProjectsView
     public static void LecturerProjectsViewActionPerformed(ActionEvent e) {
-        var lecturerProjectsView = new LecturerProjectsView();
-        var lecturerProjectsController = new LecturerProjectsController(lecturerProjectsView);
+        var lecturerProjectsView = LecturerProjectsView.getInstance();
+        var lecturerProjectsController = LecturerProjectsController.getInstance(lecturerProjectsView);
         lecturerProjectsView.setVisible(true);
     }
 
-    // Lecturer Navigation Bar: LecturerCreateProject
-    public static void LecturerCreateProjectActionPerformed(ActionEvent e) {
-        var lectureProjectsView = new LecturerProjectsView();
-        var lectureProjectsController = new LecturerProjectsController(lectureProjectsView);
-        lectureProjectsView.setVisible(true);
+    // Lecturer / Admin : Create Project
+    public static void CreateProjectActionPerformed(ActionEvent e) {
+        var createProjectView = CreateProjectView.getInstance();
+        var projectModel = Project.getInstance();
+        var createProjectController = CreateProjectController.getInstance(createProjectView, projectModel);
+        createProjectView.setVisible(true);
     }
 
     

@@ -20,8 +20,8 @@ public class LecturerDashboardController {
     public LecturerDashboardController(LecturerDashboardView view){
         LecturerDashboardController.view = view;
 
-        view.getButton1().addActionListener(new NavigatorsListener());//view projects
-        view.getButton2().addActionListener(new NavigatorsListener());//create new project
+        view.getButton1().addActionListener(new NavigatorsListener());//create new project 
+        view.getButton2().addActionListener(new NavigatorsListener());//view projects
         view.getButton3().addActionListener(new NavigatorsListener());//Logout
         view.getButton4().addActionListener(new NavigatorsListener());//Skipped : Lecturer dashboard (current view)
 
@@ -67,12 +67,12 @@ public class LecturerDashboardController {
 
         @Override
         public void actionPerformed(ActionEvent e) {
-            if (e.getSource() == view.getButton1()) { // Lecturer - View Projects Button Pressed
+            if (e.getSource() == view.getButton1()) { // Lecturer - Create Project Button Pressed
+                NavBarController.CreateProjectActionPerformed(e);
+            } else if (e.getSource() == view.getButton2()) { // Lecturer - View Projects Button Pressed
                 view.dispose();
                 NavBarController.LecturerProjectsViewActionPerformed(e);
-            } else if (e.getSource() == view.getButton2()) { // Lecturer - Create Project Button Pressed
-                view.dispose();
-                NavBarController.LecturerCreateProjectActionPerformed(e);
+                
             } else if (e.getSource() == view.getButton3()) { // Logout Button Pressed
                 view.dispose();
                 NavBarController.LogoutActionPerformed(e);

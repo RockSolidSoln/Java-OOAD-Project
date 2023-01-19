@@ -22,7 +22,7 @@ public class LecturerProjectsController {
         view.getButton1().addActionListener(new LecturerProjectsController.NavigatorsListener()); //dashboard
         view.getButton2().addActionListener(new LecturerProjectsController.NavigatorsListener()); //view projects, active
         view.getButton3().addActionListener(new LecturerProjectsController.NavigatorsListener()); //logout
-        view.getButton4().addActionListener(new LecturerProjectsController.NavigatorsListener()); //create account
+        view.getButton4().addActionListener(new LecturerProjectsController.NavigatorsListener()); //create new project
         view.getViewButton().addActionListener(new LecturerProjectsController.NavigatorsListener());
 
         String basePath = System.getProperty("user.dir");
@@ -58,18 +58,15 @@ public class LecturerProjectsController {
 
         @Override
         public void actionPerformed(ActionEvent e) {
-            if (e.getSource() == view.getButton1()) { // Create Account Button Pressed
+            if (e.getSource() == view.getButton1()) { // Lecturer - Dashboard
                 view.dispose();
-//                NavBarController.AdminCreateAccountActionPerformed(e);
-            } else if (e.getSource() == view.getButton2()) { // Lecturer - View Report Button Pressed
-                view.dispose();
-//                NavBarController.AdminViewReportActionPerformed(e);
+                NavBarController.LecturerDashboardActionPerformed(e);
             } else if (e.getSource() == view.getButton3()) { // Lecturer - Logout Button Pressed
                 view.dispose();
                 NavBarController.LogoutActionPerformed(e);
-            } else if (e.getSource() == view.getButton4()) { // Lecturer - Dashboard Button Pressed
+            } else if (e.getSource() == view.getButton4()) { // Lecturer - Create New Project Pressed
                 view.dispose();
-//                NavBarController.AdminViewProjectActionPerformed(e);
+                NavBarController.CreateProjectActionPerformed(e);
             } else if (e.getSource() == view.getViewButton()) { // Project-Details Button Pressed
                 int selectedRow = view.getTable().getSelectedRow();
                 if (selectedRow != -1) {

@@ -26,7 +26,7 @@ public class CreateProjectController {
         }
     }
 
-    public static CreateProjectController getInstance(CreateProjectView view) {
+    public static CreateProjectController getInstance(CreateProjectView view, Project model) {
         if (singletonInstance == null) {
             singletonInstance = new CreateProjectController(view, model);
         }
