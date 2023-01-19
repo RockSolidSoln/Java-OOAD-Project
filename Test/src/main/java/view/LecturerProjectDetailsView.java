@@ -1,30 +1,28 @@
 package view;
-import controller.LecturerProjectsDetailsController;
-import model.LoginModel;
 
 import javax.swing.*;
 import java.awt.*;
 
-public class LecturerProjectsDetailsView extends JFrame {
+public class LecturerProjectDetailsView extends JFrame {
 
     private static String projectId;
     private static String projectName;
     private static String specialization;
     private static String status;
 
-    public LecturerProjectsDetailsView(String projectID, String projectName, String specialization, String status) {
-        LecturerProjectsDetailsView.projectId = projectID;
-        LecturerProjectsDetailsView.projectName = projectName;
-        LecturerProjectsDetailsView.specialization = specialization;
-        LecturerProjectsDetailsView.status = status;
+    public LecturerProjectDetailsView(String projectID, String projectName, String specialization, String status) {
+        LecturerProjectDetailsView.projectId = projectID;
+        LecturerProjectDetailsView.projectName = projectName;
+        LecturerProjectDetailsView.specialization = specialization;
+        LecturerProjectDetailsView.status = status;
         initComponents();
     }
 
-    public static LecturerProjectsDetailsView singletonInstance;
+    public static LecturerProjectDetailsView singletonInstance;
 
-    public static LecturerProjectsDetailsView getInstance() {
+    public static LecturerProjectDetailsView getInstance() {
         if (singletonInstance == null) {
-            singletonInstance = new LecturerProjectsDetailsView(projectId, projectName, specialization, status);
+            singletonInstance = new LecturerProjectDetailsView(projectId, projectName, specialization, status);
         }
         return singletonInstance;
     }

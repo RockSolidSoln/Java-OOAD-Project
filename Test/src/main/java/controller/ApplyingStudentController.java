@@ -1,7 +1,6 @@
 package controller;
 
 import view.ApplyingStudentView;
-import view.LecturerProjectsDetailsView;
 
 import javax.swing.table.DefaultTableModel;
 import java.awt.event.ActionEvent;

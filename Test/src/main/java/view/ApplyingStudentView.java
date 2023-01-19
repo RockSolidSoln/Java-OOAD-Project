@@ -127,7 +127,7 @@ public class ApplyingStudentView extends JFrame {
         );
 
         pack();
-    }// </editor-fold>                        
+    }
 
     //Go back
     public JButton getBackButton() {

@@ -1,6 +1,6 @@
 package controller;
 
-import view.LecturerProjectsDetailsView;
+import view.LecturerProjectDetailsView;
 import view.LecturerProjectsView;
 
 import javax.swing.*;
@@ -10,9 +10,6 @@ import model.Project;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
 import java.util.ArrayList;
 
 
@@ -34,16 +31,14 @@ public class LecturerProjectsController {
         
         ((DefaultTableModel) view.getTable().getModel()).setRowCount(0);
 
-        for(int i = 0; i < allProjects.size(); i++){
-            String[] values = new String[6];
-            values[0] = allProjects.get(i).getProjectId(); 
-            values[1] = allProjects.get(i).getProjectName(); 
-            values[2] = allProjects.get(i).getLecturer();
-            values[3] = allProjects.get(i).getSpecialization();
-            values[4] = allProjects.get(i).getDescription();
-            values[5] = allProjects.get(i).getProjectStatus();
+        for (Project allProject : allProjects) {
+            String[] values = new String[4];
+            values[0] = allProject.getProjectId();
+            values[1] = allProject.getProjectName();
+            values[2] = allProject.getSpecialization();
+            values[3] = allProject.getProjectStatus();
 
-            ((DefaultTableModel)view.getTable().getModel()).insertRow(0, values);
+            ((DefaultTableModel) view.getTable().getModel()).insertRow(0, values);
         }
 
     }
@@ -78,7 +73,7 @@ public class LecturerProjectsController {
                     String status = (String) view.getTable().getValueAt(selectedRow, 3);
                     
                     view.dispose();
-                    LecturerProjectsDetailsView new_view = new LecturerProjectsDetailsView(projectID, projectName, specialization, status);
+                    LecturerProjectDetailsView new_view = new LecturerProjectDetailsView(projectID, projectName, specialization, status);
                     LecturerProjectsDetailsController controller = new LecturerProjectsDetailsController(new_view);
 
                     new_view.setVisible(true);

@@ -1,16 +1,16 @@
 package controller;
 
 import view.ApplyingStudentView;
-import view.LecturerProjectsDetailsView;
+import view.LecturerProjectDetailsView;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class LecturerProjectsDetailsController {
     private static LecturerProjectsDetailsController singletonInstance;
-    private static LecturerProjectsDetailsView view;
+    private static LecturerProjectDetailsView view;
 
-    public LecturerProjectsDetailsController(LecturerProjectsDetailsView view) {
+    public LecturerProjectsDetailsController(LecturerProjectDetailsView view) {
         LecturerProjectsDetailsController.view = view;
 
         view.getActivateDeactivateButton().addActionListener(new LecturerProjectsDetailsController.NavigatorsListener());
@@ -20,7 +20,7 @@ public class LecturerProjectsDetailsController {
         view.getApplyingListButton().addActionListener(new LecturerProjectsDetailsController.NavigatorsListener());
     }
 
-    public static LecturerProjectsDetailsController getInstance(LecturerProjectsDetailsView view) {
+    public static LecturerProjectsDetailsController getInstance(LecturerProjectDetailsView view) {
         if (singletonInstance == null) {
             singletonInstance = new LecturerProjectsDetailsController(view);
         }
