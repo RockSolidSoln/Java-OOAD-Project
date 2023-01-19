@@ -81,4 +81,34 @@ public class Database {
         return items;
     }
     
+    // To get the List of the Projects from the Database.
+    public static ArrayList<ArrayList<String>> getProjectList(String path) {
+        ArrayList <ArrayList<String>> allContents = new ArrayList< ArrayList<String>>();
+        ArrayList <String> row;
+       
+        String basePath = System.getProperty("user.dir");
+        String filePath = basePath + path;
+        List<String> lines;
+        try {
+            lines = Files.readAllLines(Paths.get(filePath));
+            for (String line : lines) {
+                String[] items = line.split(",");
+                row = new ArrayList<String>();
+                row.add(items[0]);
+                row.add(items[1]);
+                row.add(items[2]);
+                row.add(items[3]);
+                row.add(items[4]);
+                row.add(items[5]);
+                
+                allContents.add(row);
+            }
+    
+        } catch (IOException e) {
+            
+            e.printStackTrace();
+        }
+
+        return allContents;
+    }
 }

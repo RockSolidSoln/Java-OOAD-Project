@@ -6,6 +6,7 @@ import view.LecturerProjectsView;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 
+import model.Database;
 import model.Project;
 
 import java.awt.event.ActionEvent;
@@ -29,23 +30,21 @@ public class LecturerProjectsController {
         view.getButton4().addActionListener(new LecturerProjectsController.NavigatorsListener()); //create new project
         view.getViewButton().addActionListener(new LecturerProjectsController.NavigatorsListener());
 
-        Project projectModel = Project.getInstance();
-        ArrayList<Project> allProjects = projectModel.getProjectList();
-        
+        Project projectModel = Project.getInstance("null", "null", "null","null", "null", "null");
+        ArrayList<ArrayList<String>> allProjects = projectModel.getAllProjects();
         ((DefaultTableModel) view.getTable().getModel()).setRowCount(0);
 
         for(int i = 0; i < allProjects.size(); i++){
             String[] values = new String[6];
-            values[0] = allProjects.get(i).getProjectId(); 
-            values[1] = allProjects.get(i).getProjectName(); 
-            values[2] = allProjects.get(i).getLecturer();
-            values[3] = allProjects.get(i).getSpecialization();
-            values[4] = allProjects.get(i).getDescription();
-            values[5] = allProjects.get(i).getProjectStatus();
+            values[0] = allProjects.get(i).get(0); 
+            values[1] = allProjects.get(i).get(1); 
+            values[2] = allProjects.get(i).get(2); 
+            values[3] = allProjects.get(i).get(3); 
+            values[4] = allProjects.get(i).get(4); 
+            values[5] = allProjects.get(i).get(5); 
 
             ((DefaultTableModel)view.getTable().getModel()).insertRow(0, values);
         }
-
     }
 
     public static LecturerProjectsController getInstance(LecturerProjectsView view) {

@@ -67,7 +67,7 @@ public class NavBarController {
     // Lecturer / Admin : Create Project
     public static void CreateProjectActionPerformed(ActionEvent e) {
         var createProjectView = CreateProjectView.getInstance();
-        var projectModel = Project.getInstance();
+        var projectModel = Project.getInstance(null,null, null, null, null, null);
         var createProjectController = CreateProjectController.getInstance(createProjectView, projectModel);
         createProjectView.setVisible(true);
     }

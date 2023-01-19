@@ -11,41 +11,44 @@ import java.util.List;
 public class Project {
     private String projectId;
     private String projectName;
-    private String specialization;
-    private String description;
+    private String projectSpecialization;
+    private String projectDescription;
     private String lecturer;
     private String projectStatus;
    // private String studentAssigned;
 
 
     private static Project singletonInstance;
-    public static Project getInstance() {
-        if (singletonInstance == null) {
-            singletonInstance = new Project();
-        }
-        return singletonInstance;
-    }
 
-    //Setters:
-    public void setProjectId(String projectId) {
+    public Project(String projectId, String projectName, String projectSpecialization, String projectDescription, String lecturer, String projectStatus){
         this.projectId = projectId;
-    }
-    public void setProjectName(String projectName) {
         this.projectName = projectName;
-    }
-    public void setSpecialization(String specialization) {
-        this.specialization = specialization;
-    }
-    public void setDescription(String description) {
-        this.description = description;
-    }
-    public void setLecturer(String lecturer) {
+        this. projectSpecialization = projectSpecialization;
+        this.projectDescription = projectDescription;
         this.lecturer = lecturer;
-    }
-    public void setProjectStatus(String projectStatus) {
         this.projectStatus = projectStatus;
     }
-    //-----------------------------------------------
+
+    public static Project getInstance(String projectId, String projectName, String projectSpecialization, String projectDescription, String lecturer, String projectStatus) {
+        if (singletonInstance == null) {
+            singletonInstance = new Project(projectId, projectName, projectSpecialization, projectDescription, lecturer, projectStatus);
+        }
+        else 
+            singletonInstance.UpdateInstance(projectId, projectName, projectSpecialization, projectDescription, lecturer, projectStatus);
+        
+        return singletonInstance; 
+    }
+
+    public void UpdateInstance(String projectId, String projectName, String projectSpecialization, String projectDescription, String lecturer, String projectStatus){
+        this.projectId = projectId;
+        this.projectName = projectName;
+        this. projectSpecialization = projectSpecialization;
+        this.projectDescription = projectDescription;
+        this.lecturer = lecturer;
+        this.projectStatus = projectStatus;
+    }
+
+
     //Getters: 
     public String getProjectId() {
         return projectId;
@@ -54,10 +57,10 @@ public class Project {
         return projectName;
     }
     public String getSpecialization(){
-        return specialization;
+        return projectSpecialization;
     }
     public String getDescription(){
-        return description;
+        return projectDescription;
     }
     public String getLecturer(){
         return lecturer;
@@ -67,7 +70,7 @@ public class Project {
     }
     //-------------------------------------------------
     
-        public static List<String> getlecturer() {
+    public static List<String> getlecturer() {
         String line = "";
         List<String> lecturers = new ArrayList<>();
         String csvSplitBy = ",";
@@ -93,44 +96,20 @@ public class Project {
             }
         }catch (IOException e) {
                 e.printStackTrace();
-            }
+        }
         counter++;
         projectId = "PR" + String.valueOf(counter);
         String filename= ("\\Test\\src\\assets\\projects.csv");    //stores the path of the file
         ArrayList<String> line = new ArrayList<>();
 
-        line.add("PR"+counter+","+projectName+","+lecturer+","+specialization+","+description+","+"active"+"\n");
+        line.add("PR"+counter+","+projectName+","+lecturer+","+projectSpecialization+","+projectDescription+","+"active"+"\n");
         Database.FilewriteBack(filename, line);
     }
 
-    // To get the List of the Projects from the Database.
-    public ArrayList<Project> getProjectList() {
-        ArrayList<Project> projectList = new ArrayList<Project>();
+    public ArrayList<ArrayList<String>> getAllProjects(){
         String path = "\\Test\\src\\assets\\projects.csv";
-        String basePath = System.getProperty("user.dir");
-        String filePath = basePath + path;
-        List<String> lines;
-        try {
-            lines = Files.readAllLines(Paths.get(filePath));
-            for (String line : lines) {
-                String[] items = line.split(",");
-                Project projectModel = Project.getInstance();
-                //setting attribute values in the instance.
-                projectModel.setProjectId(items[0]);
-                projectModel.setProjectName(items[1]);
-                projectModel.setLecturer(items[2]);
-                projectModel.setSpecialization(items[3]);
-                projectModel.setDescription(items[4]);
-                projectModel.setProjectStatus(items[5]);
-    
-                projectList.add(projectModel);
-            }
-    
-        } catch (IOException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
-
+        ArrayList<ArrayList<String>> projectList = Database.getProjectList(path);
         return projectList;
     }
+
 }
