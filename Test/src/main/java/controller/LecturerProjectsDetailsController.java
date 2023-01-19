@@ -36,7 +36,7 @@ public class LecturerProjectsDetailsController {
 //                NavBarController.AdminCreateAccountActionPerformed(e);
             } else if (e.getSource() == view.getBackButton()) {
                 view.dispose();
-                NavBarController.LecturerDashboardActionPerformed(e);
+                NavBarController.LecturerProjectsViewActionPerformed(e);
             } else if (e.getSource() == view.getUnassignButton()) {
                 view.dispose();
             } else if (e.getSource() == view.getModifyButton()) {
@@ -44,8 +44,10 @@ public class LecturerProjectsDetailsController {
 //                NavBarController.AdminViewProjectActionPerformed(e);
             } else if (e.getSource() == view.getApplyingListButton()) {
                 view.dispose();
+                String projectId = view.getProjectId().getText();
+
                 ApplyingStudentView new_view = ApplyingStudentView.getInstance();
-                ApplyingStudentController controller  = ApplyingStudentController.getInstance(new_view);
+                ApplyingStudentController controller  = ApplyingStudentController.getInstance(new_view, projectId);
                 new_view.setVisible(true);
             }
 

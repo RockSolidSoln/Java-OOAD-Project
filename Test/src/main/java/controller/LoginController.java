@@ -90,7 +90,6 @@ public class LoginController {
 
     class LoginListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
-            System.out.println("enter pressed");
             if (view.getUserId() != null && view.getPassword() != null) {
                 submitButton();
             }
