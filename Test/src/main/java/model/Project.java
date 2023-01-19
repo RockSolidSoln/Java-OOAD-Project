@@ -103,7 +103,7 @@ public class Project {
         ArrayList<String> line = new ArrayList<>();
 
         line.add("PR"+counter+","+projectName+","+lecturer+","+projectSpecialization+","+projectDescription+","+"active"+"\n");
-        Database.FilewriteBack(filename, line);
+        Database.FilewriteBack(filename, line, true);
     }
 
     public ArrayList<ArrayList<String>> getAllProjects(){
@@ -128,6 +128,20 @@ public class Project {
         //Calling the dataFiltration method to filter the Applications according to the projectId (saved in 1st column in the DB).
         ArrayList<ArrayList<String>> filteredProjectsByProjectId = Database.dataFiltration(path, projectId, 1);
         return filteredProjectsByProjectId;
+    }
+
+    public void ChangeActiveStatus(String projectId){
+        String path = "\\Test\\src\\assets\\projects.csv";
+        //Getting the line which is of the same Id. 
+        String[] operationItems = Database.FindDataFromDB(path, projectId); 
+        String changedVal; 
+        if(operationItems[5].equals("active"))
+            changedVal = "inactive";
+        else
+            changedVal = "active";
+        
+        Database.ChangeContent(path, projectId, operationItems, 6, changedVal);
+
     }
 
     

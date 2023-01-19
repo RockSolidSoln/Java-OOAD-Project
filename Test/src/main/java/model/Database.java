@@ -10,14 +10,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Database {
-    public static void FilewriteBack(String path, ArrayList<String> lines) {
+    public static void FilewriteBack(String path, ArrayList<String> lines, Boolean appendFlag) {
         String basePath = System.getProperty("user.dir");
 
         try {
             String filename = (basePath + path); // stores the path of the file
-            FileWriter fw = new FileWriter(filename, true); // the true will append the new data
+            FileWriter fw = new FileWriter(filename, appendFlag); // the true will append the new data
             for (int i = 0; i < lines.size(); i++) {
                 fw.write(lines.get(i));
+                fw.write('\n');
             }
             fw.close();
 
@@ -80,12 +81,51 @@ public class Database {
 
         return items;
     }
+
+    // To change/ modify a specific content in database. 
+    public static void ChangeContent(String path, String id, String[] operationItems, int col, String changedVal){
+        
+        //Storing all the lines of the File. 
+        List <String> allLines = readFile(path);
+
+        // Storing lines to print it back - the updated version.
+        ArrayList <String> fileWritebackList = new ArrayList<String>(); 
+        String writeLine = "";
+        col--;
+        boolean flag = false; // to make sure it's just changed once.
+        for(String line: allLines){
+            writeLine = "";
+            String[] items = line.split(",");
+            if(items[0].equals(id) && flag == false){
+                System.out.println("Debug-From Database: "+ items[0] + " " + items[col] + " "+ changedVal);
+                for(int i=0; i < operationItems.length; i++){
+                    if(i == col)
+                        writeLine += changedVal; 
+                    else
+                        writeLine += items[i];
+                    writeLine += ',';
+                }
+                fileWritebackList.add(writeLine);
+                flag = true;
+                continue;
+            }
+            writeLine = "";
+            for(String s: items){
+                writeLine += s; 
+                writeLine += ',';
+            }
+            fileWritebackList.add(writeLine);
+        }
+
+        FilewriteBack(path, fileWritebackList, false);
+
+    }
     
     // To get the List of the Projects from the Database.
     public static ArrayList<ArrayList<String>> getAllContents(String path) {
         ArrayList <ArrayList<String>> allContents = new ArrayList< ArrayList<String>>();
         ArrayList <String> row;
-       
+        
         String basePath = System.getProperty("user.dir");
         String filePath = basePath + path;
         List<String> lines;

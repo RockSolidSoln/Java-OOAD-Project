@@ -282,7 +282,7 @@ public class LecturerProjectDetailsView extends JFrame {
         return viewApplyingListButton;
     }
 
-    public JLabel getProjectId(){
-        return projectIdLabel2;
+    public String getProjectId(){
+        return projectIdLabel2.getText();
     }
 }

@@ -28,6 +28,9 @@ public class LecturerProjectsController {
         view.getButton4().addActionListener(new LecturerProjectsController.NavigatorsListener()); //create new project
         view.getViewButton().addActionListener(new LecturerProjectsController.NavigatorsListener());
 
+        ProjectTableLoader();
+    }
+    public void ProjectTableLoader(){
         Project projectModel = Project.getInstance("null", "null", "null","null", "null", "null");
         ArrayList<ArrayList<String>> filteredContents = projectModel.FilterByLecturerId(LoginModel.getUserId());
         //System.out.println("DEBBBBBUG:   "+ LoginModel.getUserId());

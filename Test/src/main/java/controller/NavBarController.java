@@ -61,6 +61,7 @@ public class NavBarController {
     public static void LecturerProjectsViewActionPerformed() {
         var lecturerProjectsView = LecturerProjectsView.getInstance();
         var lecturerProjectsController = LecturerProjectsController.getInstance(lecturerProjectsView);
+        lecturerProjectsController.ProjectTableLoader();
         lecturerProjectsView.setVisible(true);
     }
 

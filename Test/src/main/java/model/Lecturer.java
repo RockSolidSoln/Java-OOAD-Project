@@ -29,6 +29,6 @@ public class Lecturer extends User{
         lines.add(line);
         String filename= ("\\Test\\src\\assets\\lecturer.csv");
 
-        Database.FilewriteBack(filename, lines); 
+        Database.FilewriteBack(filename, lines, true); 
     }
 }

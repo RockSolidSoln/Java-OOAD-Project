@@ -29,7 +29,7 @@ public class Admin extends User{
         lines.add(line);
         String fileName= ("\\Test\\src\\assets\\admin.csv");
 
-        Database.FilewriteBack(fileName, lines); 
+        Database.FilewriteBack(fileName, lines, true); 
     }
     
     public static Admin getDetailsInstance(String id){

@@ -6,6 +6,8 @@ import view.LecturerProjectDetailsView;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import model.Project;
+
 public class LecturerProjectsDetailsController {
     private static LecturerProjectsDetailsController singletonInstance;
     private static LecturerProjectDetailsView view;
@@ -32,8 +34,10 @@ public class LecturerProjectsDetailsController {
         @Override
         public void actionPerformed(ActionEvent e) {
             if (e.getSource() == view.getActivateDeactivateButton()) {
+                Project projectModel = Project.getInstance(null, null, null, null, null, null);
+                projectModel.ChangeActiveStatus(view.getProjectId());
                 view.dispose();
-
+                NavBarController.LecturerProjectsViewActionPerformed();
             } else if (e.getSource() == view.getBackButton()) {
                 view.dispose();
                 NavBarController.LecturerProjectsViewActionPerformed();
@@ -43,7 +47,7 @@ public class LecturerProjectsDetailsController {
                 view.dispose();
 //
             } else if (e.getSource() == view.getApplyingListButton()) {
-                NavBarController.ViewApplyingStudentListPerformed(view.getProjectId().getText());
+                NavBarController.ViewApplyingStudentListPerformed(view.getProjectId());
                 view.dispose();
             }
 
