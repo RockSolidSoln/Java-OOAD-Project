@@ -6,6 +6,7 @@ import view.CreateProjectView;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.util.List;
 
 public class CreateProjectController {
@@ -23,6 +24,15 @@ public class CreateProjectController {
         List<String> lecturers = Project.getlecturer();
         for (String lecturer : lecturers) {
             view.getJComboBox().addItem(lecturer);
+        }
+
+        List<String> specialization = new ArrayList<String>();
+        specialization.add("Software Engineering");
+        specialization.add("Data Scientist");
+        specialization.add("Game Development");
+
+        for(String s : specialization){
+            view.getSpecializationBox().addItem(s);
         }
     }
 
