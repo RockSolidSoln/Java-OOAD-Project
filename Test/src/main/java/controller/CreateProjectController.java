@@ -34,7 +34,7 @@ public class CreateProjectController {
     }
 
     static class NavigatorsListener implements ActionListener {
-        private void jButton1ActionPerformed(ActionEvent e) {
+        private void AddProjectActionPerformed(ActionEvent e) {
             // After clicking the save button
             String lecturer = view.getLecturerId();
             String project = view.getProject();
@@ -56,16 +56,12 @@ public class CreateProjectController {
 
         }
 
-        private void jButton2ActionPerformed(ActionEvent e) {
-            // Go Back
-        }
-
         @Override
         public void actionPerformed(ActionEvent e) {
             if (e.getSource() == view.getButton1()) {
-                jButton1ActionPerformed(e);
-            } else if (e.getSource() == view.getButton2()) {
-                jButton2ActionPerformed(e);
+                AddProjectActionPerformed(e);
+            } else if (e.getSource() == view.getButton2()) { // CreateProject - Go Back Pressed
+                NavBarController.LecturerDashboardActionPerformed(e);
             }
 
         }
