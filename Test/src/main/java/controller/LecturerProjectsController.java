@@ -1,6 +1,6 @@
 package controller;
 
-import view.LecturerProjectsDetailsView;
+import view.LecturerProjectDetailsView;
 import view.LecturerProjectsView;
 
 import javax.swing.*;
@@ -11,9 +11,6 @@ import model.Project;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
 import java.util.ArrayList;
 
 
@@ -43,7 +40,7 @@ public class LecturerProjectsController {
             values[4] = allProjects.get(i).get(4); 
             values[5] = allProjects.get(i).get(5); 
 
-            ((DefaultTableModel)view.getTable().getModel()).insertRow(0, values);
+            ((DefaultTableModel) view.getTable().getModel()).insertRow(0, values);
         }
     }
 
@@ -74,10 +71,10 @@ public class LecturerProjectsController {
                     String projectID = (String) view.getTable().getValueAt(selectedRow, 0);
                     String projectName = (String) view.getTable().getValueAt(selectedRow, 1);
                     String specialization = (String) view.getTable().getValueAt(selectedRow, 2);
-                    String details = (String) view.getTable().getValueAt(selectedRow, 3);
-
+                    String status = (String) view.getTable().getValueAt(selectedRow, 3);
+                    
                     view.dispose();
-                    LecturerProjectsDetailsView new_view = new LecturerProjectsDetailsView(projectID, projectName, specialization, details);
+                    LecturerProjectDetailsView new_view = new LecturerProjectDetailsView(projectID, projectName, specialization, status);
                     LecturerProjectsDetailsController controller = new LecturerProjectsDetailsController(new_view);
 
                     new_view.setVisible(true);

@@ -1,16 +1,16 @@
 package controller;
 
-import view.LecturerProjectsDetailsView;
-import view.LecturerProjectsView;
+import view.ApplyingStudentView;
+import view.LecturerProjectDetailsView;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class LecturerProjectsDetailsController {
     private static LecturerProjectsDetailsController singletonInstance;
-    private static LecturerProjectsDetailsView view;
+    private static LecturerProjectDetailsView view;
 
-    public LecturerProjectsDetailsController(LecturerProjectsDetailsView view) {
+    public LecturerProjectsDetailsController(LecturerProjectDetailsView view) {
         LecturerProjectsDetailsController.view = view;
 
         view.getActivateDeactivateButton().addActionListener(new LecturerProjectsDetailsController.NavigatorsListener());
@@ -20,7 +20,7 @@ public class LecturerProjectsDetailsController {
         view.getApplyingListButton().addActionListener(new LecturerProjectsDetailsController.NavigatorsListener());
     }
 
-    public static LecturerProjectsDetailsController getInstance(LecturerProjectsDetailsView view) {
+    public static LecturerProjectsDetailsController getInstance(LecturerProjectDetailsView view) {
         if (singletonInstance == null) {
             singletonInstance = new LecturerProjectsDetailsController(view);
         }
@@ -31,20 +31,22 @@ public class LecturerProjectsDetailsController {
 
         @Override
         public void actionPerformed(ActionEvent e) {
-            if (e.getSource() == view.getActivateDeactivateButton()) { // Create Account Button Pressed
+            if (e.getSource() == view.getActivateDeactivateButton()) {
                 view.dispose();
 //                NavBarController.AdminCreateAccountActionPerformed(e);
-            } else if (e.getSource() == view.getBackButton()) { // View Report Button Pressed
+            } else if (e.getSource() == view.getBackButton()) {
                 view.dispose();
-//                NavBarController.AdminViewReportActionPerformed(e);
-            } else if (e.getSource() == view.getUnassignButton()) { // Logout Button Pressed
+                NavBarController.LecturerDashboardActionPerformed(e);
+            } else if (e.getSource() == view.getUnassignButton()) {
                 view.dispose();
-            } else if (e.getSource() == view.getModifyButton()) { // View Project Button Pressed
+            } else if (e.getSource() == view.getModifyButton()) {
                 view.dispose();
 //                NavBarController.AdminViewProjectActionPerformed(e);
-            } else if (e.getSource() == view.getApplyingListButton()) { // Dashboard Button Pressed
-//                view.dispose();
-//                NavBarController.AdminDashboardActionPerformed(e);
+            } else if (e.getSource() == view.getApplyingListButton()) {
+                view.dispose();
+                ApplyingStudentView new_view = ApplyingStudentView.getInstance();
+                ApplyingStudentController controller  = ApplyingStudentController.getInstance(new_view);
+                new_view.setVisible(true);
             }
 
         }
