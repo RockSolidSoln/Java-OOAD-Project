@@ -7,6 +7,7 @@ import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 
 import model.Database;
+import model.LoginModel;
 import model.Project;
 
 import java.awt.event.ActionEvent;
@@ -28,15 +29,16 @@ public class LecturerProjectsController {
         view.getViewButton().addActionListener(new LecturerProjectsController.NavigatorsListener());
 
         Project projectModel = Project.getInstance("null", "null", "null","null", "null", "null");
-        ArrayList<ArrayList<String>> allProjects = projectModel.getAllProjects();
+        ArrayList<ArrayList<String>> filteredContents = projectModel.FilterByLecturerId(LoginModel.getUserId());
+        //System.out.println("DEBBBBBUG:   "+ LoginModel.getUserId());
         ((DefaultTableModel) view.getTable().getModel()).setRowCount(0);
 
-        for(int i = 0; i < allProjects.size(); i++){
-            String[] values = new String[6];
-            values[0] = allProjects.get(i).get(0); 
-            values[1] = allProjects.get(i).get(1);
-            values[2] = allProjects.get(i).get(3);
-            values[3] = allProjects.get(i).get(5);
+        for(int i = 0; i < filteredContents.size(); i++){
+            String[] values = new String[4];
+            values[0] = filteredContents.get(i).get(0); 
+            values[1] = filteredContents.get(i).get(1);
+            values[2] = filteredContents.get(i).get(3);
+            values[3] = filteredContents.get(i).get(5);
 
             ((DefaultTableModel) view.getTable().getModel()).insertRow(0, values);
         }

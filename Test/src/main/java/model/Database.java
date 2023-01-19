@@ -82,7 +82,7 @@ public class Database {
     }
     
     // To get the List of the Projects from the Database.
-    public static ArrayList<ArrayList<String>> getProjectList(String path) {
+    public static ArrayList<ArrayList<String>> getAllContents(String path) {
         ArrayList <ArrayList<String>> allContents = new ArrayList< ArrayList<String>>();
         ArrayList <String> row;
        
@@ -94,12 +94,9 @@ public class Database {
             for (String line : lines) {
                 String[] items = line.split(",");
                 row = new ArrayList<String>();
-                row.add(items[0]);
-                row.add(items[1]);
-                row.add(items[2]);
-                row.add(items[3]);
-                row.add(items[4]);
-                row.add(items[5]);
+                for(int i = 0; i < items.length; i++) {
+                    row.add(items[i]);
+                }
                 
                 allContents.add(row);
             }
@@ -114,6 +111,21 @@ public class Database {
 
     //To filter the data according to the matchId from the CSV files. 
     public static ArrayList<ArrayList<String>> dataFiltration(String path, String match, int col){
-        
+        ArrayList<ArrayList<String>> allContents = getAllContents(path);
+        ArrayList<ArrayList<String>> filteredContents = new ArrayList< ArrayList<String>>();
+        --col;
+
+        for(int i = 0; i < allContents.size(); i++){
+            ArrayList<String> row = allContents.get(i);
+            ArrayList<String> filteredRow = new ArrayList<>();
+            if(row.get(col).equals(match)){
+                for(int j = 0; j < row.size(); j++){
+                    filteredRow.add(allContents.get(i).get(j)); 
+                }
+                filteredContents.add(filteredRow);
+            }
+        }
+
+        return filteredContents;
     }
 }
