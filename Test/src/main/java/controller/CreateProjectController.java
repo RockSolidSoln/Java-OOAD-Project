@@ -61,7 +61,7 @@ public class CreateProjectController {
             if (e.getSource() == view.getButton1()) {
                 AddProjectActionPerformed(e);
             } else if (e.getSource() == view.getButton2()) { // CreateProject - Go Back Pressed
-                NavBarController.LecturerDashboardActionPerformed(e);
+                view.dispose();
             }
 
         }

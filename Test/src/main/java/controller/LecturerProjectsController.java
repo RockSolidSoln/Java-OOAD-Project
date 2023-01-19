@@ -5,11 +5,15 @@ import view.LecturerProjectsView;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
+
+import model.Project;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
 
 
 public class LecturerProjectsController {
@@ -25,26 +29,23 @@ public class LecturerProjectsController {
         view.getButton4().addActionListener(new LecturerProjectsController.NavigatorsListener()); //create new project
         view.getViewButton().addActionListener(new LecturerProjectsController.NavigatorsListener());
 
-        String basePath = System.getProperty("user.dir");
-        try(BufferedReader br2 = new BufferedReader(new FileReader(basePath + "\\Test\\src\\assets\\projects.csv"))){
-            String line;
-            ((DefaultTableModel) view.getTable().getModel()).setRowCount(0);
-            while ((line = br2.readLine()) != null) {
-                String[] values = line.split(",");
+        Project projectModel = Project.getInstance();
+        ArrayList<Project> allProjects = projectModel.getProjectList();
+        
+        ((DefaultTableModel) view.getTable().getModel()).setRowCount(0);
 
-                Object[] rowData = new Object[values.length-1];
-                int j=0;
-                for (int i = 0; i < values.length; i++) {
-                    if (i != 2 && i!=4) {
-                        rowData[j]=values[i];
-                        j++;
-                    }
-                }
-                ((DefaultTableModel) view.getTable().getModel()).insertRow(0, rowData);
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
+        for(int i = 0; i < allProjects.size(); i++){
+            String[] values = new String[6];
+            values[0] = allProjects.get(i).getProjectId(); 
+            values[1] = allProjects.get(i).getProjectName(); 
+            values[2] = allProjects.get(i).getLecturer();
+            values[3] = allProjects.get(i).getSpecialization();
+            values[4] = allProjects.get(i).getDescription();
+            values[5] = allProjects.get(i).getProjectStatus();
+
+            ((DefaultTableModel)view.getTable().getModel()).insertRow(0, values);
         }
+
     }
 
     public static LecturerProjectsController getInstance(LecturerProjectsView view) {
