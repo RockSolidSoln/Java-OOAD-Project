@@ -15,7 +15,7 @@ public class StudentProjectDetailsView extends JFrame {
     }
     private static StudentProjectDetailsView singletonInstance;
 
-    private static StudentProjectDetailsView getInstance(){
+    public static StudentProjectDetailsView getInstance(){
         if (singletonInstance == null) {
             singletonInstance = new StudentProjectDetailsView();
         }
@@ -63,7 +63,7 @@ public class StudentProjectDetailsView extends JFrame {
 
         backButton.setText("Back");
         backButton.setForeground(Color.WHITE);
-        backButton.setBackground(new Color(235, 252, 255));
+        backButton.setBackground(new Color(100, 198, 217));
 
         GroupLayout jPanel1Layout = new GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);

@@ -24,7 +24,8 @@ public class StudentProjectDetailsController {
         @Override
         public void actionPerformed(ActionEvent e) {
             if (e.getSource() == view.getBackButton()) {
-                System.out.println("Button 1 says hello");
+                view.dispose();
+                NavBarController.StudentDashboardView();
             }
         }
     }

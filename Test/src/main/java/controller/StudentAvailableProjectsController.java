@@ -13,7 +13,7 @@ public class StudentAvailableProjectsController {
         StudentAvailableProjectsController.view = view;
         view.getButton1().addActionListener(new StudentAvailableProjectsController.NavigatorsListener());//view my project
         view.getButton2().addActionListener(new StudentAvailableProjectsController.NavigatorsListener());//logout
-        view.getButton3().addActionListener(new StudentAvailableProjectsController.NavigatorsListener());//view available projects
+        view.getButton3().addActionListener(new StudentAvailableProjectsController.NavigatorsListener());//dashboard
     }
 
     public static StudentAvailableProjectsController getInstance(StudentAvailableProjectsView view) {
@@ -27,11 +27,14 @@ public class StudentAvailableProjectsController {
         @Override
         public void actionPerformed(ActionEvent e) {
             if (e.getSource() == view.getButton1()) {
-                System.out.println("Button 1 says hello");
+                view.dispose();
+                NavBarController.StudentProjectDetailsView();
             } else if (e.getSource() == view.getButton2()) {
+                view.dispose();
                 NavBarController.LogoutActionPerformed();
             } else if (e.getSource() == view.getButton3()) {
-
+                view.dispose();
+                NavBarController.StudentDashboardView();
             }
         }
     }

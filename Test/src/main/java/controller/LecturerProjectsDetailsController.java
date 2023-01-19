@@ -32,6 +32,7 @@ public class LecturerProjectsDetailsController {
         @Override
         public void actionPerformed(ActionEvent e) {
             if (e.getSource() == view.getActivateDeactivateButton()) {
+                view.getProjectId();
                 view.dispose();
 
             } else if (e.getSource() == view.getBackButton()) {

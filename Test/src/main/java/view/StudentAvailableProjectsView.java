@@ -19,7 +19,7 @@ public class StudentAvailableProjectsView extends JFrame {
     }
     private static StudentAvailableProjectsView singletonInstance;
 
-    private static StudentAvailableProjectsView getInstance(){
+    public static StudentAvailableProjectsView getInstance(){
         if (singletonInstance == null) {
             singletonInstance = new StudentAvailableProjectsView();
         }
@@ -30,6 +30,7 @@ public class StudentAvailableProjectsView extends JFrame {
     private JButton jButton2;
     private JButton jButton3;
     private JButton jButton1;
+    private JButton jButton4;
     private JLabel jLabel1;
     private JLabel jLabel4;
     private JPanel jPanel1;
@@ -49,13 +50,14 @@ public class StudentAvailableProjectsView extends JFrame {
         jButton1 = new JButton();
         jLabel4 = new JLabel();
         jButton2 = new JButton();
+        jButton4 = new JButton();
         jLabel1 = new JLabel();
         viewProjectButton = new JButton();
 
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
 
-        jPanel1.setBackground(new Color(235, 252, 255));
+        jPanel1.setBackground(new Color(0, 168, 209));
         jPanel1.setForeground(new Color(235, 252, 255));
 
         jTable1.setModel(new DefaultTableModel(
@@ -86,14 +88,18 @@ public class StudentAvailableProjectsView extends JFrame {
         });
         jScrollPane1.setViewportView(jTable1);
 
-        jPanel2.setBackground(new Color(0, 168, 209));
+        jPanel2.setBackground(new Color(235, 252, 255));
 
-        jButton3.setBackground(new Color(96, 132, 223));
-        jButton3.setForeground(new Color(235, 252, 255));
+        jButton3.setBackground(new Color(100, 198, 217));
         jButton3.setFont(new Font("SansSerif", Font.PLAIN, 12)); // NOI18N
-        jButton3.setText("View Available Projects");
+        jButton3.setText("Dashboard");
 
-        jButton1.setBackground(new Color(230, 230, 230));
+        jButton4.setBackground(new Color(96, 132, 223));
+        jButton4.setForeground(new Color(235, 252, 255));
+        jButton4.setFont(new Font("SansSerif", Font.PLAIN, 12)); // NOI18N
+        jButton4.setText("View Active Projects");
+
+        jButton1.setBackground(new Color(100, 198, 217));
         jButton1.setFont(new Font("SansSerif", Font.PLAIN, 12)); // NOI18N
         jButton1.setText("View My Project");
         jButton1.setOpaque(true);
@@ -102,7 +108,7 @@ public class StudentAvailableProjectsView extends JFrame {
         jLabel4.setFont(new Font("Segoe UI", Font.PLAIN, 18)); // NOI18N
         jLabel4.setText(LoginModel.getUserId());
 
-        jButton2.setBackground(new Color(230, 230, 230));
+        jButton2.setBackground(new Color(100, 198, 217));
         jButton2.setFont(new Font("SansSerif", Font.PLAIN, 14)); // NOI18N
         jButton2.setForeground(new Color(255, 51, 102));
         jButton2.setText("Logout");
@@ -117,8 +123,9 @@ public class StudentAvailableProjectsView extends JFrame {
                                         .addComponent(jLabel4, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addGroup(jPanel2Layout.createSequentialGroup()
                                                 .addGroup(jPanel2Layout.createParallelGroup(GroupLayout.Alignment.LEADING, false)
-                                                        .addComponent(jButton1, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                                         .addComponent(jButton3, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                        .addComponent(jButton1, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                        .addComponent(jButton4, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                                         .addComponent(jButton2, GroupLayout.Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                                 .addGap(0, 0, Short.MAX_VALUE)))
                                 .addContainerGap())
@@ -129,9 +136,12 @@ public class StudentAvailableProjectsView extends JFrame {
                                 .addGap(25, 25, 25)
                                 .addComponent(jLabel4, GroupLayout.PREFERRED_SIZE, 25, GroupLayout.PREFERRED_SIZE)
                                 .addGap(87, 87, 87)
+
+                                .addComponent(jButton3)
+                                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jButton1)
                                 .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButton3)
+                                .addComponent(jButton4)
                                 .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 351, Short.MAX_VALUE)
                                 .addComponent(jButton2)
                                 .addContainerGap())
