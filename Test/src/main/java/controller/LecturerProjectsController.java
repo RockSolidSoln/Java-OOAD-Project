@@ -72,10 +72,7 @@ public class LecturerProjectsController {
                     String status = (String) view.getTable().getValueAt(selectedRow, 3);
                     
                     view.dispose();
-                    LecturerProjectDetailsView new_view = new LecturerProjectDetailsView(projectID, projectName, specialization, status);
-                    LecturerProjectsDetailsController controller = new LecturerProjectsDetailsController(new_view);
-
-                    new_view.setVisible(true);
+                    NavBarController.ViewLecturerProjectDetails(projectID, projectName, specialization, status);
                 } else {
                     JOptionPane.showMessageDialog(null, "Please select a row from the table.");
                 }

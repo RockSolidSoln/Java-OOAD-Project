@@ -1,12 +1,6 @@
 package controller;
 
-import view.AdminDashboardView;
-import view.AdminProjectsView;
-import view.CreateAccountView;
-import view.CreateProjectView;
-import view.LecturerDashboardView;
-import view.LecturerProjectsView;
-import view.LoginView;
+import view.*;
 
 import java.awt.event.ActionEvent;
 import java.io.IOException;
@@ -70,6 +64,22 @@ public class NavBarController {
         var projectModel = Project.getInstance(null,null, null, null, null, null);
         var createProjectController = CreateProjectController.getInstance(createProjectView, projectModel);
         createProjectView.setVisible(true);
+    }
+
+    //Lecturer: View Specific project
+    public static void ViewLecturerProjectDetails(String projectID, String projectName, String specialization, String status){
+        LecturerProjectDetailsView new_view = new LecturerProjectDetailsView(projectID, projectName, specialization, status);
+        LecturerProjectsDetailsController controller = new LecturerProjectsDetailsController(new_view);
+
+        new_view.setVisible(true);
+    }
+
+
+    // Lecturer: View Applying student list
+    public static void ViewApplyingStudentListPerformed(String projectId){
+        ApplyingStudentView new_view = ApplyingStudentView.getInstance();
+        ApplyingStudentController controller  = ApplyingStudentController.getInstance(new_view, projectId);
+        new_view.setVisible(true);
     }
 
     

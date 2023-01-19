@@ -72,7 +72,6 @@ public class LecturerDashboardController {
             } else if (e.getSource() == view.getButton2()) { // Lecturer - View Projects Button Pressed
                 view.dispose();
                 NavBarController.LecturerProjectsViewActionPerformed(e);
-                
             } else if (e.getSource() == view.getButton3()) { // Logout Button Pressed
                 view.dispose();
                 NavBarController.LogoutActionPerformed(e);

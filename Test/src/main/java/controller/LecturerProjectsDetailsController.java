@@ -43,12 +43,8 @@ public class LecturerProjectsDetailsController {
                 view.dispose();
 //                NavBarController.AdminViewProjectActionPerformed(e);
             } else if (e.getSource() == view.getApplyingListButton()) {
+                NavBarController.ViewApplyingStudentListPerformed(view.getProjectId().getText());
                 view.dispose();
-                String projectId = view.getProjectId().getText();
-
-                ApplyingStudentView new_view = ApplyingStudentView.getInstance();
-                ApplyingStudentController controller  = ApplyingStudentController.getInstance(new_view, projectId);
-                new_view.setVisible(true);
             }
 
         }

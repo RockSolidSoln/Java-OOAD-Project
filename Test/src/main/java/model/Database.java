@@ -112,7 +112,7 @@ public class Database {
         return allContents;
     }
 
-    //To filter the data according to the matchId from the CSV files. 
+    //To filter the data according to the matchId from the CSV files.
     public static ArrayList<ArrayList<String>> dataFiltration(String path, String match, int col){
         
     }

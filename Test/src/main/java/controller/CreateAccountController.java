@@ -93,9 +93,6 @@ public class CreateAccountController {
         @Override
         public void actionPerformed(ActionEvent e) {
             view.dispose();
-            var adminDashboardview = AdminDashboardView.getInstance();
-            var adminDashboardcontroller = AdminDashboardController.getInstance(adminDashboardview);
-            adminDashboardview.setVisible(true);
         }
 
     }

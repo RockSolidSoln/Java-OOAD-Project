@@ -97,9 +97,7 @@ public class AdminRemarkController {
             }
 
         }
-
-
-
+        
         public void readFile() {
             String basePath = System.getProperty("user.dir");
 
