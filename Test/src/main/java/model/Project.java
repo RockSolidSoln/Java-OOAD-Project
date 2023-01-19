@@ -108,7 +108,7 @@ public class Project {
 
     public ArrayList<ArrayList<String>> getAllProjects(){
         String path = "\\Test\\src\\assets\\projects.csv";
-        ArrayList<ArrayList<String>> projectList = Database.getProjectList(path);
+        ArrayList<ArrayList<String>> projectList = Database.getAllContents(path);
         return projectList;
     }
 
