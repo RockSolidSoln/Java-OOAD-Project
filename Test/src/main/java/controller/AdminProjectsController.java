@@ -1,8 +1,6 @@
 package controller;
 
 
-import model.Database;
-import model.LoginModel;
 import model.Project;
 import view.*;
 
@@ -10,9 +8,6 @@ import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
 import java.util.ArrayList;
 
 public class AdminProjectsController {
@@ -96,7 +91,7 @@ public class AdminProjectsController {
                 String details = (String) view.getTable().getValueAt(selectedRow, 4);
 
                 view.dispose();
-                NavBarController.AdminViewProject(projectID, projectName, lecturerID, specialization, details);
+                RoutingController.AdminViewProject(projectID, projectName, lecturerID, specialization, details);
             } else {
                 JOptionPane.showMessageDialog(null, "Please select a row from the table.");
             }
@@ -108,16 +103,16 @@ public class AdminProjectsController {
                 
             if (e.getSource() == view.getButton2()) { // Admin - Dashboard Pressed
                 view.dispose();
-                NavBarController.AdminDashboardActionPerformed();
+                RoutingController.AdminDashboardActionPerformed();
             } else if (e.getSource() == view.getButton3()) { // Admin - Create Account Pressed
                 view.dispose();
-                NavBarController.AdminCreateAccountActionPerformed();
+                RoutingController.AdminCreateAccountActionPerformed();
             } else if (e.getSource() == view.getButton4()) { // Admin - View Reports Pressed
                 view.dispose();
-                NavBarController.AdminViewReportActionPerformed();
+                RoutingController.AdminViewReportActionPerformed();
             } else if (e.getSource() == view.getButton5()) { // Admin - logout Pressed
                 view.dispose();
-                NavBarController.LogoutActionPerformed();
+                RoutingController.LogoutActionPerformed();
             }
             
             

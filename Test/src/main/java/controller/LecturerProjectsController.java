@@ -1,12 +1,10 @@
 package controller;
 
-import view.LecturerProjectDetailsView;
 import view.LecturerProjectsView;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 
-import model.Database;
 import model.LoginModel;
 import model.Project;
 
@@ -60,13 +58,13 @@ public class LecturerProjectsController {
         public void actionPerformed(ActionEvent e) {
             if (e.getSource() == view.getButton1()) { // Lecturer - Dashboard
                 view.dispose();
-                NavBarController.LecturerDashboardActionPerformed();
+                RoutingController.LecturerDashboardActionPerformed();
             } else if (e.getSource() == view.getButton3()) { // Lecturer - Logout Button Pressed
                 view.dispose();
-                NavBarController.LogoutActionPerformed();
+                RoutingController.LogoutActionPerformed();
             } else if (e.getSource() == view.getButton4()) { // Lecturer - Create New Project Pressed
                 view.dispose();
-                NavBarController.CreateProjectActionPerformed();
+                RoutingController.CreateProjectActionPerformed();
             } else if (e.getSource() == view.getViewButton()) { // Project-Details Button Pressed
                 int selectedRow = view.getTable().getSelectedRow();
                 if (selectedRow != -1) {
@@ -77,7 +75,7 @@ public class LecturerProjectsController {
                     String status = (String) view.getTable().getValueAt(selectedRow, 3);
                     
                     view.dispose();
-                    NavBarController.ViewLecturerProjectDetails(projectID, projectName, specialization, status);
+                    RoutingController.ViewLecturerProjectDetails(projectID, projectName, specialization, status);
                 } else {
                     JOptionPane.showMessageDialog(null, "Please select a row from the table.");
                 }

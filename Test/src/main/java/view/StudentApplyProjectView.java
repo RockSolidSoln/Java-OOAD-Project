@@ -197,4 +197,16 @@ public class StudentApplyProjectView extends JFrame {
     public JButton getApplyButton(){
         return applyButton;
     }
+
+    public String getProjectId(){
+        return projectIdLabel2.getText();
+    }
+
+    public String getProjectName(){
+        return  projectIdLabel2.getText();
+    }
+
+    public String getLecturerId(){
+        return lecturerNameLabel2.getText();
+    }
 }

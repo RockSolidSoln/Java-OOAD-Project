@@ -22,7 +22,6 @@ public class LecturerApplicationController {
         view.getBackButton().addActionListener(new LecturerApplicationController.NavigatorsListener());
         view.getAssignButton().addActionListener(new LecturerApplicationController.NavigatorsListener());
 
-
         String basePath = System.getProperty("user.dir");
         try(BufferedReader br2 = new BufferedReader(new FileReader(basePath + "\\Test\\src\\assets\\application.csv"))){
             String line;
@@ -60,10 +59,17 @@ public class LecturerApplicationController {
         public void actionPerformed(ActionEvent e) {
             if (e.getSource() == view.getBackButton()) {
                 view.dispose();
-                NavBarController.LecturerDashboardActionPerformed();
+                RoutingController.LecturerDashboardActionPerformed();
             } else if (e.getSource() == view.getAssignButton()) {
                 //assign to perform
-                view.dispose();
+                int selectedRow = view.getTable().getSelectedRow();
+                if (selectedRow != -1) {
+                    // get the value of the project ID column
+                    String studentId = (String) view.getTable().getValueAt(selectedRow, 0);
+                    String studentName = (String) view.getTable().getValueAt(selectedRow, 1);
+
+                    view.dispose();
+                }
             }
 
         }

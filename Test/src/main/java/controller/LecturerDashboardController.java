@@ -5,8 +5,6 @@ import model.Database;
 import model.LoginModel;
 import view.CreateProjectView;
 import view.LecturerDashboardView;
-import view.LecturerProjectsView;
-import view.LoginView;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -68,13 +66,13 @@ public class LecturerDashboardController {
         @Override
         public void actionPerformed(ActionEvent e) {
             if (e.getSource() == view.getButton1()) { // Lecturer - Create Project Button Pressed
-                NavBarController.CreateProjectActionPerformed();
+                RoutingController.CreateProjectActionPerformed();
             } else if (e.getSource() == view.getButton2()) { // Lecturer - View Projects Button Pressed
                 view.dispose();
-                NavBarController.LecturerProjectsViewActionPerformed();
+                RoutingController.LecturerProjectsViewActionPerformed();
             } else if (e.getSource() == view.getButton3()) { // Logout Button Pressed
                 view.dispose();
-                NavBarController.LogoutActionPerformed();
+                RoutingController.LogoutActionPerformed();
             }
         }
     }
