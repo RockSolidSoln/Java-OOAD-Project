@@ -33,6 +33,7 @@ public class LoginController {
         this.view.getUserIdField().addKeyListener(new EnterListener());
         this.view.getPasswordField().addKeyListener(new EnterListener());
         }
+        //Getting the needed data to 
     public void submitButton(){
         String userId = view.getUserId();
         String password = new String(view.getPassword());
@@ -42,7 +43,7 @@ public class LoginController {
         Boolean loginSuccess;
         loginSuccess = model.loginAuthenticate();
 
-
+        // Redirecting Users after successful login based on account type to thier respective dashboard
         if (loginSuccess) {
             if(userId.charAt(0) == 'A'){
                 view.dispose();
