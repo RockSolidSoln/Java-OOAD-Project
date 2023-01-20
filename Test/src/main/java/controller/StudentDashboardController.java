@@ -53,7 +53,7 @@ public class StudentDashboardController {
                 RoutingController.LogoutActionPerformed();
             } else if (e.getSource() == view.getButton3()) {
                 view.dispose();
-                RoutingController.StudentAvailableProjectsView();
+                RoutingController.StudentAvailableProjectsViewActionPerformed();
             }
         }
     }

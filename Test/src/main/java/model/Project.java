@@ -143,13 +143,43 @@ public class Project {
         return filteredProjectsByProjectId;
     }
 
-    public ArrayList<ArrayList<String>> filterBySpecialization(String projectId) {
+    public ArrayList<ArrayList<String>> filterBySpecializationAndStatus(String projectSpecialization) {
         String path = "\\Test\\src\\assets\\projects.csv";
 
         /* Calling the dataFiltration method to filter the Applications according to the 
          projectId (saved in 1st column in the DB).*/ 
-        ArrayList<ArrayList<String>> filteredProjectsByProjectSpec = Database.dataFiltration(path, projectId, 4);
-        return filteredProjectsByProjectSpec;
+        ArrayList<ArrayList<String>> filteredProjectsByProjectSpec = Database.dataFiltration(path, projectSpecialization, 4);
+        ArrayList<ArrayList<String>> filteredProjectsByProjectStatus = Database.dataFiltration(path, "active" , 6);
+        
+        //----------------------DEBUGG------------------------------ 
+        System.out.println("I'm HERERERERERE NOW ");
+                
+        for (int i = 0; i < filteredProjectsByProjectSpec.size(); i++) {
+            for (int j = 0; j < filteredProjectsByProjectSpec.get(i).size(); j++) {
+                System.out.print(filteredProjectsByProjectSpec.get(i).get(j) + " ");
+            }
+            System.out.println();
+        }
+
+        //----------------------------------------------------------
+
+
+        ArrayList<ArrayList<String>> returnFinalContent = new ArrayList<ArrayList<String>>();
+        
+        for(int i = 0; i < filteredProjectsByProjectSpec.size(); i++){
+            ArrayList<String> specRow = filteredProjectsByProjectSpec.get(i); 
+
+            for(int j = 0; j < filteredProjectsByProjectStatus.size(); j++){
+                ArrayList<String> statRow = filteredProjectsByProjectStatus.get(j); 
+                if(specRow.get(0).equals(statRow.get(0))){
+                    returnFinalContent.add(specRow);
+                }
+            }
+            
+        }
+        
+        
+        return returnFinalContent;
     }
 
 

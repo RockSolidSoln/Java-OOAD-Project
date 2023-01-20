@@ -30,7 +30,7 @@ public class StudentApplyProjectController {
         public void actionPerformed(ActionEvent e) {
             if (e.getSource() == view.getBackButton()) {
                 view.dispose();
-                RoutingController.StudentAvailableProjectsView();
+                RoutingController.StudentAvailableProjectsViewActionPerformed();
 //            } else if(e.getSource() == view.getApplyButton()){
 //                ApplicationModel applicationModel = ApplicationModel.getInstance(LoginModel.getUserId(), );
 //                view.getProjectName();

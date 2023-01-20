@@ -122,9 +122,10 @@ public class RoutingController {
     }
 
     //Student: View Available Projects
-    public static void StudentAvailableProjectsView(){
+    public static void StudentAvailableProjectsViewActionPerformed(){
         var studentAvailableProjectsView = StudentAvailableProjectsView.getInstance();
         var studentAvailableProjectsController = StudentAvailableProjectsController.getInstance(studentAvailableProjectsView);
+        studentAvailableProjectsController.ProjectTableLoader(); 
         studentAvailableProjectsView.setVisible(true);
     }
 
