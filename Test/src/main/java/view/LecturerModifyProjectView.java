@@ -7,7 +7,7 @@ import java.awt.*;
 
 /**
  *
- * @author
+ * @author Tanzir
  */
 public class LecturerModifyProjectView extends JFrame {
 

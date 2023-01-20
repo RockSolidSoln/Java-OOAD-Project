@@ -4,7 +4,7 @@ import java.awt.*;
 
 /**
  *
- * @author
+ * @author Fahima
  */
 public class LecturerDashboardView extends JFrame {
     

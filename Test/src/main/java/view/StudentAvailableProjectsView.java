@@ -8,7 +8,7 @@ import javax.swing.table.*;
 
 /**
  *
- * @author
+ * @author Ayaan
  */
 public class StudentAvailableProjectsView extends JFrame {
 

@@ -5,7 +5,7 @@ import java.awt.*;
 
 /**
  *
- * @author
+ * @author Anis
  */
 public class AdminDashboardView extends JFrame {
     /**

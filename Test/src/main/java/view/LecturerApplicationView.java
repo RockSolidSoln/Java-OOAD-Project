@@ -6,7 +6,7 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author
+ * @author Fahima
  */
 public class LecturerApplicationView extends JFrame {
 

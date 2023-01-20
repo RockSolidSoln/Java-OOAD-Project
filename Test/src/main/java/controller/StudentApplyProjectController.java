@@ -11,7 +11,7 @@ import model.Student;
 
 /**
  *
- * @author
+ * @author tanzir
  */
 public class StudentApplyProjectController {
     private static StudentApplyProjectController singletonInstance;

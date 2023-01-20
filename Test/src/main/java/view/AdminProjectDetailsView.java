@@ -8,7 +8,7 @@ import java.awt.*;
 
 /**
  *
- * @author
+ * @author Fahima
  */
 public class AdminProjectDetailsView extends JFrame {
 

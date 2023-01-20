@@ -15,7 +15,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author
+ * @author tanzir
  */
 public class LecturerProjectsController {
     private static LecturerProjectsController singletonInstance;

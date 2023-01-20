@@ -11,7 +11,7 @@ import java.io.IOException;
 import java.util.Objects;
 /**
  *
- * @author
+ * @author fahima
  */
 public class LecturerApplicationController {
     private static LecturerApplicationController singletonInstance;

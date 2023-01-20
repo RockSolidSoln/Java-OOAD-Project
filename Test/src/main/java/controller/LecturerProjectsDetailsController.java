@@ -8,7 +8,7 @@ import java.awt.event.ActionListener;
 import model.Project;
 /**
  *
- * @author
+ * @author salah
  */
 public class LecturerProjectsDetailsController {
     private static LecturerProjectsDetailsController singletonInstance;

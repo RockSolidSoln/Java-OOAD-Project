@@ -7,7 +7,7 @@ import javax.swing.*;
 
 /**
  *
- * @author
+ * @author salah
  */
 public class AdminRemarkView extends JFrame {
     private static String projectID;

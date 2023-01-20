@@ -3,7 +3,7 @@ package model;
 import java.util.ArrayList;
 /**
  *
- * @author
+ * @author Fahima
  */
 public class Lecturer extends User{
     private static Lecturer singletonInstance;

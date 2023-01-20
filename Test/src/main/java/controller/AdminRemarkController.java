@@ -8,7 +8,7 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 /**
  *
- * @author
+ * @author Salah
  */
 public class AdminRemarkController {
     public final AdminRemarkView view;

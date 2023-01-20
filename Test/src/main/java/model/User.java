@@ -3,7 +3,7 @@ package model;
 import java.util.ArrayList;
 /**
  *
- * @author
+ * @author Tanzir
  */
 public abstract class User {
     private String username;

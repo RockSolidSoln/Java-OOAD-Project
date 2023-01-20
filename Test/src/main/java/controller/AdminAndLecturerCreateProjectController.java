@@ -15,7 +15,7 @@ import java.util.List;
 
 /**
  *
- * @author
+ * @author Ayaan
  */
 public class AdminAndLecturerCreateProjectController {
     private static AdminAndLecturerCreateProjectController singletonInstance;

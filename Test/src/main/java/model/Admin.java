@@ -3,7 +3,7 @@ package model;
 import java.util.ArrayList;
 /**
  *
- * @author
+ * @author Anis
  */
 public class Admin extends User{
     private static Admin singletonInstance;

@@ -5,7 +5,7 @@ import java.awt.event.ActionListener;
 import java.io.*;
 /**
  *
- * @author
+ * @author Fahima
  */
 public class LoginModel {
     public static String userId;

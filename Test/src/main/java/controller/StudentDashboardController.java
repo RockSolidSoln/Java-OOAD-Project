@@ -11,7 +11,7 @@ import model.Student;
 import view.StudentDashboardView;
 /**
  *
- * @author
+ * @author fahima
  */
 public class StudentDashboardController {
 
