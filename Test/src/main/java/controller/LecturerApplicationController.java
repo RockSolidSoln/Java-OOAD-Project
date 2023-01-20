@@ -65,6 +65,7 @@ public class LecturerApplicationController {
                 int selectedRow = view.getTable().getSelectedRow();
                 if (selectedRow != -1) {
                     // get the value of the project ID column
+
                     String studentId = (String) view.getTable().getValueAt(selectedRow, 0);
                     String studentName = (String) view.getTable().getValueAt(selectedRow, 1);
 

@@ -1,15 +1,17 @@
 package view;
 
+import model.LoginModel;
+
 import javax.swing.*;
 import java.awt.*;
 
 public class LecturerProjectDetailsView extends JFrame {
 
+    // Variables declaration - do not modify
     private  String projectId;
     private  String projectName;
     private  String specialization;
     private  String status;
-
     private JButton activateDeactivateButton;
     private JButton backButton;
     private JButton modifyContentButton;
@@ -20,41 +22,45 @@ public class LecturerProjectDetailsView extends JFrame {
     private JTextField detailsTextField;
     private JLabel specializationLabel2;
     JLabel statusLabel = new JLabel();
+    private String details;
 
 
-    public LecturerProjectDetailsView(String projectID, String projectName, String specialization, String status) {
-        
+    public LecturerProjectDetailsView(String projectID, String projectName, String specialization, String status, String details) {
         this.projectId = projectID;
         this.projectName = projectName;
         this.specialization = specialization;
         this.status = status;
+        this.details = details;
+
         initComponents();
     }
 
     public static LecturerProjectDetailsView singletonInstance;
 
-    public static LecturerProjectDetailsView getInstance(String projectID, String projectName, String specialization, String status) {
+    public static LecturerProjectDetailsView getInstance(String projectID, String projectName, String specialization, String status, String details) {
         if (singletonInstance == null) {
-            singletonInstance = new LecturerProjectDetailsView(projectID, projectName, specialization, status);
+            singletonInstance = new LecturerProjectDetailsView(projectID, projectName, specialization, status, details);
         }
         else
-                singletonInstance.updateInstance(projectID, projectName, specialization, status);
+                singletonInstance.updateInstance(projectID, projectName, specialization, status, details);
         return singletonInstance;
     }
 
-    public void updateInstance(String projectID, String projectName, String specialization, String status){
+    public void updateInstance(String projectID, String projectName, String specialization, String status, String details){
         this.projectId = projectID;
         this.projectName = projectName;
         this.specialization = specialization;
         this.status = status;
+        this.details = details;
 
         projectNameLabel2.setText(projectName);
         specializationLabel2.setText(specialization);
         projectIdLabel2.setText(projectID);
-        statusLabel.setText(status); 
+        statusLabel.setText(status);
+        detailsTextField.setText(details);
     }
 
-    // Variables declaration - do not modify
+
     
     // End of variables declaration
     private void initComponents() {
@@ -78,8 +84,6 @@ public class LecturerProjectDetailsView extends JFrame {
         JLabel projectIdLabel = new JLabel();
         JLabel lecturerIdLabel = new JLabel();
         JLabel lecturerIdLabel2 = new JLabel();
-        
-
 
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -139,7 +143,7 @@ public class LecturerProjectDetailsView extends JFrame {
 
         studentNameLabel2.setFont(new Font("SansSerif", Font.PLAIN, 18)); // NOI18N
         studentNameLabel2.setForeground(new Color(230, 230, 230));
-        studentNameLabel2.setText("Student name");
+        studentNameLabel2.setText("");
 
         projectIdLabel2.setBackground(new Color(230, 230, 230));
         projectIdLabel2.setFont(new Font("SansSerif", Font.PLAIN, 18)); // NOI18N
@@ -157,7 +161,7 @@ public class LecturerProjectDetailsView extends JFrame {
 
         lecturerIdLabel2.setFont(new Font("SansSerif", Font.PLAIN, 18)); // NOI18N
         lecturerIdLabel2.setForeground(new Color(230, 230, 230));
-        lecturerIdLabel2.setText("ID");
+        lecturerIdLabel2.setText(LoginModel.getUserId());
 
         statusLabel.setFont(new Font("SansSerif", Font.PLAIN, 18)); // NOI18N
         statusLabel.setForeground(new Color(230, 230, 230));
@@ -260,7 +264,7 @@ public class LecturerProjectDetailsView extends JFrame {
         );
 
         detailsTextField.setEditable(false);
-        detailsTextField.setText("details");
+        detailsTextField.setText(details);
 
         GroupLayout layout = new GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -276,12 +280,6 @@ public class LecturerProjectDetailsView extends JFrame {
         pack();
     }// </editor-fold>                        
 
-//    private void viewApplyingListButtonActionPerformed(event.ActionEvent evt) {
-//        // TODO add your handling code here:
-////        viewApplyingStudent viewapplyingstudent = new viewApplyingStudent();
-////        viewapplyingstudent.setVisible(true);
-//
-//    }
 
 
     public JButton getActivateDeactivateButton(){
@@ -311,7 +309,7 @@ public class LecturerProjectDetailsView extends JFrame {
         return projectNameLabel2.getText();
     }
     public String getProjectDetails(){
-        return (String) detailsTextField.getText();
+        return detailsTextField.getText();
     }
     public String getProjectSpecialization(){
         return specializationLabel2.getText();

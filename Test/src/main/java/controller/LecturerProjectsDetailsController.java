@@ -40,6 +40,7 @@ public class LecturerProjectsDetailsController {
                 RoutingController.LecturerProjectsViewActionPerformed(); 
             } else if (e.getSource() == view.getBackButton()) {
                 view.dispose();
+               
                 RoutingController.LecturerProjectsViewActionPerformed();
             } else if (e.getSource() == view.getUnassignButton()) {
                 view.dispose();
@@ -49,7 +50,6 @@ public class LecturerProjectsDetailsController {
                 String projectName = view.getProjectName();
                 String projectDetails = view.getProjectDetails();
                 String projectSpecialization = view.getProjectSpecialization();
-
                 RoutingController.LecturerModifyProject(projectId, projectName, projectDetails, projectSpecialization);
             } else if (e.getSource() == view.getApplyingListButton()) {
                 RoutingController.ViewApplyingStudentListPerformed(view.getProjectId());

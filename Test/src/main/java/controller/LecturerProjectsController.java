@@ -13,6 +13,7 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 
+
 public class LecturerProjectsController {
     private static LecturerProjectsController singletonInstance;
     private static LecturerProjectsView view;
@@ -31,15 +32,16 @@ public class LecturerProjectsController {
     public void ProjectTableLoader(){
         Project projectModel = Project.getInstance("null", "null", "null","null", "null", "null");
         ArrayList<ArrayList<String>> filteredContents = projectModel.FilterByLecturerId(LoginModel.getUserId());
-        //System.out.println("DEBBBBBUG:   "+ LoginModel.getUserId());
+
         ((DefaultTableModel) view.getTable().getModel()).setRowCount(0);
 
-        for(int i = 0; i < filteredContents.size(); i++){
-            String[] values = new String[4];
-            values[0] = filteredContents.get(i).get(0); 
-            values[1] = filteredContents.get(i).get(1);
-            values[2] = filteredContents.get(i).get(3);
-            values[3] = filteredContents.get(i).get(5);
+        for (ArrayList<String> filteredContent : filteredContents) {
+            String[] values = new String[5];
+            values[0] = filteredContent.get(0);
+            values[1] = filteredContent.get(1);
+            values[2] = filteredContent.get(3);
+            values[3] = filteredContent.get(4);
+            values[4] = filteredContent.get(5);
 
             ((DefaultTableModel) view.getTable().getModel()).insertRow(0, values);
         }
@@ -72,11 +74,11 @@ public class LecturerProjectsController {
                     String projectID = (String) view.getTable().getValueAt(selectedRow, 0);
                     String projectName = (String) view.getTable().getValueAt(selectedRow, 1);
                     String specialization = (String) view.getTable().getValueAt(selectedRow, 2);
-                    String status = (String) view.getTable().getValueAt(selectedRow, 3);
-                    
+                    String status = (String) view.getTable().getValueAt(selectedRow, 4);
+                    String details = (String) view.getTable().getValueAt(selectedRow, 3) ;
                     view.dispose();
                     
-                    RoutingController.ViewLecturerProjectDetails(projectID, projectName, specialization, status);
+                    RoutingController.ViewLecturerProjectDetails(projectID, projectName, specialization, status, details);
                 } else {
                     JOptionPane.showMessageDialog(null, "Please select a row from the table.");
                 }
