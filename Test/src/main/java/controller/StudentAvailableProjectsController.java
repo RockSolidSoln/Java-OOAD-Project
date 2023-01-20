@@ -44,7 +44,6 @@ public class StudentAvailableProjectsController {
             values[2] = allProject.get(2);
             values[3] = allProject.get(3);
             System.out.println("Debugg:   " + values[0]);
-
             ((DefaultTableModel) view.getTable().getModel()).insertRow(0, values);
         }
 
@@ -73,7 +72,7 @@ public class StudentAvailableProjectsController {
             } else if (e.getSource() == view.getViewButton()) {
                 int selectedRow = view.getTable().getSelectedRow();
                 if (selectedRow != -1) {
-                    // get the value of the project ID column
+                    // get the value of the project ID colum
                     String projectID = (String) view.getTable().getValueAt(selectedRow, 0);
                     String projectName = (String) view.getTable().getValueAt(selectedRow, 1);
                     String lecturerID = (String) view.getTable().getValueAt(selectedRow, 2);
