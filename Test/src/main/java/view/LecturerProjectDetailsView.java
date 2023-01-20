@@ -5,39 +5,11 @@ import java.awt.*;
 
 public class LecturerProjectDetailsView extends JFrame {
 
-    private static String projectId;
-    private static String projectName;
-    private static String specialization;
-    private static String status;
+    private  String projectId;
+    private  String projectName;
+    private  String specialization;
+    private  String status;
 
-    public LecturerProjectDetailsView(String projectID, String projectName, String specialization, String status) {
-        
-        LecturerProjectDetailsView.projectId = projectID;
-        LecturerProjectDetailsView.projectName = projectName;
-        LecturerProjectDetailsView.specialization = specialization;
-        LecturerProjectDetailsView.status = status;
-        initComponents();
-    }
-
-    public static LecturerProjectDetailsView singletonInstance;
-
-    public static LecturerProjectDetailsView getInstance(String projectID, String projectName, String specialization, String status) {
-        if (singletonInstance == null) {
-            singletonInstance = new LecturerProjectDetailsView(projectId, projectName, specialization, status);
-        }
-        else
-                singletonInstance.updateInstance(projectId, projectName, specialization, status);
-        return singletonInstance;
-    }
-
-    public void updateInstance(String projectID, String projectName, String specialization, String status){
-        this.projectId = projectID;
-        this.projectName = projectName;
-        this.specialization = specialization;
-        this.status = status;
-    }
-
-    // Variables declaration - do not modify
     private JButton activateDeactivateButton;
     private JButton backButton;
     private JButton modifyContentButton;
@@ -47,6 +19,43 @@ public class LecturerProjectDetailsView extends JFrame {
     private JLabel projectNameLabel2;
     private JTextField detailsTextField;
     private JLabel specializationLabel2;
+    JLabel statusLabel = new JLabel();
+
+
+    public LecturerProjectDetailsView(String projectID, String projectName, String specialization, String status) {
+        
+        this.projectId = projectID;
+        this.projectName = projectName;
+        this.specialization = specialization;
+        this.status = status;
+        initComponents();
+    }
+
+    public static LecturerProjectDetailsView singletonInstance;
+
+    public static LecturerProjectDetailsView getInstance(String projectID, String projectName, String specialization, String status) {
+        if (singletonInstance == null) {
+            singletonInstance = new LecturerProjectDetailsView(projectID, projectName, specialization, status);
+        }
+        else
+                singletonInstance.updateInstance(projectID, projectName, specialization, status);
+        return singletonInstance;
+    }
+
+    public void updateInstance(String projectID, String projectName, String specialization, String status){
+        this.projectId = projectID;
+        this.projectName = projectName;
+        this.specialization = specialization;
+        this.status = status;
+
+        projectNameLabel2.setText(projectName);
+        specializationLabel2.setText(specialization);
+        projectIdLabel2.setText(projectID);
+        statusLabel.setText(status); 
+    }
+
+    // Variables declaration - do not modify
+    
     // End of variables declaration
     private void initComponents() {
 
@@ -69,7 +78,7 @@ public class LecturerProjectDetailsView extends JFrame {
         JLabel projectIdLabel = new JLabel();
         JLabel lecturerIdLabel = new JLabel();
         JLabel lecturerIdLabel2 = new JLabel();
-        JLabel statusLabel = new JLabel();
+        
 
 
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
