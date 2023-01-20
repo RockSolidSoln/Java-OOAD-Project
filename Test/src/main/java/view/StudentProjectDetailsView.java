@@ -23,9 +23,9 @@ public class StudentProjectDetailsView extends JFrame {
         return singletonInstance;
     }
 
-    // Variables declaration - do not modify
+    /* Variables declaration - do not modify*/ 
     private JButton backButton;
-    // End of variables declaration
+    /*  End of variables declaration*/
 
     private void initComponents() {
 
@@ -39,7 +39,7 @@ public class StudentProjectDetailsView extends JFrame {
         JLabel projectSpecializationLabel = new JLabel();
         backButton = new JButton();
         JTextField projectDetailsTextField = new JTextField();
-
+        /* Styling for components */
         setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
 
@@ -66,7 +66,7 @@ public class StudentProjectDetailsView extends JFrame {
         backButton.setText("Back");
         backButton.setForeground(Color.WHITE);
         backButton.setBackground(new Color(100, 198, 217));
-
+        /*Layout for the screen */
         GroupLayout jPanel1Layout = new GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -135,7 +135,7 @@ public class StudentProjectDetailsView extends JFrame {
         );
 
         pack();
-    }// </editor-fold>
+    }
 
     public JButton getBackButton(){
         return backButton;
