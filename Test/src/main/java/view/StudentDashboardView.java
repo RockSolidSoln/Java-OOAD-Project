@@ -8,7 +8,7 @@ import java.awt.event.*;
 
 /**
  *
- * @author
+ * @author Fahima
  */
 public class StudentDashboardView extends JFrame {
 

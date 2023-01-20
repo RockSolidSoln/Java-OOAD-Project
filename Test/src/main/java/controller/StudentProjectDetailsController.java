@@ -6,7 +6,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 /**
  *
- * @author
+ * @author salah
  */
 public class StudentProjectDetailsController {
     private static StudentProjectDetailsController singletonInstance;

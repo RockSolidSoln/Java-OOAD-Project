@@ -4,7 +4,7 @@ import javax.swing.*;
 
 /**
  *
- * @author
+ * @author anis
  */
 public class StudentProjectDetailsView extends JFrame {
 

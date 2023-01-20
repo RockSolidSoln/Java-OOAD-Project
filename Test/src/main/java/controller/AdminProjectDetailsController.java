@@ -6,7 +6,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 /**
  *
- * @author
+ * @author tanzir
  */
 public class AdminProjectDetailsController {
     private static AdminProjectDetailsView view = null;

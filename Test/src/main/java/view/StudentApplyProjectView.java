@@ -9,7 +9,7 @@ import java.awt.*;
 
 /**
  *
- * @author
+ * @author Anis
  */
 public class StudentApplyProjectView extends JFrame {
 
@@ -34,16 +34,8 @@ public class StudentApplyProjectView extends JFrame {
     // Variables declaration - do not modify
     private JButton backButton;
     private JButton applyButton;
-    private JLabel jLabel1;
-    private JPanel jPanel1;
-    private JLabel lecturerNameLabel;
 
-    private JLabel projectDetails;
     private JTextField projectDetailsTextField;
-    private JLabel projectIdLabel;
-    private JLabel projectNameLabel;
-    private JLabel projectSpecialization1;
-    private JLabel projectSpecializationLabel2;
 
     private static StudentApplyProjectView singletonInstance;
 
@@ -69,23 +61,21 @@ public class StudentApplyProjectView extends JFrame {
 
     }
 
-
-
     private void initComponents() {
         System.out.println(details);
-        jPanel1 = new JPanel();
-        jLabel1 = new JLabel();
-        projectNameLabel = new JLabel();
-        projectIdLabel = new JLabel();
-        projectDetails = new JLabel();
+        JPanel jPanel1 = new JPanel();
+        JLabel jLabel1 = new JLabel();
+        JLabel projectNameLabel = new JLabel();
+        JLabel projectIdLabel = new JLabel();
+        JLabel projectDetails = new JLabel();
         projectNameLabel2 = new JLabel();
-        projectSpecializationLabel2 = new JLabel();
+        JLabel projectSpecializationLabel2 = new JLabel();
         projectDetailsTextField = new JTextField();
         applyButton = new JButton();
         backButton = new JButton();
         lecturerNameLabel2 = new JLabel();
-        lecturerNameLabel = new JLabel();
-        projectSpecialization1 = new JLabel();
+        JLabel lecturerNameLabel = new JLabel();
+        JLabel projectSpecialization1 = new JLabel();
         projectIdLabel2 = new JLabel();
 
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
@@ -234,5 +224,9 @@ public class StudentApplyProjectView extends JFrame {
 
     public String getLecturerId(){
         return lecturerNameLabel2.getText();
+    }
+
+    public void displayMessage() {
+        JOptionPane.showMessageDialog(null, "You have applied for the following Project please wait for lecturer to assign it to you!", "Success", JOptionPane.INFORMATION_MESSAGE);
     }
 }

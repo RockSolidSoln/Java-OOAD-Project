@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 /**
  *
- * @author
+ * @author anis
  */
 public class LecturerModifyProjectController {
     private static LecturerModifyProjectController singletonInstance;

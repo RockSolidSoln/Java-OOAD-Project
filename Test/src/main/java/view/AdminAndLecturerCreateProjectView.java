@@ -5,7 +5,7 @@ import java.awt.*;
 
 /**
  *
- * @author
+ * @author Ayaan
  */
 public class AdminAndLecturerCreateProjectView extends JFrame {
 

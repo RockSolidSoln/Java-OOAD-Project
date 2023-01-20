@@ -3,7 +3,7 @@ package model;
 import java.util.ArrayList;
 /**
  *
- * @author
+ * @author Ayaan
  */
 public class ApplicationModel {
     private String projectId;

@@ -10,7 +10,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 /**
  *
- * @author
+ * @author tanzir
  */
 public class LecturerDashboardController {
     private static LecturerDashboardController singletonInstance;
