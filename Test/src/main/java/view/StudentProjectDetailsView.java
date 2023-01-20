@@ -1,9 +1,10 @@
 package view;
 import java.awt.*;
 import javax.swing.*;
+
 /**
  *
- * @author salah
+ * @author
  */
 public class StudentProjectDetailsView extends JFrame {
 

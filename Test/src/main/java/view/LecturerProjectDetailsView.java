@@ -5,6 +5,10 @@ import model.LoginModel;
 import javax.swing.*;
 import java.awt.*;
 
+/**
+ *
+ * @author
+ */
 public class LecturerProjectDetailsView extends JFrame {
 
     // Variables declaration - do not modify

@@ -5,9 +5,10 @@ import model.LoginModel;
 
 import javax.swing.*;
 import java.awt.*;
+
 /**
  *
- * @author salah
+ * @author
  */
 public class AdminProjectDetailsView extends JFrame {
 

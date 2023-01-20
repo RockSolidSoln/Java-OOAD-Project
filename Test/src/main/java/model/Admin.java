@@ -1,7 +1,10 @@
 package model;
 
 import java.util.ArrayList;
-
+/**
+ *
+ * @author
+ */
 public class Admin extends User{
     private static Admin singletonInstance;
     Admin(String username, String password, String name, String email, String phone){

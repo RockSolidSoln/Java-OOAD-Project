@@ -3,7 +3,10 @@ package model;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.*;
-
+/**
+ *
+ * @author
+ */
 public class LoginModel {
     public static String userId;
     public String password;

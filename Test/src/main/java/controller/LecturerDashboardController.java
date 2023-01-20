@@ -8,7 +8,10 @@ import view.LecturerDashboardView;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
+/**
+ *
+ * @author
+ */
 public class LecturerDashboardController {
     private static LecturerDashboardController singletonInstance;
     private static LecturerDashboardView view;

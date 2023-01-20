@@ -2,9 +2,12 @@ package view;
 
 import javax.swing.*;
 import java.awt.*;  
-import java.awt.event.*; 
+import java.awt.event.*;
 
-
+/**
+ *
+ * @author
+ */
 public class LoginView extends JFrame {
 
     private JButton loginButton, exitButton;

@@ -4,7 +4,10 @@ import view.StudentProjectDetailsView;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
+/**
+ *
+ * @author
+ */
 public class StudentProjectDetailsController {
     private static StudentProjectDetailsController singletonInstance;
     private static StudentProjectDetailsView view;

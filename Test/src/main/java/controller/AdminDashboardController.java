@@ -6,7 +6,10 @@ import java.awt.event.ActionListener;
 import model.Admin;
 import model.LoginModel;
 import view.*;
-
+/**
+ *
+ * @author
+ */
 public class AdminDashboardController {
 
     private static AdminDashboardController singletonInstance;

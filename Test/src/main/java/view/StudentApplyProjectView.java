@@ -6,7 +6,7 @@ import java.awt.*;
 
 /**
  *
- * @author salah
+ * @author
  */
 public class StudentApplyProjectView extends JFrame {
 

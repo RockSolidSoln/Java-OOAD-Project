@@ -1,8 +1,11 @@
 package view;
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionListener;
 
+/**
+ *
+ * @author
+ */
 public class LecturerDashboardView extends JFrame {
     
     private static LecturerDashboardView singletonInstance;

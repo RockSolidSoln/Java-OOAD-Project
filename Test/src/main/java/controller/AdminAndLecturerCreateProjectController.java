@@ -13,7 +13,10 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-
+/**
+ *
+ * @author
+ */
 public class AdminAndLecturerCreateProjectController {
     private static AdminAndLecturerCreateProjectController singletonInstance;
     private static AdminAndLecturerCreateProjectView view;

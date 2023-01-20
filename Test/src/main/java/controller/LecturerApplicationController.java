@@ -9,7 +9,10 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.Objects;
-
+/**
+ *
+ * @author
+ */
 public class LecturerApplicationController {
     private static LecturerApplicationController singletonInstance;
     private static LecturerApplicationView view;

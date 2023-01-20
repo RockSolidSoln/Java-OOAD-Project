@@ -1,7 +1,10 @@
 package model;
 
 import java.util.ArrayList;
-
+/**
+ *
+ * @author
+ */
 public class ApplicationModel {
     private String projectId;
     private String studentId;

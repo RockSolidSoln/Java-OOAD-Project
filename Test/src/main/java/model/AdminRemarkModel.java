@@ -2,7 +2,10 @@ package model;
 
 import java.io.*;
 import java.util.ArrayList;
-
+/**
+ *
+ * @author
+ */
 public class AdminRemarkModel {
     private static AdminRemarkModel singletonInstance;
     private static ArrayList<String> adminIds;

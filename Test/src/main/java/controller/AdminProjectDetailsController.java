@@ -4,7 +4,10 @@ import view.AdminProjectDetailsView;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
+/**
+ *
+ * @author
+ */
 public class AdminProjectDetailsController {
     private static AdminProjectDetailsView view = null;
     private static AdminProjectDetailsController singletonInstance;

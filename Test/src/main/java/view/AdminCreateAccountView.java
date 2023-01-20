@@ -6,7 +6,10 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 
-
+/**
+ *
+ * @author
+ */
 public class AdminCreateAccountView extends JFrame {
     
     private static AdminCreateAccountView singletonInstance;

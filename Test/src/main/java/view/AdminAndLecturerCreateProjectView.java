@@ -3,7 +3,10 @@ package view;
 import javax.swing.*;
 import java.awt.*;
 
-
+/**
+ *
+ * @author
+ */
 public class AdminAndLecturerCreateProjectView extends JFrame {
 
   private static AdminAndLecturerCreateProjectView singletonInstance;
