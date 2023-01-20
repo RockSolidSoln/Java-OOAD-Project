@@ -140,6 +140,16 @@ public class Project {
         return filteredProjectsByProjectId;
     }
 
+    public ArrayList<ArrayList<String>> filterBySpecialization(String projectId) {
+        String path = "\\Test\\src\\assets\\projects.csv";
+
+        /* Calling the dataFiltration method to filter the Applications according to the 
+         projectId (saved in 1st column in the DB).*/ 
+        ArrayList<ArrayList<String>> filteredProjectsByProjectSpec = Database.dataFiltration(path, projectId, 4);
+        return filteredProjectsByProjectSpec;
+    }
+
+
     public String ChangeActiveStatus(String projectId) {
         String path = "\\Test\\src\\assets\\projects.csv";
         /* Getting the line which is of the same Id.*/ 
