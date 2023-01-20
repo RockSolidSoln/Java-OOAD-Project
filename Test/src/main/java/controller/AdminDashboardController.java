@@ -21,6 +21,7 @@ public class AdminDashboardController {
         view.getButton4().addActionListener(new NavigatorsListener());
 
         Admin admin = Admin.getDetailsInstance(LoginModel.getUserId());
+      //  System.out.println("DEBUGG: FRom AdminDashBoardController -- " + admin.getUsername());
         view.getNameField().setText(admin.getName()); // Displaying the Name on Dashboard
         view.getEmailField().setText(admin.getEmail()); // Displaying the Email on Dashboard
         view.getPhoneField().setText(admin.getPhone()); // Displaying the PhoneNo on Dashboard

@@ -39,5 +39,15 @@ public class Student extends User{
         Database.FilewriteBack(filename, lines, true); 
     }
 
+    public static Student getDetailsInstance(String id){
+        String fileName = ("\\Test\\src\\assets\\student.csv");
+        String userId = id;
+        String[] details = Database.FindDataFromDB(fileName, userId);
+        System.out.println(details[0] + " " + details[1] + " " + details[2] + " " + details[3] +  " " + details[4]);
+        Student studentInstance = Student.getInstance(details[0],null, details[1], details[2], details[3], details[4]); 
+
+        return studentInstance;
+    }
+
 
 }
