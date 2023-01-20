@@ -19,7 +19,7 @@ public class RoutingController {
     public static void AdminViewProjectActionPerformed() {
         AdminProjectsView view = AdminProjectsView.getInstance();
         AdminProjectsController controller = AdminProjectsController.getInstance(view);
-
+        controller.ProjectTableLoader();
         view.setVisible(true);
     }
 
