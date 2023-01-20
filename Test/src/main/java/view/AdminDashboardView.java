@@ -2,11 +2,16 @@ package view;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.*;
 
-
+/**
+ *
+ * @author salah
+ */
 public class AdminDashboardView extends JFrame {
-
+    /**
+     *
+     *
+     */
     private JButton jButton1, jButton2, jButton3, jButton4, jButton5;
     private static AdminDashboardView singletonInstance;
     private JLabel jLabel5, jLabel4, jLabel11, jLabel12, jLabel3;

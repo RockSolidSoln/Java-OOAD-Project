@@ -20,10 +20,6 @@ public class AdminRemarkModel {
         return singletonInstance;
     }
 
-    public String getAdminId() {
-        return Ad
-    }
-
     public static void storeRemarks(String adminId, String adminRemark) {
         AdminRemarkModel.adminRemark = adminRemark;
         AdminRemarkModel.adminId = adminId;

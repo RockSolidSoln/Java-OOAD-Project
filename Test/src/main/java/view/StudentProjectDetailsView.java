@@ -21,6 +21,7 @@ public class StudentProjectDetailsView extends JFrame {
         }
         return singletonInstance;
     }
+
     // Variables declaration - do not modify
     private JButton backButton;
     // End of variables declaration
