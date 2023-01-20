@@ -10,17 +10,17 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.Objects;
 
-public class ApplyingStudentController {
-    private static ApplyingStudentController singletonInstance;
+public class ApplicationController {
+    private static ApplicationController singletonInstance;
     private static ApplyingStudentView view;
     private static String projectId;
 
-    public ApplyingStudentController(ApplyingStudentView view, String projectId) {
-        ApplyingStudentController.view = view;
-        ApplyingStudentController.projectId = projectId;
+    public ApplicationController(ApplyingStudentView view, String projectId) {
+        ApplicationController.view = view;
+        ApplicationController.projectId = projectId;
 
-        view.getBackButton().addActionListener(new ApplyingStudentController.NavigatorsListener());
-        view.getAssignButton().addActionListener(new ApplyingStudentController.NavigatorsListener());
+        view.getBackButton().addActionListener(new ApplicationController.NavigatorsListener());
+        view.getAssignButton().addActionListener(new ApplicationController.NavigatorsListener());
 
 
         String basePath = System.getProperty("user.dir");
@@ -47,9 +47,9 @@ public class ApplyingStudentController {
         }
     }
 
-    public static ApplyingStudentController getInstance(ApplyingStudentView view, String projectId) {
+    public static ApplicationController getInstance(ApplyingStudentView view, String projectId) {
         if (singletonInstance == null) {
-            singletonInstance = new ApplyingStudentController(view, projectId);
+            singletonInstance = new ApplicationController(view, projectId);
         }
         return singletonInstance;
     }

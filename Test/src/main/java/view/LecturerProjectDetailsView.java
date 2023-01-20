@@ -286,6 +286,6 @@ public class LecturerProjectDetailsView extends JFrame {
         return projectIdLabel2.getText();
     }
     public void displaySuccessMessage(String newStatus) {
-        JOptionPane.showMessageDialog(null, "Success! The Project Status Changed to " + newStatus, "Success", JOptionPane.INFORMATION_MESSAGE);
+        JOptionPane.showMessageDialog(null, "Success! The Project Status Changed to " + newStatus.toUpperCase(), "Success", JOptionPane.INFORMATION_MESSAGE);
     }
 }
