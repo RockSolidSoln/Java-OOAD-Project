@@ -63,20 +63,20 @@ public class StudentAvailableProjectsView extends JFrame {
 
         jTable1.setModel(new DefaultTableModel(
                 new Object [][] {
-                        {null, null, null},
-                        {null, null, null},
-                        {null, null, null},
-                        {null, null, null}
+                        {null, null, null, null},
+                        {null, null, null, null},
+                        {null, null, null, null},
+                        {null, null, null, null}
                 },
                 new String [] {
-                        "Project ID", "Project Name", "Lecturer Name"
+                        "Project ID", "Project Name", "Lecturer Name", "Details"
                 }
         ) {
             final Class[] types = new Class [] {
                     java.lang.String.class, java.lang.String.class, java.lang.Object.class
             };
             final boolean[] canEdit = new boolean [] {
-                    false, false, true
+                    false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {

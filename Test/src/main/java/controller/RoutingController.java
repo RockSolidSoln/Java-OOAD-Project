@@ -131,8 +131,8 @@ public class RoutingController {
     }
 
     /*Student: Apply for a project */
-    public static void StudentApplyProjectsView(String projectId, String projectName, String lecturerId){
-        var studentApplyProjectsView = StudentApplyProjectView.getInstance(projectId, projectName, lecturerId);
+    public static void StudentApplyProjectsView(String projectId, String projectName, String lecturerId, String details){
+        var studentApplyProjectsView = StudentApplyProjectView.getInstance(projectId, projectName, lecturerId, details);
         var studentApplyProjectsController = StudentApplyProjectController.getInstance(studentApplyProjectsView);
         studentApplyProjectsView.setVisible(true);
     }

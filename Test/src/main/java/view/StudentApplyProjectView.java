@@ -1,6 +1,9 @@
 package view;
 
 
+import model.LoginModel;
+import model.Student;
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -16,18 +19,20 @@ public class StudentApplyProjectView extends JFrame {
     private static String projectId;
     private static String projectName;
     private static String lecturerId;
+    private static String details;
     
-    public StudentApplyProjectView(String projectId, String projectName, String lecturerId) {
+    public StudentApplyProjectView(String projectId, String projectName, String lecturerId, String details) {
         initComponents();
     }
     private static StudentApplyProjectView singletonInstance;
 
-    public static StudentApplyProjectView getInstance(String projectID, String projectName, String lecturerId){
+    public static StudentApplyProjectView getInstance(String projectID, String projectName, String lecturerId, String details){
         StudentApplyProjectView.projectId = projectID;
         StudentApplyProjectView.projectName = projectName;
         StudentApplyProjectView.lecturerId = lecturerId;
+        StudentApplyProjectView.details = details;
         if (singletonInstance == null) {
-            singletonInstance = new StudentApplyProjectView(projectId, projectName, lecturerId);
+            singletonInstance = new StudentApplyProjectView(projectId, projectName, lecturerId, details);
         }
         return singletonInstance;
     }
@@ -86,7 +91,8 @@ public class StudentApplyProjectView extends JFrame {
         projectNameLabel2.setText(projectName);
 
         projectSpecializationLabel2.setFont(new java.awt.Font("SansSerif", Font.PLAIN, 18)); // NOI18N
-        projectSpecializationLabel2.setText("Project Name");
+        Student student = Student.getDetailsInstance(LoginModel.getUserId());
+        projectSpecializationLabel2.setText(student.getSpecialization());
 
         applyButton.setText("Apply");
 
@@ -96,7 +102,7 @@ public class StudentApplyProjectView extends JFrame {
         lecturerNameLabel2.setText(lecturerId);
 
         lecturerNameLabel.setFont(new java.awt.Font("SansSerif", Font.PLAIN, 18)); // NOI18N
-        lecturerNameLabel.setText("Lecturer Name");
+        lecturerNameLabel.setText("Lecturer Id");
 
         projectSpecialization1.setFont(new java.awt.Font("SansSerif", Font.PLAIN, 18)); // NOI18N
         projectSpecialization1.setText("Project Specialization");

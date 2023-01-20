@@ -38,10 +38,11 @@ public class StudentAvailableProjectsController {
         
         ((DefaultTableModel) view.getTable().getModel()).setRowCount(0);
         for (ArrayList<String> allProject : filteredContents) {
-            String[] values = new String[3];
+            String[] values = new String[4];
             values[0] = allProject.get(0);
             values[1] = allProject.get(1);
             values[2] = allProject.get(2);
+            values[3] = allProject.get(3);
             System.out.println("Debugg:   " + values[0]);
 
             ((DefaultTableModel) view.getTable().getModel()).insertRow(0, values);
@@ -76,9 +77,9 @@ public class StudentAvailableProjectsController {
                     String projectID = (String) view.getTable().getValueAt(selectedRow, 0);
                     String projectName = (String) view.getTable().getValueAt(selectedRow, 1);
                     String lecturerID = (String) view.getTable().getValueAt(selectedRow, 2);
-
+                    String details = (String) view.getTable().getValueAt(selectedRow, 3);
                     view.dispose();
-                    RoutingController.StudentApplyProjectsView(projectID, projectName, lecturerID);
+                    RoutingController.StudentApplyProjectsView(projectID, projectName, lecturerID, details);
                 }
             }
 
