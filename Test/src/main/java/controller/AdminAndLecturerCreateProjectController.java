@@ -36,7 +36,7 @@ public class AdminAndLecturerCreateProjectController {
 
         List<String> specialization = new ArrayList<String>();
         specialization.add("Software Engineering");
-        specialization.add("Data Scientist");
+        specialization.add("Data Science");
         specialization.add("Game Development");
 
         for(String s : specialization){
