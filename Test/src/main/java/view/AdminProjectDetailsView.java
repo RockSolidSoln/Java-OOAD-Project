@@ -31,7 +31,7 @@ public class AdminProjectDetailsView extends JFrame {
 
     public static AdminProjectDetailsView singletonInstance;
 
-    public static AdminProjectDetailsView getInstance(){
+    public static AdminProjectDetailsView getInstance(String projectId, String projectName, String lecturerId,String specialization, String details){
         if(singletonInstance == null){
             singletonInstance = new AdminProjectDetailsView(projectId, projectName,lecturerId, specialization, details);
         }
@@ -188,5 +188,6 @@ public class AdminProjectDetailsView extends JFrame {
 
 
     public JButton getBackButton(){ return backButton; }
+
 
 }

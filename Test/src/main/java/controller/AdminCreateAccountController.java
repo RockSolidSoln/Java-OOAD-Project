@@ -51,7 +51,7 @@ public class AdminCreateAccountController {
                 RoutingController.AdminViewProjectActionPerformed();
             } else if (e.getSource() == view.getButton6()) { // Admin - View Report Pressed
                 view.dispose();
-                RoutingController.AdminViewReport();
+                RoutingController.AdminViewReportPerformed();
             } else if (e.getSource() == view.getButton7()) { // Admin - Logout Pressed
                 view.dispose();
                 RoutingController.LogoutActionPerformed();

@@ -42,19 +42,19 @@ public class RoutingController {
     }
     
     //Admin views a project
-    public static void AdminViewProject(String projectId, String projectName, String lecturerId, String specialization, String details){
-        AdminProjectDetailsView new_view = new AdminProjectDetailsView(projectId, projectName, lecturerId, specialization, details);
-        AdminProjectDetailsController controller = new AdminProjectDetailsController(new_view);
+    public static void AdminViewProjectPerformed(String projectId, String projectName, String lecturerId, String specialization, String details){
+        var new_view = AdminProjectDetailsView.getInstance(projectId, projectName, lecturerId, specialization, details);
+        var controller = AdminProjectDetailsController.getInstance(new_view);
         new_view.setVisible(true);
     }
 
     //Admin
-    public static void AdminViewReport(){
+    public static void AdminViewReportPerformed(){
         var adminView = AdminReportView.getInstance();
         var controller = AdminReportController.getInstance(adminView);
+        controller.ProjectTableLoader();
         adminView.setVisible(true);
     }
-
 
     //Lectured Dashboard
     public static void LecturerDashboardActionPerformed() {
@@ -134,8 +134,5 @@ public class RoutingController {
         var studentApplyProjectsController = StudentApplyProjectController.getInstance(studentApplyProjectsView);
         studentApplyProjectsView.setVisible(true);
     }
-
-
-
 
 }
