@@ -1,6 +1,6 @@
 package controller;
 
-import view.ApplyingStudentView;
+import view.LecturerApplicationView;
 
 import javax.swing.table.DefaultTableModel;
 import java.awt.event.ActionEvent;
@@ -10,17 +10,17 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.Objects;
 
-public class ApplicationController {
-    private static ApplicationController singletonInstance;
-    private static ApplyingStudentView view;
+public class LecturerApplicationController {
+    private static LecturerApplicationController singletonInstance;
+    private static LecturerApplicationView view;
     private static String projectId;
 
-    public ApplicationController(ApplyingStudentView view, String projectId) {
-        ApplicationController.view = view;
-        ApplicationController.projectId = projectId;
+    public LecturerApplicationController(LecturerApplicationView view, String projectId) {
+        LecturerApplicationController.view = view;
+        LecturerApplicationController.projectId = projectId;
 
-        view.getBackButton().addActionListener(new ApplicationController.NavigatorsListener());
-        view.getAssignButton().addActionListener(new ApplicationController.NavigatorsListener());
+        view.getBackButton().addActionListener(new LecturerApplicationController.NavigatorsListener());
+        view.getAssignButton().addActionListener(new LecturerApplicationController.NavigatorsListener());
 
 
         String basePath = System.getProperty("user.dir");
@@ -47,9 +47,9 @@ public class ApplicationController {
         }
     }
 
-    public static ApplicationController getInstance(ApplyingStudentView view, String projectId) {
+    public static LecturerApplicationController getInstance(LecturerApplicationView view, String projectId) {
         if (singletonInstance == null) {
-            singletonInstance = new ApplicationController(view, projectId);
+            singletonInstance = new LecturerApplicationController(view, projectId);
         }
         return singletonInstance;
     }

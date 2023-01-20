@@ -1,6 +1,6 @@
 package controller;
 
-import view.ApplyingStudentView;
+import view.LecturerApplicationView;
 import view.LecturerProjectDetailsView;
 
 import java.awt.event.ActionEvent;

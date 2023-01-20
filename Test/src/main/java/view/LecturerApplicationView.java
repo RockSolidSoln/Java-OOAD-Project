@@ -8,7 +8,7 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author salah
  */
-public class ApplyingStudentView extends JFrame {
+public class LecturerApplicationView extends JFrame {
 
     /**
      * Creates new form ApplyingStudentView
@@ -17,14 +17,14 @@ public class ApplyingStudentView extends JFrame {
     private JButton assignButton;
     private JButton backButton;
     private JTable jTable1;
-    public ApplyingStudentView() {
+    public LecturerApplicationView() {
         initComponents();
     }
-    public static ApplyingStudentView singletonInstance;
+    public static LecturerApplicationView singletonInstance;
 
-    public static ApplyingStudentView getInstance() {
+    public static LecturerApplicationView getInstance() {
         if (singletonInstance == null) {
-            singletonInstance = new ApplyingStudentView();
+            singletonInstance = new LecturerApplicationView();
         }
         return singletonInstance;
     }
