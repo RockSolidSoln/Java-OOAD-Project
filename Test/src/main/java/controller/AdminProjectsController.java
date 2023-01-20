@@ -1,6 +1,7 @@
 package controller;
 
 
+import model.AdminRemarkModel;
 import model.Project;
 import view.*;
 
@@ -62,7 +63,8 @@ public class AdminProjectsController {
                 String projectName = (String) view.getTable().getValueAt(selectedRow, 1);
                 view.dispose();
                 AdminRemarkView remarkSection = new AdminRemarkView(projectID, projectName);
-                AdminRemarkController controllerRemark = new AdminRemarkController(remarkSection);
+                AdminRemarkModel model = new AdminRemarkModel();
+                AdminRemarkController controllerRemark = new AdminRemarkController(remarkSection, model);
                 remarkSection.setVisible(true);
             } else {
                 JOptionPane.showMessageDialog(null, "Please select a row from the table.");

@@ -1,29 +1,37 @@
 package model;
 
 import java.io.*;
+import java.util.ArrayList;
 
 public class AdminRemarkModel {
     private static AdminRemarkModel singletonInstance;
-    private static String adminId, adminRemark;
+    private static ArrayList<String> adminIds;
+    private static ArrayList<String> adminRemarks;
 
-    AdminRemarkModel(String adminId, String adminRemark) {
-        AdminRemarkModel.adminId = adminId;
-        AdminRemarkModel.adminRemark = adminRemark;
+    public AdminRemarkModel() {
+        adminIds = new ArrayList<String>();
+        adminRemarks = new ArrayList<String>();
     }
 
     public static AdminRemarkModel getInstance() {
         if (singletonInstance == null) {
-            singletonInstance = new AdminRemarkModel(adminId, adminRemark);
-        } else {
-            storeRemarks(adminId, adminRemark);
+            singletonInstance = new AdminRemarkModel();
         }
         return singletonInstance;
     }
+    public static ArrayList<String> getAdminIds(){
+        return adminIds;
+    }
+
+    public static ArrayList<String> getAdminRemarks(){
+        return adminRemarks;
+    }
 
     public static void storeRemarks(String adminId, String adminRemark) {
-        AdminRemarkModel.adminRemark = adminRemark;
-        AdminRemarkModel.adminId = adminId;
+        adminIds.add(adminId);
+        adminRemarks.add(adminRemark);
     }
+
 
     public static void readRemark(String projectId){
         String basePath = System.getProperty("user.dir");
@@ -38,7 +46,6 @@ public class AdminRemarkModel {
                 if(row[0].equals(projectId)) {
                     String item2 = row[1];
                     String item3 = row[2];
-
                     storeRemarks(item2, item3);
 
                 }
@@ -63,7 +70,7 @@ public class AdminRemarkModel {
         FileWriter fw = null;
         try {
             fw = new FileWriter(csvFile, true);
-            fw.append(projectId + "," +LoginModel.getUserId()+ ","+text+"\n");
+            fw.append(projectId).append(",").append(LoginModel.getUserId()).append(",").append(text).append("\n");
             fw.append(System.lineSeparator());
             fw.flush();
         } catch (IOException ex) {
@@ -94,7 +101,7 @@ public class AdminRemarkModel {
                 if (row[0].equals(projectId)) {
                     String item2 = row[1];
                     String item3 = row[2];
-                    sb.append(item2 + " " + item3 + "\n");
+                    sb.append(item2).append(" ").append(item3).append("\n");
                 }
             }
             return (sb.toString());
@@ -112,9 +119,4 @@ public class AdminRemarkModel {
         return null;
     }
 
-//    public static AdminRemarkModel getInstance(){
-//
-//
-//        return instance;
-//    }
 }
