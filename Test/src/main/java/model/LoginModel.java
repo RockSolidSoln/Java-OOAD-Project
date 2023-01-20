@@ -52,6 +52,7 @@ public class LoginModel {
                 dbUserId = fields[0];
                 dbPassWord = fields[1];
                 
+
                 if (dbUserId.equals(this.userId) && dbPassWord.equals(this.password)) {         /*  If Authentication is successful */
                     return true;
                 }

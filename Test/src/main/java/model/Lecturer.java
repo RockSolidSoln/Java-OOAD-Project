@@ -24,11 +24,11 @@ public class Lecturer extends User{
     /* Storing data for Lecturer in lecturer.csv */
     @Override
     public void StoreDetails(){
-        String line = super.getUsername() +"," + super.getName() + "," + super.getEmail() + "," + super.getPhone() + "\n";
+        String line = super.getUsername() +"," + super.getName() + "," + super.getEmail() + "," + super.getPhone();
         ArrayList <String> lines = new ArrayList<String>();
         lines.add(line);
         String filename= ("\\Test\\src\\assets\\lecturer.csv");
-
+        System.out.println("DEBUG: FROM Lecturer MOdel: " + line);
         Database.FilewriteBack(filename, lines, true); 
     }
     public static Lecturer getDetailsInstance(String id){

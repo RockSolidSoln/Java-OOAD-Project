@@ -24,7 +24,7 @@ public class Admin extends User{
 
     @Override
     public void StoreDetails(){
-        String line = super.getUsername() +"," + super.getName() + "," + super.getEmail() + "," + super.getPhone() + "\n";
+        String line = super.getUsername() +"," + super.getName() + "," + super.getEmail() + "," + super.getPhone();
         ArrayList <String> lines = new ArrayList<String>();
         lines.add(line);
         String fileName= ("\\Test\\src\\assets\\admin.csv");

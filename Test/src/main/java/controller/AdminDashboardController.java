@@ -20,6 +20,11 @@ public class AdminDashboardController {
         view.getButton3().addActionListener(new NavigatorsListener());
         view.getButton4().addActionListener(new NavigatorsListener());
 
+        DashBoardLoader();
+        
+    }
+
+    public void DashBoardLoader(){
         Admin admin = Admin.getDetailsInstance(LoginModel.getUserId());
       //  System.out.println("DEBUGG: FRom AdminDashBoardController -- " + admin.getUsername());
         view.getNameField().setText(admin.getName()); // Displaying the Name on Dashboard
@@ -29,7 +34,7 @@ public class AdminDashboardController {
         view.getNavNameField().setText(admin.getUsername());
 
     }
-
+    
     public static AdminDashboardController getInstance(AdminDashboardView view) {
         if (singletonInstance == null) {
             singletonInstance = new AdminDashboardController(view);

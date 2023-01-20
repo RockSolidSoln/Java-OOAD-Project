@@ -1,6 +1,5 @@
 package controller;
 
-
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
@@ -14,11 +13,11 @@ public class LoginController {
     private final LoginModel model;
     private static LoginController singletonInstance;
 
-    public static LoginController getInstance(LoginView view, LoginModel model){
-        if(singletonInstance == null){
+    public static LoginController getInstance(LoginView view, LoginModel model) {
+        if (singletonInstance == null) {
             singletonInstance = new LoginController(view, model);
         }
-        
+
         return singletonInstance;
     }
 
@@ -30,26 +29,29 @@ public class LoginController {
         this.view.getExitButton().addActionListener(new ExitListener());
         this.view.getUserIdField().addKeyListener(new EnterListener());
         this.view.getPasswordField().addKeyListener(new EnterListener());
-        }
-        //Getting the needed data to 
-    public void submitButton(){
+    }
+
+    // Getting the needed data to
+    public void submitButton() {
         String userId = view.getUserId();
         String password = new String(view.getPassword());
         model.setUserId(userId);
         model.setPassword(password);
 
+      
         Boolean loginSuccess;
         loginSuccess = model.loginAuthenticate();
 
-        // Redirecting Users after successful login based on account type to thier respective dashboard
+        // Redirecting Users after successful login based on account type to thier
+        // respective dashboard
         if (loginSuccess) {
-            if(userId.charAt(0) == 'A'){
+            if (userId.charAt(0) == 'A') {
                 view.dispose();
                 RoutingController.AdminDashboardActionPerformed();
-            } else if(userId.charAt(0) == 'L'){
+            } else if (userId.charAt(0) == 'L') {
                 view.dispose();
                 RoutingController.LecturerDashboardActionPerformed();
-            } else{
+            } else {
                 view.dispose();
                 RoutingController.StudentDashboardView();
             }
@@ -58,13 +60,12 @@ public class LoginController {
         }
     }
 
-
-    class EnterListener implements KeyListener{
+    class EnterListener implements KeyListener {
         @Override
         public void keyPressed(KeyEvent e) {
-            if (e.getKeyCode() == KeyEvent.VK_ENTER){
+            if (e.getKeyCode() == KeyEvent.VK_ENTER) {
                 System.out.println("enter pressed");
-                if(view.getUserId() != null && view.getPassword()!= null){
+                if (view.getUserId() != null && view.getPassword() != null) {
                     submitButton();
                 }
             }

@@ -34,6 +34,7 @@ public class RoutingController {
     public static void AdminDashboardActionPerformed() {
         var adminDashboardview = AdminDashboardView.getInstance();
         var adminDashboardcontroller = AdminDashboardController.getInstance(adminDashboardview);
+        adminDashboardcontroller.DashBoardLoader(); // To Load the Data.
         adminDashboardview.setVisible(true);
     }
     
@@ -56,6 +57,7 @@ public class RoutingController {
     public static void LecturerDashboardActionPerformed() {
         var lecturerDashboardView = LecturerDashboardView.getInstance();
         var lecturerDashboardController = LecturerDashboardController.getInstance(lecturerDashboardView);
+        lecturerDashboardController.DashboardLoader(); // To Load the Data.
         lecturerDashboardView.setVisible(true);
     }
 
@@ -104,6 +106,7 @@ public class RoutingController {
     public static void StudentDashboardView(){
         var studentDashboardView = StudentDashboardView.getInstance();
         var studentDashboardController = StudentDashboardController.getInstance(studentDashboardView);
+        studentDashboardController.DashboardLoader(); // To load the data
         studentDashboardView.setVisible(true);
     }
 
