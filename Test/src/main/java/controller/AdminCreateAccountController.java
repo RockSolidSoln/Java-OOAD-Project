@@ -6,6 +6,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Objects;
 
+import javax.swing.JOptionPane;
+
 import model.Admin;
 import model.Lecturer;
 import model.Student;
@@ -72,15 +74,19 @@ public class AdminCreateAccountController {
                 // Storing Credentials for the user (admin/lecturer/ student).
                 User user = User.getInstance(userId, password, name, email, phone);
                 user.StoreCredentials();
+                JOptionPane.showMessageDialog(null, "Account created successfully");
 
                 //Storing details for the user.
                 if(userType.equals("ADMIN")){
                     Admin admin = Admin.getInstance(userId, password, name, email, phone);
                     admin.StoreDetails(); // storing admin details in the DB
+                    JOptionPane.showMessageDialog(null, "Account created successfully");
 
                 } else if(userType.equals("LECTURER")){
                     Lecturer lecturer = Lecturer.getInstance(userId, password, name, email, phone);
                     lecturer.StoreDetails(); // storing lecturer details in the DB
+                    JOptionPane.showMessageDialog(null, "Account created successfully");
+
                 }
                 else{
                     Student student = Student.getInstance(userId, password, name, email, phone, specialization);
