@@ -95,6 +95,7 @@ public class RoutingController {
     public static void ViewApplyingStudentListPerformed(String projectId){
         LecturerApplicationView new_view = LecturerApplicationView.getInstance();
         LecturerApplicationController controller  = LecturerApplicationController.getInstance(new_view, projectId);
+        controller.ProjectTableLoader();
         new_view.setVisible(true);
     }
 

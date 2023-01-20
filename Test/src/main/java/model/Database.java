@@ -171,4 +171,22 @@ public class Database {
 
         return filteredContents;
     }
+
+    public static void deleteContent(String path, String match, int col){
+        ArrayList<ArrayList<String>> allContents = getAllContents(path);
+
+        for(int i = 0; i < allContents.size(); i++){
+            ArrayList<String> row = allContents.get(i);
+            ArrayList<String> temp = new ArrayList<>();
+            if(row.get(col).equals(match) == false){
+                for(int j = 0; j < row.size(); j++){
+                    filteredRow.add(allContents.get(i).get(j)); 
+                }
+                filteredContents.add(filteredRow);
+            }
+        }
+        
+
+    }
+
 }

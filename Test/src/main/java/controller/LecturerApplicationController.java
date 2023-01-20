@@ -3,11 +3,15 @@ package controller;
 import view.LecturerApplicationView;
 
 import javax.swing.table.DefaultTableModel;
+
+import model.ApplicationModel;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Objects;
 /**
  *
@@ -25,28 +29,26 @@ public class LecturerApplicationController {
         view.getBackButton().addActionListener(new LecturerApplicationController.NavigatorsListener()); /*Go back  */
         view.getAssignButton().addActionListener(new LecturerApplicationController.NavigatorsListener());/*Assign button for lecturer to assign and un-assign students for a specific project */
 
-        String basePath = System.getProperty("user.dir");
-        try(BufferedReader br2 = new BufferedReader(new FileReader(basePath + "\\Test\\src\\assets\\application.csv"))){
-            String line;
-            ((DefaultTableModel) view.getTable().getModel()).setRowCount(0);
-            while ((line = br2.readLine()) != null) {
-                String[] values = line.split(",");
-                if(Objects.equals(values[0], projectId)){
-                    int excludedColumnIndex = 0;
-                    Object[] rowData = new Object[values.length-1];
-                    int j=0;
-                    for (int i = 0; i < values.length; i++) {
-                        if (i != excludedColumnIndex) {
-                            rowData[j]=values[i];
-                            j++;
-                        }
-                    }
-                    ((DefaultTableModel) view.getTable().getModel()).insertRow(0, rowData);
-                }
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
+        ProjectTableLoader();
+        
+    }
+
+    public void ProjectTableLoader(){
+        ApplicationModel applicationModel = ApplicationModel.getInstance(projectId, null, null);
+        ArrayList<ArrayList<String>> filteredContents = applicationModel.filterByProjectId(projectId);
+        ((DefaultTableModel) view.getTable().getModel()).setRowCount(0);
+
+        for (ArrayList<String> allProject : filteredContents) {
+
+            String[] values = new String[2];
+            values[0] = allProject.get(1);
+            values[1] = allProject.get(2);
+           // values[2] = allProject.get(2);
+            // System.out.println("Debugg:   " + values[1]);
+            ((DefaultTableModel) view.getTable().getModel()).insertRow(0, values);
         }
+
+
     }
 
     public static LecturerApplicationController getInstance(LecturerApplicationView view, String projectId) {
@@ -71,7 +73,7 @@ public class LecturerApplicationController {
 
                     String studentId = (String) view.getTable().getValueAt(selectedRow, 0);
                     String studentName = (String) view.getTable().getValueAt(selectedRow, 1);
-
+                    ApplicationModel.AssignStudent(String projectId, String studentId);
                     view.dispose();
                 }
             }

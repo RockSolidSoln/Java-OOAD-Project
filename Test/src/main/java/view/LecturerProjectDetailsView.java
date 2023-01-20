@@ -62,6 +62,7 @@ public class LecturerProjectDetailsView extends JFrame {
         projectIdLabel2.setText(projectID);
         statusLabel.setText(status);
         detailsTextField.setText(details);
+        //initComponents();
     }
 
 

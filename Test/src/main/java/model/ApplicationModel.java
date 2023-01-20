@@ -41,7 +41,22 @@ public class ApplicationModel {
 
         Database.FilewriteBack(filename, lines, true); 
     }
+    public void AssignStudent(String projectId, String studentId){
+        Boolean availability = Project.isStudentAvailable(studentId);
+        if(availability){
+            //Application.deleteContent(studentId);
+        }
+    }   
 
+    /*For filtering the data from Active student list according Project. */ 
+    public ArrayList<ArrayList<String>> filterByProjectId(String projectId) {
+        String path = "\\Test\\src\\assets\\application.csv";
+
+        /* Calling the dataFiltration method to filter the Applications according to the 
+         projectId (saved in 1st column in the DB).*/ 
+        ArrayList<ArrayList<String>> filteredProjectsByProjectId = Database.dataFiltration(path, projectId, 1);
+        return filteredProjectsByProjectId;
+    }
 
 
 
