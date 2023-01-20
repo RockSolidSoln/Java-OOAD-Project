@@ -31,7 +31,7 @@ public class Student extends User{
 
     @Override
     public void StoreDetails(){
-        String line = super.getUsername() +"," + super.getName() + "," + super.getEmail() + "," + super.getPhone() + "," + specialization + "\n";
+        String line = super.getUsername() +"," + super.getName() + "," + super.getEmail() + "," + super.getPhone() + "," + specialization;
         ArrayList <String> lines = new ArrayList<String>();
         lines.add(line);
         String filename= ("\\Test\\src\\assets\\student.csv");

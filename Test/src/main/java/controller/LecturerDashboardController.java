@@ -23,14 +23,16 @@ public class LecturerDashboardController {
         view.getButton2().addActionListener(new NavigatorsListener());// view projects
         view.getButton3().addActionListener(new NavigatorsListener());// Logout
         view.getButton4().addActionListener(new NavigatorsListener());// Skipped : Lecturer dashboard (current view)
-
+        
+        DashboardLoader();
+    }
+    public void DashboardLoader(){
         Lecturer lecturer = Lecturer.getDetailsInstance(LoginModel.getUserId());
         view.getNameField().setText(lecturer.getName());
         view.getEmailField().setText(lecturer.getEmail());
         view.getPhoneField().setText(lecturer.getPhone());
         view.getIDField().setText(lecturer.getUsername());
         view.getNavNameField().setText(lecturer.getUsername());
-        
     }
 
     public static LecturerDashboardController getInstance(LecturerDashboardView view) {

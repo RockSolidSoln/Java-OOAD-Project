@@ -39,7 +39,7 @@ public class AdminProjectsController {
             values[3] = allProjects.get(i).get(3); 
             values[4] = allProjects.get(i).get(4); 
             values[5] = allProjects.get(i).get(5); 
-
+            
             ((DefaultTableModel)view.getTable().getModel()).insertRow(0, values);
         }
         

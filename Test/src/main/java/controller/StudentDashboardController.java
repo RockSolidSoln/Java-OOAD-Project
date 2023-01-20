@@ -30,13 +30,14 @@ public class StudentDashboardController {
         view.getButton3().addActionListener(new NavigatorsListener());// view active and sp projects
         view.getButton4().addActionListener(new NavigatorsListener());// dashboard, active
 
+    }
+    public void DashboardLoader(){
         Student student = Student.getDetailsInstance(LoginModel.getUserId());
         view.getNameField().setText(student.getName());
         view.getEmailField().setText(student.getEmail());
         view.getSpecializationField().setText(student.getSpecialization());
         view.getIDField().setText(student.getUsername());
         view.getNavNameField().setText(student.getUsername());
-
     }
 
     static class NavigatorsListener implements ActionListener {
