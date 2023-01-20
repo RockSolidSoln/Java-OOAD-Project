@@ -31,16 +31,16 @@ public class AdminProjectsController {
         
         ((DefaultTableModel) view.getTable().getModel()).setRowCount(0);
 
-        for(int i = 0; i < allProjects.size(); i++){
+        for (ArrayList<String> allProject : allProjects) {
             String[] values = new String[6];
-            values[0] = allProjects.get(i).get(0); 
-            values[1] = allProjects.get(i).get(1); 
-            values[2] = allProjects.get(i).get(2); 
-            values[3] = allProjects.get(i).get(3); 
-            values[4] = allProjects.get(i).get(4); 
-            values[5] = allProjects.get(i).get(5); 
-            
-            ((DefaultTableModel)view.getTable().getModel()).insertRow(0, values);
+            values[0] = allProject.get(0);
+            values[1] = allProject.get(1);
+            values[2] = allProject.get(2);
+            values[3] = allProject.get(3);
+            values[4] = allProject.get(4);
+            values[5] = allProject.get(5);
+
+            ((DefaultTableModel) view.getTable().getModel()).insertRow(0, values);
         }
         
         
@@ -73,9 +73,9 @@ public class AdminProjectsController {
 
         private void addProject(ActionEvent e) {
             //Adding project in the database
-            CreateProjectView new_view = new CreateProjectView();
+            AdminAndLecturerCreateProjectView new_view = new AdminAndLecturerCreateProjectView();
             Project model = Project.getInstance(null, null, null, null, null, null);
-            CreateProjectController controller = new CreateProjectController(new_view, model);
+            AdminAndLecturerCreateProjectController controller = new AdminAndLecturerCreateProjectController(new_view, model);
             new_view.setVisible(true);
         }
 
@@ -109,7 +109,7 @@ public class AdminProjectsController {
                 RoutingController.AdminCreateAccountActionPerformed();
             } else if (e.getSource() == view.getButton4()) { // Admin - View Reports Pressed
                 view.dispose();
-                RoutingController.AdminViewReportActionPerformed();
+                RoutingController.AdminViewReport();
             } else if (e.getSource() == view.getButton5()) { // Admin - logout Pressed
                 view.dispose();
                 RoutingController.LogoutActionPerformed();

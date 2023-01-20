@@ -6,9 +6,9 @@ import javax.swing.*;
 import java.awt.*;
 
 
-public class ModifyProjectView extends JFrame {
+public class LecturerModifyProjectView extends JFrame {
 
-    private static ModifyProjectView singletonInstance;
+    private static LecturerModifyProjectView singletonInstance;
     private JButton jButton1;
     private JButton jButton2;
     private JComboBox<String> jComboBox1, specializationComboBox;
@@ -18,17 +18,17 @@ public class ModifyProjectView extends JFrame {
     private static String projectSpecialization;
     private static String projectDetails;
 
-    public ModifyProjectView(String projectId,String projectName, String projectDetails, String projectSpecialization) {
-        ModifyProjectView.projectId = projectId;
-        ModifyProjectView.projectName = projectName;
-        ModifyProjectView.projectSpecialization = projectSpecialization;
-        ModifyProjectView.projectDetails = projectDetails;
+    public LecturerModifyProjectView(String projectId, String projectName, String projectDetails, String projectSpecialization) {
+        LecturerModifyProjectView.projectId = projectId;
+        LecturerModifyProjectView.projectName = projectName;
+        LecturerModifyProjectView.projectSpecialization = projectSpecialization;
+        LecturerModifyProjectView.projectDetails = projectDetails;
         initComponents();
     }
 
-    public static ModifyProjectView getInstance() {
+    public static LecturerModifyProjectView getInstance() {
         if (singletonInstance == null) {
-            singletonInstance = new ModifyProjectView(projectId, projectName, projectDetails, projectSpecialization);
+            singletonInstance = new LecturerModifyProjectView(projectId, projectName, projectDetails, projectSpecialization);
         }
         return singletonInstance;
     }

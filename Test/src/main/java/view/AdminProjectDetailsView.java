@@ -10,6 +10,7 @@ import java.awt.*;
  * @author salah
  */
 public class AdminProjectDetailsView extends JFrame {
+
     private static String projectId;
     private static String projectName;
     private static String lecturerId;    

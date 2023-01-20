@@ -7,17 +7,17 @@ import java.awt.*;
 import java.awt.event.*;
 
 
-public class CreateAccountView extends JFrame {
+public class AdminCreateAccountView extends JFrame {
     
-    private static CreateAccountView singletonInstance;
+    private static AdminCreateAccountView singletonInstance;
 
-    public CreateAccountView() {
+    public AdminCreateAccountView() {
         initComponents();
     }
     
-    public static CreateAccountView getInstance() {
+    public static AdminCreateAccountView getInstance() {
         if (singletonInstance == null) {
-            singletonInstance = new CreateAccountView();
+            singletonInstance = new AdminCreateAccountView();
         }
         return singletonInstance;
     }

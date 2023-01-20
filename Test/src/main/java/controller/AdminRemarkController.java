@@ -28,9 +28,9 @@ public class AdminRemarkController {
         AdminRemarkModel remarkModel = AdminRemarkModel.getInstance();
         AdminRemarkModel.readRemark(projectId);
         ArrayList<String> adminId, adminRemark;
-        adminId = AdminRemarkModel.getInstance().getAdminId();
-        adminRemark =
-        view.getComment().append(adminId + ": " + adminRemark + "\n");
+//        adminId = AdminRemarkModel.getInstance().getAdminId();
+//        adminRemark =
+//        view.getComment().append(adminId + ": " + adminRemark + "\n");
     }
     public static AdminRemarkController getInstance(AdminRemarkView view) {
         if (singletonInstance == null) {

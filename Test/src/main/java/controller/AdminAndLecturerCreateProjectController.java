@@ -1,7 +1,7 @@
 package controller;
 
 import model.Project;
-import view.CreateProjectView;
+import view.AdminAndLecturerCreateProjectView;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -12,17 +12,17 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CreateProjectController {
-    private static CreateProjectController singletonInstance;
-    private static CreateProjectView view;
+public class AdminAndLecturerCreateProjectController {
+    private static AdminAndLecturerCreateProjectController singletonInstance;
+    private static AdminAndLecturerCreateProjectView view;
     private static Project model = Project.getInstance(null, null, null, null, null, null);
 
-    public CreateProjectController(CreateProjectView view, Project model){
-        CreateProjectController.model = model;
-        CreateProjectController.view = view;
+    public AdminAndLecturerCreateProjectController(AdminAndLecturerCreateProjectView view, Project model){
+        AdminAndLecturerCreateProjectController.model = model;
+        AdminAndLecturerCreateProjectController.view = view;
 
-        view.getButton1().addActionListener(new CreateProjectController.NavigatorsListener());
-        view.getButton2().addActionListener(new CreateProjectController.NavigatorsListener()); //go back to view projects but keep in mind admin and lec is using same
+        view.getButton1().addActionListener(new AdminAndLecturerCreateProjectController.NavigatorsListener());
+        view.getButton2().addActionListener(new AdminAndLecturerCreateProjectController.NavigatorsListener()); //go back to view projects but keep in mind admin and lec is using same
 
         List<String> lecturers = Project.getlecturerId();
         for (String lecturer : lecturers) {
@@ -39,9 +39,9 @@ public class CreateProjectController {
         }
     }
 
-    public static CreateProjectController getInstance(CreateProjectView view, Project model) {
+    public static AdminAndLecturerCreateProjectController getInstance(AdminAndLecturerCreateProjectView view, Project model) {
         if (singletonInstance == null) {
-            singletonInstance = new CreateProjectController(view, model);
+            singletonInstance = new AdminAndLecturerCreateProjectController(view, model);
         }
         return singletonInstance;
     }
