@@ -2,12 +2,10 @@ package controller;
 
 import view.*;
 
-import java.awt.event.ActionEvent;
-
 import model.LoginModel;
 import model.Project;
 
-public class NavBarController {
+public class RoutingController {
     // Users Navigation Bar: Logout
     public static void LogoutActionPerformed() {
         LoginModel model = LoginModel.getInstance(null, null);
@@ -75,10 +73,10 @@ public class NavBarController {
 
     //Lecturer: View Specific project
     public static void ViewLecturerProjectDetails(String projectID, String projectName, String specialization, String status){
-        LecturerProjectDetailsView new_view = new LecturerProjectDetailsView(projectID, projectName, specialization, status);
-        LecturerProjectsDetailsController controller = new LecturerProjectsDetailsController(new_view);
+        var lecturerProjectDetailsView= LecturerProjectDetailsView.getInstance(projectID, projectName, specialization, status);
+        var lecturerProjectsDetailsController = LecturerProjectsDetailsController.getInstance(lecturerProjectDetailsView);
 
-        new_view.setVisible(true);
+        lecturerProjectDetailsView.setVisible(true);
     }
 
 
@@ -88,6 +86,15 @@ public class NavBarController {
         ApplicationController controller  = ApplicationController.getInstance(new_view, projectId);
         new_view.setVisible(true);
     }
+
+    //Lecturer: Modify Project
+    public static void LecturerModifyProject(String projectId, String projectName, String projectDescription, String projectSpecialization){
+        var modifyProjectView = new ModifyProjectView(projectId, projectName, projectDescription, projectSpecialization);
+        var modifyProjectController = new ModifyProjectController(modifyProjectView);
+
+        modifyProjectView.setVisible(true);
+    }
+
 
     //Student: View dashboard
     public static void StudentDashboardView(){

@@ -11,16 +11,17 @@ public class LecturerProjectDetailsView extends JFrame {
     private static String status;
 
     public LecturerProjectDetailsView(String projectID, String projectName, String specialization, String status) {
-        LecturerProjectDetailsView.projectId = projectID;
-        LecturerProjectDetailsView.projectName = projectName;
-        LecturerProjectDetailsView.specialization = specialization;
-        LecturerProjectDetailsView.status = status;
         initComponents();
     }
 
     public static LecturerProjectDetailsView singletonInstance;
 
-    public static LecturerProjectDetailsView getInstance() {
+    public static LecturerProjectDetailsView getInstance(String projectID, String projectName, String specialization, String status) {
+        LecturerProjectDetailsView.projectId = projectID;
+        LecturerProjectDetailsView.projectName = projectName;
+        LecturerProjectDetailsView.specialization = specialization;
+        LecturerProjectDetailsView.status = status;
+
         if (singletonInstance == null) {
             singletonInstance = new LecturerProjectDetailsView(projectId, projectName, specialization, status);
         }
@@ -33,7 +34,9 @@ public class LecturerProjectDetailsView extends JFrame {
     private JButton unassignButton;
     private JButton viewApplyingListButton;
     private JLabel projectIdLabel2;
-
+    private JLabel projectNameLabel2;
+    private JTextField detailsTextField;
+    private JLabel specializationLabel2;
     // End of variables declaration
     private void initComponents() {
 
@@ -41,9 +44,9 @@ public class LecturerProjectDetailsView extends JFrame {
         JLabel projectNameLabel = new JLabel();
         JLabel specializationLabel = new JLabel();
         JLabel studentNameLabel = new JLabel();
-        JLabel projectNameLabel2 = new JLabel();
-        JLabel specializationLabel2 = new JLabel();
-        JTextField detailsTextField = new JTextField();
+        projectNameLabel2 = new JLabel();
+        specializationLabel2 = new JLabel();
+        detailsTextField = new JTextField();
         backButton = new JButton();
         JLabel detailsLabel1 = new JLabel();
         unassignButton = new JButton();
@@ -285,6 +288,16 @@ public class LecturerProjectDetailsView extends JFrame {
     public String getProjectId(){
         return projectIdLabel2.getText();
     }
+    public String getProjectName(){
+        return projectNameLabel2.getText();
+    }
+    public String getProjectDetails(){
+        return (String) detailsTextField.getText();
+    }
+    public String getProjectSpecialization(){
+        return specializationLabel2.getText();
+    }
+
     public void displaySuccessMessage(String newStatus) {
         JOptionPane.showMessageDialog(null, "Success! The Project Status Changed to " + newStatus.toUpperCase(), "Success", JOptionPane.INFORMATION_MESSAGE);
     }

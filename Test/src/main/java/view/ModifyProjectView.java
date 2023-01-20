@@ -13,13 +13,21 @@ public class ModifyProjectView extends JFrame {
     private JButton jButton2;
     private JComboBox<String> jComboBox1, specializationComboBox;
     JTextField jTextField1, jTextField2;
-    public ModifyProjectView() {
+    private static String projectId;
+    private static String projectName;
+    private static String projectSpecialization;
+    private static String projectDetails;
+
+    public ModifyProjectView(String projectId,String projectName, String projectSpecialization, String projectDetails) {
+        ModifyProjectView.projectName = projectName;
+        ModifyProjectView.projectSpecialization = projectSpecialization;
+        ModifyProjectView.projectDetails = projectDetails;
         initComponents();
     }
 
     public static ModifyProjectView getInstance() {
         if (singletonInstance == null) {
-            singletonInstance = new ModifyProjectView();
+            singletonInstance = new ModifyProjectView(projectId, projectName, projectSpecialization, projectDetails);
         }
         return singletonInstance;
     }
@@ -40,11 +48,11 @@ public class ModifyProjectView extends JFrame {
         jTextField2 = new JTextField();
         JLabel jLabel6 = new JLabel();
         specializationComboBox = new JComboBox<>();
+
         jMenuItem1.setText("jMenuItem1");
 
         setResizable(false);
         setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
-
 
         jPanel1.setBackground(new Color(154, 216, 211));
 
@@ -52,7 +60,7 @@ public class ModifyProjectView extends JFrame {
         jLabel1.setText("Lecturer ID");
 
         jLabel2.setFont(new Font("SansSerif", Font.PLAIN, 36)); // NOI18N
-        jLabel2.setText("Modify Project");
+        jLabel2.setText("Modify Project- "+ projectId);
 
         jLabel3.setFont(new Font("SansSerif", Font.PLAIN, 18)); // NOI18N
         jLabel3.setText("Project Name");
@@ -73,12 +81,14 @@ public class ModifyProjectView extends JFrame {
         jComboBox1.setEditable(false);
         jComboBox1.addItem(LoginModel.getUserId());
 
+        jTextField1.setText(projectName);
+        jTextField2.setText(projectDetails);
+
         GroupLayout jPanel1Layout = new GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
                 jPanel1Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
                         .addGroup(jPanel1Layout.createSequentialGroup()
-//                            .addComponent(jPanel2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
                                 .addGroup(jPanel1Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
                                         .addGroup(GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                                 .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -135,7 +145,6 @@ public class ModifyProjectView extends JFrame {
                                         .addComponent(jButton1, GroupLayout.PREFERRED_SIZE, 36, GroupLayout.PREFERRED_SIZE)
                                         .addComponent(jButton2, GroupLayout.PREFERRED_SIZE, 36, GroupLayout.PREFERRED_SIZE))
                                 .addContainerGap())
-//                    .addComponent(jPanel2, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         GroupLayout layout = new GroupLayout(getContentPane());
@@ -160,16 +169,16 @@ public class ModifyProjectView extends JFrame {
         return jButton2;
     }
 
-    public JComboBox<String> getJComboBox() {
-        return jComboBox1;
-    }
-
     public JComboBox<String> getSpecializationBox(){
         return specializationComboBox;
     }
 
     public String getSpecialization(){
         return (String) specializationComboBox.getSelectedItem();
+    }
+
+    public String getProjectId(){
+        return projectId;
     }
 
     public String getProject(){

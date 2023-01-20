@@ -1,6 +1,5 @@
 package controller;
 
-import view.AdminDashboardView;
 import view.CreateAccountView;
 
 import java.awt.event.ActionEvent;
@@ -41,16 +40,16 @@ public class CreateAccountController {
         public void actionPerformed(ActionEvent e) {
             if (e.getSource() == view.getButton3()) { //Admin - dashboard pressed
                 view.dispose();
-                NavBarController.AdminDashboardActionPerformed();
+                RoutingController.AdminDashboardActionPerformed();
             } else if (e.getSource() == view.getButton4()) { // Admin - View Project pressed
                 view.dispose();
-                NavBarController.AdminViewProjectActionPerformed();
+                RoutingController.AdminViewProjectActionPerformed();
             } else if (e.getSource() == view.getButton6()) { // Admin - View Report Pressed
                 view.dispose();
-                NavBarController.AdminViewReportActionPerformed();
+                RoutingController.AdminViewReportActionPerformed();
             } else if (e.getSource() == view.getButton7()) { // Admin - Logout Pressed
                 view.dispose();
-                NavBarController.LogoutActionPerformed();
+                RoutingController.LogoutActionPerformed();
             }
 
         }

@@ -27,7 +27,7 @@ public class StudentApplyProjectController {
         public void actionPerformed(ActionEvent e) {
             if (e.getSource() == view.getBackButton()) {
                 view.dispose();
-                NavBarController.StudentAvailableProjectsView();
+                RoutingController.StudentAvailableProjectsView();
             } else if(e.getSource() == view.getApplyButton()){
 //           Apply Button
             }

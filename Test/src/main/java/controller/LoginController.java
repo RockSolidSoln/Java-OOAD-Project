@@ -9,8 +9,6 @@ import java.awt.event.KeyListener;
 import model.LoginModel;
 import view.*;
 
-import javax.swing.*;
-
 public class LoginController {
     private final LoginView view;
     private final LoginModel model;
@@ -47,13 +45,13 @@ public class LoginController {
         if (loginSuccess) {
             if(userId.charAt(0) == 'A'){
                 view.dispose();
-                NavBarController.AdminDashboardActionPerformed();
+                RoutingController.AdminDashboardActionPerformed();
             } else if(userId.charAt(0) == 'L'){
                 view.dispose();
-                NavBarController.LecturerDashboardActionPerformed();
+                RoutingController.LecturerDashboardActionPerformed();
             } else{
                 view.dispose();
-                NavBarController.StudentDashboardView();
+                RoutingController.StudentDashboardView();
             }
         } else {
             view.displayLoginFailureMessage();

@@ -1,6 +1,5 @@
 package controller;
 
-import view.ApplyingStudentView;
 import view.LecturerProjectDetailsView;
 
 import java.awt.event.ActionEvent;
@@ -38,18 +37,22 @@ public class LecturerProjectsDetailsController {
                 String ChangedStatus = projectModel.ChangeActiveStatus(view.getProjectId());
                 view.displaySuccessMessage(ChangedStatus);
                 view.dispose();
-                NavBarController.LecturerProjectsViewActionPerformed();
+                RoutingController.LecturerProjectsViewActionPerformed();
             } else if (e.getSource() == view.getBackButton()) {
                 view.dispose();
-                NavBarController.LecturerProjectsViewActionPerformed();
+                RoutingController.LecturerProjectsViewActionPerformed();
             } else if (e.getSource() == view.getUnassignButton()) {
                 view.dispose();
             } else if (e.getSource() == view.getModifyButton()) {
-                
                 view.dispose();
-//
+                String projectId = view.getProjectId();
+                String projectName = view.getProjectName();
+                String projectDetails = view.getProjectDetails();
+                String projectSpecialization = view.getProjectSpecialization();
+
+                RoutingController.LecturerModifyProject(projectId, projectName, projectDetails, projectSpecialization);
             } else if (e.getSource() == view.getApplyingListButton()) {
-                NavBarController.ViewApplyingStudentListPerformed(view.getProjectId());
+                RoutingController.ViewApplyingStudentListPerformed(view.getProjectId());
                 view.dispose();
             }
 
