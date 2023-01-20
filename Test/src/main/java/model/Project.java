@@ -155,9 +155,21 @@ public class Project {
         return changedStatus;
     }
 
-    public static void modifyProject(){
+    public static void modifyProject(String projectId, String projectName, String specialization, String description){
         String path = "\\Test\\src\\assets\\projects.csv";
         String[] operationItems = Database.FindDataFromDB(path, projectId);
+        String changedVal;
+        // projectName = 2
+        // specialization = 4
+        // description = 5
+        changedVal = projectName; 
+        Database.ChangeContent(path, projectId, operationItems, 2, changedVal);
+
+        changedVal = specialization;
+        Database.ChangeContent(path, projectId, operationItems, 4, changedVal);
+
+        changedVal = description;
+        Database.ChangeContent(path, projectId, operationItems, 5, changedVal);
 
     }
 
