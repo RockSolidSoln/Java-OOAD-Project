@@ -14,8 +14,8 @@ public class Database {
         String basePath = System.getProperty("user.dir");
 
         try {
-            String filename = (basePath + path); // stores the path of the file
-            FileWriter fw = new FileWriter(filename, appendFlag); // the true will append the new data
+            String filename = (basePath + path); /* stores the path of the file*/ 
+            FileWriter fw = new FileWriter(filename, appendFlag); /* the true will append the new data */
             for (int i = 0; i < lines.size(); i++) {
                 fw.write(lines.get(i));
                 fw.write('\n');
@@ -40,7 +40,7 @@ public class Database {
         List<String> lines = null; /* to read already stored credentials data */
         try {
             String basePath = System.getProperty("user.dir");
-            lines = Files.readAllLines(Paths.get(basePath + path)); // read from credentials file
+            lines = Files.readAllLines(Paths.get(basePath + path)); /* read from credentials file */
 
             // for (String line : lines) {
             // String[] items = line.split(","); //split the comma, store every word in an
@@ -58,8 +58,8 @@ public class Database {
         return lines;
     }
 
-    // To find details of an Object from the DB, using its Id and returning them in
-    // Array of Strings.
+    /* To find details of an Object from the DB, using its Id and returning them in
+     Array of Strings.*/
     public static String[] FindDataFromDB(String path, String matchId) {
         String temp = "";
         String[] items = temp.split(",");
@@ -82,17 +82,17 @@ public class Database {
         return items;
     }
 
-    // To change/ modify a specific content in database. 
+    /* To change/ modify a specific content in database. */ 
     public static void ChangeContent(String path, String id, String[] operationItems, int col, String changedVal){
         
-        //Storing all the lines of the File. 
+        /* Storing all the lines of the File. */
         List <String> allLines = readFile(path);
 
-        // Storing lines to print it back - the updated version.
+        /* Storing lines to print it back - the updated version.*/ 
         ArrayList <String> fileWritebackList = new ArrayList<String>(); 
         String writeLine = "";
         col--;
-        boolean flag = false; // to make sure it's just changed once.
+        boolean flag = false; /* to make sure it's just changed once.*/ 
         for(String line: allLines){
             writeLine = "";
             String[] items = line.split(",");
@@ -121,7 +121,7 @@ public class Database {
 
     }
     
-    // To get the List of the Projects from the Database.
+    /*To get the List of the Projects from the Database. */ 
     public static ArrayList<ArrayList<String>> getAllContents(String path) {
         ArrayList <ArrayList<String>> allContents = new ArrayList< ArrayList<String>>();
         ArrayList <String> row;
@@ -149,7 +149,7 @@ public class Database {
         return allContents;
     }
 
-    //To filter the data according to the matchId from the CSV files.
+    /*To filter the data according to the matchId from the CSV files. */
     public static ArrayList<ArrayList<String>> dataFiltration(String path, String match, int col){
         ArrayList<ArrayList<String>> allContents = getAllContents(path);
         ArrayList<ArrayList<String>> filteredContents = new ArrayList< ArrayList<String>>();
