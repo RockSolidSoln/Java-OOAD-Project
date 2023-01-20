@@ -1,7 +1,7 @@
-PR1,Image Recongition Algorithm,L001,Data Scientist,A Final year project for data science,active
-PR2,FIFO simulation,L001,Software Engineering,A interactive simulation,active
-PR5,Cpu Scheduling Algorithm,L001,Software Engineering,A GUI based scheduler,active
-PR6,Snake Xensia,L001,Game Development,2d Snake Game,active
-PR7,Traffic Light Recognition Assistance,L001,Software,A react natvie application to show traffic light signals when camera is openend,active
-PR8,E-commerce website,L001,Software Engineering,AN E-commerce website clone of Shopee,active
-PR7,2D Tic Tac Toe game,L001,Game Development,Using Pygames build a 2-d tic tac toe game ,active
+PR1,Image Recongition Algorithm,L001,Data Science,A Final year project for data science,inactive,
+PR2,FIFO simulation,L001,Software Engineering,A interactive simulation,active,
+PR3,Cpu Scheduling Algorithm,L001,Software Engineering,A GUI based scheduler,active,
+PR4,Snake Xensia,L001,Game Development,2d Snake Game,active,
+PR5,Traffic Light Recognition Assistance,L002,Software Engineering,A react natvie application to show traffic light signals when camera is openend,active,
+PR6,E-commerce website,L001,Software Engineering,AN E-commerce website clone of Shopee,active,
+PR7,2D Tic Tac Toe game,L001,Game Development,Using Pygames build a 2-d tic tac toe game,active,

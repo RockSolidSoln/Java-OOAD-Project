@@ -11,14 +11,16 @@ import javax.swing.*;
  */
 public class AdminRemarkView extends JFrame {
     private static String projectID;
+    private static String projectName;
     public static AdminRemarkView singletonInstance;
-    public AdminRemarkView(String projectID) {
+    public AdminRemarkView(String projectID, String projectName) {
         AdminRemarkView.projectID = projectID;
+        AdminRemarkView.projectName = projectName;
         initComponents();
     }
     public static AdminRemarkView getInstance() {
         if (singletonInstance == null) {
-            singletonInstance = new AdminRemarkView(projectID);
+            singletonInstance = new AdminRemarkView(projectID, projectName);
         }
         return singletonInstance;
     }
@@ -113,7 +115,7 @@ public class AdminRemarkView extends JFrame {
         projectIdLabel.setText(projectID);
 
         projectNameLabel.setFont(new Font("SansSerif", Font.PLAIN, 36)); // NOI18N
-        projectNameLabel.setText("Project Name");
+        projectNameLabel.setText(projectName);
 
         commentTextArea.setBackground(new Color(230, 230, 230));
         commentTextArea.setColumns(20);

@@ -6,13 +6,16 @@ import view.CreateProjectView;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 public class CreateProjectController {
     private static CreateProjectController singletonInstance;
     private static CreateProjectView view;
-    private static Project model;
+    private static Project model = Project.getInstance(null, null, null, null, null, null);
 
     public CreateProjectController(CreateProjectView view, Project model){
         CreateProjectController.model = model;
@@ -47,18 +50,30 @@ public class CreateProjectController {
         private void AddProjectActionPerformed(ActionEvent e) {
             // After clicking the save button
             String lecturer = view.getLecturerId();
-            String project = view.getProject();
+            String projectName = view.getProject();
             String specialization = view.getSpecialization();
-            String setDescription = view.getDescription();
-            if(lecturer.isEmpty() || project.isEmpty() || specialization.isEmpty() || setDescription.isEmpty()) {
+            String description = view.getDescription();
+            if(lecturer.isEmpty() || projectName.isEmpty() || specialization.isEmpty() || description.isEmpty()) {
                 // Display an error message
                 JOptionPane.showMessageDialog(null, "Please fill out all fields.", "Error", JOptionPane.ERROR_MESSAGE);
             }
             else{
-                model.setLecturer(lecturer);
-                model.setProjectName(project);
-                model.setSpecialization(specialization);
-                model.setDescription(setDescription);
+                // create a model instance
+                // -- TEMPORARY : ID Incrementer
+
+                String basePath = System.getProperty("user.dir");
+                int counter = 0;
+                try (BufferedReader br = new BufferedReader(new FileReader(basePath + "\\Test\\src\\assets\\projects.csv"))) {
+                    String line;
+                    while ((line = br.readLine()) != null) {
+                        counter++;
+                    }
+                }catch (IOException ioe) {
+                        ioe.printStackTrace();
+                }
+                counter++;
+                String projectId = "PR" + String.valueOf(counter);
+                Project.getInstance(projectId, projectName, specialization, description, lecturer, "active");
 
                 model.saveProject();
                 JOptionPane.showMessageDialog(null, "The Project was successfully saved.", "Success", JOptionPane.INFORMATION_MESSAGE);

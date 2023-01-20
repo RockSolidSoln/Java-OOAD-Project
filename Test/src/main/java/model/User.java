@@ -68,7 +68,7 @@ public abstract class User {
         lines.add(line);
         String filename= ("\\Test\\src\\assets\\credentials.csv");
 
-        Database.FilewriteBack(filename, lines); 
+        Database.FilewriteBack(filename, lines, true); 
     }
 
     

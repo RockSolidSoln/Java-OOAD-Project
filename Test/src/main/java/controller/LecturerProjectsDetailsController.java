@@ -1,16 +1,18 @@
 package controller;
 
 import view.ApplyingStudentView;
-import view.LecturerProjectsDetailsView;
+import view.LecturerProjectDetailsView;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import model.Project;
+
 public class LecturerProjectsDetailsController {
     private static LecturerProjectsDetailsController singletonInstance;
-    private static LecturerProjectsDetailsView view;
+    private static LecturerProjectDetailsView view;
 
-    public LecturerProjectsDetailsController(LecturerProjectsDetailsView view) {
+    public LecturerProjectsDetailsController(LecturerProjectDetailsView view) {
         LecturerProjectsDetailsController.view = view;
 
         view.getActivateDeactivateButton().addActionListener(new LecturerProjectsDetailsController.NavigatorsListener());
@@ -20,7 +22,7 @@ public class LecturerProjectsDetailsController {
         view.getApplyingListButton().addActionListener(new LecturerProjectsDetailsController.NavigatorsListener());
     }
 
-    public static LecturerProjectsDetailsController getInstance(LecturerProjectsDetailsView view) {
+    public static LecturerProjectsDetailsController getInstance(LecturerProjectDetailsView view) {
         if (singletonInstance == null) {
             singletonInstance = new LecturerProjectsDetailsController(view);
         }
@@ -32,21 +34,23 @@ public class LecturerProjectsDetailsController {
         @Override
         public void actionPerformed(ActionEvent e) {
             if (e.getSource() == view.getActivateDeactivateButton()) {
+                Project projectModel = Project.getInstance(null, null, null, null, null, null);
+                String ChangedStatus = projectModel.ChangeActiveStatus(view.getProjectId());
+                view.displaySuccessMessage(ChangedStatus);
                 view.dispose();
-//                NavBarController.AdminCreateAccountActionPerformed(e);
+                NavBarController.LecturerProjectsViewActionPerformed();
             } else if (e.getSource() == view.getBackButton()) {
                 view.dispose();
-                NavBarController.LecturerDashboardActionPerformed(e);
+                NavBarController.LecturerProjectsViewActionPerformed();
             } else if (e.getSource() == view.getUnassignButton()) {
                 view.dispose();
             } else if (e.getSource() == view.getModifyButton()) {
+                
                 view.dispose();
-//                NavBarController.AdminViewProjectActionPerformed(e);
+//
             } else if (e.getSource() == view.getApplyingListButton()) {
+                NavBarController.ViewApplyingStudentListPerformed(view.getProjectId());
                 view.dispose();
-                ApplyingStudentView new_view = ApplyingStudentView.getInstance();
-                ApplyingStudentController controller  = ApplyingStudentController.getInstance(new_view);
-                new_view.setVisible(true);
             }
 
         }

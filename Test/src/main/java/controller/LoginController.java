@@ -47,19 +47,13 @@ public class LoginController {
         if (loginSuccess) {
             if(userId.charAt(0) == 'A'){
                 view.dispose();
-                var adminDashboardview = AdminDashboardView.getInstance();
-                var adminDashboardcontroller = AdminDashboardController.getInstance(adminDashboardview);
-                adminDashboardview.setVisible(true);
+                NavBarController.AdminDashboardActionPerformed();
             } else if(userId.charAt(0) == 'L'){
                 view.dispose();
-                var lecturerDashboardView = LecturerDashboardView.getInstance();
-                var lecturerDashboardController = LecturerDashboardController.getInstance(lecturerDashboardView);
-                lecturerDashboardView.setVisible(true);
+                NavBarController.LecturerDashboardActionPerformed();
             } else{
                 view.dispose();
-                var studentDashboardView = StudentDashboardView.getInstance();
-                var studentDashboardController = StudentDashboardController.getInstance(studentDashboardView);
-                studentDashboardView.setVisible(true);
+                NavBarController.StudentDashboardView();
             }
         } else {
             view.displayLoginFailureMessage();
@@ -91,7 +85,6 @@ public class LoginController {
 
     class LoginListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
-            System.out.println("enter pressed");
             if (view.getUserId() != null && view.getPassword() != null) {
                 submitButton();
             }

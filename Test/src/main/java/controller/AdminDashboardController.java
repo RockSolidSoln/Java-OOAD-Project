@@ -42,16 +42,16 @@ public class AdminDashboardController {
         public void actionPerformed(ActionEvent e) {
             if (e.getSource() == view.getButton1()) { // Create Account Button Pressed
                 view.dispose();
-                NavBarController.AdminCreateAccountActionPerformed(e);
+                NavBarController.AdminCreateAccountActionPerformed();
             } else if (e.getSource() == view.getButton2()) { // View Report Button Pressed
                 view.dispose();
-                NavBarController.AdminViewReportActionPerformed(e);
+                NavBarController.AdminViewReportActionPerformed();
             } else if (e.getSource() == view.getButton3()) { // Logout Button Pressed
                 view.dispose();
-                NavBarController.LogoutActionPerformed(e);
+                NavBarController.LogoutActionPerformed();
                 } else if (e.getSource() == view.getButton4()) { // View Project Button Pressed
                 view.dispose();
-                NavBarController.AdminViewProjectActionPerformed(e);
+                NavBarController.AdminViewProjectActionPerformed();
             }
 
         }

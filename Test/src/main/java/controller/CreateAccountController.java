@@ -5,6 +5,7 @@ import view.CreateAccountView;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Objects;
 
 import model.Admin;
 import model.Lecturer;
@@ -40,16 +41,16 @@ public class CreateAccountController {
         public void actionPerformed(ActionEvent e) {
             if (e.getSource() == view.getButton3()) { //Admin - dashboard pressed
                 view.dispose();
-                NavBarController.AdminDashboardActionPerformed(e);
+                NavBarController.AdminDashboardActionPerformed();
             } else if (e.getSource() == view.getButton4()) { // Admin - View Project pressed
                 view.dispose();
-                NavBarController.AdminViewProjectActionPerformed(e);
+                NavBarController.AdminViewProjectActionPerformed();
             } else if (e.getSource() == view.getButton6()) { // Admin - View Report Pressed
                 view.dispose();
-                NavBarController.AdminViewReportActionPerformed(e);
+                NavBarController.AdminViewReportActionPerformed();
             } else if (e.getSource() == view.getButton7()) { // Admin - Logout Pressed
                 view.dispose();
-                NavBarController.LogoutActionPerformed(e);
+                NavBarController.LogoutActionPerformed();
             }
 
         }
@@ -63,26 +64,32 @@ public class CreateAccountController {
             String email = view.getEmail();
             String phone = view.getPhone();
             String name = view.getName();
+            String confirmPassword = new String(view.getPassword2());
             String specialization = view.getSpecialization();
 
             String userType = view.getUsertype();
 
-            // Storing Credentials for the user (admin/lecturer/ student).
-            User user = User.getInstance(userId, password, name, email, phone);
-            user.StoreCredentials();
+            if(Objects.equals(password, confirmPassword)){
+                // Storing Credentials for the user (admin/lecturer/ student).
+                User user = User.getInstance(userId, password, name, email, phone);
+                user.StoreCredentials();
 
-            //Storing details for the user.
-            if(userType.equals("ADMIN")){
-                Admin admin = Admin.getInstance(userId, password, name, email, phone);
-                admin.StoreDetails(); // storing admin details in the DB
+                //Storing details for the user.
+                if(userType.equals("ADMIN")){
+                    Admin admin = Admin.getInstance(userId, password, name, email, phone);
+                    admin.StoreDetails(); // storing admin details in the DB
 
-            } else if(userType.equals("LECTURER")){
-                Lecturer lecturer = Lecturer.getInstance(userId, password, name, email, phone);
-                lecturer.StoreDetails(); // storing lecturer details in the DB
-            }
-            else{
-                Student student = Student.getInstance(userId, password, name, email, phone, specialization);
-                student.StoreDetails();   // storing student details in the DB
+                } else if(userType.equals("LECTURER")){
+                    Lecturer lecturer = Lecturer.getInstance(userId, password, name, email, phone);
+                    lecturer.StoreDetails(); // storing lecturer details in the DB
+                }
+                else{
+                    Student student = Student.getInstance(userId, password, name, email, phone, specialization);
+                    student.StoreDetails();   // storing student details in the DB
+                }
+
+            } else{
+                view.displayFailureMessage();
             }
 
 
@@ -93,9 +100,6 @@ public class CreateAccountController {
         @Override
         public void actionPerformed(ActionEvent e) {
             view.dispose();
-            var adminDashboardview = AdminDashboardView.getInstance();
-            var adminDashboardcontroller = AdminDashboardController.getInstance(adminDashboardview);
-            adminDashboardview.setVisible(true);
         }
 
     }

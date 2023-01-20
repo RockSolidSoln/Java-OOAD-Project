@@ -1,18 +1,17 @@
 package controller;
 
-import view.LecturerProjectsDetailsView;
+import view.LecturerProjectDetailsView;
 import view.LecturerProjectsView;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 
+import model.Database;
+import model.LoginModel;
 import model.Project;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
 import java.util.ArrayList;
 
 
@@ -29,23 +28,23 @@ public class LecturerProjectsController {
         view.getButton4().addActionListener(new LecturerProjectsController.NavigatorsListener()); //create new project
         view.getViewButton().addActionListener(new LecturerProjectsController.NavigatorsListener());
 
-        Project projectModel = Project.getInstance();
-        ArrayList<Project> allProjects = projectModel.getProjectList();
-        
+        ProjectTableLoader();
+    }
+    public void ProjectTableLoader(){
+        Project projectModel = Project.getInstance("null", "null", "null","null", "null", "null");
+        ArrayList<ArrayList<String>> filteredContents = projectModel.FilterByLecturerId(LoginModel.getUserId());
+        //System.out.println("DEBBBBBUG:   "+ LoginModel.getUserId());
         ((DefaultTableModel) view.getTable().getModel()).setRowCount(0);
 
-        for(int i = 0; i < allProjects.size(); i++){
-            String[] values = new String[6];
-            values[0] = allProjects.get(i).getProjectId(); 
-            values[1] = allProjects.get(i).getProjectName(); 
-            values[2] = allProjects.get(i).getLecturer();
-            values[3] = allProjects.get(i).getSpecialization();
-            values[4] = allProjects.get(i).getDescription();
-            values[5] = allProjects.get(i).getProjectStatus();
+        for(int i = 0; i < filteredContents.size(); i++){
+            String[] values = new String[4];
+            values[0] = filteredContents.get(i).get(0); 
+            values[1] = filteredContents.get(i).get(1);
+            values[2] = filteredContents.get(i).get(3);
+            values[3] = filteredContents.get(i).get(5);
 
-            ((DefaultTableModel)view.getTable().getModel()).insertRow(0, values);
+            ((DefaultTableModel) view.getTable().getModel()).insertRow(0, values);
         }
-
     }
 
     public static LecturerProjectsController getInstance(LecturerProjectsView view) {
@@ -61,13 +60,13 @@ public class LecturerProjectsController {
         public void actionPerformed(ActionEvent e) {
             if (e.getSource() == view.getButton1()) { // Lecturer - Dashboard
                 view.dispose();
-                NavBarController.LecturerDashboardActionPerformed(e);
+                NavBarController.LecturerDashboardActionPerformed();
             } else if (e.getSource() == view.getButton3()) { // Lecturer - Logout Button Pressed
                 view.dispose();
-                NavBarController.LogoutActionPerformed(e);
+                NavBarController.LogoutActionPerformed();
             } else if (e.getSource() == view.getButton4()) { // Lecturer - Create New Project Pressed
                 view.dispose();
-                NavBarController.CreateProjectActionPerformed(e);
+                NavBarController.CreateProjectActionPerformed();
             } else if (e.getSource() == view.getViewButton()) { // Project-Details Button Pressed
                 int selectedRow = view.getTable().getSelectedRow();
                 if (selectedRow != -1) {
@@ -78,10 +77,7 @@ public class LecturerProjectsController {
                     String status = (String) view.getTable().getValueAt(selectedRow, 3);
                     
                     view.dispose();
-                    LecturerProjectsDetailsView new_view = new LecturerProjectsDetailsView(projectID, projectName, specialization, status);
-                    LecturerProjectsDetailsController controller = new LecturerProjectsDetailsController(new_view);
-
-                    new_view.setVisible(true);
+                    NavBarController.ViewLecturerProjectDetails(projectID, projectName, specialization, status);
                 } else {
                     JOptionPane.showMessageDialog(null, "Please select a row from the table.");
                 }

@@ -1,5 +1,7 @@
 package view;
 
+import model.LoginModel;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
@@ -82,8 +84,8 @@ public class StudentDashboardView extends JFrame {
         jButton4.setFont(new Font("SansSerif", Font.PLAIN, 12)); // NOI18N
         jButton4.setText("Dashboard");
 
-        jLabel4.setFont(new Font("Segoe UI", Font.PLAIN, 18)); // NOI18N
-        jLabel4.setText("Salah AlHaismawi");
+        jLabel4.setFont(new Font("Segoe UI", Font.PLAIN, 18));
+        jLabel4.setText(LoginModel.getUserId());
 
         jButton2.setBackground(new Color(154, 216, 211));
         jButton2.setFont(new Font("SansSerif", Font.PLAIN, 14)); // NOI18N

@@ -55,7 +55,7 @@ public class LecturerDashboardController {
         private void jButton1ActionPerformed(ActionEvent e) {
             // Create Project
             CreateProjectView new_view = new CreateProjectView();
-            Project new_model = Project.getInstance();
+            Project new_model = Project.getInstance(null, null, null, null, null, null);
             CreateProjectController controller = new CreateProjectController(new_view, new_model);
 
             new_view.getJComboBox().setSelectedItem(LoginModel.getUserId()); //should be set as the logged in ID
@@ -68,14 +68,13 @@ public class LecturerDashboardController {
         @Override
         public void actionPerformed(ActionEvent e) {
             if (e.getSource() == view.getButton1()) { // Lecturer - Create Project Button Pressed
-                NavBarController.CreateProjectActionPerformed(e);
+                NavBarController.CreateProjectActionPerformed();
             } else if (e.getSource() == view.getButton2()) { // Lecturer - View Projects Button Pressed
                 view.dispose();
-                NavBarController.LecturerProjectsViewActionPerformed(e);
-                
+                NavBarController.LecturerProjectsViewActionPerformed();
             } else if (e.getSource() == view.getButton3()) { // Logout Button Pressed
                 view.dispose();
-                NavBarController.LogoutActionPerformed(e);
+                NavBarController.LogoutActionPerformed();
             }
         }
     }
