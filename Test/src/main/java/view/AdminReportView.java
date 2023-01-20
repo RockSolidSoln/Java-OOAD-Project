@@ -1,5 +1,7 @@
 package view;
 
+import model.LoginModel;
+
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
@@ -8,25 +10,25 @@ import java.awt.*;
  *
  * @author salah
  */
-public class ReportView extends JFrame {
+public class AdminReportView extends JFrame {
     /**
      *
      *
      */
-    private static ReportView singletonInstance;
-    private JButton jButton2,jButton8,jButton7,jButton6,jButton5,viewRemarkButton,viewByButton;
+    private static AdminReportView singletonInstance;
+    private JButton jButton2,jButton8,jButton7,jButton6,jButton5,viewRemarkButton,viewByButton, jButton1;
     private JLabel jLabel4;
     private JPanel jPanel1,jPanel2;
     private JScrollPane jScrollPane1;
     private JTable jTable1;
    
     
-    public ReportView() {
+    public AdminReportView() {
         initComponents();
     }
-    public static ReportView getInstance(){
+    public static AdminReportView getInstance(){
         if (singletonInstance == null) {
-            singletonInstance = new ReportView();
+            singletonInstance = new AdminReportView();
         }
         return singletonInstance;
     }
@@ -38,6 +40,7 @@ public class ReportView extends JFrame {
         jButton2 = new JButton();
         jPanel2 = new JPanel();
         jButton5 = new JButton();
+        jButton1 = new JButton();
         jButton6 = new JButton();
         jLabel4 = new JLabel();
         jButton7 = new JButton();
@@ -74,32 +77,41 @@ public class ReportView extends JFrame {
     jTable1.setCellSelectionEnabled(false);
 
     viewByButton.setText("View By");
+    viewByButton.setBackground(new Color(154, 216, 211));
 
     jButton2.setText("Undo");
+    jButton2.setBackground(new Color(154, 216, 211));
     jButton2.setActionCommand("");
-  
+
+    jButton1.setText("Dashboard");
+    jButton1.setBackground(new Color(154, 216, 211));
 
     jPanel2.setBackground(new Color(230, 230, 230));
 
-    jButton5.setBackground(new Color(230, 230, 230));
+    jButton5.setBackground(new Color(154, 216, 211));
     jButton5.setFont(new Font("SansSerif", Font.PLAIN, 12)); // NOI18N
     jButton5.setText("Create Account");
 
-    jButton6.setBackground(new Color(230, 230, 230));
+    jButton6.setBackground(new Color(96, 132, 223));
+    jButton6.setForeground(new Color(235, 252, 255));
     jButton6.setFont(new Font("SansSerif", Font.PLAIN, 12)); // NOI18N
     jButton6.setText("View Reports");
     jButton6.setOpaque(true);
-    
+
+    jButton1.setBackground(new Color(154, 216, 211));
+    jButton1.setFont(new Font("SansSerif", Font.PLAIN, 12)); // NOI18N
+    jButton1.setText("Dashboard");
+    jButton1.setOpaque(true);
 
     jLabel4.setFont(new Font("Segoe UI", Font.PLAIN, 18)); // NOI18N
-    jLabel4.setText("Salah AlHaismawi");
+    jLabel4.setText(LoginModel.getUserId());
 
-    jButton7.setBackground(new Color(230, 230, 230));
+    jButton7.setBackground(new Color(154, 216, 211));
     jButton7.setFont(new Font("SansSerif", Font.PLAIN, 14)); // NOI18N
     jButton7.setForeground(new Color(255, 51, 102));
     jButton7.setText("Logout");
 
-    jButton8.setBackground(new Color(230, 230, 230));
+    jButton8.setBackground(new Color(154, 216, 211));
     jButton8.setFont(new Font("SansSerif", Font.PLAIN, 12)); // NOI18N
     jButton8.setText("View Project");
     jButton8.setOpaque(true);
@@ -112,6 +124,7 @@ public class ReportView extends JFrame {
             .addContainerGap()
             .addGroup(jPanel2Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
                 .addComponent(jLabel4, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton1, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButton8, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButton5, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButton6, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -127,6 +140,8 @@ public class ReportView extends JFrame {
             .addGap(25, 25, 25)
             .addComponent(jLabel4, GroupLayout.PREFERRED_SIZE, 25, GroupLayout.PREFERRED_SIZE)
             .addGap(87, 87, 87)
+            .addComponent(jButton1)
+            .addGap(12, 12, 12)
             .addComponent(jButton8)
             .addGap(12, 12, 12)
             .addComponent(jButton5)
@@ -139,7 +154,8 @@ public class ReportView extends JFrame {
 
     viewRemarkButton.setText("View Remark");
     viewRemarkButton.setVisible(false);
-  
+    viewRemarkButton.setBackground(new Color(154, 216, 211));
+
 
     GroupLayout jPanel1Layout = new GroupLayout(jPanel1);
     jPanel1.setLayout(jPanel1Layout);
@@ -200,9 +216,10 @@ public JButton getLogButton() {return jButton7;}
 
 public JButton getViewProjectButton() {return jButton8;}
 
+public JButton getDashboardButton() { return jButton1;}
+
 public JTable getJTable(){return jTable1;}
 
-public JLabel getNamLabel(){return jLabel4;}
 }
 
 

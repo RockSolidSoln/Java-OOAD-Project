@@ -46,7 +46,7 @@ public class AdminDashboardController {
                 RoutingController.AdminCreateAccountActionPerformed();
             } else if (e.getSource() == view.getButton2()) { // View Report Button Pressed
                 view.dispose();
-                RoutingController.AdminViewReportActionPerformed();
+                RoutingController.AdminViewReport();
             } else if (e.getSource() == view.getButton3()) { // Logout Button Pressed
                 view.dispose();
                 RoutingController.LogoutActionPerformed();

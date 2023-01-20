@@ -1,6 +1,6 @@
 package controller;
 
-import view.CreateAccountView;
+import view.AdminCreateAccountView;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -11,26 +11,26 @@ import model.Lecturer;
 import model.Student;
 import model.User;
 
-public class CreateAccountController {
-    private static CreateAccountController singletonInstance;
-    private final CreateAccountView view;
+public class AdminCreateAccountController {
+    private static AdminCreateAccountController singletonInstance;
+    private final AdminCreateAccountView view;
     //private final Admin adminModel;
     
 
-    public CreateAccountController(CreateAccountView view){
+    public AdminCreateAccountController(AdminCreateAccountView view){
         this.view = view;
         view.getCreateAccountButton().addActionListener(new CreateAccountListener());
         view.getExitButton().addActionListener(new ExitListener());
-        view.getButton3().addActionListener(new CreateAccountController.NavigatorsListener());//dashboard
-        view.getButton4().addActionListener(new CreateAccountController.NavigatorsListener());//view project
-        view.getButton5().addActionListener(new CreateAccountController.NavigatorsListener());//Skipped: active screen (current screen)
-        view.getButton6().addActionListener(new CreateAccountController.NavigatorsListener());//view report
-        view.getButton7().addActionListener(new CreateAccountController.NavigatorsListener());//logout
+        view.getButton3().addActionListener(new AdminCreateAccountController.NavigatorsListener());//dashboard
+        view.getButton4().addActionListener(new AdminCreateAccountController.NavigatorsListener());//view project
+        view.getButton5().addActionListener(new AdminCreateAccountController.NavigatorsListener());//Skipped: active screen (current screen)
+        view.getButton6().addActionListener(new AdminCreateAccountController.NavigatorsListener());//view report
+        view.getButton7().addActionListener(new AdminCreateAccountController.NavigatorsListener());//logout
     }
 
-    public static CreateAccountController getInstance(CreateAccountView view) {
+    public static AdminCreateAccountController getInstance(AdminCreateAccountView view) {
         if (singletonInstance == null) {
-            singletonInstance = new CreateAccountController(view);
+            singletonInstance = new AdminCreateAccountController(view);
         }
         return singletonInstance;
     }
@@ -46,7 +46,7 @@ public class CreateAccountController {
                 RoutingController.AdminViewProjectActionPerformed();
             } else if (e.getSource() == view.getButton6()) { // Admin - View Report Pressed
                 view.dispose();
-                RoutingController.AdminViewReportActionPerformed();
+                RoutingController.AdminViewReport();
             } else if (e.getSource() == view.getButton7()) { // Admin - Logout Pressed
                 view.dispose();
                 RoutingController.LogoutActionPerformed();

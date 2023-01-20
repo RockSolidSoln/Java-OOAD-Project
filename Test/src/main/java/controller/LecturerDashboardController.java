@@ -1,16 +1,13 @@
 package controller;
 
 import model.Project;
-import model.Database;
 import model.Lecturer;
 import model.LoginModel;
-import view.CreateProjectView;
+import view.AdminAndLecturerCreateProjectView;
 import view.LecturerDashboardView;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.List;
-import java.util.Objects;
 
 public class LecturerDashboardController {
     private static LecturerDashboardController singletonInstance;
@@ -43,9 +40,9 @@ public class LecturerDashboardController {
     static class NavigatorsListener implements ActionListener {
         private void jButton1ActionPerformed(ActionEvent e) {
             // Create Project
-            CreateProjectView new_view = new CreateProjectView();
+            AdminAndLecturerCreateProjectView new_view = new AdminAndLecturerCreateProjectView();
             Project new_model = Project.getInstance(null, null, null, null, null, null);
-            CreateProjectController controller = new CreateProjectController(new_view, new_model);
+            AdminAndLecturerCreateProjectController controller = new AdminAndLecturerCreateProjectController(new_view, new_model);
 
             new_view.getJComboBox().setSelectedItem(LoginModel.getUserId()); // should be set as the logged in ID
             new_view.getJComboBox().setEnabled(false);

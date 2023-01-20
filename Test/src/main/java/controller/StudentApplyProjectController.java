@@ -30,11 +30,14 @@ public class StudentApplyProjectController {
             if (e.getSource() == view.getBackButton()) {
                 view.dispose();
                 RoutingController.StudentAvailableProjectsView();
-            } else if(e.getSource() == view.getApplyButton()){
-                ApplicationModel applicationModel = ApplicationModel.getInstance(LoginModel.getUserId(), )
-                ;
-                view.getProjectName();
-                view.getLecturerId();
+//            } else if(e.getSource() == view.getApplyButton()){
+//                ApplicationModel applicationModel = ApplicationModel.getInstance(LoginModel.getUserId(), );
+//                view.getProjectName();
+//                view.getLecturerId();
+//
+//            }
+//                view.getProjectName();
+//                view.getLecturerId();
 
             }
         }

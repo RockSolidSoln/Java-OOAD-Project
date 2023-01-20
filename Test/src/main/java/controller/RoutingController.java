@@ -23,15 +23,10 @@ public class RoutingController {
         view.setVisible(true);
     }
 
-    // Admin Navigation Bar: View Report
-    public static void AdminViewReportActionPerformed() {
-
-    }
-
     // Admin Navigation Bar: Create Account
     public static void AdminCreateAccountActionPerformed() {
-        var createAccountView = CreateAccountView.getInstance();
-        var createAccountController = CreateAccountController.getInstance(createAccountView);
+        var createAccountView = AdminCreateAccountView.getInstance();
+        var createAccountController = AdminCreateAccountController.getInstance(createAccountView);
         createAccountView.setVisible(true);
     }
 
@@ -49,6 +44,15 @@ public class RoutingController {
         new_view.setVisible(true);
     }
 
+    //Admin
+    public static void AdminViewReport(){
+        var adminView = AdminReportView.getInstance();
+        var controller = AdminReportController.getInstance(adminView);
+        adminView.setVisible(true);
+    }
+
+
+    //Lectured Dashboard
     public static void LecturerDashboardActionPerformed() {
         var lecturerDashboardView = LecturerDashboardView.getInstance();
         var lecturerDashboardController = LecturerDashboardController.getInstance(lecturerDashboardView);
@@ -65,9 +69,9 @@ public class RoutingController {
 
     // Lecturer / Admin : Create Project
     public static void CreateProjectActionPerformed() {
-        var createProjectView = CreateProjectView.getInstance();
+        var createProjectView = AdminAndLecturerCreateProjectView.getInstance();
         var projectModel = Project.getInstance(null,null, null, null, null, null);
-        var createProjectController = CreateProjectController.getInstance(createProjectView, projectModel);
+        var createProjectController = AdminAndLecturerCreateProjectController.getInstance(createProjectView, projectModel);
         createProjectView.setVisible(true);
     }
 
@@ -89,8 +93,8 @@ public class RoutingController {
 
     //Lecturer: Modify Project
     public static void LecturerModifyProject(String projectId, String projectName, String projectDescription, String projectSpecialization){
-        var modifyProjectView = new ModifyProjectView(projectId, projectName, projectDescription, projectSpecialization);
-        var modifyProjectController = new ModifyProjectController(modifyProjectView);
+        var modifyProjectView = new LecturerModifyProjectView(projectId, projectName, projectDescription, projectSpecialization);
+        var modifyProjectController = new LecturerModifyProjectController(modifyProjectView);
 
         modifyProjectView.setVisible(true);
     }

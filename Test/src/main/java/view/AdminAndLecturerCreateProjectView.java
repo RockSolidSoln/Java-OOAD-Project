@@ -1,25 +1,23 @@
 package view;
 
-import model.LoginModel;
-
 import javax.swing.*;
 import java.awt.*;
 
 
-public class CreateProjectView extends JFrame {
+public class AdminAndLecturerCreateProjectView extends JFrame {
 
-  private static CreateProjectView singletonInstance;
+  private static AdminAndLecturerCreateProjectView singletonInstance;
   private JButton jButton1;
   private JButton jButton2;
   private JComboBox<String> jComboBox1, specializationComboBox;
   JTextField jTextField1, jTextField2;
-  public CreateProjectView() {
+  public AdminAndLecturerCreateProjectView() {
     initComponents();
   }
 
-  public static CreateProjectView getInstance() {
+  public static AdminAndLecturerCreateProjectView getInstance() {
     if (singletonInstance == null) {
-      singletonInstance = new CreateProjectView();
+      singletonInstance = new AdminAndLecturerCreateProjectView();
     }
     return singletonInstance;
   }

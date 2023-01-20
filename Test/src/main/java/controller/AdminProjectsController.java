@@ -73,9 +73,9 @@ public class AdminProjectsController {
 
         private void addProject(ActionEvent e) {
             //Adding project in the database
-            CreateProjectView new_view = new CreateProjectView();
+            AdminAndLecturerCreateProjectView new_view = new AdminAndLecturerCreateProjectView();
             Project model = Project.getInstance(null, null, null, null, null, null);
-            CreateProjectController controller = new CreateProjectController(new_view, model);
+            AdminAndLecturerCreateProjectController controller = new AdminAndLecturerCreateProjectController(new_view, model);
             new_view.setVisible(true);
         }
 
@@ -109,7 +109,7 @@ public class AdminProjectsController {
                 RoutingController.AdminCreateAccountActionPerformed();
             } else if (e.getSource() == view.getButton4()) { // Admin - View Reports Pressed
                 view.dispose();
-                RoutingController.AdminViewReportActionPerformed();
+                RoutingController.AdminViewReport();
             } else if (e.getSource() == view.getButton5()) { // Admin - logout Pressed
                 view.dispose();
                 RoutingController.LogoutActionPerformed();

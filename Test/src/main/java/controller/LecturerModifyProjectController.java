@@ -1,7 +1,7 @@
 package controller;
 
 import model.Project;
-import view.ModifyProjectView;
+import view.LecturerModifyProjectView;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -9,15 +9,15 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ModifyProjectController {
-    private static ModifyProjectController singletonInstance;
-    private static ModifyProjectView view;
+public class LecturerModifyProjectController {
+    private static LecturerModifyProjectController singletonInstance;
+    private static LecturerModifyProjectView view;
 
-    public ModifyProjectController(ModifyProjectView view){
-        ModifyProjectController.view = view;
+    public LecturerModifyProjectController(LecturerModifyProjectView view){
+        LecturerModifyProjectController.view = view;
 
-        view.getButton1().addActionListener(new ModifyProjectController.NavigatorsListener());
-        view.getButton2().addActionListener(new ModifyProjectController.NavigatorsListener()); //go back to view projects but keep in mind admin and lec is using same
+        view.getButton1().addActionListener(new LecturerModifyProjectController.NavigatorsListener());
+        view.getButton2().addActionListener(new LecturerModifyProjectController.NavigatorsListener()); //go back to view projects but keep in mind admin and lec is using same
 
         List<String> specialization = new ArrayList<String>();
         specialization.add("Software Engineering");
@@ -29,9 +29,9 @@ public class ModifyProjectController {
         }
     }
 
-    public static ModifyProjectController getInstance(ModifyProjectView view, Project model) {
+    public static LecturerModifyProjectController getInstance(LecturerModifyProjectView view, Project model) {
         if (singletonInstance == null) {
-            singletonInstance = new ModifyProjectController(view);
+            singletonInstance = new LecturerModifyProjectController(view);
         }
         return singletonInstance;
     }
