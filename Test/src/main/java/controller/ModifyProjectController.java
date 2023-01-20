@@ -12,10 +12,8 @@ import java.util.List;
 public class ModifyProjectController {
     private static ModifyProjectController singletonInstance;
     private static ModifyProjectView view;
-    private static Project model = Project.getInstance(null, null, null, null, null, null);
 
-    public ModifyProjectController(ModifyProjectView view, Project model){
-        ModifyProjectController.model = model;
+    public ModifyProjectController(ModifyProjectView view){
         ModifyProjectController.view = view;
 
         view.getButton1().addActionListener(new ModifyProjectController.NavigatorsListener());
@@ -33,7 +31,7 @@ public class ModifyProjectController {
 
     public static ModifyProjectController getInstance(ModifyProjectView view, Project model) {
         if (singletonInstance == null) {
-            singletonInstance = new ModifyProjectController(view, model);
+            singletonInstance = new ModifyProjectController(view);
         }
         return singletonInstance;
     }
@@ -41,10 +39,12 @@ public class ModifyProjectController {
     static class NavigatorsListener implements ActionListener {
         private void ModifyProjectActionPerformed(ActionEvent e) {
             // After clicking the save button
+            String projectId = view.getProjectId();
             String lecturer = view.getLecturerId();
             String projectName = view.getProject();
             String specialization = view.getSpecialization();
             String description = view.getDescription();
+
             if(lecturer.isEmpty() || projectName.isEmpty() || specialization.isEmpty() || description.isEmpty()) {
                 // Display an error message
                 JOptionPane.showMessageDialog(null, "Please fill out all fields.", "Error", JOptionPane.ERROR_MESSAGE);

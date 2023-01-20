@@ -29,13 +29,13 @@ public class StudentAvailableProjectsController {
         public void actionPerformed(ActionEvent e) {
             if (e.getSource() == view.getButton1()) {
                 view.dispose();
-                NavBarController.StudentProjectDetailsView();
+                RoutingController.StudentProjectDetailsView();
             } else if (e.getSource() == view.getButton2()) {
                 view.dispose();
-                NavBarController.LogoutActionPerformed();
+                RoutingController.LogoutActionPerformed();
             } else if (e.getSource() == view.getButton3()) {
                 view.dispose();
-                NavBarController.StudentDashboardView();
+                RoutingController.StudentDashboardView();
             } else if (e.getSource() == view.getViewButton()) {
                 int selectedRow = view.getTable().getSelectedRow();
                 if (selectedRow != -1) {
@@ -45,7 +45,7 @@ public class StudentAvailableProjectsController {
                     String lecturerID = (String) view.getTable().getValueAt(selectedRow, 2);
 
                     view.dispose();
-                    NavBarController.StudentApplyProjectsView(projectID, projectName, lecturerID);
+                    RoutingController.StudentApplyProjectsView(projectID, projectName, lecturerID);
                 }
             }
 

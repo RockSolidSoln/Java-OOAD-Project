@@ -25,7 +25,7 @@ public class StudentProjectDetailsController {
         public void actionPerformed(ActionEvent e) {
             if (e.getSource() == view.getBackButton()) {
                 view.dispose();
-                NavBarController.StudentDashboardView();
+                RoutingController.StudentDashboardView();
             }
         }
     }

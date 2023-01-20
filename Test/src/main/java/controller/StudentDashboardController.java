@@ -7,7 +7,6 @@ import java.util.Objects;
 
 import model.Database;
 import model.LoginModel;
-import view.LoginView;
 import view.StudentDashboardView;
 
 public class StudentDashboardController {
@@ -52,13 +51,13 @@ public class StudentDashboardController {
         @Override
         public void actionPerformed(ActionEvent e) {
             if (e.getSource() == view.getButton1()) {
-                NavBarController.StudentProjectDetailsView();
+                RoutingController.StudentProjectDetailsView();
             } else if (e.getSource() == view.getButton2()) {
                 view.dispose();
-                NavBarController.LogoutActionPerformed();
+                RoutingController.LogoutActionPerformed();
             } else if (e.getSource() == view.getButton3()) {
                 view.dispose();
-                NavBarController.StudentAvailableProjectsView();
+                RoutingController.StudentAvailableProjectsView();
             }
         }
     }
