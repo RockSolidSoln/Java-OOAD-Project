@@ -85,7 +85,7 @@ public class NavBarController {
     // Lecturer: View Applying student list
     public static void ViewApplyingStudentListPerformed(String projectId){
         ApplyingStudentView new_view = ApplyingStudentView.getInstance();
-        ApplyingStudentController controller  = ApplyingStudentController.getInstance(new_view, projectId);
+        ApplicationController controller  = ApplicationController.getInstance(new_view, projectId);
         new_view.setVisible(true);
     }
 
