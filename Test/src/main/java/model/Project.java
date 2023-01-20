@@ -76,7 +76,7 @@ public class Project {
         return projectStatus;
     }
     // -------------------------------------------------
-    /* Getting Lecturer ID from Lecturer.csv */
+    /* Getting All Lecturer Ids from Lecturer.csv */
     public static List<String> getlecturerId() {
         String line = "";
         List<String> lecturers = new ArrayList<>();
@@ -153,6 +153,12 @@ public class Project {
         Database.ChangeContent(path, projectId, operationItems, 6, changedStatus);
 
         return changedStatus;
+    }
+
+    public static void modifyProject(){
+        String path = "\\Test\\src\\assets\\projects.csv";
+        String[] operationItems = Database.FindDataFromDB(path, projectId);
+
     }
 
 }
