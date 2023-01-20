@@ -69,8 +69,6 @@ public class StudentApplyProjectView extends JFrame {
 
     }
 
-
-
     private void initComponents() {
         System.out.println(details);
         jPanel1 = new JPanel();
@@ -234,5 +232,9 @@ public class StudentApplyProjectView extends JFrame {
 
     public String getLecturerId(){
         return lecturerNameLabel2.getText();
+    }
+
+    public void displayMessage() {
+        JOptionPane.showMessageDialog(null, "You have applied for the following Project please wait for lecturer to assign it to you!", "Success", JOptionPane.INFORMATION_MESSAGE);
     }
 }

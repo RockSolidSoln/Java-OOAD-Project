@@ -40,6 +40,9 @@ public class StudentApplyProjectController {
                 Student student = Student.getDetailsInstance(LoginModel.getUserId());
                 ApplicationModel applicationModel = ApplicationModel.getInstance(view.getProjectId(), student.getUsername(), student.getName());
                 applicationModel.StoreDetails();
+                view.displayMessage();
+                view.dispose();
+                RoutingController.StudentAvailableProjectsViewActionPerformed();
             }
 
         }
