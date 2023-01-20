@@ -6,7 +6,10 @@ import view.AdminRemarkView;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
-
+/**
+ *
+ * @author
+ */
 public class AdminRemarkController {
     public final AdminRemarkView view;
     public static AdminRemarkModel model;

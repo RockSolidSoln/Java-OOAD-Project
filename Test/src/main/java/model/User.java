@@ -1,7 +1,10 @@
 package model;
 
 import java.util.ArrayList;
-
+/**
+ *
+ * @author
+ */
 public abstract class User {
     private String username;
     private String password;

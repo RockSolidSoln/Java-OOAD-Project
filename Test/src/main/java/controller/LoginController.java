@@ -7,7 +7,10 @@ import java.awt.event.KeyListener;
 
 import model.LoginModel;
 import view.*;
-
+/**
+ *
+ * @author
+ */
 public class LoginController {
     private final LoginView view;
     private final LoginModel model;

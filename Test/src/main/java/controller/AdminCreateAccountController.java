@@ -12,7 +12,10 @@ import model.Admin;
 import model.Lecturer;
 import model.Student;
 import model.User;
-
+/**
+ *
+ * @author
+ */
 public class AdminCreateAccountController {
     private static AdminCreateAccountController singletonInstance;
     private final AdminCreateAccountView view;

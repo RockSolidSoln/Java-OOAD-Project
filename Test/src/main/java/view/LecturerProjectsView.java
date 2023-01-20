@@ -11,7 +11,7 @@ import java.awt.*;
 
 /**
  *
- * @author salah
+ * @author
  */
 public class LecturerProjectsView extends JFrame {
 

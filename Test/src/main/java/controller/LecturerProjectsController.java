@@ -13,7 +13,10 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 
-
+/**
+ *
+ * @author
+ */
 public class LecturerProjectsController {
     private static LecturerProjectsController singletonInstance;
     private static LecturerProjectsView view;

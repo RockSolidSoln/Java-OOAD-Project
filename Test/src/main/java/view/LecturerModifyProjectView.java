@@ -5,7 +5,10 @@ import model.LoginModel;
 import javax.swing.*;
 import java.awt.*;
 
-
+/**
+ *
+ * @author
+ */
 public class LecturerModifyProjectView extends JFrame {
 
     private static LecturerModifyProjectView singletonInstance;

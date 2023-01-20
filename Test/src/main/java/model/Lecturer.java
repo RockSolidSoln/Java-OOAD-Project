@@ -1,7 +1,10 @@
 package model;
 
 import java.util.ArrayList;
-
+/**
+ *
+ * @author
+ */
 public class Lecturer extends User{
     private static Lecturer singletonInstance;
     Lecturer(String username, String password, String name, String email, String phone){

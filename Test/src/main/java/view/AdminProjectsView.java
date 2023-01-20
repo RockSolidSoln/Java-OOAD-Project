@@ -9,7 +9,7 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author salah
+ * @author
  */
 public class AdminProjectsView extends JFrame {
         private static AdminProjectsView singletonInstance = new AdminProjectsView();

@@ -6,7 +6,10 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import model.Project;
-
+/**
+ *
+ * @author
+ */
 public class LecturerProjectsDetailsController {
     private static LecturerProjectsDetailsController singletonInstance;
     private static LecturerProjectDetailsView view;

@@ -6,7 +6,10 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 
-
+/**
+ *
+ * @author
+ */
 public class StudentDashboardView extends JFrame {
 
     private JButton jButton2, jButton3, jButton1, jButton4;

@@ -4,7 +4,10 @@ import view.AdminReportView;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
+/**
+ *
+ * @author
+ */
 public class AdminReportController {
     private static AdminReportController singletonInstance;
     private final AdminReportView view;

@@ -8,7 +8,7 @@ import java.awt.*;
 
 /**
  *
- * @author salah
+ * @author
  */
 public class AdminReportView extends JFrame {
     /**

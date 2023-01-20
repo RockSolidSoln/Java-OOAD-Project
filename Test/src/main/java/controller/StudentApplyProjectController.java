@@ -6,9 +6,10 @@ import view.StudentApplyProjectView;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import model.ApplicationModel;
-import model.LoginModel;
-
+/**
+ *
+ * @author
+ */
 public class StudentApplyProjectController {
     private static StudentApplyProjectController singletonInstance;
     private static StudentApplyProjectView view;

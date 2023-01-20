@@ -2,9 +2,13 @@ package controller;
 
 import view.StudentAvailableProjectsView;
 
+import javax.swing.table.DefaultTableModel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
+/**
+ *
+ * @author
+ */
 public class StudentAvailableProjectsController {
     private static StudentAvailableProjectsController singletonInstance;
     private static StudentAvailableProjectsView view;
@@ -15,12 +19,16 @@ public class StudentAvailableProjectsController {
         view.getButton2().addActionListener(new StudentAvailableProjectsController.NavigatorsListener());//logout
         view.getButton3().addActionListener(new StudentAvailableProjectsController.NavigatorsListener());//dashboard
         view.getViewButton().addActionListener(new StudentAvailableProjectsController.NavigatorsListener());//dashboard
+
+        ((DefaultTableModel) view.getTable().getModel()).setRowCount(0);
+
     }
 
     public static StudentAvailableProjectsController getInstance(StudentAvailableProjectsView view) {
         if (singletonInstance == null) {
             singletonInstance = new StudentAvailableProjectsController(view);
         }
+
         return singletonInstance;
     }
 

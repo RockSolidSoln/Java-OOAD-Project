@@ -9,7 +9,10 @@ import model.Database;
 import model.LoginModel;
 import model.Student;
 import view.StudentDashboardView;
-
+/**
+ *
+ * @author
+ */
 public class StudentDashboardController {
 
     private static StudentDashboardController singletonInstance;
