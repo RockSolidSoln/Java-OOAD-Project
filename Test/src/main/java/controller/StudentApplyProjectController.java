@@ -30,6 +30,10 @@ public class StudentApplyProjectController {
                 RoutingController.StudentAvailableProjectsView();
             } else if(e.getSource() == view.getApplyButton()){
 //           Apply Button
+                view.getProjectId();
+                view.getProjectName();
+                view.getLecturerId();
+
             }
         }
     }

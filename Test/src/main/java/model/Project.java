@@ -18,7 +18,7 @@ public class Project {
     // private String studentAssigned;
 
     private static Project singletonInstance;
-
+        /* Constructor for the variables needed in project */
     public Project(String projectId, String projectName, String projectSpecialization, String projectDescription,
             String lecturer, String projectStatus) {
         this.projectId = projectId;
@@ -28,7 +28,7 @@ public class Project {
         this.lecturer = lecturer;
         this.projectStatus = projectStatus;
     }
-
+        /*  Getting singleton Instance */
     public static Project getInstance(String projectId, String projectName, String projectSpecialization,
             String projectDescription, String lecturer, String projectStatus) {
         if (singletonInstance == null) {
@@ -40,7 +40,7 @@ public class Project {
 
         return singletonInstance;
     }
-
+        /* Updating signleton instance */
     public void UpdateInstance(String projectId, String projectName, String projectSpecialization,
             String projectDescription, String lecturer, String projectStatus) {
         this.projectId = projectId;
@@ -51,7 +51,7 @@ public class Project {
         this.projectStatus = projectStatus;
     }
 
-    // Getters:
+    /* Getters:*/ 
     public String getProjectId() {
         return projectId;
     }
@@ -76,8 +76,8 @@ public class Project {
         return projectStatus;
     }
     // -------------------------------------------------
-
-    public static List<String> getlecturer() {
+    /* Getting Lecturer ID from Lecturer.csv */
+    public static List<String> getlecturerId() {
         String line = "";
         List<String> lecturers = new ArrayList<>();
         String csvSplitBy = ",";
@@ -92,7 +92,7 @@ public class Project {
         }
         return lecturers;
     }
-
+    
     public void saveProject() {
         String basePath = System.getProperty("user.dir");
         int counter = 0;
@@ -106,7 +106,7 @@ public class Project {
         }
         counter++;
         projectId = "PR" + String.valueOf(counter);
-        String filename = ("\\Test\\src\\assets\\projects.csv"); // stores the path of the file
+        String filename = ("\\Test\\src\\assets\\projects.csv"); /*stores the path of the file */ 
         ArrayList<String> line = new ArrayList<>();
 
         line.add("PR" + counter + "," + projectName + "," + lecturer + "," + projectSpecialization + ","
@@ -119,30 +119,30 @@ public class Project {
         ArrayList<ArrayList<String>> projectList = Database.getAllContents(path);
         return projectList;
     }
-
-    // For filtering the data from Project according lecturer.
+    
+    /* For filtering the data from Project according lecturer.*/ 
     public ArrayList<ArrayList<String>> FilterByLecturerId(String lecturerId) {
         String path = "\\Test\\src\\assets\\projects.csv";
 
-        // Calling the dataFiltration method to filter the Projects according to the
-        // lecturerId (saved in 3rd column in the DB).
+        /*  Calling the dataFiltration method to filter the Projects according to the
+        lecturerId (saved in 3rd column in the DB).*/
         ArrayList<ArrayList<String>> filteredProjectsByLecturer = Database.dataFiltration(path, lecturerId, 3);
         return filteredProjectsByLecturer;
     }
 
-    // For filtering the data from Active student list according Project.
+    /*For filtering the data from Active student list according Project. */ 
     public ArrayList<ArrayList<String>> FilterByProjectId(String projectId) {
         String path = "\\Test\\src\\assets\\application.csv";
 
-        // Calling the dataFiltration method to filter the Applications according to the
-        // projectId (saved in 1st column in the DB).
+        /* Calling the dataFiltration method to filter the Applications according to the 
+         projectId (saved in 1st column in the DB).*/ 
         ArrayList<ArrayList<String>> filteredProjectsByProjectId = Database.dataFiltration(path, projectId, 1);
         return filteredProjectsByProjectId;
     }
 
     public String ChangeActiveStatus(String projectId) {
         String path = "\\Test\\src\\assets\\projects.csv";
-        // Getting the line which is of the same Id.
+        /* Getting the line which is of the same Id.*/ 
         String[] operationItems = Database.FindDataFromDB(path, projectId);
         String changedStatus;
         if (operationItems[5].equals("active"))

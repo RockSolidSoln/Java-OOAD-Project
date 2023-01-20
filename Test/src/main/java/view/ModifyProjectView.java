@@ -18,7 +18,8 @@ public class ModifyProjectView extends JFrame {
     private static String projectSpecialization;
     private static String projectDetails;
 
-    public ModifyProjectView(String projectId,String projectName, String projectSpecialization, String projectDetails) {
+    public ModifyProjectView(String projectId,String projectName, String projectDetails, String projectSpecialization) {
+        ModifyProjectView.projectId = projectId;
         ModifyProjectView.projectName = projectName;
         ModifyProjectView.projectSpecialization = projectSpecialization;
         ModifyProjectView.projectDetails = projectDetails;
@@ -27,7 +28,7 @@ public class ModifyProjectView extends JFrame {
 
     public static ModifyProjectView getInstance() {
         if (singletonInstance == null) {
-            singletonInstance = new ModifyProjectView(projectId, projectName, projectSpecialization, projectDetails);
+            singletonInstance = new ModifyProjectView(projectId, projectName, projectDetails, projectSpecialization);
         }
         return singletonInstance;
     }
