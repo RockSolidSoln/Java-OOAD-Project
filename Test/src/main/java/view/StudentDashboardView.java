@@ -145,7 +145,7 @@ public class StudentDashboardView extends JFrame {
         jLabel9.setText("E-Mail:");
 
         jLabel10.setFont(new Font("SansSerif", Font.PLAIN, 18)); // NOI18N
-        jLabel10.setText("Phone-Number");
+        jLabel10.setText("Specialization");
 
         jLabel11.setFont(new Font("SansSerif", Font.PLAIN, 18)); // NOI18N
         jLabel11.setText("--");
@@ -306,7 +306,7 @@ public class StudentDashboardView extends JFrame {
 
     public JLabel getNavNameField(){ return jLabel4; }
 
-    public JLabel getPhoneField(){ return jLabel12; }
+    public JLabel getSpecializationField(){ return jLabel12; }
 
     public JLabel getEmailField(){ return jLabel3; }
 }

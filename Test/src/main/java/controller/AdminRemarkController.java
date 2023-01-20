@@ -1,5 +1,6 @@
 package controller;
 
+import model.AdminRemarkModel;
 import model.LoginModel;
 import view.AdminRemarkView;
 
@@ -9,6 +10,7 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class AdminRemarkController {
     public final AdminRemarkView view;
@@ -22,34 +24,13 @@ public class AdminRemarkController {
         view.getBackButton().addActionListener(new AdminRemarkController.RemarkListener()); //go back to view projects
         view.getPublishCommentButton().addActionListener(new AdminRemarkController.RemarkListener());
 
-        String basePath = System.getProperty("user.dir");
-        String csvFile = basePath + "//Test//src//assets//remarks.csv";
-        BufferedReader br = null;
-        String line = "";
-        String csvSplitBy = ",";
-
-        try {
-            br = new BufferedReader(new FileReader(csvFile));
-            while ((line = br.readLine()) != null) {
-                String[] row = line.split(",");
-                if(row[0].equals(view.getProjectId())) {
-                    String item2 = row[1];
-                    String item3 = row[2];
-                    view.getComment().append(item2 + ": " + item3 + "\n");
-                }
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        } finally {
-            if (br != null) {
-                try {
-                    br.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-        }
-
+        String projectId = view.getProjectId();
+        AdminRemarkModel remarkModel = AdminRemarkModel.getInstance();
+        AdminRemarkModel.readRemark(projectId);
+        ArrayList<String> adminId, adminRemark;
+//        adminId = AdminRemarkModel.getInstance().getAdminId();
+//        adminRemark =
+//        view.getComment().append(adminId + ": " + adminRemark + "\n");
     }
     public static AdminRemarkController getInstance(AdminRemarkView view) {
         if (singletonInstance == null) {
@@ -59,75 +40,23 @@ public class AdminRemarkController {
     }
 
     public class RemarkListener implements ActionListener{
-
-        private void publishCommentButtonActionPerformed(ActionEvent e) {
-            String text = view.getCommentField().getText();
-            String basePath = System.getProperty("user.dir");
-
-            String csvFile = basePath + "//Test//src//assets//remarks.csv";
-            FileWriter fw = null;
-            try {
-                fw = new FileWriter(csvFile, true);
-                fw.append(view.getProjectId() + "," +LoginModel.getUserId()+ ","+text+"\n");
-                fw.append(System.lineSeparator());
-                fw.flush();
-            } catch (IOException ex) {
-                ex.printStackTrace();
-            } finally {
-                try {
-
-                    if (fw != null) {
-                        fw.close();
-                    }
-                } catch (IOException ex) {
-                    ex.printStackTrace();
-                }
-            }
-            // read the file and update the text area
-            readFile();
-        }
-
-
         @Override
         public void actionPerformed(ActionEvent e) {
             if (e.getSource() == view.getPublishCommentButton()) {
                 publishCommentButtonActionPerformed(e);
             } else if (e.getSource() == view.getBackButton()) {
+                view.dispose();
                 RoutingController.AdminViewProjectActionPerformed();
             }
 
         }
 
-        public void readFile() {
-            String basePath = System.getProperty("user.dir");
-
-            String csvFile = basePath + "//Test//src//assets//remarks.csv";
-            BufferedReader br = null;
-            String line = "";
-            StringBuilder sb = new StringBuilder();
-
-            try {
-                br = new BufferedReader(new FileReader(csvFile));
-                while ((line = br.readLine()) != null) {
-                    String[] row = line.split(",");
-                    if (row[0].equals(view.getProjectId())) {
-                        String item2 = row[1];
-                        String item3 = row[2];
-                        sb.append(item2 + " " + item3 + "\n");
-                    }
-                }
-                view.getComment().setText(sb.toString());
-            } catch (IOException e) {
-                e.printStackTrace();
-            } finally {
-                if (br != null) {
-                    try {
-                        br.close();
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-                }
-            }
+        private void publishCommentButtonActionPerformed(ActionEvent e) {
+            String text = view.getCommentField().getText();
+            String projectId =view.getProjectId();
+            AdminRemarkModel.publishComment(projectId, text);
+            String updateRemark = AdminRemarkModel.updateRemarks(projectId);
+            view.getComment().setText(updateRemark);
         }
     }
 

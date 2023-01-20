@@ -7,12 +7,14 @@ import java.util.Objects;
 
 import model.Database;
 import model.LoginModel;
+import model.Student;
 import view.StudentDashboardView;
 
 public class StudentDashboardController {
 
     private static StudentDashboardController singletonInstance;
     private static StudentDashboardView view;
+
     public static StudentDashboardController getInstance(StudentDashboardView view) {
         if (singletonInstance == null) {
             singletonInstance = new StudentDashboardController(view);
@@ -23,31 +25,21 @@ public class StudentDashboardController {
     public StudentDashboardController(StudentDashboardView view) {
         StudentDashboardController.view = view;
 
-        view.getButton1().addActionListener(new NavigatorsListener());//view my project
-        view.getButton2().addActionListener(new NavigatorsListener());//logout
-        view.getButton3().addActionListener(new NavigatorsListener());//view active and sp projects
-        view.getButton4().addActionListener(new NavigatorsListener());//dashboard, active
+        view.getButton1().addActionListener(new NavigatorsListener());// view my project
+        view.getButton2().addActionListener(new NavigatorsListener());// logout
+        view.getButton3().addActionListener(new NavigatorsListener());// view active and sp projects
+        view.getButton4().addActionListener(new NavigatorsListener());// dashboard, active
 
-        List<String> informations = Database.readFile("\\Test\\src\\assets\\student.csv");
-        for (String line : informations) {
-            String[] items = line.split(","); //split the comma, store every word in an array
-            if(Objects.equals(LoginModel.getUserId(), items[0])) {
-                String Id = items[0];
-                String username = items[1];    //stores username
-                String email = items[2];    // stores password
-                String phone = items[4]; // stores
+        Student student = Student.getDetailsInstance(LoginModel.getUserId());
+        view.getNameField().setText(student.getName());
+        view.getEmailField().setText(student.getEmail());
+        view.getSpecializationField().setText(student.getSpecialization());
+        view.getIDField().setText(student.getUsername());
+        view.getNavNameField().setText(student.getUsername());
 
-                view.getNameField().setText(username);
-                view.getEmailField().setText(email);
-                view.getPhoneField().setText(phone);
-                view.getIDField().setText(Id);
-                view.getNavNameField().setText(Id);
-            }
-
-        }
     }
 
-    static class NavigatorsListener implements ActionListener{
+    static class NavigatorsListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
             if (e.getSource() == view.getButton1()) {

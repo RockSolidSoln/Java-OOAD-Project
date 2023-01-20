@@ -17,8 +17,16 @@ public class LoginModel {
         if (singletonInstance == null) {
                 singletonInstance = new LoginModel(userId, password);
         }
+        else    
+            singletonInstance.UpdateInstance(userId, password);
         return singletonInstance;
     }
+
+    public void UpdateInstance(String userId, String password){
+        this.userId = userId;
+        this.password = password;
+    }
+
     /*  Setter for UserID */
     public void setUserId(String userId) {
         this.userId = userId;

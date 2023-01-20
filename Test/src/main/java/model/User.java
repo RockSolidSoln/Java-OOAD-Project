@@ -63,7 +63,7 @@ public abstract class User {
 
     public void StoreCredentials(){
         
-        String line = this.username +"," + this.password + "\n";
+        String line = this.username +"," + this.password;
         ArrayList <String> lines = new ArrayList<String>();
         lines.add(line);
         String filename= ("\\Test\\src\\assets\\credentials.csv");
