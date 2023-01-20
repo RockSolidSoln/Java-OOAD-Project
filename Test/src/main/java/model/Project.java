@@ -113,7 +113,7 @@ public class Project {
         ArrayList<String> line = new ArrayList<>();
 
         line.add("PR" + counter + "," + projectName + "," + lecturer + "," + projectSpecialization + ","
-                + projectDescription + "," + "active" + "\n");
+                + projectDescription + "," + "active");
         Database.FilewriteBack(filename, line, true);
     }
 

@@ -30,6 +30,9 @@ public class AdminProjectsController {
         view.getViewRemarkButton().addActionListener(new AdminProjectsController.ProjectListener());
         view.getAddProjectButton().addActionListener(new AdminProjectsController.ProjectListener());
 
+        ProjectTableLoader(); 
+    }
+    public void ProjectTableLoader(){
         Project projectModel = Project.getInstance("null", "null", "null","null", "null", "null");
         ArrayList<ArrayList<String>> allProjects = projectModel.getAllProjects();
         
@@ -46,8 +49,6 @@ public class AdminProjectsController {
 
             ((DefaultTableModel) view.getTable().getModel()).insertRow(0, values);
         }
-        
-        
     }
 
     public static AdminProjectsController getInstance(AdminProjectsView view){

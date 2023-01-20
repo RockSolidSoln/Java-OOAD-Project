@@ -1,5 +1,6 @@
 package controller;
 
+import model.LoginModel;
 import model.Project;
 import view.AdminAndLecturerCreateProjectView;
 
@@ -91,6 +92,11 @@ public class AdminAndLecturerCreateProjectController {
                 AddProjectActionPerformed(e);
             } else if (e.getSource() == view.getButton2()) { // CreateProject - Go Back Pressed
                 view.dispose();
+                if(LoginModel.getUserId().charAt(0) == 'A') {
+                    RoutingController.AdminViewProjectActionPerformed();
+                }
+                else
+                    RoutingController.LecturerProjectsViewActionPerformed();
             }
 
         }
