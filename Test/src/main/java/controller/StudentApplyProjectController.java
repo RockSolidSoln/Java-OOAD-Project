@@ -6,10 +6,11 @@ import view.StudentApplyProjectView;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import model.ApplicationModel;
+
 public class StudentApplyProjectController {
     private static StudentApplyProjectController singletonInstance;
     private static StudentApplyProjectView view;
-
     public StudentApplyProjectController(StudentApplyProjectView view) {
         StudentApplyProjectController.view = view;
         view.getBackButton().addActionListener((ActionListener) new NavigatorsListener());//view my project
@@ -29,7 +30,7 @@ public class StudentApplyProjectController {
                 view.dispose();
                 NavBarController.StudentAvailableProjectsView();
             } else if(e.getSource() == view.getApplyButton()){
-//           Apply Button
+                ApplicationModel applicationModel = ApplicationModel.getInstance()
             }
         }
     }
