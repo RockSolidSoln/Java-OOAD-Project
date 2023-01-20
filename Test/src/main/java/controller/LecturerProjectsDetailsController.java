@@ -37,7 +37,7 @@ public class LecturerProjectsDetailsController {
                 String ChangedStatus = projectModel.ChangeActiveStatus(view.getProjectId());
                 view.displaySuccessMessage(ChangedStatus);
                 view.dispose();
-                RoutingController.LecturerProjectsViewActionPerformed();
+                RoutingController.LecturerProjectsViewActionPerformed(); 
             } else if (e.getSource() == view.getBackButton()) {
                 view.dispose();
                 RoutingController.LecturerProjectsViewActionPerformed();

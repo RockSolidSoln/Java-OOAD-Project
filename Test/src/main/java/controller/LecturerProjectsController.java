@@ -75,6 +75,7 @@ public class LecturerProjectsController {
                     String status = (String) view.getTable().getValueAt(selectedRow, 3);
                     
                     view.dispose();
+                    
                     RoutingController.ViewLecturerProjectDetails(projectID, projectName, specialization, status);
                 } else {
                     JOptionPane.showMessageDialog(null, "Please select a row from the table.");
