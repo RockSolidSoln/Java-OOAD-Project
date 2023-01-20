@@ -52,7 +52,7 @@ public class LecturerModifyProjectController {
             else{
                 // modify a model instance
                 // -- TEMPORARY : ID Incrementer
-
+                Project.modifyProject(projectId, projectName, specialization, description); 
             }
 
         }

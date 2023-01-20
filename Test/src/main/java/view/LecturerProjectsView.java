@@ -107,7 +107,7 @@ public class LecturerProjectsView extends JFrame {
 
         jButton4.setBackground(new Color(154, 216, 211));
         jButton4.setFont(new Font("SansSerif", Font.PLAIN, 12)); // NOI18N
-        jButton4.setText("Create Account");
+        jButton4.setText("Create Project");
         jButton4.setOpaque(true);
 
         GroupLayout jPanel4Layout = new GroupLayout(jPanel4);
