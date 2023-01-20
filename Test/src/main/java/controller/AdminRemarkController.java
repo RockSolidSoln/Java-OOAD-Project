@@ -1,23 +1,20 @@
 package controller;
 
 import model.AdminRemarkModel;
-import model.LoginModel;
 import view.AdminRemarkView;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
 import java.util.ArrayList;
 
 public class AdminRemarkController {
     public final AdminRemarkView view;
+    public static AdminRemarkModel model;
     private static AdminRemarkController singletonInstance;
 
 
-    public AdminRemarkController(AdminRemarkView view){
+    public AdminRemarkController(AdminRemarkView view, AdminRemarkModel model){
+        this.model = model;
         this.view = view;
 
         view.getCommentField().addActionListener(new AdminRemarkController.RemarkListener());
@@ -25,16 +22,20 @@ public class AdminRemarkController {
         view.getPublishCommentButton().addActionListener(new AdminRemarkController.RemarkListener());
 
         String projectId = view.getProjectId();
-        AdminRemarkModel remarkModel = AdminRemarkModel.getInstance();
-        AdminRemarkModel.readRemark(projectId);
-        ArrayList<String> adminId, adminRemark;
-//        adminId = AdminRemarkModel.getInstance().getAdminId();
-//        adminRemark =
-//        view.getComment().append(adminId + ": " + adminRemark + "\n");
+        model.readRemark(projectId);
+
+        System.out.println(projectId);
+        ArrayList<String> adminId = model.getAdminIds();
+        ArrayList<String> adminRemark = model.getAdminRemarks();
+
+        for (int i = 0; i < adminId.size(); i++) {
+            view.getComment().append(adminId.get(i) + ": " + adminRemark.get(i) + "\n");
+        }
+
     }
-    public static AdminRemarkController getInstance(AdminRemarkView view) {
+    public static AdminRemarkController getInstance(AdminRemarkView view, AdminRemarkModel model) {
         if (singletonInstance == null) {
-            singletonInstance = new AdminRemarkController(view);
+            singletonInstance = new AdminRemarkController(view, model);
         }
         return singletonInstance;
     }
@@ -46,6 +47,8 @@ public class AdminRemarkController {
                 publishCommentButtonActionPerformed(e);
             } else if (e.getSource() == view.getBackButton()) {
                 view.dispose();
+                model.getAdminIds().clear();
+                model.getAdminRemarks().clear();
                 RoutingController.AdminViewProjectActionPerformed();
             }
 
