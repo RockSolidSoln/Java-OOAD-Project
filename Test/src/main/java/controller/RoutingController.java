@@ -78,9 +78,9 @@ public class RoutingController {
     }
 
     //Lecturer: View Specific project
-    public static void ViewLecturerProjectDetails(String projectID, String projectName, String specialization, String status){
+    public static void ViewLecturerProjectDetails(String projectID, String projectName, String specialization,String status, String details){
         
-        var lecturerProjectDetailsView= LecturerProjectDetailsView.getInstance(projectID, projectName, specialization, status);
+        var lecturerProjectDetailsView= LecturerProjectDetailsView.getInstance(projectID, projectName, specialization, status, details);
         var lecturerProjectsDetailsController = LecturerProjectsDetailsController.getInstance(lecturerProjectDetailsView);
 
         lecturerProjectDetailsView.setVisible(true);
