@@ -19,7 +19,7 @@ public class LecturerModifyProjectController {
     public LecturerModifyProjectController(LecturerModifyProjectView view){
         LecturerModifyProjectController.view = view;
 
-        view.getButton1().addActionListener(new LecturerModifyProjectController.NavigatorsListener());
+        view.getButton1().addActionListener(new LecturerModifyProjectController.NavigatorsListener()); /*Button to create Project */
         view.getButton2().addActionListener(new LecturerModifyProjectController.NavigatorsListener()); //go back to view projects but keep in mind admin and lec is using same
 
         List<String> specialization = new ArrayList<String>();
@@ -49,12 +49,12 @@ public class LecturerModifyProjectController {
             String description = view.getDescription();
 
             if(lecturer.isEmpty() || projectName.isEmpty() || specialization.isEmpty() || description.isEmpty()) {
-                // Display an error message
+                /* Display an error message*/ 
                 JOptionPane.showMessageDialog(null, "Please fill out all fields.", "Error", JOptionPane.ERROR_MESSAGE);
             }
             else{
-                // modify a model instance
-                // -- TEMPORARY : ID Incrementer
+                /* modify a model instance*/ 
+                /*-- TEMPORARY : ID Incrementer */ 
                 Project.modifyProject(projectId, projectName, specialization, description); 
             }
 
@@ -64,8 +64,7 @@ public class LecturerModifyProjectController {
         public void actionPerformed(ActionEvent e) {
             if (e.getSource() == view.getButton1()) {
                 ModifyProjectActionPerformed(e);
-            } else if (e.getSource() == view.getButton2()) { // CreateProject - Go Back Pressed
-                view.dispose();
+            } else if (e.getSource() == view.getButton2()) { /* CreateProject - Go Back Pressed*/ 
                 RoutingController.LecturerProjectsViewActionPerformed();
             }
 

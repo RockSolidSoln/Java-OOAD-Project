@@ -19,13 +19,14 @@ public class LecturerDashboardController {
     public LecturerDashboardController(LecturerDashboardView view) {
         LecturerDashboardController.view = view;
 
-        view.getButton1().addActionListener(new NavigatorsListener());// create new project
-        view.getButton2().addActionListener(new NavigatorsListener());// view projects
-        view.getButton3().addActionListener(new NavigatorsListener());// Logout
-        view.getButton4().addActionListener(new NavigatorsListener());// Skipped : Lecturer dashboard (current view)
+        view.getButton1().addActionListener(new NavigatorsListener());/*create new project */
+        view.getButton2().addActionListener(new NavigatorsListener());/* view projects*/ 
+        view.getButton3().addActionListener(new NavigatorsListener());/*Logout*/
+        view.getButton4().addActionListener(new NavigatorsListener());/* Skipped : Lecturer dashboard (current view)*/ 
         
         DashboardLoader();
     }
+    /*This function loads the Dashboard with all the information presented there */
     public void DashboardLoader(){
         Lecturer lecturer = Lecturer.getDetailsInstance(LoginModel.getUserId());
         view.getNameField().setText(lecturer.getName());
@@ -57,12 +58,12 @@ public class LecturerDashboardController {
 
         @Override
         public void actionPerformed(ActionEvent e) {
-            if (e.getSource() == view.getButton1()) { // Lecturer - Create Project Button Pressed
+            if (e.getSource() == view.getButton1()) { /*Lecturer - Create Project Button Pressed*/
                 RoutingController.CreateProjectActionPerformed();
-            } else if (e.getSource() == view.getButton2()) { // Lecturer - View Projects Button Pressed
+            } else if (e.getSource() == view.getButton2()) { /*Lecturer - View Projects Button Pressed */ 
                 view.dispose();
                 RoutingController.LecturerProjectsViewActionPerformed();
-            } else if (e.getSource() == view.getButton3()) { // Logout Button Pressed
+            } else if (e.getSource() == view.getButton3()) { /*Logout Button Pressed */ 
                 view.dispose();
                 RoutingController.LogoutActionPerformed();
             }

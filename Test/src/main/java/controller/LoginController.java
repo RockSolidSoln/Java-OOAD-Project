@@ -63,6 +63,7 @@ public class LoginController {
         }
     }
 
+    /*IF enter is pressed on the keyboard this button is activated*/
     class EnterListener implements KeyListener {
         @Override
         public void keyPressed(KeyEvent e) {
@@ -84,7 +85,7 @@ public class LoginController {
 
         }
     }
-
+    /*checking if the userid and password are not null */
     class LoginListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
             if (view.getUserId() != null && view.getPassword() != null) {
@@ -92,7 +93,7 @@ public class LoginController {
             }
         }
     }
-
+           
     class ExitListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
             System.exit(0);

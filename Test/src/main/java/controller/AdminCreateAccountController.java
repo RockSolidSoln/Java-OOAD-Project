@@ -26,11 +26,11 @@ public class AdminCreateAccountController {
         this.view = view;
         view.getCreateAccountButton().addActionListener(new CreateAccountListener());
         view.getExitButton().addActionListener(new ExitListener());
-        view.getButton3().addActionListener(new AdminCreateAccountController.NavigatorsListener());//dashboard
-        view.getButton4().addActionListener(new AdminCreateAccountController.NavigatorsListener());//view project
-        view.getButton5().addActionListener(new AdminCreateAccountController.NavigatorsListener());//Skipped: active screen (current screen)
-        view.getButton6().addActionListener(new AdminCreateAccountController.NavigatorsListener());//view report
-        view.getButton7().addActionListener(new AdminCreateAccountController.NavigatorsListener());//logout
+        view.getButton3().addActionListener(new AdminCreateAccountController.NavigatorsListener()); /*dashboard */
+        view.getButton4().addActionListener(new AdminCreateAccountController.NavigatorsListener()); /*view projec */
+        view.getButton5().addActionListener(new AdminCreateAccountController.NavigatorsListener()); /* Skipped: active screen (current screen)*/
+        view.getButton6().addActionListener(new AdminCreateAccountController.NavigatorsListener()); /*view repor */
+        view.getButton7().addActionListener(new AdminCreateAccountController.NavigatorsListener()); /*logout */
     }
 
     public static AdminCreateAccountController getInstance(AdminCreateAccountView view) {
@@ -43,13 +43,13 @@ public class AdminCreateAccountController {
     class NavigatorsListener implements ActionListener{
         @Override
         public void actionPerformed(ActionEvent e) {
-            if (e.getSource() == view.getButton3()) { //Admin - dashboard pressed
+            if (e.getSource() == view.getButton3()) {  /*Admin - dashboard pressed  */
                 view.dispose();
                 RoutingController.AdminDashboardActionPerformed();
-            } else if (e.getSource() == view.getButton4()) { // Admin - View Project pressed
+            } else if (e.getSource() == view.getButton4()) {  /*Admin - View Project pressed */
                 view.dispose();
                 RoutingController.AdminViewProjectActionPerformed();
-            } else if (e.getSource() == view.getButton6()) { // Admin - View Report Pressed
+            } else if (e.getSource() == view.getButton6()) {  /*Admin - View Report Pressed */
                 view.dispose();
                 RoutingController.AdminViewReportPerformed();
             } else if (e.getSource() == view.getButton7()) { // Admin - Logout Pressed
@@ -74,26 +74,26 @@ public class AdminCreateAccountController {
             String userType = view.getUsertype();
 
             if(Objects.equals(password, confirmPassword)){
-                // Storing Credentials for the user (admin/lecturer/ student).
+                /*Storing Credentials for the user (admin/lecturer/ student). */ 
                 User user = User.getInstance(userId, password, name, email, phone);
                 user.StoreCredentials();
                 JOptionPane.showMessageDialog(null, "Account created successfully");
 
-                //Storing details for the user.
+                /*Storing details for the user.*/
                 if(userType.equals("ADMIN")){
                     Admin admin = Admin.getInstance(userId, password, name, email, phone);
-                    admin.StoreDetails(); // storing admin details in the DB
+                    admin.StoreDetails(); /* storing admin details in the DB*/
                     JOptionPane.showMessageDialog(null, "Account created successfully");
 
                 } else if(userType.equals("LECTURER")){
                     Lecturer lecturer = Lecturer.getInstance(userId, password, name, email, phone);
-                    lecturer.StoreDetails(); // storing lecturer details in the DB
+                    lecturer.StoreDetails(); /* storing lecturer details in the DB*/ 
                     JOptionPane.showMessageDialog(null, "Account created successfully");
 
                 }
                 else{
                     Student student = Student.getInstance(userId, password, name, email, phone, specialization);
-                    student.StoreDetails();   // storing student details in the DB
+                    student.StoreDetails();   /*storing student details in the DB */ 
                 }
 
             } else{
