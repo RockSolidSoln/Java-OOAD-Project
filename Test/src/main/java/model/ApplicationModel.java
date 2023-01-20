@@ -32,9 +32,9 @@ public class ApplicationModel {
         this.studentId = studentId;
         this.studentName = studentName;
     }
-    
+
     public void StoreDetails(){
-        String line = projectId +"," + studentId + "," + studentName + "\n";
+        String line = projectId +"," + studentId + "," + studentName;
         ArrayList <String> lines = new ArrayList<String>();
         lines.add(line);
         String filename= ("\\Test\\src\\assets\\application.csv");
