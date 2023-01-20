@@ -9,7 +9,7 @@ import model.Project;
  * @author
  */
 public class RoutingController {
-    // Users Navigation Bar: Logout
+    /* Users Navigation Bar: Logout*/ 
     public static void LogoutActionPerformed() {
         LoginModel model = LoginModel.getInstance(null, null);
         LoginView view = LoginView.getInstance();
@@ -18,7 +18,7 @@ public class RoutingController {
         view.setVisible(true);
     }
 
-    // Admin Navigation Bar: View Project
+    /* Admin Navigation Bar: View Project*/ 
     public static void AdminViewProjectActionPerformed() {
         AdminProjectsView view = AdminProjectsView.getInstance();
         AdminProjectsController controller = AdminProjectsController.getInstance(view);
@@ -26,36 +26,37 @@ public class RoutingController {
         view.setVisible(true);
     }
 
-    // Admin Navigation Bar: Create Account
+    /* Admin Navigation Bar: Create Account*/ 
     public static void AdminCreateAccountActionPerformed() {
         var createAccountView = AdminCreateAccountView.getInstance();
         var createAccountController = AdminCreateAccountController.getInstance(createAccountView);
         createAccountView.setVisible(true);
     }
 
-    // Admin Navigation Bar: AdminDashBoard
+    /*Admin Navigation Bar: AdminDashBoard */
     public static void AdminDashboardActionPerformed() {
         var adminDashboardview = AdminDashboardView.getInstance();
         var adminDashboardcontroller = AdminDashboardController.getInstance(adminDashboardview);
-        adminDashboardcontroller.DashBoardLoader(); // To Load the Data.
+        adminDashboardcontroller.DashBoardLoader(); /*To Load the Data. */ 
         adminDashboardview.setVisible(true);
     }
-    
-    //Admin views a project
-    public static void AdminViewProject(String projectId, String projectName, String lecturerId, String specialization, String details){
-        AdminProjectDetailsView new_view = new AdminProjectDetailsView(projectId, projectName, lecturerId, specialization, details);
-        AdminProjectDetailsController controller = new AdminProjectDetailsController(new_view);
+
+    /*Admin views a project*/
+    public static void AdminViewProjectPerformed(String projectId, String projectName, String lecturerId, String specialization, String details){
+        var new_view = AdminProjectDetailsView.getInstance(projectId, projectName, lecturerId, specialization, details);
+        var controller = AdminProjectDetailsController.getInstance(new_view);
         new_view.setVisible(true);
     }
 
-    //Admin
-    public static void AdminViewReport(){
+
+    /*Admin*/
+    public static void AdminViewReportPerformed(){
         var adminView = AdminReportView.getInstance();
         var controller = AdminReportController.getInstance(adminView);
+        controller.ProjectTableLoader();
         adminView.setVisible(true);
     }
-
-
+    
     //Lectured Dashboard
     public static void LecturerDashboardActionPerformed() {
         var lecturerDashboardView = LecturerDashboardView.getInstance();
@@ -64,7 +65,7 @@ public class RoutingController {
         lecturerDashboardView.setVisible(true);
     }
 
-    // Lecturer Navigation Bar: LecturerProjectsView
+    /* Lecturer Navigation Bar: LecturerProjectsView*/
     public static void LecturerProjectsViewActionPerformed() {
         var lecturerProjectsView = LecturerProjectsView.getInstance();
         var lecturerProjectsController = LecturerProjectsController.getInstance(lecturerProjectsView);
@@ -72,7 +73,7 @@ public class RoutingController {
         lecturerProjectsView.setVisible(true);
     }
 
-    // Lecturer / Admin : Create Project
+    /*  Lecturer / Admin : Create Project*/
     public static void CreateProjectActionPerformed() {
         var createProjectView = AdminAndLecturerCreateProjectView.getInstance();
         var projectModel = Project.getInstance(null,null, null, null, null, null);
@@ -80,7 +81,7 @@ public class RoutingController {
         createProjectView.setVisible(true);
     }
 
-    //Lecturer: View Specific project
+    /*Lecturer: View Specific project*/
     public static void ViewLecturerProjectDetails(String projectID, String projectName, String specialization,String status, String details){
         
         var lecturerProjectDetailsView= LecturerProjectDetailsView.getInstance(projectID, projectName, specialization, status, details);
@@ -90,14 +91,14 @@ public class RoutingController {
     }
 
 
-    // Lecturer: View Applying student list
+    /*Lecturer: View Applying student list */ 
     public static void ViewApplyingStudentListPerformed(String projectId){
         LecturerApplicationView new_view = LecturerApplicationView.getInstance();
         LecturerApplicationController controller  = LecturerApplicationController.getInstance(new_view, projectId);
         new_view.setVisible(true);
     }
 
-    //Lecturer: Modify Project
+    /*Lecturer: Modify Project*/
     public static void LecturerModifyProject(String projectId, String projectName, String projectDescription, String projectSpecialization){
         var modifyProjectView = new LecturerModifyProjectView(projectId, projectName, projectDescription, projectSpecialization);
         var modifyProjectController = new LecturerModifyProjectController(modifyProjectView);
@@ -106,7 +107,7 @@ public class RoutingController {
     }
 
 
-    //Student: View dashboard
+    /*Student: View dashboard*/
     public static void StudentDashboardView(){
         var studentDashboardView = StudentDashboardView.getInstance();
         var studentDashboardController = StudentDashboardController.getInstance(studentDashboardView);
@@ -114,7 +115,7 @@ public class RoutingController {
         studentDashboardView.setVisible(true);
     }
 
-    //Student: View his project details
+    /*Student: View his project details */
     public static void StudentProjectDetailsView(){
         var studentProjectDetailsView = StudentProjectDetailsView.getInstance();
         var studentProjectDetailsController = StudentProjectDetailsController.getInstance(studentProjectDetailsView);
@@ -129,14 +130,11 @@ public class RoutingController {
         studentAvailableProjectsView.setVisible(true);
     }
 
-    //Student: Apply for a project
+    /*Student: Apply for a project */
     public static void StudentApplyProjectsView(String projectId, String projectName, String lecturerId){
         var studentApplyProjectsView = StudentApplyProjectView.getInstance(projectId, projectName, lecturerId);
         var studentApplyProjectsController = StudentApplyProjectController.getInstance(studentApplyProjectsView);
         studentApplyProjectsView.setVisible(true);
     }
-
-
-
 
 }

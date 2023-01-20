@@ -97,7 +97,7 @@ public class AdminProjectsController {
                 String details = (String) view.getTable().getValueAt(selectedRow, 4);
 
                 view.dispose();
-                RoutingController.AdminViewProject(projectID, projectName, lecturerID, specialization, details);
+                RoutingController.AdminViewProjectPerformed(projectID, projectName, lecturerID, specialization, details);
             } else {
                 JOptionPane.showMessageDialog(null, "Please select a row from the table.");
             }
@@ -115,7 +115,7 @@ public class AdminProjectsController {
                 RoutingController.AdminCreateAccountActionPerformed();
             } else if (e.getSource() == view.getButton4()) { // Admin - View Reports Pressed
                 view.dispose();
-                RoutingController.AdminViewReport();
+                RoutingController.AdminViewReportPerformed();
             } else if (e.getSource() == view.getButton5()) { // Admin - logout Pressed
                 view.dispose();
                 RoutingController.LogoutActionPerformed();

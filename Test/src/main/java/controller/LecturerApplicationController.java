@@ -22,8 +22,8 @@ public class LecturerApplicationController {
         LecturerApplicationController.view = view;
         LecturerApplicationController.projectId = projectId;
 
-        view.getBackButton().addActionListener(new LecturerApplicationController.NavigatorsListener());
-        view.getAssignButton().addActionListener(new LecturerApplicationController.NavigatorsListener());
+        view.getBackButton().addActionListener(new LecturerApplicationController.NavigatorsListener()); /*Go back  */
+        view.getAssignButton().addActionListener(new LecturerApplicationController.NavigatorsListener());/*Assign button for lecturer to assign and un-assign students for a specific project */
 
         String basePath = System.getProperty("user.dir");
         try(BufferedReader br2 = new BufferedReader(new FileReader(basePath + "\\Test\\src\\assets\\application.csv"))){
@@ -64,7 +64,7 @@ public class LecturerApplicationController {
                 view.dispose();
                 RoutingController.LecturerDashboardActionPerformed();
             } else if (e.getSource() == view.getAssignButton()) {
-                //assign to perform
+                /*assign to perform */
                 int selectedRow = view.getTable().getSelectedRow();
                 if (selectedRow != -1) {
                     // get the value of the project ID column

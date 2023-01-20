@@ -20,9 +20,9 @@ public class AdminRemarkController {
         this.model = model;
         this.view = view;
 
-        view.getCommentField().addActionListener(new AdminRemarkController.RemarkListener());
-        view.getBackButton().addActionListener(new AdminRemarkController.RemarkListener()); //go back to view projects
-        view.getPublishCommentButton().addActionListener(new AdminRemarkController.RemarkListener());
+        view.getCommentField().addActionListener(new AdminRemarkController.RemarkListener());/*Comment field */
+        view.getBackButton().addActionListener(new AdminRemarkController.RemarkListener()); /*go back to view projects */
+        view.getPublishCommentButton().addActionListener(new AdminRemarkController.RemarkListener()); /*Publish comment  */
 
         String projectId = view.getProjectId();
         model.readRemark(projectId);

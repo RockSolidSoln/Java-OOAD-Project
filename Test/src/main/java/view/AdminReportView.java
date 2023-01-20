@@ -218,7 +218,7 @@ public JButton getViewProjectButton() {return jButton8;}
 
 public JButton getDashboardButton() { return jButton1;}
 
-public JTable getJTable(){return jTable1;}
+public JTable getTable(){return jTable1;}
 
 }
 
