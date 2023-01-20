@@ -46,13 +46,13 @@ public class Database {
             lines = Files.readAllLines(Paths.get(basePath + path)); /* read from credentials file */
 
             // for (String line : lines) {
-            // String[] items = line.split(","); //split the comma, store every word in an
-            // array
-            // username = items[0]; //stores username
-            // String password = items[1]; // stores password
-            // credentials.add(username + " " + password); //add it in the credentials array
-            // with a space
-            // }
+            /*  String[] items = line.split(","); //split the comma, store every word in an */
+            /*  array*/
+            /*  username = items[0]; //stores username */
+            /*  String password = items[1];  stores password */
+            /* credentials.add(username + " " + password); //add it in the credentials array */
+            /* with a space*/ 
+            
         } catch (Exception e) {
             /* If unable to read credentials from the files */
             System.out.println("Unable to read Credentials from file");

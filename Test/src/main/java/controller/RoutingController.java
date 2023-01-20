@@ -20,8 +20,8 @@ public class RoutingController {
 
     /* Admin Navigation Bar: View Project*/ 
     public static void AdminViewProjectActionPerformed() {
-        AdminProjectsView view = AdminProjectsView.getInstance();
-        AdminProjectsController controller = AdminProjectsController.getInstance(view);
+        var view = AdminProjectsView.getInstance();
+        var controller = AdminProjectsController.getInstance(view);
         controller.ProjectTableLoader();
         view.setVisible(true);
     }
@@ -56,7 +56,7 @@ public class RoutingController {
         controller.ProjectTableLoader();
         adminView.setVisible(true);
     }
-    
+
     //Lectured Dashboard
     public static void LecturerDashboardActionPerformed() {
         var lecturerDashboardView = LecturerDashboardView.getInstance();
