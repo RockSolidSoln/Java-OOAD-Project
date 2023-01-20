@@ -31,18 +31,32 @@ public class StudentApplyProjectView extends JFrame {
     private JLabel lecturerNameLabel2;
     private JLabel projectIdLabel2;
     private JLabel projectNameLabel2;
+    // Variables declaration - do not modify
+    private JButton backButton;
+    private JButton applyButton;
+    private JLabel jLabel1;
+    private JPanel jPanel1;
+    private JLabel lecturerNameLabel;
+
+    private JLabel projectDetails;
+    private JTextField projectDetailsTextField;
+    private JLabel projectIdLabel;
+    private JLabel projectNameLabel;
+    private JLabel projectSpecialization1;
+    private JLabel projectSpecializationLabel2;
+
     private static StudentApplyProjectView singletonInstance;
 
-    public static StudentApplyProjectView getInstance(String projectID, String projectName, String lecturerId, String details){
+    public static StudentApplyProjectView getInstance(String projectId, String projectName, String lecturerId, String details){
         if (singletonInstance == null) {
             singletonInstance = new StudentApplyProjectView(projectId, projectName, lecturerId, details);
         }
         else
-                singletonInstance.updateInstance(projectId, projectName, lecturerId);
+                singletonInstance.updateInstance(projectId, projectName, lecturerId, details);
         return singletonInstance;
     }
     
-    public void updateInstance(String projectId, String projectName, String lecturerId){
+    public void updateInstance(String projectId, String projectName, String lecturerId, String details){
         this.projectId = projectId;
         this.projectName = projectName;
         this.lecturerId = lecturerId;
@@ -52,27 +66,13 @@ public class StudentApplyProjectView extends JFrame {
         projectNameLabel2.setText(projectName);
         lecturerNameLabel2.setText(lecturerId);
         projectDetailsTextField.setText(details);
+
     }
 
 
-    // Variables declaration - do not modify
-    private JButton backButton;
-    private JButton applyButton;
-    private JLabel jLabel1;
-    private JPanel jPanel1;
-    private JLabel lecturerNameLabel;
-    
-    private JLabel projectDetails;
-    private JTextField projectDetailsTextField;
-    private JLabel projectIdLabel;
-    
-    private JLabel projectNameLabel;
-    
-    private JLabel projectSpecialization1;
-    private JLabel projectSpecializationLabel2;
 
     private void initComponents() {
-
+        System.out.println(details);
         jPanel1 = new JPanel();
         jLabel1 = new JLabel();
         projectNameLabel = new JLabel();
@@ -103,8 +103,9 @@ public class StudentApplyProjectView extends JFrame {
         projectIdLabel.setText("Project ID");
 
         projectDetails.setFont(new java.awt.Font("SansSerif", Font.PLAIN, 18)); // NOI18N
-        projectDetails.setText(details);
-        projectDetails.setEnabled(false);
+        projectDetails.setText("Project Details");
+        projectDetailsTextField.setText(details);
+        projectDetailsTextField.setEnabled(false);
 
         projectNameLabel2.setFont(new java.awt.Font("SansSerif", Font.PLAIN, 18)); // NOI18N
         projectNameLabel2.setText(projectName);

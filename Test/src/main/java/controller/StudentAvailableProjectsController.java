@@ -42,7 +42,7 @@ public class StudentAvailableProjectsController {
             values[0] = allProject.get(0);
             values[1] = allProject.get(1);
             values[2] = allProject.get(2);
-            values[3] = allProject.get(3);
+            values[3] = allProject.get(4);
             System.out.println("Debugg:   " + values[0]);
             ((DefaultTableModel) view.getTable().getModel()).insertRow(0, values);
         }

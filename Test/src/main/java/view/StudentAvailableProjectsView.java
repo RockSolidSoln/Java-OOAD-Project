@@ -73,7 +73,7 @@ public class StudentAvailableProjectsView extends JFrame {
                 }
         ) {
             final Class[] types = new Class [] {
-                    java.lang.String.class, java.lang.String.class, java.lang.Object.class
+                    java.lang.String.class, java.lang.String.class, java.lang.Object.class, java.lang.Object.class
             };
             final boolean[] canEdit = new boolean [] {
                     false, false, false, false
