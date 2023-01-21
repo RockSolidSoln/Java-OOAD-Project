@@ -22,6 +22,8 @@ public class LecturerProjectsDetailsController {
         view.getUnassignButton().addActionListener(new LecturerProjectsDetailsController.NavigatorsListener());
         view.getModifyButton().addActionListener(new LecturerProjectsDetailsController.NavigatorsListener());
         view.getApplyingListButton().addActionListener(new LecturerProjectsDetailsController.NavigatorsListener());
+
+
     }
 
     public static LecturerProjectsDetailsController getInstance(LecturerProjectDetailsView view) {

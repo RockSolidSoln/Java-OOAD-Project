@@ -27,6 +27,7 @@ public class LecturerProjectDetailsView extends JFrame {
     private JTextField detailsTextField;
     private JLabel specializationLabel2;
     JLabel statusLabel = new JLabel();
+    JLabel studentNameLabel2 = new JLabel();
     private String details;
 
 
@@ -37,7 +38,9 @@ public class LecturerProjectDetailsView extends JFrame {
         this.status = status;
         this.details = details;
         Project projectModel = Project.getDetailsInstance(projectID);
-        projectModel.getEnrolledStudent();
+
+
+        studentNameLabel2.setText(projectModel.getEnrolledStudent());
         initComponents();
     }
 
@@ -64,6 +67,9 @@ public class LecturerProjectDetailsView extends JFrame {
         projectIdLabel2.setText(projectID);
         statusLabel.setText(status);
         detailsTextField.setText(details);
+        Project projectModel = Project.getDetailsInstance(projectID);
+
+        studentNameLabel2.setText(projectModel.getEnrolledStudent());
         //initComponents();
     }
 
@@ -86,7 +92,6 @@ public class LecturerProjectDetailsView extends JFrame {
         activateDeactivateButton = new JButton();
         viewApplyingListButton = new JButton();
         JLabel jLabel1 = new JLabel();
-        JLabel studentNameLabel2 = new JLabel();
         projectIdLabel2 = new JLabel();
         JLabel projectIdLabel = new JLabel();
         JLabel lecturerIdLabel = new JLabel();
@@ -150,7 +155,6 @@ public class LecturerProjectDetailsView extends JFrame {
 
         studentNameLabel2.setFont(new Font("SansSerif", Font.PLAIN, 18)); // NOI18N
         studentNameLabel2.setForeground(new Color(230, 230, 230));
-        studentNameLabel2.setText("");
 
         projectIdLabel2.setBackground(new Color(230, 230, 230));
         projectIdLabel2.setFont(new Font("SansSerif", Font.PLAIN, 18)); // NOI18N
@@ -324,5 +328,8 @@ public class LecturerProjectDetailsView extends JFrame {
 
     public void displaySuccessMessage(String newStatus) {
         JOptionPane.showMessageDialog(null, "Success! The Project Status Changed to " + newStatus.toUpperCase(), "Success", JOptionPane.INFORMATION_MESSAGE);
+    }
+    public JLabel getStudentName(){
+        return studentNameLabel2;
     }
 }

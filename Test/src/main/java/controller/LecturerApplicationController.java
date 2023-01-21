@@ -78,12 +78,13 @@ public class LecturerApplicationController {
                     //ApplicationModel.AssignStudent(String projectId, String studentId);
                     
                     Boolean availability = Project.isStudentAvailable(studentId);
-                    if(availability)
+                    if(availability) {
                         Project.AssignStudent(projectId, studentId);
                         //print confirmation.
-                        
-                    else{
+                        view.displaySuccessMessage(projectId, studentId);
+                    }else{
                         // if the student not available - print Error Display
+                        view.displayFailureMessage(projectId, studentId);
                     }
                         
                 }
