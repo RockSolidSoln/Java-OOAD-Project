@@ -87,6 +87,10 @@ public class Project {
         return projectStatus;
     }
 
+    public String getEnrolledStudent() {
+        return enrolledStudent;
+    }
+
     // -------------------------------------------------
     /* Getting All Lecturer Ids from Lecturer.csv */
     public static List<String> getlecturerId() {
