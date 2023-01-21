@@ -78,7 +78,7 @@ public class AdminReportController {
             } else if (e.getSource() == view.getUndoButton()) { // Admin - Logout Pressed
 
 
-            }else if (e.getSource() == view.getviewByButton()) { // Admin - Logout Pressed
+            } else if (e.getSource() == view.getviewByButton()) { // Admin - Logout Pressed
 
             }
 
@@ -86,3 +86,75 @@ public class AdminReportController {
     }
 
 }
+
+private void viewByButtonActionPerformed(java.awt.event.ActionEvent evt) {                                             
+    // TODO add your handling code here:
+    if (jTable1.getSelectedRow() != -1 && jTable1.getSelectedColumn() != -1) {
+    int selectedRow = jTable1.getSelectedRow();
+    int selectedCol = jTable1.getSelectedColumn();
+    if (selectedRow >= 0 && selectedCol >= 0) {
+    Object selectedValue = jTable1.getValueAt(selectedRow, selectedCol);
+    List<String[]> selectedRows = new ArrayList<>();
+     try (BufferedReader br = new BufferedReader(new FileReader("C:\\Users\\salah\\Documents\\NetBeansProjects\\mavenproject1\\src\\main\\java\\com\\mycompany\\mavenproject1\\newpackage\\project.csv"))) {
+        String line;
+        while ((line = br.readLine()) != null) {
+            String[] values = line.split(",");
+            if (values[selectedCol].equals(selectedValue)) {
+                selectedRows.add(values);
+            } 
+        }
+    } catch (IOException e) {
+        e.printStackTrace();
+    }
+       DefaultTableModel model = new DefaultTableModel(new String[]{"Project ID", "Project Name", "Lecturer Name", "Specialization", "Assigned", "Status", "Comment"}, 0);
+    for (String[] row : selectedRows) {
+        model.addRow(row);
+    }
+    jTable1.setModel(model);
+    }
+    }
+}                                            
+private DefaultTableModel originalModel; 
+
+private void createOriginalModel() { // u need this for saving originalModel
+originalModel = (DefaultTableModel) jTable1.getModel();
+}
+private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {                                         
+    // TODO add your handling code here:
+    jTable1.setModel(originalModel);
+}                                        
+
+private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {                                         
+    // TODO add your handling code here:
+}                                        
+
+private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {                                         
+    // TODO add your handling code here:
+}                                        
+
+private void viewRemarkButtonActionPerformed(java.awt.event.ActionEvent evt) {                                                 
+    // TODO add your handling code here:
+//         int selectedRow = jTable1.getSelectedRow();
+//        if (selectedRow != -1) {
+//            // get the value of the project ID column
+//            String projectID = (String) jTable1.getValueAt(selectedRow, 0);
+//            // redirect to ProjectDetails JFrame here
+//            RemarkSection remarkSection = new RemarkSection(projectID);
+//remarkSection.setVisible(true);
+//        } else {
+//            // show a pop-up message
+//            JOptionPane.showMessageDialog(null, "Please select a row from the table.");
+//        }
+//    }
+    int selectedRow = jTable1.getSelectedRow();
+    if (selectedRow != -1) {
+        // get the value of the project ID column
+        String projectID = (String) jTable1.getValueAt(selectedRow, 0);
+        // redirect to ProjectDetails JFrame here
+        RemarkSection remarkSection = new RemarkSection(projectID);
+remarkSection.setVisible(true);
+    }else {
+        // show a pop-up message
+        JOptionPane.showMessageDialog(null, "Please select a row from the table.");
+    }
+}    
