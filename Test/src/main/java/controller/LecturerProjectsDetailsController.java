@@ -46,7 +46,9 @@ public class LecturerProjectsDetailsController {
                
                 RoutingController.LecturerProjectsViewActionPerformed();
             } else if (e.getSource() == view.getUnassignButton()) {
-                view.dispose();
+                // Pass projectId here.
+                Project.unAssignStudent(view.getProjectId()); 
+
             } else if (e.getSource() == view.getModifyButton()) {
                 view.dispose();
                 String projectId = view.getProjectId();

@@ -247,7 +247,7 @@ public class Project {
         }
     }
 
-    public void unAssignStudent(String projectId, String studentId){
+    public static void unAssignStudent(String projectId){
         String path = ("\\Test\\src\\assets\\projects.csv");
         String[] projectRow = Database.FindDataFromDB(path, projectId);
         Database.ChangeContent(path, projectId, projectRow, 7, null);
