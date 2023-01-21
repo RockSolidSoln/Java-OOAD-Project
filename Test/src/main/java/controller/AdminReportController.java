@@ -74,7 +74,9 @@ public class AdminReportController {
                 if (selectedRow >= 0 && selectedCol >= 0) {
                     Object selectedValue = view.getTable().getValueAt(selectedRow, selectedCol);
                     List<String[]> selectedRows = new ArrayList<>();
-                    try (BufferedReader br = new BufferedReader(new FileReader("C:\\Users\\salah\\Documents\\NetBeansProjects\\mavenproject1\\src\\main\\java\\com\\mycompany\\mavenproject1\\newpackage\\project.csv"))) {
+                    String basepath = System.getProperty("user.dir");
+                    String path = ("\\Test\\src\\assets\\projects.csv");
+                    try (BufferedReader br = new BufferedReader(new FileReader(basepath+path))) {
                         String line;
                         while ((line = br.readLine()) != null) {
                             String[] values = line.split(",");
@@ -93,7 +95,7 @@ public class AdminReportController {
                 }
             }
         }
-        private void viewRemarkButtonActionPerformed(java.awt.event.ActionEvent evt) {
+        private void viewRemarkButtonActionPerformed() {
 
             int selectedRow = view.getTable().getSelectedRow();
             if (selectedRow != -1) {
@@ -124,12 +126,12 @@ public class AdminReportController {
                 view.dispose();
                 RoutingController.AdminDashboardActionPerformed();
             } else if (e.getSource() == view.getViewRemarkButton()) { // Admin - Logout Pressed
-                viewByButtonActionPerformed();
+                viewRemarkButtonActionPerformed();
             } else if (e.getSource() == view.getUndoButton()) { // Admin - Logout Pressed
                 DefaultTableModel originalModel = (DefaultTableModel) view.getTable().getModel();
                 view.getTable().setModel(originalModel);
             } else if (e.getSource() == view.getviewByButton()) { // Admin - Logout Pressed
-
+                viewByButtonActionPerformed();
             }
 
         }
