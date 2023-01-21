@@ -25,6 +25,9 @@ public class StudentProjectDetailsView extends JFrame {
 
     /* Variables declaration - do not modify*/ 
     private JButton backButton;
+    JLabel jLabel7 = new JLabel();
+    JLabel projectSpecializationLabel = new JLabel();
+    JTextField projectDetailsTextField = new JTextField();
     /*  End of variables declaration*/
 
     private void initComponents() {
@@ -34,14 +37,14 @@ public class StudentProjectDetailsView extends JFrame {
         JLabel jLabel2 = new JLabel();
         JLabel jLabel3 = new JLabel();
         JLabel jLabel4 = new JLabel();
-        JLabel jLabel5 = new JLabel();
-        JLabel jLabel7 = new JLabel();
-        JLabel projectSpecializationLabel = new JLabel();
         backButton = new JButton();
-        JTextField projectDetailsTextField = new JTextField();
+        JLabel jLabel5 = new JLabel();
+
         /* Styling for components */
         setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
+
+        projectDetailsTextField.setEditable(false);
 
         jPanel1.setBackground(new Color(0, 168, 209));
 
@@ -58,10 +61,10 @@ public class StudentProjectDetailsView extends JFrame {
         jLabel4.setText("Project Details");
 
         jLabel7.setFont(new Font("SansSerif", Font.PLAIN, 18)); // NOI18N
-        jLabel7.setText("Project Name");
+        jLabel7.setText("Null");
 
         projectSpecializationLabel.setFont(new Font("SansSerif", Font.PLAIN, 18)); // NOI18N
-        projectSpecializationLabel.setText("Project Specialization");
+        projectSpecializationLabel.setText("Null");
 
         backButton.setText("Back");
         backButton.setForeground(Color.WHITE);
@@ -141,4 +144,13 @@ public class StudentProjectDetailsView extends JFrame {
         return backButton;
     }
 
+    public JLabel getProjectName(){
+        return jLabel7;
+    }
+    public JLabel getSpecialization(){
+        return projectSpecializationLabel;
+    }
+    public JTextField getDetails(){
+        return projectDetailsTextField;
+    }
 }
