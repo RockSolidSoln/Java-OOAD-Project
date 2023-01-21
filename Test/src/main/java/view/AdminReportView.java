@@ -74,7 +74,7 @@ public class AdminReportView extends JFrame {
             return canEdit [columnIndex];
         }
     });
-    jTable1.setCellSelectionEnabled(false);
+    jScrollPane1.setViewportView(jTable1);
 
     viewByButton.setText("View By");
     viewByButton.setBackground(new Color(154, 216, 211));
