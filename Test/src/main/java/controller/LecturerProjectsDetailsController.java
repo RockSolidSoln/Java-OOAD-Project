@@ -57,7 +57,7 @@ public class LecturerProjectsDetailsController {
                 String projectSpecialization = view.getProjectSpecialization();
                 RoutingController.LecturerModifyProject(projectId, projectName, projectDetails, projectSpecialization);
             } else if (e.getSource() == view.getApplyingListButton()) {
-                System.out.println("Debug: LecturerProjectDetailsController:   xxxxx" + view.getProjectId());
+                
                 RoutingController.ViewApplyingStudentListPerformed(view.getProjectId());
                 view.dispose();
             }

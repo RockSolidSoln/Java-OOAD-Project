@@ -35,6 +35,7 @@ public class LecturerProjectDetailsView extends JFrame {
         this.specialization = specialization;
         this.status = status;
         this.details = details;
+        Project.getDetailsInstance(projectID);
 
         initComponents();
     }

@@ -1,6 +1,7 @@
 package controller;
 
 import view.LecturerApplicationView;
+import view.LecturerProjectDetailsView;
 
 import javax.swing.table.DefaultTableModel;
 
@@ -75,9 +76,16 @@ public class LecturerApplicationController {
                     String studentId = (String) view.getTable().getValueAt(selectedRow, 0);
                     String studentName = (String) view.getTable().getValueAt(selectedRow, 1);
                     //ApplicationModel.AssignStudent(String projectId, String studentId);
-                    // if the student not available - print Error Display
-                    // else, print confirmation. 
-                    Project.AssignStudent(projectId, studentId);
+                    
+                    Boolean availability = Project.isStudentAvailable(studentId);
+                    if(availability)
+                        Project.AssignStudent(projectId, studentId);
+                        //print confirmation.
+                        
+                    else{
+                        // if the student not available - print Error Display
+                    }
+                        
                 }
             }
 
