@@ -50,14 +50,14 @@ public class AdminReportController {
         ((DefaultTableModel) view.getTable().getModel()).setRowCount(0);
 
         for (ArrayList<String> allProject : allProjects) {
-            String[] values = new String[7];
+            String[] values = new String[6];
             values[0] = allProject.get(0);
             values[1] = allProject.get(1);
             values[2] = allProject.get(2);
             values[3] = allProject.get(3);
             values[4] = allProject.get(4);
             values[5] = allProject.get(5);
-            values[6] = "Something";
+          //  values[6] = "Something";
 
             ((DefaultTableModel) view.getTable().getModel()).insertRow(0, values);
         }
@@ -87,7 +87,7 @@ public class AdminReportController {
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
-                    DefaultTableModel model = new DefaultTableModel(new String[]{"Project ID", "Project Name", "Lecturer Name", "Specialization", "Assigned", "Status", "Comment"}, 0);
+                    DefaultTableModel model = new DefaultTableModel(new String[]{"Project ID", "Project Name", "Lecturer Name", "Specialization", "Assigned", "Status"}, 0);
                     for (String[] row : selectedRows) {
                         model.addRow(row);
                     }
@@ -128,8 +128,10 @@ public class AdminReportController {
             } else if (e.getSource() == view.getViewRemarkButton()) { // Admin - Logout Pressed
                 viewRemarkButtonActionPerformed();
             } else if (e.getSource() == view.getUndoButton()) { // Admin - Logout Pressed
-                DefaultTableModel originalModel = (DefaultTableModel) view.getTable().getModel();
-                view.getTable().setModel(originalModel);
+               // DefaultTableModel originalModel = (DefaultTableModel) view.getTable().getModel();
+               // view.getTable().setModel(originalModel);
+                view.dispose();
+                RoutingController.AdminViewReportPerformed();
             } else if (e.getSource() == view.getviewByButton()) { // Admin - Logout Pressed
                 viewByButtonActionPerformed();
             }
