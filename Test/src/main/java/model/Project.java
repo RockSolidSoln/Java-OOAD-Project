@@ -26,8 +26,8 @@ public class Project {
     private static Project singletonInstance;
 
     /* Constructor for the variables needed in project */
-    public Project(String projectId, String projectName, String projectSpecialization, String projectDescription,
-            String lecturer, String projectStatus, String enrolledStudent) {
+    public Project(String projectId, String projectName, String lecturer, String projectSpecialization, String projectDescription,
+            String projectStatus, String enrolledStudent) {
         this.projectId = projectId;
         this.projectName = projectName;
         this.projectSpecialization = projectSpecialization;
@@ -38,21 +38,21 @@ public class Project {
     }
 
     /* Getting singleton Instance */
-    public static Project getInstance(String projectId, String projectName, String projectSpecialization,
-            String projectDescription, String lecturer, String projectStatus, String enrolledStudent) {
+    public static Project getInstance(String projectId, String projectName, String lecturer, String projectSpecialization,
+            String projectDescription, String projectStatus, String enrolledStudent) {
         if (singletonInstance == null) {
-            singletonInstance = new Project(projectId, projectName, projectSpecialization, projectDescription, lecturer,
+            singletonInstance = new Project(projectId, projectName, lecturer, projectSpecialization, projectDescription,
                     projectStatus, enrolledStudent);
         } else
-            singletonInstance.UpdateInstance(projectId, projectName, projectSpecialization, projectDescription,
-                    lecturer, projectStatus, enrolledStudent);
+            singletonInstance.UpdateInstance(projectId, projectName, lecturer, projectSpecialization, projectDescription,
+            projectStatus, enrolledStudent);
 
         return singletonInstance;
     }
 
     /* Updating signleton instance */
-    public void UpdateInstance(String projectId, String projectName, String projectSpecialization,
-            String projectDescription, String lecturer, String projectStatus, String enrolledStudent) {
+    public void UpdateInstance(String projectId, String projectName, String lecturer, String projectSpecialization,
+    String projectDescription, String projectStatus, String enrolledStudent) {
         this.projectId = projectId;
         this.projectName = projectName;
         this.projectSpecialization = projectSpecialization;

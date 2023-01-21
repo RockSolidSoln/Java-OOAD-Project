@@ -20,7 +20,10 @@ public class StudentProjectDetailsController {
         view.getBackButton().addActionListener((ActionListener) new NavigatorsListener());//view my project
         
         Project projectModel = Project.getProjectInstanceFromStudent(LoginModel.getUserId());
-        
+        System.out.println("sjfkasjfalsfjl "+ projectModel.getSpecialization());
+        view.getProjectName().setText(projectModel.getProjectName());
+        view.getSpecialization().setText(projectModel.getSpecialization());
+        view.getDetails().setText(projectModel.getDescription());
     }
 
 
