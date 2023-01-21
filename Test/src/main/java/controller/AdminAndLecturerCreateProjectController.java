@@ -1,9 +1,7 @@
 package controller;
-
 import model.LoginModel;
 import model.Project;
 import view.AdminAndLecturerCreateProjectView;
-
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -63,8 +61,6 @@ public class AdminAndLecturerCreateProjectController {
                 JOptionPane.showMessageDialog(null, "Please fill out all fields.", "Error", JOptionPane.ERROR_MESSAGE);
             }
             else{
-                // create a model instance
-                // -- TEMPORARY : ID Incrementer
 
                 String basePath = System.getProperty("user.dir");
                 int counter = 0;

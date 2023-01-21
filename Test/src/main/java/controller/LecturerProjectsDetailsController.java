@@ -48,8 +48,8 @@ public class LecturerProjectsDetailsController {
                
                 RoutingController.LecturerProjectsViewActionPerformed();
             } else if (e.getSource() == view.getUnassignButton()) {
-                // Pass projectId here.
                 Project.unAssignStudent(view.getProjectId()); 
+                view.displaySuccessfulUnassignmentMessage();
 
             } else if (e.getSource() == view.getModifyButton()) {
                 view.dispose();

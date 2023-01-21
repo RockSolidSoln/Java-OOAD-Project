@@ -62,30 +62,6 @@ public class ApplicationModel {
         /*Filtering contents according to the StudentId */
         ArrayList<ArrayList<String>> filteredProjectsByStudentId = Database.dataFiltration(path, studentId , 2);
         
-        // //----------------------DEBUGG------------------------------ 
-        // System.out.println("I'm HEREREREREREPPPPPPPPP Project NOW ");
-                
-        // for (int i = 0; i < filteredProjectsByProjectId.size(); i++) {
-        //     for (int j = 0; j < filteredProjectsByProjectId.get(i).size(); j++) {
-        //         System.out.print(filteredProjectsByProjectId.get(i).get(j) + " ");
-        //     }
-        //     System.out.println();
-        // }
-
-        //----------------------------------------------------------
-
-        // //----------------------DEBUGG------------------------------ 
-        // System.out.println("I'm HEREREREREREPPPPPPPPP Student NOW ");
-                
-        // for (int i = 0; i < filteredProjectsByStudentId.size(); i++) {
-        //     for (int j = 0; j < filteredProjectsByStudentId.get(i).size(); j++) {
-        //         System.out.print(filteredProjectsByStudentId.get(i).get(j) + " ");
-        //     }
-        //     System.out.println();
-        // }
-
-        // //----------------------------------------------------------
-
         
         /*Fetching the common elements, to delete a specific student's applicaiton to a specific project. */
         ArrayList<ArrayList<String>> finalContent = new ArrayList<ArrayList<String>>();
@@ -102,18 +78,6 @@ public class ApplicationModel {
             
         }
 
-        // //----------------------DEBUGG------------------------------ 
-        // System.out.println("I'm HEREREREREREPPPPPPPPP Final NOW ");
-                
-        // for (int i = 0; i < finalContent.size(); i++) {
-        //     for (int j = 0; j < finalContent.get(i).size(); j++) {
-        //         System.out.print(finalContent.get(i).get(j) + " ");
-        //     }
-        //     System.out.println();
-        // }
-
-        // //----------------------------------------------------------
-        //FinalContent needs to be excluded from all contents in the database.
 
         //Get AllContents from the database.
         ArrayList<ArrayList<String>> databaseAllContents = Database.getAllContents(path);

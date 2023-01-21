@@ -142,9 +142,9 @@ public class LecturerApplicationView extends JFrame {
     public JTable getTable(){ return jTable1;}
 
     public void displaySuccessMessage(String projectId, String studentId) {
-        JOptionPane.showMessageDialog(null, "Success! The Project " +projectId +" was assigned to " + studentId.toUpperCase(), "Success", JOptionPane.INFORMATION_MESSAGE);
+        JOptionPane.showMessageDialog(null, "Success! The Project " +projectId +" is assigned to " + studentId.toUpperCase(), "Success", JOptionPane.INFORMATION_MESSAGE);
     }
     public void displayFailureMessage(String projectId, String studentId) {
-        JOptionPane.showMessageDialog(null, "Failure! The Project " +projectId +" cannot be assigned to " + studentId.toUpperCase(), "Failure", JOptionPane.ERROR_MESSAGE);
+        JOptionPane.showMessageDialog(null, "Failure! " + studentId.toUpperCase() + "is UNAVAILABLE.", "Failure", JOptionPane.ERROR_MESSAGE);
     }
 }

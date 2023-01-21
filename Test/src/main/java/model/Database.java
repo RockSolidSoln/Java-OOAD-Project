@@ -45,14 +45,6 @@ public class Database {
             String basePath = System.getProperty("user.dir");
             lines = Files.readAllLines(Paths.get(basePath + path)); /* read from credentials file */
 
-            // for (String line : lines) {
-            /*  String[] items = line.split(","); //split the comma, store every word in an */
-            /*  array*/
-            /*  username = items[0]; //stores username */
-            /*  String password = items[1];  stores password */
-            /* credentials.add(username + " " + password); //add it in the credentials array */
-            /* with a space*/ 
-            
         } catch (Exception e) {
             /* If unable to read credentials from the files */
             System.out.println("Unable to read Credentials from file");
@@ -172,36 +164,4 @@ public class Database {
         return filteredContents;
     }
 
-    // public static void deleteContent(String path, String match, int col){
-    //     ArrayList<ArrayList<String>> allContents = getAllContents(path);
-    //     ArrayList<ArrayList<String>> afterDeletionContents = new ArrayList<ArrayList<String>>();
-    //     --col;
-
-    //     for(int i = 0; i < allContents.size(); i++){
-    //         ArrayList<String> row = allContents.get(i);
-    //         ArrayList<String> filteredRow = new ArrayList<>();
-    //         if(row.get(col).equals(match) == false){
-    //             for(int j = 0; j < row.size(); j++){
-    //                 filteredRow.add(allContents.get(i).get(j)); 
-    //             }
-    //             afterDeletionContents.add(filteredRow);
-    //         }
-    //     }
-        
-    //     ArrayList<String> writeArr = new ArrayList<String>();
-    //     for(int i = 0; i < afterDeletionContents.size(); i++){
-    //         ArrayList <String> lineArr = afterDeletionContents.get(i);
-    //         String line = "";
-    //         for(int j = 0; j < lineArr.size(); j++){
-    //             line += lineArr.get(j);
-    //             line += ',';
-    //         }
-    //         writeArr.add(line);
-    //     }
-        
-    //     FilewriteBack(path, writeArr, false); 
-
-    // }
-
-    
 }

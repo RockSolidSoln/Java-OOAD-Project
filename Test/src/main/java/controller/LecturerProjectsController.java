@@ -1,13 +1,9 @@
 package controller;
-
 import view.LecturerProjectsView;
-
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
-
 import model.LoginModel;
 import model.Project;
-
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;

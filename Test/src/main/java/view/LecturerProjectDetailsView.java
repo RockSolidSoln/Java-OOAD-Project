@@ -329,6 +329,9 @@ public class LecturerProjectDetailsView extends JFrame {
     public void displaySuccessMessage(String newStatus) {
         JOptionPane.showMessageDialog(null, "Success! The Project Status Changed to " + newStatus.toUpperCase(), "Success", JOptionPane.INFORMATION_MESSAGE);
     }
+    public void displaySuccessfulUnassignmentMessage(){
+        JOptionPane.showMessageDialog(null, "Success! the student is unassigned", "Success", JOptionPane.INFORMATION_MESSAGE);
+    }
     public JLabel getStudentName(){
         return studentNameLabel2;
     }
