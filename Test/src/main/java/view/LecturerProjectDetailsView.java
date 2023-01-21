@@ -1,6 +1,7 @@
 package view;
 
 import model.LoginModel;
+import model.Project;
 
 import javax.swing.*;
 import java.awt.*;
@@ -35,8 +36,8 @@ public class LecturerProjectDetailsView extends JFrame {
         this.specialization = specialization;
         this.status = status;
         this.details = details;
-        Project.getDetailsInstance(projectID);
-
+        Project projectModel = Project.getDetailsInstance(projectID);
+        
         initComponents();
     }
 
