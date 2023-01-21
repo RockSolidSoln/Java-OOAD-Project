@@ -5,6 +5,7 @@ import view.LecturerApplicationView;
 import javax.swing.table.DefaultTableModel;
 
 import model.ApplicationModel;
+import model.Project;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -74,7 +75,9 @@ public class LecturerApplicationController {
                     String studentId = (String) view.getTable().getValueAt(selectedRow, 0);
                     String studentName = (String) view.getTable().getValueAt(selectedRow, 1);
                     //ApplicationModel.AssignStudent(String projectId, String studentId);
-                    ApplicationModel.AssignStudent(projectId, studentId);
+                    // if the student not available - print Error Display
+                    // else, print confirmation. 
+                    Project.AssignStudent(projectId, studentId);
                 }
             }
 

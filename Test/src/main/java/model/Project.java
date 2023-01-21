@@ -238,4 +238,18 @@ public class Project {
 
         return projectInstance;
     }
+
+    public static void AssignStudent(String projectId, String studentId){
+        Boolean availability = Project.isStudentAvailable(studentId);
+        if(availability){
+            ApplicationModel.deleteByProjectIdandStudentId(projectId, studentId);
+            updateAssignStudentinProject(projectId, studentId);
+        }
+    }
+
+    public void unAssignStudent(String projectId, String studentId){
+        String path = ("\\Test\\src\\assets\\projects.csv");
+        String[] projectRow = Database.FindDataFromDB(path, projectId);
+        Database.ChangeContent(path, projectId, projectRow, 7, null);
+    }   
 }

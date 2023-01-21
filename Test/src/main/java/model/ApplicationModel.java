@@ -41,14 +41,7 @@ public class ApplicationModel {
 
         Database.FilewriteBack(filename, lines, true); 
     }
-    public static void AssignStudent(String projectId, String studentId){
-        String path = "\\Test\\src\\assets\\application.csv";
-        Boolean availability = Project.isStudentAvailable(studentId);
-        if(availability){
-            deleteByProjectIdandStudentId(projectId, studentId);
-            Project.updateAssignStudentinProject(projectId, studentId);
-        }
-    }   
+    
 
     /*For filtering the data from Active student list according Project. */ 
     public ArrayList<ArrayList<String>> filterByProjectId(String projectId) {
