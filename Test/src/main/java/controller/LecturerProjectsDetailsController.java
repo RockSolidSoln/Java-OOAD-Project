@@ -36,7 +36,7 @@ public class LecturerProjectsDetailsController {
         @Override
         public void actionPerformed(ActionEvent e) {
             if (e.getSource() == view.getActivateDeactivateButton()) {
-                Project projectModel = Project.getInstance(null, null, null, null, null, null);
+                Project projectModel = Project.getInstance(null, null, null, null, null, null, null);
                 String ChangedStatus = projectModel.ChangeActiveStatus(view.getProjectId());
                 view.displaySuccessMessage(ChangedStatus);
                 view.dispose();

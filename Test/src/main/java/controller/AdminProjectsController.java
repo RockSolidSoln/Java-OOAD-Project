@@ -33,7 +33,7 @@ public class AdminProjectsController {
         ProjectTableLoader(); 
     }
     public void ProjectTableLoader(){
-        Project projectModel = Project.getInstance("null", "null", "null","null", "null", "null");
+        Project projectModel = Project.getInstance("null", "null", "null","null", "null", "null", "null");
         ArrayList<ArrayList<String>> allProjects = projectModel.getAllProjects();
         
         ((DefaultTableModel) view.getTable().getModel()).setRowCount(0);
@@ -80,7 +80,7 @@ public class AdminProjectsController {
         private void addProject(ActionEvent e) {
             //Adding project in the database
             AdminAndLecturerCreateProjectView new_view = new AdminAndLecturerCreateProjectView();
-            Project model = Project.getInstance(null, null, null, null, null, null);
+            Project model = Project.getInstance(null, null, null, null, null, null, null);
             AdminAndLecturerCreateProjectController controller = new AdminAndLecturerCreateProjectController(new_view, model);
             new_view.setVisible(true);
         }

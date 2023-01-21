@@ -18,41 +18,44 @@ public class Project {
     private String projectDescription;
     private String lecturer;
     private String projectStatus;
+    private String enrolledStudent;
    // private String enrolledStudent;
     // private String studentAssigned;
 
     private static Project singletonInstance;
         /* Constructor for the variables needed in project */
     public Project(String projectId, String projectName, String projectSpecialization, String projectDescription,
-            String lecturer, String projectStatus) {
+            String lecturer, String projectStatus, String enrolledStudent) {
         this.projectId = projectId;
         this.projectName = projectName;
         this.projectSpecialization = projectSpecialization;
         this.projectDescription = projectDescription;
         this.lecturer = lecturer;
         this.projectStatus = projectStatus;
+        this.enrolledStudent = enrolledStudent;
     }
         /*  Getting singleton Instance */
     public static Project getInstance(String projectId, String projectName, String projectSpecialization,
-            String projectDescription, String lecturer, String projectStatus) {
+            String projectDescription, String lecturer, String projectStatus, String enrolledStudent) {
         if (singletonInstance == null) {
             singletonInstance = new Project(projectId, projectName, projectSpecialization, projectDescription, lecturer,
-                    projectStatus);
+                    projectStatus, enrolledStudent);
         } else
             singletonInstance.UpdateInstance(projectId, projectName, projectSpecialization, projectDescription,
-                    lecturer, projectStatus);
+                    lecturer, projectStatus, enrolledStudent);
 
         return singletonInstance;
     }
         /* Updating signleton instance */
     public void UpdateInstance(String projectId, String projectName, String projectSpecialization,
-            String projectDescription, String lecturer, String projectStatus) {
+            String projectDescription, String lecturer, String projectStatus, String enrolledStudent) {
         this.projectId = projectId;
         this.projectName = projectName;
         this.projectSpecialization = projectSpecialization;
         this.projectDescription = projectDescription;
         this.lecturer = lecturer;
         this.projectStatus = projectStatus;
+        this.enrolledStudent = enrolledStudent;
     }
 
     /* Getters:*/ 
@@ -143,17 +146,17 @@ public class Project {
         ArrayList<ArrayList<String>> filteredProjectsByProjectSpec = Database.dataFiltration(path, projectSpecialization, 4);
         ArrayList<ArrayList<String>> filteredProjectsByProjectStatus = Database.dataFiltration(path, "active" , 6);
         
-        //----------------------DEBUGG------------------------------ 
-        System.out.println("I'm HERERERERERE NOW ");
+        // //----------------------DEBUGG------------------------------ 
+        // System.out.println("I'm HERERERERERE NOW ");
                 
-        for (int i = 0; i < filteredProjectsByProjectSpec.size(); i++) {
-            for (int j = 0; j < filteredProjectsByProjectSpec.get(i).size(); j++) {
-                System.out.print(filteredProjectsByProjectSpec.get(i).get(j) + " ");
-            }
-            System.out.println();
-        }
+        // for (int i = 0; i < filteredProjectsByProjectSpec.size(); i++) {
+        //     for (int j = 0; j < filteredProjectsByProjectSpec.get(i).size(); j++) {
+        //         System.out.print(filteredProjectsByProjectSpec.get(i).get(j) + " ");
+        //     }
+        //     System.out.println();
+        // }
 
-        //----------------------------------------------------------
+        // //----------------------------------------------------------
 
 
         ArrayList<ArrayList<String>> returnFinalContent = new ArrayList<ArrayList<String>>();
@@ -208,6 +211,14 @@ public class Project {
 
     }
 
+    public static void updateAssignStudentinProject(String projectId, String studentId){
+        String path = "\\Test\\src\\assets\\projects.csv";
+        String[] operationItems = Database.FindDataFromDB(path, projectId);
+        
+        String changedVal = studentId;
+        Database.ChangeContent(path, projectId, operationItems, 7, changedVal);
+    }
+
     public static Boolean isStudentAvailable(String studentId){
         Boolean flag =  false;
         String path = "\\Test\\src\\assets\\projects.csv";
@@ -218,4 +229,13 @@ public class Project {
         return false;
     }
 
+    public static Project getDetailsInstance(String id){
+        String path = ("\\Test\\src\\assets\\projects.csv");
+        String projectId = id;
+        String[] details = Database.FindDataFromDB(path, projectId);
+       // System.out.println(details[0] + " " + details[1] + " " + details[2] + " " + details[3] +  " " + details[4] + " " + details[5] + " " + details[6]);
+        Project projectInstance = Project.getInstance(details[0],details[1], details[2], details[3], details[4], details[5], details[6]); 
+
+        return projectInstance;
+    }
 }

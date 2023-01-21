@@ -73,8 +73,8 @@ public class LecturerApplicationController {
 
                     String studentId = (String) view.getTable().getValueAt(selectedRow, 0);
                     String studentName = (String) view.getTable().getValueAt(selectedRow, 1);
-                    ApplicationModel.AssignStudent(String projectId, String studentId);
-                    view.dispose();
+                    //ApplicationModel.AssignStudent(String projectId, String studentId);
+                    ApplicationModel.AssignStudent(projectId, studentId);
                 }
             }
 

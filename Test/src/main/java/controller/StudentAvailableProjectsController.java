@@ -32,7 +32,7 @@ public class StudentAvailableProjectsController {
     }
 
     public void ProjectTableLoader() {
-        Project projectModel = Project.getInstance("null", "null", "null", "null", "null", "null");
+        Project projectModel = Project.getInstance("null", "null", "null", "null", "null", "null", null);
         Student student = Student.getDetailsInstance(LoginModel.getUserId());
         ArrayList<ArrayList<String>> filteredContents = projectModel.filterBySpecializationAndStatus(student.getSpecialization());
         

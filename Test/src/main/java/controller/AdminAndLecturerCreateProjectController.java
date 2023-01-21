@@ -20,7 +20,7 @@ import java.util.List;
 public class AdminAndLecturerCreateProjectController {
     private static AdminAndLecturerCreateProjectController singletonInstance;
     private static AdminAndLecturerCreateProjectView view;
-    private static Project model = Project.getInstance(null, null, null, null, null, null);
+    private static Project model = Project.getInstance(null, null, null, null, null, null, null);
 
     public AdminAndLecturerCreateProjectController(AdminAndLecturerCreateProjectView view, Project model){
         AdminAndLecturerCreateProjectController.model = model;
@@ -78,7 +78,7 @@ public class AdminAndLecturerCreateProjectController {
                 }
                 counter++;
                 String projectId = "PR" + String.valueOf(counter);
-                Project.getInstance(projectId, projectName, specialization, description, lecturer, "active");
+                Project.getInstance(projectId, projectName, specialization, description, lecturer, "active", null);
 
                 model.saveProject();
                 JOptionPane.showMessageDialog(null, "The Project was successfully saved.", "Success", JOptionPane.INFORMATION_MESSAGE);

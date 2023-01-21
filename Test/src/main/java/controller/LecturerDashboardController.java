@@ -47,7 +47,7 @@ public class LecturerDashboardController {
         private void jButton1ActionPerformed(ActionEvent e) {
             // Create Project
             AdminAndLecturerCreateProjectView new_view = new AdminAndLecturerCreateProjectView();
-            Project new_model = Project.getInstance(null, null, null, null, null, null);
+            Project new_model = Project.getInstance(null, null, null, null, null, null, null);
             AdminAndLecturerCreateProjectController controller = new AdminAndLecturerCreateProjectController(new_view, new_model);
 
             new_view.getJComboBox().setSelectedItem(LoginModel.getUserId()); // should be set as the logged in ID

@@ -76,7 +76,7 @@ public class RoutingController {
     /*  Lecturer / Admin : Create Project*/
     public static void CreateProjectActionPerformed() {
         var createProjectView = AdminAndLecturerCreateProjectView.getInstance();
-        var projectModel = Project.getInstance(null,null, null, null, null, null);
+        var projectModel = Project.getInstance(null,null, null, null, null, null, null);
         var createProjectController = AdminAndLecturerCreateProjectController.getInstance(createProjectView, projectModel);
         createProjectView.setVisible(true);
     }

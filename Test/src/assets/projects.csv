@@ -1,11 +1,11 @@
-PR1,Image Recongition Algorithm,L001,Data Science,A Final year project for data science,active,null
-PR2,FIFO simulation,L001,Software Engineering,A interactive simulation,active,null
-PR3,Cpu Scheduling,L001,Software Engineering,details,inactive,null
-PR4,Snake Xensia 2.0,L001,Data Science,details,inactive,null
-PR5,Traffic Light Recognition Assistance,L002,Software Engineering,A react natvie application to show traffic light signals when camera is openend,active,null
-PR6,E-commerce website,L001,Software Engineering,AN E-commerce website clone of Shopee,active,null
-PR7,5D Tic Tac Toe game,L001,Software Engineering,details,active,null
-PR8,Eat-Madghoud,L001,Game Development,at baytana,inactive,null
-PR9,ABCCD,L001,Software Engineering,asfasdfa,active,null
-PR10,ABCCDDDDD,L001,Software Engineering,sdfasdfads,active,null
-PR11,Calculator,L003,Software Engineering,Make a good calculator. ,active,null
+PR1,Image Recongition Algorithm,L001,Data Science,A Final year project for data science,active,S003,
+PR2,FIFO simulation,L001,Software Engineering,A interactive simulation,active,S004,
+PR3,Cpu Scheduling,L001,Software Engineering,details,inactive,null,
+PR4,Snake Xensia 2.0,L001,Data Science,details,inactive,null,
+PR5,Traffic Light Recognition Assistance,L002,Software Engineering,A react natvie application to show traffic light signals when camera is openend,active,null,
+PR6,E-commerce website,L001,Software Engineering,AN E-commerce website clone of Shopee,active,null,
+PR7,5D Tic Tac Toe game,L001,Software Engineering,details,active,null,
+PR8,Eat-Madghoud,L001,Game Development,at baytana,inactive,null,
+PR9,ABCCD,L001,Software Engineering,asfasdfa,active,null,
+PR10,ABCCDDDDD,L001,Software Engineering,sdfasdfads,active,null,
+PR11,Calculator,L003,Software Engineering,Make a good calculator. ,active,null,

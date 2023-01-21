@@ -38,7 +38,7 @@ public class AdminReportController {
 
 
     public void ProjectTableLoader(){
-        Project projectModel = Project.getInstance("null", "null", "null","null", "null", "null");
+        Project projectModel = Project.getInstance("null", "null", "null","null", "null", "null", "null");
         ArrayList<ArrayList<String>> allProjects = projectModel.getAllProjects();
 
         ((DefaultTableModel) view.getTable().getModel()).setRowCount(0);
