@@ -4,6 +4,9 @@ import view.StudentProjectDetailsView;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
+import model.LoginModel;
+import model.Project;
 /**
  *
  * @author salah
@@ -15,7 +18,12 @@ public class StudentProjectDetailsController {
     public StudentProjectDetailsController(StudentProjectDetailsView view) {
         StudentProjectDetailsController.view = view;
         view.getBackButton().addActionListener((ActionListener) new NavigatorsListener());//view my project
+        
+        Project projectModel = Project.getProjectInstanceFromStudent(LoginModel.getUserId());
+        
     }
+
+
 
     public static StudentProjectDetailsController getInstance(StudentProjectDetailsView view) {
         if (singletonInstance == null) {

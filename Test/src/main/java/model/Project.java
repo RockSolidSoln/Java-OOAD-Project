@@ -251,6 +251,17 @@ public class Project {
         return projectInstance;
     }
 
+    public static Project getProjectInstanceFromStudent(String studentId){
+        String path = ("\\Test\\src\\assets\\projects.csv");
+        ArrayList<ArrayList<String>> projectField = Database.dataFiltration(path, studentId, 7); 
+
+        ArrayList<String> row = projectField.get(0);
+        Project projectInstance = Project.getInstance(row.get(0), row.get(1),
+                row.get(2), row.get(3), row.get(4),
+                row.get(5), row.get(6));
+        return projectInstance;
+    }
+
     public static void AssignStudent(String projectId, String studentId) {
 
         ApplicationModel.deleteByProjectIdandStudentId(projectId, studentId);
