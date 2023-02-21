@@ -65,6 +65,7 @@ public class LecturerModifyProjectController {
             if (e.getSource() == view.getButton1()) {
                 ModifyProjectActionPerformed(e);
             } else if (e.getSource() == view.getButton2()) { /* CreateProject - Go Back Pressed*/ 
+                view.dispose();
                 RoutingController.LecturerProjectsViewActionPerformed();
             }
 

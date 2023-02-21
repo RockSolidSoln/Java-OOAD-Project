@@ -29,6 +29,7 @@ public class AdminProjectDetailsController {
         @Override
         public void actionPerformed(ActionEvent e) {
             if (e.getSource() == view.getBackButton()) {
+                view.dispose();
                 RoutingController.AdminViewProjectActionPerformed();
             }
 

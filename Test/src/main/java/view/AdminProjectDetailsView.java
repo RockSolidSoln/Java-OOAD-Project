@@ -55,7 +55,7 @@ public class AdminProjectDetailsView extends JFrame {
         JTextField detailsTextField = new JTextField();
         backButton = new JButton();
 
-        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
 
         jLabel4.setText(LoginModel.getUserId());
